@@ -1,32 +1,22 @@
 ---
 layout: default
-title: Odin Lee – Data Science Portfolio
+title: Odin Lee
 ---
 
-## 👋 Welcome
+# Projects
 
-I'm a data scientist passionate about solving real-world problems through machine learning and thoughtful analysis.
+## 📊 Predictive Modeling
+Developed a time-series model using Python and scikit-learn to forecast inventory demand with 92% accuracy.  
+[GitHub Repo](https://github.com/OdinLeePro/predictive-modeling)
 
----
+## 🤖 ML Image Classifier
+Built a CNN using TensorFlow to classify medical images with 95% precision.  
+[GitHub Repo](https://github.com/OdinLeePro/image-classifier)
 
-## 🔬 Featured Projects
+# Blog
 
-### 🩺 [Diabetes Prediction](https://github.com/OdinLeePro/diabetes-predict)
-Predicts risk of diabetes using real-world medical data with logistic regression and decision trees. Accuracy: 88%.
+Coming soon...
 
-### 🚖 [NYC Taxi EDA](https://github.com/OdinLeePro/nyc-taxi-eda)
-Visualized NYC taxi ride trends using large-scale data and Python visualization tools.
+# About Me
 
-### 📈 [Stock Forecasting (LSTM)](https://github.com/OdinLeePro/stock-lstm)
-Time-series modeling with LSTM neural networks to forecast stock prices.
-
----
-
-## 🧠 Skills
-
-- Python, SQL, Git, Jupyter  
-- Pandas, Scikit-learn, PyTorch  
-- Tableau, Plotly, Seaborn  
-- ML: Regression, Classification, Neural Networks
-
-
+Hi, I'm Odin — a data scientist passionate about ML, data visualization, and product-driven problem solving.
