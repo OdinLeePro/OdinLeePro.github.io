@@ -1,0 +1,79 @@
+<style>
+/* === SIDEBAR STYLES === */
+
+.sidebar-custom {
+  position: fixed;
+  top: 0;
+  left: 0;
+  padding: 30px 15px;
+  width: 240px;
+  height: 100%;
+  background: #f8f8f8;
+  text-align: center;
+  border-right: 1px solid #ccc;
+  font-family: sans-serif;
+  z-index: 1000;
+  box-sizing: border-box;
+}
+
+.sidebar-custom img {
+  width: 120px;
+  border-radius: 50%;
+  margin-bottom: 10px;
+}
+
+.sidebar-custom h3 {
+  margin: 10px 0 5px;
+}
+
+.sidebar-custom p {
+  font-size: 14px;
+  margin: 4px 0;
+}
+
+.wrapper {
+  margin-left: 260px;
+  padding: 2rem;
+}
+
+/* === MOBILE FIX === */
+@media screen and (max-width: 768px) {
+  .sidebar-custom {
+    position: relative;
+    width: 100vw;
+    height: auto;
+    border-right: none;
+    border-bottom: 1px solid #ccc;
+    padding: 20px 0;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+  }
+
+  .sidebar-custom img {
+    margin: 0 auto 10px;
+  }
+
+  .sidebar-custom > * {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .wrapper {
+    margin-left: 0;
+    padding: 1.5rem;
+  }
+}
+</style>
+
+<div class="sidebar-custom">
+  <img src="/images/headshot.png" alt="Odin Lee">
+  <h3>Odin Lee</h3>
+  <p>Data Scientist</p>
+  <p><a href="mailto:your.email@example.com">your.email@example.com</a></p>
+  <p><a href="https://linkedin.com/in/YOUR-LINKEDIN">LinkedIn</a></p>
+  <p><a href="https://github.com/OdinLeePro">GitHub</a></p>
+</div>
