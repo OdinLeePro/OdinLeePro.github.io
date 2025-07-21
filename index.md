@@ -3,20 +3,44 @@ layout: default
 title: Odin Lee
 ---
 
+# About Me
+
+Hi, I’m Odin! 
+
+I am pursuing a Master’s in Data Science at the University of St. Thomas and have a strong foundation in data analytics, programming, and statistical modeling. Skilled in Python, SQL, R, Tableau, and Java, I am passionate about transforming data into actionable insights. I am eager to contribute to innovative projects as a Data Analyst, Data Scientist, or Data Engineer.
+
+# Skills
+
+**Programming Languages:** Python, R, SQL, Java  
+**Data Visualization:** Tableau, Matplotlib, Seaborn, ggplot2, plotly
+**Data Wrangling & Analysis:** NumPy, Pandas, tidyr, dplyr, tidyverse
+**Databases:** Oracle SQL Developer, Oracle Data Modeler, SQL (Relational Databases), Entity-Relationship Diagrams (ERDs)
+**Tools and Platforms:** Git, AWS, Jupyter Notebooks
+
 # Projects
 
-## 📊 Predictive Modeling
-Developed a time-series model using Python and scikit-learn to forecast inventory demand with 92% accuracy.  
-[GitHub Repo](https://github.com/OdinLeePro/predictive-modeling)
+## FantasyFootballAnalysisDB
+FantasyFootballAnalysisDB is a structured SQL database built for fantasy football analysis, featuring cleaned data from 2021–2023 NFL seasons. Includes R-based data wrangling, SQL triggers, and normalized schemas supporting advanced queries and future web app integration.  
+[GitHub Repository](https://github.com/OdinLeePro/FantasyFootballAnalysisDB)
 
-## 🤖 ML Image Classifier
+## PLACEHOLDER
 Built a CNN using TensorFlow to classify medical images with 95% precision.  
 [GitHub Repo](https://github.com/OdinLeePro/image-classifier)
 
-# Blog
+## PLACEHOLDER
+Built a CNN using TensorFlow to classify medical images with 95% precision.  
+[GitHub Repo](https://github.com/OdinLeePro/image-classifier)
 
-Coming soon...
+# Eduacation
 
-# About Me
+### University of St. Thomas
+  Masters of Science - MS, Data Science
+  Sep 2024 - May 2026
 
-Hi, I'm Odin — a data scientist passionate about ML, data visualization, and product-driven problem solving.
+### Augsburg University
+  Bachelors of Science - BS, Data Science
+  Jan 2019 - May 2024
+  
+Activities and societies: 
+  Officer - Unbounded Club
+  Member - Coding Club
