@@ -5,42 +5,58 @@ title: Odin Lee
 
 # About Me
 
-Hi, I’m Odin! 
+Hi, I’m **Odin** — a data scientist in training passionate about using data to drive impact.
 
-I am pursuing a Master’s in Data Science at the University of St. Thomas and have a strong foundation in data analytics, programming, and statistical modeling. Skilled in Python, SQL, R, Tableau, and Java, I am passionate about transforming data into actionable insights. I am eager to contribute to innovative projects as a Data Analyst, Data Scientist, or Data Engineer.
+I’m currently pursuing my **M.S. in Data Science** at the University of St. Thomas, building a strong foundation in analytics, programming, and statistical modeling. I enjoy transforming complex data into actionable insights through clean code, reproducible analysis, and clear visualizations.
+
+I'm excited to contribute to innovative teams as a **Data Analyst**, **Data Scientist**, or **Data Engineer**.
+
+---
 
 # Skills
 
-**Programming Languages:** Python, R, SQL, Java  
-**Data Visualization:** Tableau, Matplotlib, Seaborn, ggplot2, plotly
-**Data Wrangling & Analysis:** NumPy, Pandas, tidyr, dplyr, tidyverse
-**Databases:** Oracle SQL Developer, Oracle Data Modeler, SQL (Relational Databases), Entity-Relationship Diagrams (ERDs)
-**Tools and Platforms:** Git, AWS, Jupyter Notebooks
+**Programming Languages:**  
+Python, R, SQL, Java
+
+**Data Visualization:**  
+Tableau, Matplotlib, Seaborn, ggplot2, Plotly
+
+**Data Wrangling & Analysis:**  
+NumPy, Pandas, Tidyverse, dplyr, tidyr
+
+**Databases:**  
+Oracle SQL Developer, Oracle Data Modeler, ERDs, Relational Databases
+
+**Tools & Platforms:**  
+Git, AWS, Jupyter Notebooks
+
+---
 
 # Projects
 
-## FantasyFootballAnalysisDB
-FantasyFootballAnalysisDB is a structured SQL database built for fantasy football analysis, featuring cleaned data from 2021–2023 NFL seasons. Includes R-based data wrangling, SQL triggers, and normalized schemas supporting advanced queries and future web app integration.  
-[GitHub Repository](https://github.com/OdinLeePro/FantasyFootballAnalysisDB)
+### FantasyFootballAnalysisDB
+A structured SQL database for fantasy football analytics (2021–2023 NFL data). Built with R-based data wrangling, SQL triggers, and normalized schemas. Supports advanced queries and future web integration.  
+<a class="project-link" href="https://github.com/OdinLeePro/FantasyFootballAnalysisDB" target="_blank">View on GitHub</a>
 
-## PLACEHOLDER
+### Medical Image Classifier
 Built a CNN using TensorFlow to classify medical images with 95% precision.  
-[GitHub Repo](https://github.com/OdinLeePro/image-classifier)
+<a class="project-link" href="https://github.com/OdinLeePro/image-classifier" target="_blank">GitHub Repo</a>
 
-## PLACEHOLDER
-Built a CNN using TensorFlow to classify medical images with 95% precision.  
-[GitHub Repo](https://github.com/OdinLeePro/image-classifier)
+### Project Placeholder
+Another great project — replace this with your second actual project.  
+<a class="project-link" href="https://github.com/OdinLeePro/image-classifier" target="_blank">GitHub Repo</a>
 
-# Eduacation
+---
+
+# Education
 
 ### University of St. Thomas
-  Masters of Science - MS, Data Science
-  Sep 2024 - May 2026
+**M.S. in Data Science**  
+Sep 2024 – May 2026
 
 ### Augsburg University
-  Bachelors of Science - BS, Data Science
-  Jan 2019 - May 2024
-  
-Activities and societies: 
-  Officer - Unbounded Club
-  Member - Coding Club
+**B.S. in Data Science**  
+Jan 2019 – May 2024  
+**Clubs & Activities:**  
+• Officer, Unbounded Club  
+• Member, Coding Club
