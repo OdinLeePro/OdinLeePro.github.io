@@ -1,62 +1,123 @@
 ---
 layout: default
-title: Odin Lee
 ---
 
-# About Me
+Text can be **bold**, _italic_, or ~~strikethrough~~.
 
-Hi, I’m **Odin** — a data scientist in training passionate about using data to drive impact.
+[Link to another page](./another-page.html).
 
-I’m currently pursuing my **M.S. in Data Science** at the University of St. Thomas, building a strong foundation in analytics, programming, and statistical modeling. I enjoy transforming complex data into actionable insights through clean code, reproducible analysis, and clear visualizations.
+There should be whitespace between paragraphs.
 
-I'm excited to contribute to innovative teams as a **Data Analyst**, **Data Scientist**, or **Data Engineer**.
+There should be whitespace between paragraphs. We recommend including a README, or a file with information about your project.
 
----
+# Header 1
 
-# Skills
+This is a normal paragraph following a header. GitHub is a code hosting platform for version control and collaboration. It lets you and others work together on projects from anywhere.
 
-**Programming Languages:**  
-Python, R, SQL, Java
+## Header 2
 
-**Data Visualization:**  
-Tableau, Matplotlib, Seaborn, ggplot2, Plotly
+> This is a blockquote following a header.
+>
+> When something is important enough, you do it even if the odds are not in your favor.
 
-**Data Wrangling & Analysis:**  
-NumPy, Pandas, Tidyverse, dplyr, tidyr
+### Header 3
 
-**Databases:**  
-Oracle SQL Developer, Oracle Data Modeler, ERDs, Relational Databases
+```js
+// Javascript code with syntax highlighting.
+var fun = function lang(l) {
+  dateformat.i18n = require('./lang/' + l)
+  return true;
+}
+```
 
-**Tools & Platforms:**  
-Git, AWS, Jupyter Notebooks
+```ruby
+# Ruby code with syntax highlighting
+GitHubPages::Dependencies.gems.each do |gem, version|
+  s.add_dependency(gem, "= #{version}")
+end
+```
 
----
+#### Header 4
 
-# Projects
+*   This is an unordered list following a header.
+*   This is an unordered list following a header.
+*   This is an unordered list following a header.
 
-### FantasyFootballAnalysisDB
-A structured SQL database for fantasy football analytics (2021–2023 NFL data). Built with R-based data wrangling, SQL triggers, and normalized schemas. Supports advanced queries and future web integration.  
-<a class="project-link" href="https://github.com/OdinLeePro/FantasyFootballAnalysisDB" target="_blank">View on GitHub</a>
+##### Header 5
 
-### Medical Image Classifier
-Built a CNN using TensorFlow to classify medical images with 95% precision.  
-<a class="project-link" href="https://github.com/OdinLeePro/image-classifier" target="_blank">GitHub Repo</a>
+1.  This is an ordered list following a header.
+2.  This is an ordered list following a header.
+3.  This is an ordered list following a header.
 
-### Project Placeholder
-Another great project — replace this with your second actual project.  
-<a class="project-link" href="https://github.com/OdinLeePro/image-classifier" target="_blank">GitHub Repo</a>
+###### Header 6
 
----
+| head1        | head two          | three |
+|:-------------|:------------------|:------|
+| ok           | good swedish fish | nice  |
+| out of stock | good and plenty   | nice  |
+| ok           | good `oreos`      | hmm   |
+| ok           | good `zoute` drop | yumm  |
 
-# Education
+### There's a horizontal rule below this.
 
-### University of St. Thomas
-**M.S. in Data Science**  
-Sep 2024 – May 2026
+* * *
 
-### Augsburg University
-**B.S. in Data Science**  
-Jan 2019 – May 2024  
-**Clubs & Activities:**  
-• Officer, Unbounded Club  
-• Member, Coding Club
+### Here is an unordered list:
+
+*   Item foo
+*   Item bar
+*   Item baz
+*   Item zip
+
+### And an ordered list:
+
+1.  Item one
+1.  Item two
+1.  Item three
+1.  Item four
+
+### And a nested list:
+
+- level 1 item
+  - level 2 item
+  - level 2 item
+    - level 3 item
+    - level 3 item
+- level 1 item
+  - level 2 item
+  - level 2 item
+  - level 2 item
+- level 1 item
+  - level 2 item
+  - level 2 item
+- level 1 item
+
+### Small image
+
+![Octocat](https://github.githubassets.com/images/icons/emoji/octocat.png)
+
+### Large image
+
+![Branching](https://github.com/vaibhavvikas/vaibhavvikas/raw/main/src/header_.png)
+
+
+### Definition lists can be used with HTML syntax.
+
+<dl>
+<dt>Name</dt>
+<dd>Godzilla</dd>
+<dt>Born</dt>
+<dd>1952</dd>
+<dt>Birthplace</dt>
+<dd>Japan</dd>
+<dt>Color</dt>
+<dd>Green</dd>
+</dl>
+
+```
+Long, single-line code blocks should not wrap. They should horizontally scroll if they are too long. This line should be long enough to demonstrate this.
+```
+
+```
+The final element.
+```
