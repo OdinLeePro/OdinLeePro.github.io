@@ -14,11 +14,11 @@ Skilled in **Python**, **SQL**, **R**, **Java**, and **Tableau**, I enjoy transf
 
 # Education
 
-### ![St. Thomas Logo](assets/img/UniversitySt.Thomas-Logo.png) University of St. Thomas  
+### University of St. Thomas  
 **Master of Science (MS), Data Science**  
 *Sep 2024 – May 2026*
 
-### ![Augsburg Logo](assets/img/AugsburgUniversity-Logo.png) Augsburg University  
+### Augsburg University  
 **Bachelor of Science (BS), Data Science**  
 *Jan 2019 – May 2024*
 
