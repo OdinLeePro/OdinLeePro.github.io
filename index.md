@@ -4,19 +4,81 @@ layout: default
 
 ## About Me
 
-## Skills
+I’m Odin Lee, a data scientist from **St. Paul, Minnesota**, with a strong academic background and a passion for turning data into insight.
+
+I'm currently pursuing a **Master of Science in Data Science** at the **University of St. Thomas**, building on my **Bachelor’s degree in Data Science** from **Augsburg University**. Throughout my academic journey, I’ve gained hands-on experience in data analytics, statistical modeling, and programming.
+
+Skilled in **Python**, **SQL**, **R**, **Java**, and **Tableau**, I enjoy transforming complex datasets into clear, actionable insights that drive meaningful outcomes.
 
 ## Education
 
-## Projects
+### University of St. Thomas  
+**Master of Science (MS), Data Science**  
+*Sep 2024 – May 2026*
 
-Text can be **bold**, _italic_, or ~~strikethrough~~.
+**Relevant Coursework:**  
+- Data Management & Design  
+- Python Programming
 
-[Link to another page](./another-page.html).
+**Skills Applied:**  
+- Python  
+- SQL  
+- Tableau
 
-There should be whitespace between paragraphs.
+---
 
-There should be whitespace between paragraphs. We recommend including a README, or a file with information about your project.
+### Augsburg University  
+**Bachelor of Science (BS), Data Science**  
+*Jan 2019 – May 2024*
+
+**Activities:**  
+- Officer – Unbounded Club  
+- Member – Coding Club
+
+**Relevant Coursework:**  
+- Data Science Foundations  
+- Programming for Data Science  
+- Statistical Modeling  
+- Algorithms  
+- Data Visualization  
+- Data Structures  
+- Python Programming
+
+**Skills Applied:**  
+- Python  
+- SQL  
+- Tableau
+
+## Projects (most important after About Me)
+Showcase 3–6 of your best projects with:
+
+Title + short description
+
+Tools/languages used (e.g., Python, Pandas, SQL)
+
+Key outcomes or findings
+
+Links to GitHub, dashboards, or live demos
+
+Optional: visuals (graphs, Tableau screenshots, etc.)
+
+✅ Tip: Prioritize quality over quantity. Highlight projects with real-world relevance, storytelling, or technical depth.
+
+
+## Skills
+List your technical stack, ideally grouped by category:
+
+Programming: Python, R, Java
+
+Data Tools: SQL, Pandas, NumPy, Jupyter
+
+Visualization: Tableau, Matplotlib, Seaborn
+
+Other: Git, Excel, VS Code, etc.
+
+Optionally include logos/icons for visual interest.
+
+
 
 # Header 1
 
