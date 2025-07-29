@@ -2,7 +2,11 @@
   {% if site.platforms %}
   <ul class="link">
     {%- for platform in site.platforms %}
-    <li><a href="{{ platform.link }}">{{ platform.icon }}&nbsp;{{ platform.name }}</a></li>
+    <li>
+      <a href="{{ platform.link }}" target="_blank" rel="noopener">
+        {{ platform.icon | safe }}&nbsp;{{ platform.name }}
+      </a>
+    </li>
     {%- endfor %}
   </ul>
   {% endif %}
