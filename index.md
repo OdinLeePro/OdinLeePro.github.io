@@ -2,7 +2,7 @@
 layout: default
 ---
 
-## About Me
+# About Me
 
 I’m Odin Lee, a data scientist from **St. Paul, Minnesota**, with a strong academic background and a passion for turning data into insight.
 
@@ -12,7 +12,7 @@ Skilled in **Python**, **SQL**, **R**, **Java**, and **Tableau**, I enjoy transf
 
 ***
 
-## Education
+# Education
 
 ### University of St. Thomas  
 **Master of Science (MS), Data Science**  
@@ -51,7 +51,7 @@ Skilled in **Python**, **SQL**, **R**, **Java**, and **Tableau**, I enjoy transf
 - SQL  
 - Tableau
 
-## Projects (most important after About Me)
+# Projects (most important after About Me)
 Showcase 3–6 of your best projects with:
 
 Title + short description
@@ -67,7 +67,7 @@ Optional: visuals (graphs, Tableau screenshots, etc.)
 ✅ Tip: Prioritize quality over quantity. Highlight projects with real-world relevance, storytelling, or technical depth.
 
 
-## Skills
+# Skills
 List your technical stack, ideally grouped by category:
 
 Programming: Python, R, Java
@@ -171,17 +171,3 @@ end
 ### Large image
 
 ![Branching](https://github.com/vaibhavvikas/vaibhavvikas/raw/main/src/header_.png)
-
-
-### Definition lists can be used with HTML syntax.
-
-<dl>
-<dt>Name</dt>
-<dd>Godzilla</dd>
-<dt>Born</dt>
-<dd>1952</dd>
-<dt>Birthplace</dt>
-<dd>Japan</dd>
-<dt>Color</dt>
-<dd>Green</dd>
-</dl>
