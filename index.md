@@ -25,6 +25,15 @@ Skilled in **Python**, **SQL**, **R**, **Java**, and **Tableau**, I enjoy transf
 ***
 
 # Projects (most important after About Me)
+
+### Fantasy Football Database
+**SQL and R**
+FantasyFootballAnalysisDB is a structured SQL database built for fantasy football analysis, featuring cleaned data from 2021–2023 NFL seasons. Includes R-based data wrangling, SQL triggers, and normalized schemas supporting advanced queries and future web app integration.
+[Github Repository](https://github.com/OdinLeePro/FantasyFootballAnalysisDB)
+
+![FantasyFootballAnalysisDB ER Diagram](assets/img/FinalProjectRationalModel.png)
+
+
 Showcase 3–6 of your best projects with:
 
 Title + short description
