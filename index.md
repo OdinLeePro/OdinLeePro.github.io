@@ -10,6 +10,8 @@ I'm currently pursuing a **Master of Science in Data Science** at the **Universi
 
 Skilled in **Python**, **SQL**, **R**, **Java**, and **Tableau**, I enjoy transforming complex datasets into clear, actionable insights that drive meaningful outcomes.
 
+***
+
 ## Education
 
 ### University of St. Thomas  
