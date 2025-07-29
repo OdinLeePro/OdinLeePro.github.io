@@ -16,10 +16,10 @@ platforms:
     link: https://github.com/odinleepro
   - name: LinkedIn
     icon: <i class="fa-brands fa-linkedin"></i>
-    link: www.linkedin.com/in/odinlee
+    link: https://www.linkedin.com/in/odinlee
   - name: Resume
     icon: <i class="fa-solid fa-file"></i>
-    link: <a href="assets/file/resume.pdf" target="_blank">Resume</a>
+    link: <a href="assets/file/resume.pdf">Resume</a>
 
 navigation:
   - name: Readme
