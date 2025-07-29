@@ -19,7 +19,7 @@ platforms:
     link: www.linkedin.com/in/odinlee
   - name: Resume
     icon: <i class="fa-solid fa-file"></i>
-    link: <a href="https://raw.githubusercontent.com/OdinLeePro/OdinLeePro.github.io/main/_assets/file/resume.pdf" target="_blank">Resume</a>
+    link: <a href=assets/file/resume.pdf" target="_blank">Resume</a>
 
 navigation:
   - name: Readme
