@@ -18,41 +18,50 @@ Skilled in **Python**, **SQL**, **R**, **Java**, and **Tableau**, I enjoy transf
 **Master of Science (MS), Data Science**  
 *Sep 2024 – May 2026*
 
+<img src="assets/img/UniversitySt.Thomas-Logo.png" alt="University of St. Thomas Logo" width="70" height="70" />
+
 ### Augsburg University  
 **Bachelor of Science (BS), Data Science**  
 *Jan 2019 – May 2024*
+
+<img src="assets/img/AugsburgUniversity-Logo.png" alt="Augsburg University Logo" width="70" height="70" />
 
 ***
 
 # Projects (most important after About Me)
 
 ### Fantasy Football Database
-**SQL and R**
-FantasyFootballAnalysisDB is a structured SQL database built for fantasy football analysis, featuring cleaned data from 2021–2023 NFL seasons. Includes R-based data wrangling, SQL triggers, and normalized schemas supporting advanced queries and future web app integration.
-[Github Repository](https://github.com/OdinLeePro/FantasyFootballAnalysisDB)
+**Tools:** SQL, R  
+A structured database designed for fantasy football analytics using cleaned NFL data from the 2021–2023 seasons.  
+- Built normalized schemas to enable efficient querying  
+- Utilized R for data wrangling and transformation  
+- Implemented SQL triggers to maintain data integrity  
+- Optimized for future web integration and dashboard development  
+
+[View GitHub Repository](https://github.com/OdinLeePro/FantasyFootballAnalysisDB)
 
 ![FantasyFootballAnalysisDB ER Diagram](assets/img/FinalProjectRationalModel.png)
 
+<!-- Add more projects using this format -->
+<!--
+### Project Title  
+**Tools:** Python, Pandas, Tableau  
+Brief one- or two-sentence summary of the project's goal, technical approach, and outcome.  
+[Link to GitHub/demo](#)
+-->
 
-Showcase 3–6 of your best projects with:
-
-Title + short description
-
-Tools/languages used (e.g., Python, Pandas, SQL)
-
-Key outcomes or findings
-
-Links to GitHub, dashboards, or live demos
-
-Optional: visuals (graphs, Tableau screenshots, etc.)
-
-✅ Tip: Prioritize quality over quantity. Highlight projects with real-world relevance, storytelling, or technical depth.
-
+---
 
 # Skills
 
-Programming Languages: Python | R | SQL | Java
-Data Visualization: Tableau | Matplotlib | Seaborn | ggplot2 | plotly | leaflet
-Data Wrangling & Analysis: NumPy | Pandas | tidyr | dplyr | tidyverse | stringr
-Databases: Oracle SQL Developer | Oracle Data Modeler
-<img width="468" height="65" alt="image" src="https://github.com/user-attachments/assets/e2a7f145-8d34-4003-ba58-ae25d32e9f30" />
+**Programming Languages:**  
+Python | R | SQL | Java  
+
+**Data Visualization:**  
+Tableau | Matplotlib | Seaborn | ggplot2 | Plotly | Leaflet  
+
+**Data Wrangling & Analysis:**  
+NumPy | Pandas | tidyr | dplyr | tidyverse | stringr  
+
+**Databases & Modeling:**  
+Oracle SQL Developer | Oracle Data Modeler
