@@ -14,42 +14,15 @@ Skilled in **Python**, **SQL**, **R**, **Java**, and **Tableau**, I enjoy transf
 
 # Education
 
-### University of St. Thomas  
+### ![St. Thomas Logo](https://upload.wikimedia.org/wikipedia/en/thumb/3/3e/University_of_St._Thomas_%28Minnesota%29_seal.svg/20px-University_of_St._Thomas_%28Minnesota%29_seal.svg.png) University of St. Thomas  
 **Master of Science (MS), Data Science**  
 *Sep 2024 – May 2026*
 
-**Relevant Coursework:**  
-- Data Management & Design  
-- Python Programming
-
-**Skills Applied:**  
-- Python  
-- SQL  
-- Tableau
-
----
-
-### Augsburg University  
+### ![Augsburg Logo](https://upload.wikimedia.org/wikipedia/en/thumb/9/9a/Augsburg_University_seal.svg/20px-Augsburg_University_seal.svg.png) Augsburg University  
 **Bachelor of Science (BS), Data Science**  
 *Jan 2019 – May 2024*
 
-**Activities:**  
-- Officer – Unbounded Club  
-- Member – Coding Club
-
-**Relevant Coursework:**  
-- Data Science Foundations  
-- Programming for Data Science  
-- Statistical Modeling  
-- Algorithms  
-- Data Visualization  
-- Data Structures  
-- Python Programming
-
-**Skills Applied:**  
-- Python  
-- SQL  
-- Tableau
+***
 
 # Projects (most important after About Me)
 Showcase 3–6 of your best projects with:
