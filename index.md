@@ -17,17 +17,17 @@ Skilled in **Python**, **SQL**, **R**, **Java**, and **Tableau**, I enjoy transf
 <div style="display: flex; gap: 2rem; flex-wrap: wrap; align-items: flex-start;">
 
   <div style="flex: 1; min-width: 250px;">
+    <img src="assets/img/UniversitySt.Thomas-Logo.png" alt="University of St. Thomas Logo" width="70" height="70" />
     <h3>University of St. Thomas</h3>
     <p><strong>Master of Science (MS), Data Science</strong><br>
     <em>Sep 2024 – May 2026</em></p>
-    <img src="assets/img/UniversitySt.Thomas-Logo.png" alt="University of St. Thomas Logo" width="70" height="70" />
   </div>
 
   <div style="flex: 1; min-width: 250px;">
+    <img src="assets/img/AugsburgUniversity-Logo.png" alt="Augsburg University Logo" width="50" height="50" />
     <h3>Augsburg University</h3>
     <p><strong>Bachelor of Science (BS), Data Science</strong><br>
     <em>Jan 2019 – May 2024</em></p>
-    <img src="assets/img/AugsburgUniversity-Logo.png" alt="Augsburg University Logo" width="70" height="70" />
   </div>
 
 </div>
