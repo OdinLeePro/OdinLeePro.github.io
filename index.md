@@ -16,8 +16,11 @@ Skilled in **Python**, **SQL**, **R**, **Java**, and **Tableau**, I enjoy transf
 
 # Education
 
+# Education
+
 <div style="display: flex; gap: 2rem; flex-wrap: wrap; align-items: flex-start; margin-top: 1rem;">
 
+  <!-- University of St. Thomas -->
   <div style="flex: 1; min-width: 300px;">
     <div style="display: flex; justify-content: space-between; align-items: center;">
       <div>
@@ -25,10 +28,11 @@ Skilled in **Python**, **SQL**, **R**, **Java**, and **Tableau**, I enjoy transf
         <p style="margin: 0;"><strong>Master of Science (MS), Data Science</strong><br>
         <em>September 2024 – May 2026</em></p>
       </div>
-      <img src="assets/img/UniversitySt.Thomas-Logo.png" alt="University of St. Thomas Logo" width="60" height="60" />
+      <img src="assets/img/UniversitySt.Thomas-Logo.png" alt="University of St. Thomas Logo" width="60" height="60" style="margin-left: 1rem;" />
     </div>
   </div>
 
+  <!-- Augsburg University -->
   <div style="flex: 1; min-width: 300px;">
     <div style="display: flex; justify-content: space-between; align-items: center;">
       <div>
@@ -36,7 +40,7 @@ Skilled in **Python**, **SQL**, **R**, **Java**, and **Tableau**, I enjoy transf
         <p style="margin: 0;"><strong>Bachelor of Science (BS), Data Science</strong><br>
         <em>January 2019 – May 2024</em></p>
       </div>
-      <img src="assets/img/AugsburgUniversity-Logo.png" alt="Augsburg University Logo" width="60" height="60" />
+      <img src="assets/img/AugsburgUniversity-Logo.png" alt="Augsburg University Logo" width="60" height="60" style="margin-left: 1rem;" />
     </div>
   </div>
 
