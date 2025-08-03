@@ -14,20 +14,30 @@ Skilled in **Python**, **SQL**, **R**, **Java**, and **Tableau**, I enjoy transf
 
 # Education
 
-<div style="display: flex; gap: 2rem; flex-wrap: wrap; align-items: flex-start;">
+# Education
 
-  <div style="flex: 1; min-width: 250px;">
-    <img src="assets/img/UniversitySt.Thomas-Logo.png" alt="University of St. Thomas Logo" width="70" height="70" />
-    <h3>University of St. Thomas</h3>
-    <p><strong>Master of Science (MS), Data Science</strong><br>
-    <em>Sep 2024 – May 2026</em></p>
+<div style="display: flex; gap: 2rem; flex-wrap: wrap; align-items: flex-start; margin-top: 1rem;">
+
+  <div style="flex: 1; min-width: 300px;">
+    <div style="display: flex; justify-content: space-between; align-items: center;">
+      <div>
+        <h3 style="margin: 0;">University of St. Thomas</h3>
+        <p style="margin: 0;"><strong>Master of Science (MS), Data Science</strong><br>
+        <em>September 2024 – May 2026</em></p>
+      </div>
+      <img src="assets/img/UniversitySt.Thomas-Logo.png" alt="University of St. Thomas Logo" width="60" height="60" />
+    </div>
   </div>
 
-  <div style="flex: 1; min-width: 250px;">
-    <img src="assets/img/AugsburgUniversity-Logo.png" alt="Augsburg University Logo" width="50" height="50" />
-    <h3>Augsburg University</h3>
-    <p><strong>Bachelor of Science (BS), Data Science</strong><br>
-    <em>Jan 2019 – May 2024</em></p>
+  <div style="flex: 1; min-width: 300px;">
+    <div style="display: flex; justify-content: space-between; align-items: center;">
+      <div>
+        <h3 style="margin: 0;">Augsburg University</h3>
+        <p style="margin: 0;"><strong>Bachelor of Science (BS), Data Science</strong><br>
+        <em>January 2019 – May 2024</em></p>
+      </div>
+      <img src="assets/img/AugsburgUniversity-Logo.png" alt="Augsburg University Logo" width="60" height="60" />
+    </div>
   </div>
 
 </div>
