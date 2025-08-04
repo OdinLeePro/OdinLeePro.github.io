@@ -42,9 +42,9 @@ Skilled in **Python**, **SQL**, **R**, **Java**, and **Tableau**, I enjoy transf
 
 </div>
 
-***
+<hr />
 
-# Projects
+<h1>Projects</h1>
 
 <style>
 .project-card {
@@ -94,7 +94,7 @@ Skilled in **Python**, **SQL**, **R**, **Java**, and **Tableau**, I enjoy transf
   <img src="/assets/img/FinalProjectRationalModel.png" alt="Fantasy Football ER Diagram">
 </a>
 
-***
+<hr />
 
 # Projects (most important after About Me)
 
