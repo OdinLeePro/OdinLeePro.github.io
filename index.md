@@ -96,30 +96,6 @@ Skilled in **Python**, **SQL**, **R**, **Java**, and **Tableau**, I enjoy transf
 
 <hr />
 
-# Projects (most important after About Me)
-
-### Fantasy Football Database
-**Tools:** SQL, R  
-A structured database designed for fantasy football analytics using cleaned NFL data from the 2021–2023 seasons.  
-- Built normalized schemas to enable efficient querying  
-- Utilized R for data wrangling and transformation  
-- Implemented SQL triggers to maintain data integrity  
-- Optimized for future web integration and dashboard development  
-
-[View GitHub Repository](https://github.com/OdinLeePro/FantasyFootballAnalysisDB)
-
-![FantasyFootballAnalysisDB ER Diagram](assets/img/FinalProjectRationalModel.png)
-
-<!-- Add more projects using this format -->
-<!--
-### Project Title  
-**Tools:** Python, Pandas, Tableau  
-Brief one- or two-sentence summary of the project's goal, technical approach, and outcome.  
-[Link to GitHub/demo](#)
--->
-
----
-
 # Skills
 
 **Programming Languages:**  
