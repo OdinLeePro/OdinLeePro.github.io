@@ -44,6 +44,46 @@ Skilled in **Python**, **SQL**, **R**, **Java**, and **Tableau**, I enjoy transf
 
 ***
 
+# Projects
+
+<style>
+.project-card {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  background-color: #f9f9f9;
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+.project-card:hover {
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  transform: translateY(-4px);
+}
+.project-title {
+  color: #0056b3;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+}
+</style>
+
+<a class="project-card" href="https://github.com/OdinLeePro/FantasyFootballAnalysisDB" target="_blank" rel="noopener noreferrer">
+  <div class="project-title">Fantasy Football Analysis Database</div>
+  <p><strong>Tools:</strong> SQL, R</p>
+  <p>A structured database designed for fantasy football analytics using cleaned NFL data from the 2021–2023 seasons.</p>
+  <ul>
+    <li>Built normalized schemas to enable efficient querying</li>
+    <li>Built normalized schemas to enable efficient querying</li>
+    <li>Implemented SQL triggers to maintain data integrity</li>
+    <li>Optimized for future web integration and dashboard development</li>
+    ![FantasyFootballAnalysisDB ER Diagram](assets/img/FinalProjectRationalModel.png)
+  </ul>
+</a>
+
+***
+
 # Projects (most important after About Me)
 
 ### Fantasy Football Database
