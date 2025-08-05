@@ -260,10 +260,6 @@ section {
   padding-bottom:30px;
 }
 
-footer {
-  display: none;
-}
-
 small {
   font-size: 11px;
 }
@@ -274,13 +270,6 @@ hr {
   height: 1px;
   width: 100%;
   margin: 10px auto 20px;
-}
-
-.sidebar-footer {
-  width: 250px;
-  float: left;
-  -webkit-font-smoothing: subpixel-antialiased;
-  flex-basis: content;
 }
 
 .sidebar-h3 {
@@ -299,11 +288,6 @@ hr {
 
   section {
     width: 375px;
-  }
-
-  .sidebar-footer {
-    width: auto;
-    padding-bottom: inherit;
   }
 }
 
@@ -341,11 +325,6 @@ hr {
 
   .sidebar-footer {
     display: none;
-  }
-
-  footer {
-    display: initial;
-    margin: 20px 0 0;
   }
 
   div.wrapper {
