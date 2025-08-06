@@ -21,12 +21,3 @@ platforms:
   - name: Resume
     icon: <i class="fa-solid fa-file"></i>
     link: /assets/file/resume.pdf
-
-navigation:
-  - name: Readme
-    link: ./index.html
-    sublist:
-      - name: Image
-        link: ./index.html#small-image
-  - name: Another Page
-    link: ./another-page.html
