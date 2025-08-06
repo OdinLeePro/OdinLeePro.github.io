@@ -65,7 +65,6 @@ layout: default
       </div>
       <figure>
         <img src="/assets/img/FinalProjectRationalModel.png" alt="Fantasy Football ER Diagram" />
-        <figcaption>ER diagram for Fantasy Football Analysis DB</figcaption>
       </figure>
     </article>
   </div>
