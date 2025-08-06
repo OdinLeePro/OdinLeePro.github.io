@@ -16,7 +16,7 @@ layout: default
   </p>
 </section>
 
-</hr>
+<hr />
 
 <!-- Education Section -->
 <section class="education" aria-label="Education Background">
@@ -43,7 +43,7 @@ layout: default
   </div>
 </section>
 
-</hr>
+<hr />
 
 <!-- Projects Section -->
 <section class="projects">
@@ -71,7 +71,7 @@ layout: default
   </div>
 </section>
 
-</hr>
+<hr />
 
 <!-- Skills Section -->
 <section class="skills">
