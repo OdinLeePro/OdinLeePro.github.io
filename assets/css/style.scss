@@ -109,11 +109,11 @@
   padding: 1.5rem;
   background: #fff;
   border-radius: 8px;
-  box-shadow: 0 2px 100px rgba(0,0,0,0.05);
+  box-shadow: 0 2px 20px rgba(0,0,0,0.05);
   transition: transform .2s ease;
 
   /* narrower on all viewports */
-  width: 85%;        
+  width: 80%;        
   max-width: 450px;  
   margin: 0 auto;    
 }
