@@ -46,39 +46,6 @@ Skilled in **Python**, **SQL**, **R**, **Java**, and **Tableau**, I enjoy transf
 
 <h1>Projects</h1>
 
-<style>
-.project-card {
-  display: block;
-  text-decoration: none;
-  color: inherit;
-  border: 1px solid #444;
-  border-radius: 8px;
-  padding: 1rem;
-  margin-bottom: 1.5rem;
-  background-color: #1e1e1e;
-  transition: box-shadow 0.3s ease, transform 0.3s ease;
-}
-.project-card:hover {
-  box-shadow: 0 0 15px rgba(100, 100, 255, 0.3);
-  transform: translateY(-4px);
-}
-.project-title {
-  color: #4da6ff;
-  font-weight: bold;
-  font-size: 1.1rem;
-  margin-bottom: 0.5rem;
-}
-.project-tools {
-  font-weight: bold;
-  margin-bottom: 0.5rem;
-}
-.project-card img {
-  max-width: 100%;
-  margin-top: 1rem;
-  border-radius: 4px;
-}
-</style>
-
 <a class="project-card" href="https://github.com/OdinLeePro/FantasyFootballAnalysisDB" target="_blank" rel="noopener noreferrer">
   <div class="project-title">Fantasy Football Analysis Database</div>
   <div class="project-tools">Tools: SQL, R</div>
