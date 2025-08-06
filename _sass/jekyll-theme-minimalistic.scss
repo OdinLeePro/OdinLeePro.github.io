@@ -257,7 +257,10 @@ strong {
 section {
   width: 550px;
   float: right;
-  padding-bottom:30px;
+  padding: 20px 0 0;
+  margin: 0 0 20px;
+  border-top: 1px solid var(--clr-splitter-blockquote-and-section);
+  border-bottom: 1px solid var(--clr-splitter-blockquote-and-section);
 }
 
 small {
@@ -333,13 +336,6 @@ hr {
     position: static;
     width: auto;
     overflow-x: hidden;
-  }
-
-  section {
-    border: 1px solid var(--clr-splitter-blockquote-and-section);
-    border-width: 1px 0;
-    padding: 20px 0 0;
-    margin: 0 0 20px;
   }
 
    .header-title-mobile section {
