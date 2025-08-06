@@ -1,111 +1,78 @@
 ---
 layout: default
+title: Portfolio
 ---
 
-# About Me
-
-I’m Odin Lee, a data scientist from **St. Paul, Minnesota**, with a strong academic background and a passion for turning data into insight.
-
-I'm currently pursuing a **Master of Science in Data Science** at the **University of St. Thomas**, building on my **Bachelor’s degree in Data Science** from **Augsburg University**. Throughout my academic journey, I’ve gained hands-on experience in data analytics, statistical modeling, and programming.
-
-Skilled in **Python**, **SQL**, **R**, **Java**, and **Tableau**, I enjoy transforming complex datasets into clear, actionable insights that drive meaningful outcomes.
-
-***
-
-# Education
-
-<div style="display: flex; gap: 2rem; flex-wrap: wrap; align-items: flex-start; margin-top: 1rem;">
-
-  <!-- University of St. Thomas -->
-  <div style="flex: 1; min-width: 300px;">
-    <div style="display: flex; justify-content: space-between; align-items: center;">
-      <div>
-        <h3 style="margin: 0;">University of St. Thomas</h3>
-        <p style="margin: 0;"><strong>Master of Science (MS), Data Science</strong><br>
-        <em>September 2024 – May 2026</em></p>
-      </div>
-      <img src="assets/img/UniversitySt.Thomas-Logo.png" alt="University of St. Thomas Logo" width="60" height="60" style="margin-left: 1rem;" />
-    </div>
-  </div>
-
-  <!-- Augsburg University -->
-  <div style="flex: 1; min-width: 300px;">
-    <div style="display: flex; justify-content: space-between; align-items: center;">
-      <div>
-        <h3 style="margin: 0;">Augsburg University</h3>
-        <p style="margin: 0;"><strong>Bachelor of Science (BS), Data Science</strong><br>
-        <em>January 2019 – May 2024</em></p>
-      </div>
-      <img src="assets/img/AugsburgUniversity-Logo.png" alt="Augsburg University Logo" width="60" height="60" style="margin-left: 1rem;" />
-    </div>
-  </div>
-
-</div>
-
-<hr />
-
-<h1>Projects</h1>
-
-<style>
-.project-card {
-  display: block;
-  text-decoration: none;
-  color: inherit;
-  border: 1px solid #444;
-  border-radius: 8px;
-  padding: 1rem;
-  margin-bottom: 1.5rem;
-  background-color: #1e1e1e;
-  transition: box-shadow 0.3s ease, transform 0.3s ease;
-}
-.project-card:hover {
-  box-shadow: 0 0 15px rgba(100, 100, 255, 0.3);
-  transform: translateY(-4px);
-}
-.project-title {
-  color: #4da6ff;
-  font-weight: bold;
-  font-size: 1.1rem;
-  margin-bottom: 0.5rem;
-}
-.project-tools {
-  font-weight: bold;
-  margin-bottom: 0.5rem;
-}
-.project-card img {
-  max-width: 100%;
-  margin-top: 1rem;
-  border-radius: 4px;
-}
-</style>
-
-<a class="project-card" href="https://github.com/OdinLeePro/FantasyFootballAnalysisDB" target="_blank" rel="noopener noreferrer">
-  <div class="project-title">Fantasy Football Analysis Database</div>
-  <div class="project-tools">Tools: SQL, R</div>
+<section class="about-me">
+  <h1>About Me</h1>
   <p>
-    A structured database designed for fantasy football analytics using cleaned NFL data from the 2021–2023 seasons.
+    I’m Odin Lee, a data scientist from <strong>St. Paul, Minnesota</strong>,  
+    with a strong academic background and a passion for turning data into insight.
   </p>
-  <ul>
-    <li>Built normalized schemas to enable efficient querying</li>
-    <li>Used R for data wrangling and transformation</li>
-    <li>Implemented SQL triggers to maintain data integrity</li>
-    <li>Optimized for future web integration and dashboard development</li>
-  </ul>
-  <img src="/assets/img/FinalProjectRationalModel.png" alt="Fantasy Football ER Diagram">
-</a>
+  <p>
+    I’m pursuing an <strong>MS in Data Science</strong> at the University of St. Thomas,  
+    building on my <strong>BS in Data Science</strong> from Augsburg University.  
+    Skilled in <strong>Python</strong>, <strong>SQL</strong>, <strong>R</strong>, <strong>Java</strong>, and <strong>Tableau</strong>.
+  </p>
+</section>
 
 <hr />
 
-# Skills
+<section class="education">
+  <h2>Education</h2>
+  <div class="edu-list">
+    <!-- University of St. Thomas -->
+    <div class="edu-item">
+      <img src="/assets/img/UniversitySt.Thomas-Logo.png"
+           alt="University of St. Thomas Logo"
+           class="edu-logo">
+      <div class="edu-info">
+        <h3>University of St. Thomas</h3>
+        <p><strong>MS, Data Science</strong> &mdash; Sep 2024 – May 2026</p>
+      </div>
+    </div>
 
-**Programming Languages:**  
-Python | R | SQL | Java  
+    <!-- Augsburg University -->
+    <div class="edu-item">
+      <img src="/assets/img/AugsburgUniversity-Logo.png"
+           alt="Augsburg University Logo"
+           class="edu-logo">
+      <div class="edu-info">
+        <h3>Augsburg University</h3>
+        <p><strong>BS, Data Science</strong> &mdash; Jan 2019 – May 2024</p>
+      </div>
+    </div>
+  </div>
+</section>
 
-**Data Visualization:**  
-Tableau | Matplotlib | Seaborn | ggplot2 | Plotly | Leaflet  
+<hr />
 
-**Data Wrangling & Analysis:**  
-NumPy | Pandas | tidyr | dplyr | tidyverse | stringr  
+<section class="projects">
+  <h2>Projects</h2>
+  {% assign projects = site.data.projects %}
+  <div class="project-grid">
+    {% for p in projects %}
+      <a class="project-card" href="{{ p.link }}" target="_blank" rel="noopener">
+        <h3 class="project-title">{{ p.title }}</h3>
+        <p class="project-tools">Tools: {{ p.tools }}</p>
+        <p>{{ p.desc }}</p>
+        <ul>
+          {% for item in p.items %}
+            <li>{{ item }}</li>
+          {% endfor %}
+        </ul>
+        <img src="{{ p.img }}" alt="{{ p.alt }}">
+      </a>
+    {% endfor %}
+  </div>
+</section>
 
-**Databases & Modeling:**  
-Oracle SQL Developer | Oracle Data Modeler
+<hr />
+
+<section class="skills">
+  <h2>Skills</h2>
+  <p><strong>Programming Languages:</strong> Python | R | SQL | Java</p>
+  <p><strong>Data Visualization:</strong> Tableau | Matplotlib | Seaborn | ggplot2 | Plotly | Leaflet</p>
+  <p><strong>Data Wrangling & Analysis:</strong> NumPy | Pandas | tidyr | dplyr | tidyverse | stringr</p>
+  <p><strong>Databases & Modeling:</strong> Oracle SQL Developer | Oracle Data Modeler</p>
+</section>
