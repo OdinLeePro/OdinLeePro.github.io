@@ -1,22 +1,8 @@
-{% if site.logo %}
-    <div class="header-title">
-        {% include header-title.html %}
-    </div>
-    <div class="header-title-mobile">
-        <section>
-        {% include header-title.html %}
-        </section>
-    </div>
-{% else %}
-    {% include header-title.html %}
-{% endif %}
+<!-- Includes logo, name/title, and email -->
+{% include header-title.html %}
 
+<!-- displays the description from _config.yml (e.g. description: Data Scientist .....) or default to GitHub’s project tagline -->
 <p>{{ site.description | default: site.github.project_tagline }}</p>
 
-{% unless site.hide_project_page %}
-    {% if site.github.is_project_page %}
-    <p class="view"><a href="{{ site.github.repository_url }}">View the Project on GitHub<br><small>{{ site.github.repository_nwo }}</small></a></p>
-    {% endif %}
-{% endunless %}
-
+<!-- includes sidebar links or navigation, depending on how sidebar.html is defined -->
 {% include sidebar.html %}
