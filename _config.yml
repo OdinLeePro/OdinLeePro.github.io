@@ -1,15 +1,17 @@
-google_analytics: G-Z8WYPTRT2V
-
 title: Odin Lee
+description: Data Scientist in Training | Graduate Student at University of St. Thomas | Skilled in Python, SQL, R, and Tableau.
+url: "https://odinleepro.github.io"
+author: Odin Lee
 logo: /assets/img/headshot.png
 email: odinlee.pro@gmail.com
-description: Data Scientist in Training | Graduate Student at University of St. Thomas | Skilled in Python, SQL, R, and Tableau.
 color-scheme: auto
+google_analytics: G-Z8WYPTRT2V
 
-plugins:
-  - jekyll-sitemap
-  - jekyll-seo-tag
-  - jemoji
+social:
+  name: Odin Lee
+  links:
+    - https://github.com/odinleepro
+    - https://www.linkedin.com/in/odinlee
 
 platforms:
   - name: GitHub
@@ -21,3 +23,8 @@ platforms:
   - name: Resume
     icon: <i class="fa-solid fa-file"></i>
     link: /assets/file/resume.pdf
+
+plugins:
+  - jekyll-sitemap
+  - jekyll-seo-tag
+  - jemoji
