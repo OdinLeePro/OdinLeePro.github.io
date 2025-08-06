@@ -1,10 +1,13 @@
-{% if site.logo %}
+<!-- Logo - main headshot on header on left side of webpage -->
+{% if site.logo %} <!-- if a logo is defined in the _config.yml(e.g. logo: /assets/img/headshot.png) -->
   <img class="logo" src="{{ site.logo | relative_url }}" alt="Logo">
 {% endif %}
 
-<h1>{{ site.title | default: site.github.repository_name }}</h1>
+<!-- Title - main title(e.g. Odin Lee) on header on left side of webpage -->
+<h1>{{ site.title | default: site.github.repository_name }}</h1> <!-- If site.title is not defined site.github.repository_name is the default -->
 
-{% if site.email %}
+<!-- Email - link to email address displayed under title -->
+{% if site.email %} <!-- if a email is defined in the _config.yml(email: odinlee.pro@gmail.com) -->
   <p class="addr">
     <i class="fa-solid fa-envelope"></i>&nbsp;
     <a href="mailto:{{site.email}}">{{ site.email }}</a>
