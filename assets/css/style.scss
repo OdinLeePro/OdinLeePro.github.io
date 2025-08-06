@@ -100,7 +100,7 @@
   align-items: center;
 }
 
-/* — your card — */
+/* Card */
 .education-card {
   display: flex;
   flex-direction: row-reverse;
@@ -111,8 +111,6 @@
   border-radius: 8px;
   box-shadow: 0 2px 20px rgba(0,0,0,0.05);
   transition: transform .2s ease;
-
-  /* narrower on all viewports */
   width: 80%;        
   max-width: 450px;  
   margin: 0 auto;    
