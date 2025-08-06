@@ -87,9 +87,10 @@
 
 
 
+/*                 */
+/*    Education    */
+/*                 */
 
-
-/* if you’re still using flex for .education-grid: */
 .education-grid {
   display: flex;
   flex-direction: column;
@@ -108,13 +109,13 @@
   padding: 1.5rem;
   background: #fff;
   border-radius: 8px;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+  box-shadow: 0 2px 10px rgba(0,0,0,0.05);
   transition: transform .2s ease;
 
   /* narrower on all viewports */
-  width: 85%;        /* gives a bit more side‐padding on mobile */
-  max-width: 450px;  /* tweak this down if you want it even slimmer */
-  margin: 0 auto;    /* center inside its container */
+  width: 85%;        
+  max-width: 450px;  
+  margin: 0 auto;    
 }
 
 .edu-text { flex: 1; }
