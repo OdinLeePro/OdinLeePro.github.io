@@ -6,10 +6,13 @@ layout: default
 <section class="about">
   <h1>About Me</h1>
   <p>
-    I’m <strong>Odin Lee</strong>, a data scientist from <strong>St. Paul, Minnesota</strong>, with a strong academic background and a passion for turning data into insights.
+    I’m Odin Lee, a data scientist from <strong>St. Paul, Minnesota</strong>, with a strong academic background and a passion for turning data into insight.
   </p>
   <p>
-    Currently pursuing a <strong>Master of Science in Data Science</strong> at the University of St. Thomas, building on my <strong>Bachelor’s in Data Science</strong> from Augsburg University. Skilled in Python, SQL, R, Java, and Tableau.
+    I’m currently pursuing a <strong>Master of Science in Data Science</strong> at the <strong>University of St. Thomas</strong>, building on my <strong>Bachelor’s degree in Data Science</strong> from <strong>Augsburg University</strong>. Throughout my academic journey, I’ve gained hands-on experience in data analytics, statistical modeling, and programming.
+  </p>
+  <p>
+    Skilled in <strong>Python</strong>, <strong>SQL</strong>, <strong>R</strong>, <strong>Java</strong>, and <strong>Tableau</strong>, I enjoy transforming complex datasets into clear, actionable insights that drive meaningful outcomes.
   </p>
 </section>
 
