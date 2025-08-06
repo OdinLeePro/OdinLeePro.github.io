@@ -16,13 +16,15 @@ layout: default
   </p>
 </section>
 
+</hr>
+
 <!-- Education Section -->
 <section class="education" aria-label="Education Background">
-  <h2>Education</h2>
+  <h1>Education</h1>
   <div class="education-grid">
     <div class="education-card">
       <div class="edu-text">
-        <h3>University of St. Thomas</h3>
+        <h2>University of St. Thomas</h2>
         <p><strong>MS, Data Science</strong><br><em>Sep 2024 – May 2026</em></p>
       </div>
       <div class="edu-logo">
@@ -31,7 +33,7 @@ layout: default
     </div>
     <div class="education-card">
       <div class="edu-text">
-        <h3>Augsburg University</h3>
+        <h2>Augsburg University</h2>
         <p><strong>BS, Data Science</strong><br><em>Jan 2019 – May 2024</em></p>
       </div>
       <div class="edu-logo">
@@ -41,9 +43,11 @@ layout: default
   </div>
 </section>
 
+</hr>
+
 <!-- Projects Section -->
 <section class="projects">
-  <h2>Projects</h2>
+  <h1>Projects</h1>
   <div class="project-grid">
     <article class="project-card">
       <header>
@@ -67,9 +71,11 @@ layout: default
   </div>
 </section>
 
+</hr>
+
 <!-- Skills Section -->
 <section class="skills">
-  <h2>Skills</h2>
+  <h1>Skills</h1>
   <ul class="skill-list">
     <li><strong>Programming Languages:</strong> Python, R, SQL, Java</li>
     <li><strong>Data Visualization:</strong> Tableau, Matplotlib, Seaborn, ggplot2, Plotly, Leaflet</li>
