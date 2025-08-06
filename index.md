@@ -2,7 +2,10 @@
 layout: default
 ---
 
+<!--               -->
 <!-- About Section -->
+<!--               -->
+
 <section class="about">
   <h1>About Me</h1>
   <p>
@@ -16,9 +19,10 @@ layout: default
   </p>
 </section>
 
-<hr />
-
+<!--                   -->
 <!-- Education Section -->
+<!--                   -->
+
 <section class="education" aria-label="Education Background">
   <h1>Education</h1>
   <div class="education-grid">
@@ -43,9 +47,10 @@ layout: default
   </div>
 </section>
 
-<hr />
-
+<!--                  -->
 <!-- Projects Section -->
+<!--                  -->
+
 <section class="projects">
   <h1>Projects</h1>
   <div class="project-grid">
@@ -70,9 +75,10 @@ layout: default
   </div>
 </section>
 
-<hr />
-
+<!--                -->
 <!-- Skills Section -->
+<!--                -->
+
 <section class="skills">
   <h1>Skills</h1>
   <ul class="skill-list">
