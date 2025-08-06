@@ -17,7 +17,7 @@ layout: default
 </section>
 
 <!-- Education Section -->
-<section class="education">
+<section class="education" aria-label="Education Background">
   <h2>Education</h2>
   <div class="education-grid">
     <div class="education-card">
@@ -26,7 +26,7 @@ layout: default
         <p><strong>MS, Data Science</strong><br><em>Sep 2024 – May 2026</em></p>
       </div>
       <div class="edu-logo">
-        <img src="assets/img/UniversitySt.Thomas-Logo.png" alt="University of St. Thomas Logo" width="60" height="60" style="margin-left: 1rem;" />
+        <img src="assets/img/UniversitySt.Thomas-Logo.png" alt="University of St. Thomas Logo" width="60" height="60" />
       </div>
     </div>
     <div class="education-card">
@@ -35,7 +35,7 @@ layout: default
         <p><strong>BS, Data Science</strong><br><em>Jan 2019 – May 2024</em></p>
       </div>
       <div class="edu-logo">
-        <img src="assets/img/AugsburgUniversity-Logo.png" alt="Augsburg University Logo" width="60" height="60" style="margin-left: 1rem;" />
+        <img src="assets/img/AugsburgUniversity-Logo.png" alt="Augsburg University Logo" width="60" height="60" />
       </div>
     </div>
   </div>
