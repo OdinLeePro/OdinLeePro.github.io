@@ -47,31 +47,44 @@ layout: default
   </div>
 </section>
 
-<!--                  -->
-<!-- Projects Section -->
-<!--                  -->
+<!--                 -->
+<!-- Pojects Section -->
+<!--                 -->
 
 <section class="projects">
   <h1>Projects</h1>
+
   <div class="project-grid">
-    <article class="project-card">
-      <header>
-        <h3><a href="https://github.com/OdinLeePro/FantasyFootballAnalysisDB" target="_blank" rel="noopener noreferrer">Fantasy Football Analysis Database</a></h3>
-        <p class="tools">Tools: SQL, R</p>
-      </header>
-      <div class="description">
-        <p>A structured database for fantasy football analytics using cleaned NFL data (2021–2023 seasons).</p>
-        <ul>
+    <!-- Card 1 -->
+    <a class="project-card"
+       href="https://github.com/OdinLeePro/FantasyFootballAnalysisDB"
+       target="_blank" rel="noopener noreferrer"
+       aria-label="Open Fantasy Football Analysis Database on GitHub (opens in a new tab)">
+      <figure class="project-media">
+        <img src="/assets/img/FinalProjectRationalModel.png" alt="Fantasy Football ER Diagram">
+      </figure>
+
+      <div class="project-body">
+        <h3 class="project-title">Fantasy Football Analysis Database</h3>
+
+        <ul class="tool-badges" aria-label="Tools used">
+          <li>SQL</li><li>R</li>
+        </ul>
+
+        <p class="project-summary">
+          A structured database for fantasy football analytics using cleaned NFL data (2021–2023).
+        </p>
+
+        <ul class="project-bullets">
           <li>Normalized schemas for efficient querying</li>
           <li>Data wrangling and transformation with R</li>
           <li>SQL triggers to ensure data integrity</li>
           <li>Optimized for future dashboard integration</li>
         </ul>
       </div>
-      <figure>
-        <img src="/assets/img/FinalProjectRationalModel.png" alt="Fantasy Football ER Diagram" />
-      </figure>
-    </article>
+    </a>
+
+    <!-- Duplicate the <a class="project-card">…</a> block for more projects -->
   </div>
 </section>
 
