@@ -134,8 +134,7 @@
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: 1.25rem;
-  /* let each card size to its own content */
-  align-items: start;
+  align-items: stretch;
 }
 
 /* Clickable Card */
@@ -161,31 +160,19 @@
   box-shadow: 0 0 0 3px rgba(59,130,246,.5), 0 2px 18px rgba(0,0,0,.06);
 }
 
-/* Media (no crop by default; configurable ratio) */
+/* Media */
 .project-media {
-  --ratio: 16/9;              /* default aspect ratio */
-  aspect-ratio: var(--ratio);
   margin: 0;
-  display: grid;
-  place-items: center;
   background: #f6f7fb;
   border-bottom: 1px solid rgba(0,0,0,.06);
-  overflow: hidden;
 }
+
 .project-media img {
+  display: block;
   width: 100%;
-  height: 100%;
-  object-fit: contain;         /* show entire landscape image */
-  object-position: center;     /* tweak per card if needed */
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
 }
-
-/* Ratio helpers (use on the <figure>) */
-.ratio-32  { --ratio: 3/2; }
-.ratio-43  { --ratio: 4/3; }
-.ratio-219 { --ratio: 21/9; }  /* ultrawide */
-
-/* Optional: crop-to-fill for a specific card */
-.cover img { object-fit: cover; }  /* will crop edges */
 
 /* Body */
 .project-body {
