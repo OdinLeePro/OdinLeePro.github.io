@@ -262,6 +262,11 @@ section {
   border-bottom: 1px solid var(--clr-splitter-blockquote-and-section);
 }
 
+section:last-of-type {
+  border-bottom: none;
+  margin-bottom: 0;
+}
+
 small {
   font-size: 11px;
 }
@@ -372,6 +377,10 @@ hr {
 
   pre, code {
     word-wrap: normal;
+  }
+
+  section:first-of-type {
+    border-top: 1px solid var(--clr-splitter-blockquote-and-section);
   }
 }
 
