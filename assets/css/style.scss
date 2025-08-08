@@ -3,6 +3,20 @@
 
 @import "jekyll-theme-minimalistic";
 
+/*=====================*/
+/*    Left Side Bar    */
+/*=====================*/
+
+/* Mobile */
+.link-wrapper-mobile ul.link {
+  list-style: none;   // remove bullets
+  padding: 0;
+  margin: 0;
+  display: flex;      // make li horizontal
+  gap: 10px;          // space between items
+}
+
+
 /*                 */
 /*    Education    */
 /*                 */
