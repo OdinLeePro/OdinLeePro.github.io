@@ -7,29 +7,39 @@
 /*    Left Side Bar    */
 /*=====================*/
 
-/* Mobile horizontal links */
+/* Row layout + centering */
 .link-wrapper-mobile ul.link {
-  display: flex;           /* put li items in a row */
-  justify-content: center; /* center the row */
-  align-items: center;     /* vertically align items */
-  list-style: none;        /* remove bullets */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  list-style: none;
   padding: 0;
   margin: 0;
-  gap: 20px;               /* space between items */
-  flex-wrap: nowrap;       /* keep in one line (change to wrap if needed) */
+  gap: 20px;
+  flex-wrap: nowrap; /* change to wrap on tiny screens if you want */
 }
 
+/* Make each link a predictable line box */
 .link-wrapper-mobile ul.link li a {
-  display: inline-flex;    /* align icon + text inline */
-  align-items: center;     /* vertical center */
-  gap: 5px;                /* space between icon and text */
-  text-decoration: none;   /* optional: remove underline */
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;      /* space between icon and text */
+  line-height: 1;
+  text-decoration: none;
 }
 
+/* Normalize Font Awesome icons */
 .link-wrapper-mobile ul.link li a i {
-  font-size: 1em;          /* match text height */
-  line-height: 1;          /* remove extra space inside icon */
-  vertical-align: middle;  /* align with text middle */
+  font-size: 1.1em;   /* uniform icon size */
+  line-height: 0;     /* kill extra top/bottom space from font metrics */
+  display: inline-flex;
+  align-items: center;
+  vertical-align: middle;
+}
+
+/* (Optional) tiny nudge if GitHub still looks off on some browsers */
+.link-wrapper-mobile ul.link li a i.fa-github {
+  transform: translateY(1px);
 }
 
 /*                 */
