@@ -3,42 +3,6 @@
 
 @import "jekyll-theme-minimalistic";
 
-/*                       */
-/*    Light/Dark Mode    */
-/*                       */
-
-:root {
-  --bg: #ffffff;
-  --card: #ffffff;
-  --ink: #111827; /* near-black */
-  --muted: #4b5563; /* text secondary */
-  --border: rgba(0,0,0,.08);
-
-  --brand: #3b82f6; /* focus ring */
-  --chip-bg: #eef2ff;
-  --chip-brd: #e0e7ff;
-
-  --radius-sm: 8px;
-  --radius-md: 12px;
-  --shadow-sm: 0 2px 18px rgba(0,0,0,.06);
-  --shadow-lg: 0 8px 28px rgba(0,0,0,.10);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --bg: #0b0d10;
-    --card: #11161c;
-    --ink: #e9eef5;
-    --muted: #c7d2fe;
-    --border: rgba(255,255,255,.08);
-
-    --chip-bg: #1f2937;
-    --chip-brd: #374151;
-  }
-}
-
-body { background: var(--bg); color: var(--ink); }
-
 /*                 */
 /*    Education    */
 /*                 */
@@ -93,7 +57,7 @@ body { background: var(--bg); color: var(--ink); }
 .project-card {
   display: grid;
   grid-template-rows: auto 1fr;
-  background: #D3D3D3;
+  background: #E8E8E8;
   border-radius: 12px;
   box-shadow: 0 2px 18px rgba(0,0,0,.06);
   text-decoration: none;
