@@ -19,6 +19,13 @@
   flex-wrap: nowrap;       /* keep all in one line */
 }
 
+.link-wrapper-mobile ul.link li a {
+  display: inline-flex;
+  align-items: center;    /* vertically center icon + text */
+  gap: 5px;               /* space between icon and text */
+  vertical-align: middle; /* ensures inline alignment */
+}
+
 /*                 */
 /*    Education    */
 /*                 */
