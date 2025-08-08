@@ -7,23 +7,29 @@
 /*    Left Side Bar    */
 /*=====================*/
 
-/* Mobile */
+/* Mobile horizontal links */
 .link-wrapper-mobile ul.link {
   display: flex;           /* put li items in a row */
-  justify-content: center; /* center them horizontally */
-  align-items: center;     /* vertically align icons/text */
+  justify-content: center; /* center the row */
+  align-items: center;     /* vertically align items */
   list-style: none;        /* remove bullets */
   padding: 0;
   margin: 0;
   gap: 20px;               /* space between items */
-  flex-wrap: nowrap;       /* keep all in one line */
+  flex-wrap: nowrap;       /* keep in one line (change to wrap if needed) */
 }
 
 .link-wrapper-mobile ul.link li a {
-  display: inline-flex;
-  align-items: center;    /* vertically center icon + text */
-  gap: 5px;               /* space between icon and text */
-  vertical-align: middle; /* ensures inline alignment */
+  display: inline-flex;    /* align icon + text inline */
+  align-items: center;     /* vertical center */
+  gap: 5px;                /* space between icon and text */
+  text-decoration: none;   /* optional: remove underline */
+}
+
+.link-wrapper-mobile ul.link li a i {
+  font-size: 1em;          /* match text height */
+  line-height: 1;          /* remove extra space inside icon */
+  vertical-align: middle;  /* align with text middle */
 }
 
 /*                 */
