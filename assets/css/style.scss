@@ -9,17 +9,15 @@
 
 /* Mobile */
 .link-wrapper-mobile ul.link {
-  list-style: none;   // remove bullets
+  display: flex;           /* put li items in a row */
+  justify-content: center; /* center them horizontally */
+  align-items: center;     /* vertically align icons/text */
+  list-style: none;        /* remove bullets */
   padding: 0;
   margin: 0;
-  display: flex;      // make li horizontal
-  gap: 10px;          // space between items
+  gap: 20px;               /* space between items */
+  flex-wrap: nowrap;       /* keep all in one line */
 }
-
-.link-wrapper-mobile ul.link li {
-  display: inline-block; // optional with flex, but safe
-}
-
 
 /*                 */
 /*    Education    */
