@@ -16,6 +16,10 @@
   gap: 10px;          // space between items
 }
 
+.link-wrapper-mobile ul.link li {
+  display: inline-block; // optional with flex, but safe
+}
+
 
 /*                 */
 /*    Education    */
