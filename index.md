@@ -65,7 +65,7 @@ title: Portfolio
         <img src="/assets/img/FinalProjectRationalModel.png" alt="Fantasy Football ER Diagram">
       </figure>
       <div class="project-body">
-        <h3 class="project-title">Fantasy Football Analysis Database</h3>
+        <h3 class="project-title"><u>Fantasy Football Analysis Database</u></h3>
         <ul class="tool-badges">
           <li>SQL</li><li>R</li>
         </ul>
