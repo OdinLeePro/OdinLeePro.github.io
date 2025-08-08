@@ -3,45 +3,6 @@
 
 @import "jekyll-theme-minimalistic";
 
-/*=====================*/
-/*    Left Side Bar    */
-/*=====================*/
-
-/* Row layout + centering */
-.link-wrapper-mobile ul.link {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  list-style: none;
-  padding: 0;
-  margin: 0;
-  gap: 20px;
-  flex-wrap: nowrap; /* change to wrap on tiny screens if you want */
-}
-
-/* Make each link a predictable line box */
-.link-wrapper-mobile ul.link li a {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;      /* space between icon and text */
-  line-height: 1;
-  text-decoration: none;
-}
-
-/* Normalize Font Awesome icons */
-.link-wrapper-mobile ul.link li a i {
-  font-size: 1.1em;   /* uniform icon size */
-  line-height: 0;     /* kill extra top/bottom space from font metrics */
-  display: inline-flex;
-  align-items: center;
-  vertical-align: middle;
-}
-
-/* (Optional) tiny nudge if GitHub still looks off on some browsers */
-.link-wrapper-mobile ul.link li a i.fa-github {
-  transform: translateY(1px);
-}
-
 /*                 */
 /*    Education    */
 /*                 */
