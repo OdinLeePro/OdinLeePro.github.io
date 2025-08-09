@@ -10,6 +10,7 @@
   @include highlights-dark;
 }
 
+// Print in light not dark
 @media print {
   :root {
     @include light-colors;
