@@ -117,11 +117,11 @@ ul.link:last-child {
   margin-bottom: 6px;
 }
 
-.link-wrapper-mobile {
+.linkWrapperMobile {
   display: none !important;
 }
 
-.link-wrapper-mobile ul.link {
+.linkWrapperMobile ul.link {
   margin: 0 0 20px;
 }
 
@@ -175,7 +175,7 @@ pre {
   margin-bottom: 5px;
 }
 
-.card-link-spanner {
+.cardLinkSpanner {
   position: absolute;
   width: 100%;
   height: 100%;
@@ -279,7 +279,7 @@ hr {
   margin: 10px auto 20px;
 }
 
-.sidebar-h3 {
+.sidebarH3 {
   margin: 0 0 0.25em;
 }
 
@@ -312,11 +312,11 @@ hr {
     position: static;
   }
   
-  .link-wrapper {
+  .linkWrapperDesktop {
     display: none !important;
   }
 
-  .link-wrapper-mobile {
+  .linkWrapperMobile {
     display:block !important;
   }
 
