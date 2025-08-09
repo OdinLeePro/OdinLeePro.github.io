@@ -11,7 +11,7 @@
     @include highlights-dark;
   }
 
-@media screen and (prefersColorScheme: dark) {
+@media screen and (prefers-color-scheme: dark) {
   :root{
     @include dark-colors;
     @include highlights-dark;
