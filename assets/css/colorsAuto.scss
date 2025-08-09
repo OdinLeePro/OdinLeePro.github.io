@@ -1,0 +1,27 @@
+---
+---
+
+@import "colors";
+
+// If device does not support colors auto then dark mode is default
+:root {
+    @include colors;
+    @include dark-colors;
+    @include code-highlights;
+    @include highlights-dark;
+  }
+
+@media screen and (prefersColorScheme: dark) {
+  :root{
+    @include dark-colors;
+    @include highlights-dark;
+  }
+}
+
+// If printing prefered color scheme turns to light
+@media print, (prefersColorScheme: light) {
+  :root {
+    @include light-colors;
+    @include highlights-light
+  }
+}
