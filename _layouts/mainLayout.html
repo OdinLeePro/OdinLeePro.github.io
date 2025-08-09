@@ -1,9 +1,9 @@
 <!-- Color Scheme Handling -->
-{% case site.color-scheme %}
+{% case site.colorScheme %}
   {% when "", nil, false, 0, empty %}
     {% assign ColorScheme = "auto" %}
   {% else %}
-    {% assign ColorScheme = site.color-scheme %}
+    {% assign ColorScheme = site.colorScheme %}
 {% endcase %}
 
 <!DOCTYPE html>
