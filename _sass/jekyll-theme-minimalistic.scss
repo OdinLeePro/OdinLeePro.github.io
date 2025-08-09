@@ -15,7 +15,7 @@ body {
   -ms-overflow-style: -ms-autohiding-scrollbar;
 }
 
-.header-title-mobile {
+.leftSideHeaderMobile {
   display: none;
 }
 
@@ -342,19 +342,19 @@ hr {
     overflow-x: hidden;
   }
 
-   .header-title-mobile section {
+   .leftSideHeaderMobile section {
     padding: 20px 0;
   }
 
-  .header-title {
+  .leftSideHeader {
     display: none;
   }
 
-  .header-title-mobile {
+  .leftSideHeaderMobile {
     display: block;
   }
 
-  .header-title-mobile h1 {
+  .leftSideHeaderMobile h1 {
     margin: 15px 0 15px;
     line-height: 1.1;
   }
