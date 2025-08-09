@@ -4,7 +4,7 @@
 {% endif %}
 
 <!-- Title - main title(e.g. Odin Lee) on header on left side of webpage -->
-<h1>{{ site.title | default: site.github.repository_name }}</h1> <!-- If site.title is not defined site.github.repository_name is the default -->
+<h1>{{ site.title | default: site.github.repository_name }}</h1> <!-- If a title is not defined site.github.repository_name is the default -->
 
 <!-- Email - link to email address displayed under title -->
 {% if site.email %} <!-- if a email is defined in the _config.yml(email: odinlee.pro@gmail.com) -->
