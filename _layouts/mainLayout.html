@@ -8,29 +8,34 @@
 
 <!DOCTYPE html>
 <html lang="{{ site.lang | default: "en-US" }}">
+  
   <head>
     <!-- Meta Tags -->
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     {% seo %}
+    
     <!-- Stylesheets -->
-    <link rel="stylesheet" href="{{ "/assets/css/colors-ColorScheme.css?v=" | replace: "ColorScheme", ColorScheme | append: site.github.build_revision | relative_url }}">
+    <link rel="stylesheet" href="{{ "/assets/css/colorsColorScheme.css?v=" | replace: "ColorScheme", ColorScheme | append: site.github.build_revision | relative_url }}">
     <link rel="stylesheet" href="{{ "/assets/css/style.css?v=" | append: site.github.build_revision | relative_url }}">
+    
     <!-- Preload Headshot (Boosts speed) -->
     <link rel="preload" href="{{site.headshot | relative_url}}" as="image">
+    
     <!-- Favicon (Icon in tab of browser) -->
     <link rel="shortcut icon" href="/favicon.ico">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.1/css/all.min.css">
   </head>
+  
   <body>
     <!-- Page Layout -->
     <div class="wrapper">
-      <div class="sidebar">
+      <div class="leftSide">
         <header>
-          {%- include header.html -%}
+          {%- include leftSideContent(Desktop).html -%}
         </header>
-        {% include mobile.html %}
+        {% include leftSideContent(Mobile).html %}
       </div>
       <section>
       {{ content }}
