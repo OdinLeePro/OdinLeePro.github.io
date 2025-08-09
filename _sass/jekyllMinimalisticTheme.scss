@@ -223,7 +223,7 @@ kbd {
   vertical-align: middle;
 }
 
-.sidebar {
+.leftSide {
   width: 250px;
   float: left;
   position: fixed;
@@ -240,12 +240,12 @@ kbd {
 }
 
 @-moz-document url-prefix() {
-  .sidebar {
+  .leftSide {
     scrollbar-width: none;
   }
 }
 
-.sidebar::-webkit-scrollbar {
+.leftSide::-webkit-scrollbar {
   display: none;
 }
 
@@ -288,7 +288,7 @@ hr {
     width: 610px;
   }
 
-  .sidebar {
+  .leftSide {
     width: 200px;
     height: calc(100vh - 50px);  
   }
@@ -320,7 +320,7 @@ hr {
     display:block !important;
   }
 
-  .sidebar {
+  .leftSide {
     float: none;
     position: static;
     width: auto;
