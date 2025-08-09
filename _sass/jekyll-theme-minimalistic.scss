@@ -24,11 +24,11 @@ img {
 }
 
 .headshot {
-  display: block;
-  width: clamp(72px, 30vw, 180px);
-  height: auto;
-  border-radius: 50%;
+  -webkit-border-radius: 100%;
+  -moz-border-radius: 100%;
+  border-radius: 100%;
   margin-bottom: 10px;
+  max-width: 90%;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -368,7 +368,7 @@ hr {
     top: 52px;
   }
 
-  .header {
+  .headshot {
     float: right;
     width: 110px;
     box-sizing: border-box;
