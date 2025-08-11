@@ -11,7 +11,7 @@ html {
 }
 
 body {
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background-color: var(--clr-bg);
   padding: 50px;
   font: 15px/1.5 "Noto Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
   color: var(--clr-text);
@@ -232,7 +232,6 @@ kbd {
 /*===============*/
 
 .leftSide {
-  background-color: #2c3e50;
   width: 250px;
   float: left;
   position: fixed;
