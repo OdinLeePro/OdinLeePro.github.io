@@ -8,6 +8,10 @@
 /* Import minimal Jekyll theme base styles */
 @import "jekyll-theme-minimal.scss";
 
+/*===========================*/
+/*   Desktop Layout Styles   */
+/*===========================*/
+
 /*                                                    */
 /*  Left Side Icon and links (Github, LinkedIn, ...)  */
 /*                                                    */
@@ -44,10 +48,6 @@
 .linkWrapperDesktop .link li {
   margin: 6px 0;                  /* Space between button items */
 }
-
-/*===========================*/
-/*   Desktop Layout Styles   */
-/*===========================*/
 
 /*                     */
 /*  Education Section  */
@@ -191,6 +191,56 @@
 /* Individual bullet point spacing */
 .projectBullets li { 
   margin: .2rem 0; 
+}
+
+/*==========================*/
+/*   Mobile Layout Styles   */
+/*==========================*/
+
+/*                                          */
+/*  Icon and links (Github, LinkedIn, ...)  */
+/*                                          */
+
+/* Mobile link wrapper - show when needed */
+.linkWrapperMobile {
+  display: block; /* Change from display: none when you want to show it */
+}
+
+/* Mobile link list - horizontal layout */
+.linkWrapperMobile ul.link {
+  margin: 0 0 20px;
+  list-style: none;
+  padding: 0;
+  display: flex;                  /* Horizontal layout */
+  flex-wrap: wrap;                /* Allow wrapping if needed */
+  gap: 8px;                       /* Space between buttons */
+  justify-content: center;        /* Center the buttons horizontally */
+}
+
+/* Mobile link buttons - horizontal style */
+.linkWrapperMobile .link a {
+  font-size: 16px;                /* Slightly smaller for mobile */
+  display: inline-block;
+  padding: 8px 12px;              /* Smaller padding for mobile */
+  background-color: #f6f8fa;
+  border: 1px solid #d1d9e0;
+  border-radius: 6px;
+  text-decoration: none;
+  color: #24292f;
+  text-align: center;
+  transition: background-color 0.2s ease;
+  white-space: nowrap;            /* Prevent text wrapping */
+  flex: 0 0 auto;                 /* Don't grow or shrink */
+}
+
+/* Mobile hover effect */
+.linkWrapperMobile .link a:hover {
+  background-color: #f3f4f6;
+  border-color: #c9d1d9;
+}
+
+.linkWrapperMobile .link li {
+  margin: 0;                      /* Remove vertical margin since we're using gap */
 }
 
 /*==============================*/
