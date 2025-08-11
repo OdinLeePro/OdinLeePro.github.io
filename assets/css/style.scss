@@ -8,6 +8,11 @@
 /* Import minimal Jekyll theme base styles */
 @import "jekyll-theme-minimal.scss";
 
+/* Desktop link wrapper and links styling */
+.linkWrapperDesktop .link a {
+  font-size: 20px;
+}
+
 /*===========================*/
 /*   Desktop Layout Styles   */
 /*===========================*/
