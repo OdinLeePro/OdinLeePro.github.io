@@ -1,11 +1,26 @@
+/*=============*/
+/*   Imports   */
+/*=============*/
+
+/* Import custom font definitions (Noto Sans, etc.) */
 @import "fonts";
+
+/* Import CSS custom properties for color theming */
 @import "colors";
+
+/* Import syntax highlighting styles for code blocks */
 @import "rouge-github";
 
+/*===================================*/
+/*   Global Styles & Base Elements   */
+/*===================================*/
+
+/* Enable smooth scrolling for anchor links */
 html {
   scroll-behavior: smooth;
 }
 
+/* Main body styling - sets up the overall page appearance */
 body {
   background-color: var(--clr-bg);
   padding: 50px;
@@ -15,14 +30,17 @@ body {
   -ms-overflow-style: -ms-autohiding-scrollbar;
 }
 
+/* Mobile header - initially hidden, shown only on smaller screens */
 .leftSideHeaderMobile {
   display: none;
 }
 
+/* Ensure all images are responsive and don't overflow containers */
 img {
   max-width: 100%;
 }
 
+/* Headshot picture styling - creates circular headshot */
 .headshot {
   -webkit-border-radius: 100%;
   -moz-border-radius: 100%;
@@ -31,40 +49,57 @@ img {
   max-width: 90%;
 }
 
+/*================*/
+/*   Typography   */
+/*================*/
+
+/* All heading elements share these styles */
 h1, h2, h3, h4, h5, h6 {
   color: var(--clr-h1-and-bold);
   margin: 0 0 20px;
 }
 
+/* Base elements get consistent bottom margin for vertical rhythm */
 p, ul, ol, table, pre, dl {
   margin: 0 0 20px;
 }
 
+/* Large headings get tighter line height for better appearance */
 h1, h2, h3 {
   line-height: 1.3;
 }
 
+/* Main page title sizing */
 h1 {
   font-size: 32px;
 }
 
+/* Section headings use different color for hierarchy */
 h2 {
   color: var(--clr-h2);
 }
 
+/* Smaller headings share a different theme color */
 h3, h4, h5, h6 {
   color: var(--clr-h-3-6);
 }
 
+/*==================================*/
+/*   Links & Interactive Elements   */
+/*==================================*/
+
+/* Default link styling - removes underline for clean appearance */
 a {
   color:var(--clr-a-text);
   text-decoration:none;
 }
 
+/* Link hover and focus states for accessibility */
 a:hover, a:focus {
   color: var(--clr-a-text-hvr);
 }
 
+/* Small descriptive text within links (like subtitles) */
 a small {
   font-size:11px;
   color: var(--clr-small-in-a);
@@ -72,64 +107,91 @@ a small {
   display: block;
 }
 
+/* Hover state for small text in links */
 a:hover small {
   color: var(--clr-small-in-a);
 }
 
+/* Address links in contact info */
 .addr a:hover, a:focus {
   color: var(--clr-a-text-hvr);
 }
 
+/*=============================*/
+/*   Navigation & Link Lists   */
+/*=============================*/
+
+/* Links in navigation/link lists use heading color for prominence */
 ul.link a {
-  color:var(--clr-h1-and-bold);
+  color: var(--clr-h1-and-bold);
 }
 
+/* Hover states for navigation links */
 ul.link a:hover, a:focus {
   color: var(--clr-a-text-hvr);
 }
 
+/* Content lists get negative margin to align with other text */
 ul.content {
   margin-left: -1.4em;
 }
 
+/* Sublists have no vertical margin to stay compact */
 .sublist {
   margin: 0 0 0;
 }
 
+/* Sublist indentation adjustment */
 ul.sublist {
   margin-left: -1.5em;
 }
 
+/* Link paragraphs have minimal bottom margin */
 p.link {
-  margin:0 0 4px;
+  margin: 0 0 4px;
 }
 
+/* Navigation link lists - clean, unstyled appearance */
 ul.link {
-  list-style-type: none;
-  padding: 0.4px;
+  list-style-type: none;      
+  padding: 0.4px;               
 }
 
+/* Spacing between navigation items */
 ul.link li + li {
   margin-top: 6px;
 }
 
+/* Bottom margin for link lists */
 ul.link:last-child {
   margin-bottom: 6px;
 }
 
+/* Mobile link wrapper - hidden by default */
 .linkWrapperMobile {
   display: none !important;
 }
 
+/* Mobile link list margins when visible */
 .linkWrapperMobile ul.link {
   margin: 0 0 20px;
 }
 
+/*======================*/
+/*   Layout Structure   */
+/*======================*/
+
+/* Main content wrapper - centers content on large screens */
 .wrapper {
   width: 860px;
-  margin: 0 auto;
+  margin: 0 auto;          
 }
 
+/*======================*/
+/*   Content Elements   */
+/*======================*/
+
+/* Blockquote styling with left border accent */
 blockquote {
   border-left: 1px solid var(--clr-splitter-blockquote-and-section);
   margin: 0;
@@ -137,11 +199,17 @@ blockquote {
   font-style: italic;
 }
 
+/*================================*/
+/*   Code & Syntax Highlighting   */
+/*================================*/
+
+/* Code elements use monospace font and themed colors */
 code, pre {
   font-family: Consolas, Monaco, Bitstream Vera Sans Mono, Lucida Console, Terminal, Liberation Mono, DejaVu Sans Mono, Courier New, monospace;
   color: var(--clr-code-text);
 }
 
+/* Code blocks get background, border, and scrolling */
 pre {
   padding: 8px 15px;
   background: var(--clr-code-bg);
@@ -149,6 +217,10 @@ pre {
   border: 1px solid var(--clr-code-border);
   overflow-x: auto;
 }
+
+/*=====================*/
+/*   Card Components   */
+/*=====================*/
 
 .card {
   position: relative;
