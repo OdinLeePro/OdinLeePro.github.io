@@ -222,6 +222,7 @@ pre {
 /*   Card Components   */
 /*=====================*/
 
+/* Project/content cards - elevated appearance with hover effects */
 .card {
   position: relative;
   padding: 10px 15px;
@@ -233,20 +234,24 @@ pre {
   transition: 0.3s;
 }
 
+/* Card headings use link color for visual hierarchy */
 .card h2, .card h3 {
   margin-bottom: 2px;
   color: var(--clr-a-text);
 }
 
+/* Card paragraphs have no margin for tighter layout */
 .card p {
   margin: 0;
 }
 
+/* Card lists align with card text */
 .card ul {
   margin-left: -1.4em;
   margin-bottom: 5px;
 }
 
+/* Invisible overlay makes entire card clickable */
 .cardLinkSpanner {
   position: absolute;
   width: 100%;
@@ -255,10 +260,16 @@ pre {
   left: 0;
 }
 
+/* Card hover effect - increases elevation */
 .card:hover {
   box-shadow: 0 4px 7px 0 rgba(0,0,0,0.2);
 }
 
+/*============*/
+/*   Tables   */
+/*============*/
+
+/* Responsive table styling */
 table {
   width: 100%;
   border-collapse: collapse;
@@ -266,21 +277,29 @@ table {
   overflow-x: auto;
 }
 
+/* Table cell styling with bottom borders */
 th, td {
   text-align: left;
   padding: 5px 10px;
   border-bottom: 1px solid var(--clr-splitter-blockquote-and-section);
 }
 
+/* Definition term styling */
 dt {
   color: var(--clr-table-header-and-dt);
   font-weight: 700;
 }
 
+/* Table headers use same color as definition terms */
 th {
   color: var(--clr-table-header-and-dt);
 }
 
+/*========================*/
+/*   Keyboard Shortcuts   */
+/*========================*/
+
+/* Keyboard key styling - mimics physical keys */
 kbd {
   background-color: var(--clr-kbd-bg) ;
   border: 1px solid var(--clr-kbd-border);
@@ -295,6 +314,11 @@ kbd {
   vertical-align: middle;
 }
 
+/*================================*/
+/*   Sidebar (Left Side) Layout   */
+/*================================*/
+
+/* Fixed left sidebar containing profile and navigation */
 .leftSide {
   width: 250px;
   float: left;
@@ -311,21 +335,29 @@ kbd {
   -ms-overflow-style: -ms-autohiding-scrollbar;
 }
 
+/* Firefox-specific scrollbar hiding */
 @-moz-document url-prefix() {
   .leftSide {
     scrollbar-width: none;
   }
 }
 
+/* Webkit scrollbar hiding for sidebar */
 .leftSide::-webkit-scrollbar {
   display: none;
 }
 
+/* Bold text uses heading color for consistency */
 strong {
   color: var(--clr-h1-and-bold);
   font-weight: 700;
 }
 
+/*=======================*/
+/*   Main Content Area   */
+/*=======================*/
+
+/* Main content section - floats right of sidebar */
 section {
   width: 550px;
   float: right;
@@ -333,15 +365,18 @@ section {
   margin: 0 0 20px;
 }
 
+/* Last section doesn't need bottom margin */
 section:last-of-type {
   border-bottom: none;
   margin-bottom: 0;
 }
 
+/* Small text size for dates, captions, etc. */
 small {
   font-size: 11px;
 }
 
+/* Horizontal rule styling */
 hr {
   border: 0;
   background: var(--clr-splitter-blockquote-and-section);
@@ -350,10 +385,16 @@ hr {
   margin: 10px auto 20px;
 }
 
+/* Sidebar heading styling */
 .sidebarH3 {
   margin: 0 0 0.25em;
 }
 
+/*================================*/
+/*   Responsive Design - Tablet   */
+/*================================*/
+
+/* Medium screen adjustments (tablet landscape) */
 @media print, screen and (max-width: 960px) {
   .wrapper {
     width: 610px;
@@ -369,6 +410,11 @@ hr {
   }
 }
 
+/*================================*/
+/*   Responsive Design - Mobile   */
+/*================================*/
+
+/* Small screen adjustments (tablet portrait and mobile) */
 @media print, screen and (max-width: 720px) {
   body {
     word-wrap: break-word;
@@ -382,15 +428,18 @@ hr {
   header ul, header p.view {
     position: static;
   }
-  
+
+  /* Hide desktop navigation */
   .linkWrapperDesktop {
     display: none !important;
   }
 
+  /* Show mobile navigation */
   .linkWrapperMobile {
     display:block !important;
   }
 
+  /* Convert sidebar to stacked layout */
   .leftSide {
     float: none;
     position: static;
@@ -401,11 +450,13 @@ hr {
     overflow: initial;    
   }
 
+  /* Full-width wrapper for mobile */
   div.wrapper {
     width: auto;
     margin: 0;
   }
 
+  /* All layout elements become full-width blocks */
   header, section, .wrapper {
     float: none;
     position: static;
@@ -413,10 +464,12 @@ hr {
     overflow-x: hidden;
   }
 
+  /* Mobile header section padding */
    .leftSideHeaderMobile section {
     padding: 20px 0;
   }
 
+  /* Hide desktop header, show mobile header */
   .leftSideHeader {
     display: none;
   }
@@ -425,20 +478,24 @@ hr {
     display: block;
   }
 
+  /* Mobile header title styling */
   .leftSideHeaderMobile h1 {
     margin: 15px 0 15px;
     line-height: 1.1;
   }
-  
+
+  /* Mobile link display adjustment */
   header a small {
     display: inline;
   }
 
+  /* Mobile navigation positioning */
   header ul {
     right: 50px;
     top: 52px;
   }
 
+  /* Mobile headshot positioning and sizing */
   .headshot {
     float: right;
     width: 110px;
@@ -446,18 +503,28 @@ hr {
     margin-bottom: 0px;
   }
 
+  /* Prevent code wrapping issues on mobile */
   pre, code {
     word-wrap: normal;
   }
 }
 
+/*======================================*/
+/*   Responsive Design - Small Mobile   */
+/*======================================*/
 
+/* Extra small screens (mobile portrait) */
 @media print, screen and (max-width: 480px) {
   body {
     padding: 15px;
   }
 }
 
+/*==================*/
+/*   Print Styles   */
+/*==================*/
+
+/* Print-specific styling for resume/portfolio printing */
 @media print {
   body {
     padding: 0.4in;
