@@ -8,9 +8,41 @@
 /* Import minimal Jekyll theme base styles */
 @import "jekyll-theme-minimal.scss";
 
-/* Desktop link wrapper and links styling */
+/*                                                    */
+/*  Left Side Icon and links (Github, LinkedIn, ...)  */
+/*                                                    */
+
 .linkWrapperDesktop .link a {
-  font-size: 20px;
+  font-size: 18px;
+  display: inline-block;          /* Makes it behave like a button */
+  padding: 10px 16px;             /* Internal spacing */
+  background-color: #f6f8fa;      /* Light gray background */
+  border: 1px solid #d1d9e0;      /* Border */
+  border-radius: 6px;             /* Rounded corners */
+  text-decoration: none;          /* Remove underline */
+  color: #24292f;                 /* Dark text color */
+  text-align: center;             /* Center the text */
+  transition: background-color 0.2s ease; /* Smooth hover effect */
+  margin: 4px 0;                  /* Small vertical spacing between buttons */
+  width: 100%;                    /* Full width of container */
+  box-sizing: border-box;         /* Include padding in width calculation */
+}
+
+/* Hover effect */
+.linkWrapperDesktop .link a:hover {
+  background-color: #f3f4f6;      /* Slightly darker on hover */
+  border-color: #c9d1d9;          /* Darker border on hover */
+}
+
+/* Stack the buttons vertically */
+.linkWrapperDesktop .link {
+  list-style: none;               /* Remove bullet points */
+  padding: 0;                     /* Remove default padding */
+  margin: 0;                      /* Remove default margin */
+}
+
+.linkWrapperDesktop .link li {
+  margin: 6px 0;                  /* Space between button items */
 }
 
 /*===========================*/
