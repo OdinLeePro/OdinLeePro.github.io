@@ -1,17 +1,22 @@
 ---
 ---
 
+/*=============*/
+/*   Import   */
+/*=============*/
+
+/* Import minimal Jekyll theme base styles */
 @import "jekyll-theme-minimal.scss";
 
-/*=============*/
-/*   Desktop   */
-/*=============*/
+/*===========================*/
+/*   Desktop Layout Styles   */
+/*===========================*/
 
-/*             */
-/*  Education  */
-/*             */
+/*                     */
+/*  Education Section  */
+/*                     */
 
-/* Grid */
+/* Container grid for education cards - vertical stack with centered alignment */
 .educationGrid {
   display: flex;
   flex-direction: column;
@@ -19,7 +24,7 @@
   align-items: center;   /* center all cards horizontally */
 }
 
-/* Card */
+/* Individual education card styling - horizontal layout with logo and text */
 .educationCard {
   display: flex;
   flex-direction: row-reverse;
@@ -35,10 +40,12 @@
   margin: 0 auto;    
 }
 
-/* Text */
-.educationText { flex: 1; }
+/* Text content area within education card - flexible to fill available space */
+.educationText { 
+  flex: 1; 
+}
 
-/* Logo */
+/* Logo container and image styling for education cards */
 .educationLogo img {
   display: block;
   width: 80px;
@@ -46,11 +53,11 @@
   object-fit: contain;
 }
 
-/*             */
-/*   Project   */
-/*             */
+/*                     */
+/*   Project Section   */
+/*                     */
 
-/* Grid */
+/* Grid container for project cards - responsive auto-fit layout */
 .projectGrid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -58,7 +65,7 @@
   align-items: stretch;
 }
 
-/* Card */
+/* Individual project card - grid layout with image and content sections */
 .projectCard {
   display: grid;
   grid-template-rows: auto 1fr;
@@ -72,22 +79,25 @@
   outline: none; /* we’ll use focus-visible below */
 }
 
+/* Project card hover state - slight lift effect */
 .projectCard:hover {
   transform: translateY(-3px);
   box-shadow: 0 8px 28px rgba(0,0,0,.10);
 }
 
+/* Project card focus state for keyboard navigation accessibility */
 .projectCard:focus-visible {
   box-shadow: 0 0 0 3px rgba(59,130,246,.5), 0 2px 18px rgba(0,0,0,.06);
 }
 
-/* Image */
+/* Project image container - maintains consistent aspect ratio */
 .projectImg {
   margin: 0;
   background: #f6f7fb;
   border-bottom: 1px solid rgba(0,0,0,.06);
 }
 
+/* Project image styling - responsive with consistent dimensions */
 .projectImg img {
   display: block;
   width: 100%;
@@ -95,21 +105,21 @@
   object-fit: cover;
 }
 
-/* Body */
+/* Main content area of project card - uses grid for consistent spacing */
 .projectBody {
   display: grid;
   gap: .6rem;
   padding: 1rem 1rem 1.1rem;
 }
 
-/* Title */
+/* Project title styling - prominent but not overwhelming */
 .projectTitle {
   margin: 0;
   font-size: 1.05rem;
   line-height: 1.3;
 }
 
-/* Languages */
+/* Container for programming language badges */
 .languageBadges {
   display: flex;
   flex-wrap: wrap;
@@ -119,6 +129,7 @@
   padding: 0;
 }
 
+/* Individual language badge styling - pill-shaped indicators */
 .languageBadges li {
   font-size: .78rem;
   padding: .25rem .5rem;
@@ -127,24 +138,29 @@
   border: 1px solid #e0e7ff;
 }
 
-/* Summary & Bullets */
+/* Project summary text and bullet points styling */
 .projectSummary {
   margin: 0;
   color: #444;
 }
 
+/* Bullet list within project cards */
 .projectBullets {
   margin: .25rem 0 0;
   padding-left: 1rem;
   color: #333;
 }
 
-.projectBullets li { margin: .2rem 0; }
+/* Individual bullet point spacing */
+.projectBullets li { 
+  margin: .2rem 0; 
+}
 
-/*============*/
-/*   Mobile   */
-/*============*/
+/*==============================*/
+/*   Mobile Responsive Styles   */
+/*==============================*/
 
+/* Mobile-specific adjustments for smaller screens */
 @media (max-width: 520px) {
   .projectBody { padding: .9rem; }
   .projectTitle { font-size: 1rem; }
