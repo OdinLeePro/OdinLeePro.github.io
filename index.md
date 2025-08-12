@@ -171,12 +171,8 @@ title: Portfolio
               <i class="fa-brands fa-r-project skill-icon"></i>
               <i class="fa-solid fa-database skill-icon"></i>
           </div>
-          <ul class="skillsBullets">
-              <li>Python</li>
-              <li>SQL</li>
-              <li>R</li>
-              <li>Java</li>
-          </ul>
+            <p>I primarily use <strong>Python</strong>, <strong>SQL</strong>, and <strong>R</strong> for data analysis, statistical modeling, and machine learning. Python is my main language for data wrangling, visualization, and predictive modeling, while R is often used for statistical analysis and advanced visualizations. I also have experience with <strong>Java</strong> from coursework in algorithms and data structures, giving me a strong foundation in computational problem-solving.
+            </p>
       </div>
   
       <div class="skill-card">
@@ -186,16 +182,8 @@ title: Portfolio
               <i class="fa-brands fa-aws skill-icon"></i>
               <i class="fa-solid fa-file-excel skill-icon"></i>
           </div>
-          <ul class="skillsBullets">
-              <li>Tableau</li>
-              <li>Oracle SQL Developer</li>
-              <li>Oracle Data Modeler</li>
-              <li>Git/Github</li>
-              <li>Jupyter Notebook</li>
-              <li>R Studio</li>
-              <li>Excel</li>
-              <li>AWS (EC2, S3, RDS, Lambda)</li>
-          </ul>
+            <p>I work with <strong>Tableau</strong> to design interactive dashboards and <strong>Oracle SQL Developer</strong> for database management and querying. My development workflow often takes place in <strong>Jupyter Notebook</strong> or <strong>RStudio</strong>, supported by <strong>Git/GitHub</strong> for version control. I also have experience with <strong>AWS</strong> services such as <strong>EC2</strong> and <strong>S3</strong> for deploying and managing cloud-based solutions.
+            </p>      
       </div>
   
       <div class="skill-card">
@@ -205,30 +193,8 @@ title: Portfolio
               <i class="fa-solid fa-table skill-icon"></i>
               <i class="fa-solid fa-code skill-icon"></i>
           </div>
-          <div class="skills-section">
-              <h3>Python</h3>
-              <ul class="skillsBullets">
-                  <li>pandas</li>
-                  <li>NumPy</li>
-                  <li>Matplotlib</li>
-                  <li>Seaborn</li>
-                  <li>Plotly</li>
-              </ul>
-              <h3>R</h3>
-              <ul class="skillsBullets">
-                  <li>dplyr</li>
-                  <li>tidyr</li>
-                  <li>readr</li>
-                  <li>stringr</li>
-                  <li>ggplot2</li>
-                  <li>plotly</li>
-                  <li>leaflet</li>
-                  <li>stats</li>
-                  <li>car</li>
-                  <li>shiny</li>
-                  <li>Quarto</li>
-              </ul>
-          </div>
+            <p>In Python, I frequently use <strong>pandas</strong>, <strong>NumPy</strong>, <strong>Matplotlib</strong>, <strong>Seaborn</strong>, and <strong>Plotly</strong> for data wrangling, visualization, and analysis. In R, I work with <strong>dplyr</strong>, <strong>ggplot2</strong>, and <strong>shiny</strong> for data manipulation, advanced visualizations, and building interactive applications. I also use <strong>Quarto</strong> for creating reproducible and well-documented data reports.
+            </p>
       </div>
   
       <div class="skill-card">
@@ -238,18 +204,8 @@ title: Portfolio
               <i class="fa-solid fa-chart-pie skill-icon"></i>
               <i class="fa-solid fa-diagram-project skill-icon"></i>
           </div>
-          <ul class="skillsBullets">
-              <li>Data Wrangling & Cleaning</li>
-              <li>Exploratory Data Analysis</li>
-              <li>Statistical Modeling & Inference</li>
-              <li>Algorithmic Problem-Solving</li>
-              <li>Data Visualization & Storytelling</li>
-              <li>Database Management & Design</li>
-              <li>Cloud-Based Data Solutions</li>
-              <li>Python Programming for Data Science</li>
-              <li>Data Preparation & Feature Engineering</li>
-              <li>Version Control & Collaboration</li>
-          </ul>
+            <p>I am skilled in <strong>data wrangling and cleaning</strong>, <strong>exploratory data analysis</strong>, and <strong>statistical modeling</strong> to uncover and communicate insights. My work often involves <strong>data visualization</strong>, <strong>feature engineering</strong>, and <strong>database management and design</strong>. I also have experience implementing <strong>cloud-based data solutions</strong> and maintaining best practices for <strong>version control and collaboration</strong>.
+            </p>      
       </div>
   </div>
 </section>
