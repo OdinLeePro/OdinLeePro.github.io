@@ -13,7 +13,7 @@ title: Portfolio
     I’m Odin Lee, a data scientist from <strong>St. Paul, Minnesota</strong>, with a strong academic background and a passion for turning data into insight.
   </p>
   <p>
-    I’m currently pursuing a <strong>Master of Science in Data Science</strong> at the <strong>University of St. Thomas</strong>, building on my <strong>Bachelor’s degree in Data Science</strong> from <strong>Augsburg University</strong>. Throughout my academic journey, I’ve gained hands-on experience in data analytics, statistical modeling, and programming.
+    I’m currently pursuing a <strong>Master of Science degree in Data Science</strong> at the <strong>University of St. Thomas</strong>, building on my <strong>Bachelor’s degree in Data Science</strong> from <strong>Augsburg University</strong>. Throughout my academic journey, I’ve gained hands-on experience in data analytics, statistical modeling, and programming.
   </p>
   <p>
     Skilled in <strong>Python</strong>, <strong>SQL</strong>, <strong>R</strong>, <strong>Java</strong>, and <strong>Tableau</strong>, I enjoy transforming complex datasets into clear, actionable insights that drive meaningful outcomes.
@@ -165,10 +165,45 @@ title: Portfolio
 
 <section class="skills">
   <h1>Skills</h1>
-  <ul class="skillList">
-    <li><strong>Programming Languages:</strong> Python, R, SQL, Java</li>
-    <li><strong>Data Visualization:</strong> Tableau, Matplotlib, Seaborn, ggplot2, Plotly, Leaflet</li>
-    <li><strong>Data Wrangling & Analysis:</strong> NumPy, Pandas, tidyr, dplyr, tidyverse, stringr</li>
-    <li><strong>Databases & Modeling:</strong> Oracle SQL Developer, Oracle Data Modeler</li>
-  </ul>
+  <div class="skills-grid">
+      <div class="skill-card">
+          <h2>Analyzing</h2>
+          <div class="skill-icons">
+              <i class="fa-solid fa-file-csv skill-icon"></i>
+              <i class="fa-solid fa-microscope skill-icon"></i>
+              <i class="fa-solid fa-chart-column skill-icon"></i>
+          </div>
+          <p>In a wide range of subject areas, I have analyzed structured and unstructured data to extract actionable business insights. I love to craft stunning and clever visualizations that illustrate surprising results.</p>
+      </div>
+  
+      <div class="skill-card">
+          <h2>Programming</h2>
+          <div class="skill-icons">
+              <i class="fa-brands fa-python skill-icon"></i>
+              <i class="fa-brands fa-r-project skill-icon"></i>
+              <i class="fa-solid fa-database skill-icon"></i>
+          </div>
+          <p>Proficient in Python, R, SQL, and Java for data analysis, statistical computing, and application development.</p>
+      </div>
+  
+      <div class="skill-card">
+          <h2>Data Visualization</h2>
+          <div class="skill-icons">
+              <i class="fa-solid fa-chart-pie skill-icon"></i>
+              <i class="fa-solid fa-chart-line skill-icon"></i>
+              <i class="fa-solid fa-map skill-icon"></i>
+          </div>
+          <p>Expert in creating compelling visualizations using Tableau, Matplotlib, Seaborn, ggplot2, Plotly, and Leaflet.</p>
+      </div>
+  
+      <div class="skill-card">
+          <h2>Data Analysis</h2>
+          <div class="skill-icons">
+              <i class="fa-solid fa-magnifying-glass skill-icon"></i>
+              <i class="fa-solid fa-table skill-icon"></i>
+              <i class="fa-solid fa-gears skill-icon"></i>
+          </div>
+          <p>Skilled in data wrangling and analysis using NumPy, Pandas, tidyr, dplyr, tidyverse, and stringr libraries.</p>
+      </div>
+  </div>
 </section>
