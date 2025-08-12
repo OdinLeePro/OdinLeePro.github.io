@@ -54,7 +54,6 @@ title: Portfolio
 
 <section class="projects">
   <h1>Projects</h1>
-
   <div class="projectGrid">
     <!-- Project 1: Real -->
     <a class="projectCard"
@@ -155,7 +154,6 @@ title: Portfolio
         </ul>
       </div>
     </a>
-
   </div>
 </section>
 
@@ -167,86 +165,90 @@ title: Portfolio
   <h1>Skills</h1>
   <div class="skills-grid">
       <div class="skill-card">
-          <h2>Programming Langueges</h2>
+          <h2>Programming Languages</h2>
           <div class="skill-icons">
-              <i class="fa-brands fa-python"></i>
-              <i class="fa-brands fa-r-project"></i>
-              <i class="fa-solid fa-database"></i>
+              <i class="fa-brands fa-python skill-icon"></i>
+              <i class="fa-brands fa-r-project skill-icon"></i>
+              <i class="fa-solid fa-database skill-icon"></i>
           </div>
           <ul class="skillsBullets">
-            <li>Python</li>
-            <li>SQL</li>
-            <li>R</li>
-            <li>Java</li>
+              <li>Python</li>
+              <li>SQL</li>
+              <li>R</li>
+              <li>Java</li>
           </ul>
       </div>
   
       <div class="skill-card">
           <h2>Tools/Technologies</h2>
           <div class="skill-icons">
-              <i class="fa-brands fa-github"></i>
-              <i class="fa-brands fa-aws"></i>
-              <i class="fa-solid fa-file-excel"></i>
+              <i class="fa-brands fa-github skill-icon"></i>
+              <i class="fa-brands fa-aws skill-icon"></i>
+              <i class="fa-solid fa-file-excel skill-icon"></i>
           </div>
           <ul class="skillsBullets">
-            <li>Tableau</li>
-            <li>Oracle SQL Developer</li>
-            <li>Oracle Data Modeler</li>
-            <li>Git/Github</li>
-            <li>Jupyter Notebook</li>
-            <li>R Studio</li>
-            <li>Excel</li>
-            <li>AWS (EC2, S3, RDS, Lambda)</li>
+              <li>Tableau</li>
+              <li>Oracle SQL Developer</li>
+              <li>Oracle Data Modeler</li>
+              <li>Git/Github</li>
+              <li>Jupyter Notebook</li>
+              <li>R Studio</li>
+              <li>Excel</li>
+              <li>AWS (EC2, S3, RDS, Lambda)</li>
           </ul>
       </div>
   
       <div class="skill-card">
           <h2>Frameworks & Libraries</h2>
           <div class="skill-icons">
-              <i class="fa-solid fa-chart-column"></i>
-              <i class="fa-solid fa-table"></i>
-              <i class="fa-solid fa-code"></i>
+              <i class="fa-solid fa-chart-column skill-icon"></i>
+              <i class="fa-solid fa-table skill-icon"></i>
+              <i class="fa-solid fa-code skill-icon"></i>
           </div>
-          <ul class="skillsBullets">
-            <h1>Python</h1>
-              <li>pandas</li>
-              <li>NumPy</li>
-              <li>Matplotlib</li>
-              <li>Seaborn</li>
-              <li>Plotly</li>
-            <h1>Python</h1>
-              <li>dplyr</li>
-              <li>tidyr</li>
-              <li>readr</li>
-              <li>stringr</li>
-              <li>ggplot2</li>
-              <li>plotly</li>
-              <li>leaflet</li>
-              <li>stats</li>
-              <li>car</li>
-              <li>shiny</li>
-              <li>Quatro</li>
-          </ul>      
+          <div class="skills-section">
+              <h3>Python</h3>
+              <ul class="skillsBullets">
+                  <li>pandas</li>
+                  <li>NumPy</li>
+                  <li>Matplotlib</li>
+                  <li>Seaborn</li>
+                  <li>Plotly</li>
+              </ul>
+              <h3>R</h3>
+              <ul class="skillsBullets">
+                  <li>dplyr</li>
+                  <li>tidyr</li>
+                  <li>readr</li>
+                  <li>stringr</li>
+                  <li>ggplot2</li>
+                  <li>plotly</li>
+                  <li>leaflet</li>
+                  <li>stats</li>
+                  <li>car</li>
+                  <li>shiny</li>
+                  <li>Quarto</li>
+              </ul>
+          </div>
       </div>
   
       <div class="skill-card">
           <h2>Data Science Skills</h2>
           <div class="skill-icons">
-              <i class="fa-solid fa-server"></i>
-              <i class="fa-solid fa-chart-pie"></i>
-              <i class="fa-solid fa-diagram-project"></i>
+              <i class="fa-solid fa-server skill-icon"></i>
+              <i class="fa-solid fa-chart-pie skill-icon"></i>
+              <i class="fa-solid fa-diagram-project skill-icon"></i>
           </div>
           <ul class="skillsBullets">
-            <li>Data Wrangling & Cleaning</li>
-            <li>Exploratory Data Analysis</li>
-            <li>Statistical Modeling & Inference</li>
-            <li>Algorithmic Problem-Solving</li>
-            <li>Data Visualization & Storytelling</li>
-            <li>Database Management & Design</li>
-            <li>Cloud-Based Data Solutions</li>
-            <li>Python Programming for Data Science</li>
-            <li>Data Preperation & Feature Engineering</li>
-            <li>Version Control & Colaboration</li>
+              <li>Data Wrangling & Cleaning</li>
+              <li>Exploratory Data Analysis</li>
+              <li>Statistical Modeling & Inference</li>
+              <li>Algorithmic Problem-Solving</li>
+              <li>Data Visualization & Storytelling</li>
+              <li>Database Management & Design</li>
+              <li>Cloud-Based Data Solutions</li>
+              <li>Python Programming for Data Science</li>
+              <li>Data Preparation & Feature Engineering</li>
+              <li>Version Control & Collaboration</li>
           </ul>
       </div>
   </div>
