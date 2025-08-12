@@ -253,61 +253,6 @@
     font-size: 1rem;
 }
 
-.skillsBullets {
-    list-style: none;
-    padding: 0;
-    text-align: left;
-    max-width: 300px;
-    margin: 0 auto;
-}
-
-.skillsBullets li {
-    color: #666;
-    font-size: 0.95rem;
-    line-height: 1.4;
-    margin-bottom: 0.3rem;
-    padding-left: 1rem;
-    position: relative;
-}
-
-.skillsBullets li::before {
-    content: "•";
-    color: #8b4a6b;
-    font-weight: bold;
-    position: absolute;
-    left: 0;
-}
-
-.skillsBullets h1 {
-    font-size: 1.1rem;
-    font-weight: 600;
-    color: #333;
-    margin: 1rem 0 0.5rem 0;
-    padding-left: 0;
-}
-
-.skillsBullets h1::before {
-    display: none;
-}
-
-.skills-section {
-    text-align: left;
-    max-width: 300px;
-    margin: 0 auto;
-}
-
-.skills-section h3 {
-    font-size: 1.1rem;
-    font-weight: 600;
-    color: #333;
-    margin: 1rem 0 0.5rem 0;
-    text-align: center;
-}
-
-.skills-section .skillsBullets {
-    margin-bottom: 1rem;
-}
-
 /*==========================*/
 /*   Mobile Layout Styles   */
 /*==========================*/
@@ -362,6 +307,7 @@
 /*   Mobile Responsive Styles   */
 /*==============================*/
 
+/* Responsive design */
 @media (max-width: 768px) {
     .skills-grid {
         grid-template-columns: 1fr;
