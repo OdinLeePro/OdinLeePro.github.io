@@ -197,6 +197,66 @@
   margin: .2rem 0; 
 }
 
+/*                    */
+/*   Skills Section   */
+/*                    */
+
+.skills {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.skills h1 {
+    text-align: center;
+    font-size: 2.5rem;
+    color: #333;
+    margin-bottom: 3rem;
+    font-weight: 300;
+}
+
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    gap: 0.25rem;
+    margin-top: 2rem;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.skill-card {
+    background: transparent;
+    padding: 2.5rem;
+    text-align: center;
+}
+
+.skill-card h2 {
+    font-size: 1.8rem;
+    color: #333;
+    margin-bottom: 1.5rem;
+    font-weight: 400;
+}
+
+.skill-icons {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    margin-bottom: 1.5rem;
+    flex-wrap: wrap;
+}
+
+.skill-icon {
+    color: #8b4a6b;
+    font-size: 3rem;
+}
+
+.skill-card p {
+    color: #666;
+    line-height: 1.6;
+    font-size: 1rem;
+}
+
 /*==========================*/
 /*   Mobile Layout Styles   */
 /*==========================*/
@@ -250,6 +310,22 @@
 /*==============================*/
 /*   Mobile Responsive Styles   */
 /*==============================*/
+
+@media (max-width: 768px) {
+    .skills-grid {
+        grid-template-columns: 1fr;
+        grid-template-rows: auto;
+        gap: 2rem;
+    }
+    
+    .skill-card {
+        padding: 1.5rem;
+    }
+    
+    .skills h1 {
+        font-size: 2rem;
+    }
+}
 
 /* Mobile-specific adjustments for smaller screens */
 @media (max-width: 520px) {
