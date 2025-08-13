@@ -227,16 +227,16 @@
     margin-top: 2rem;
 }
 
-.skill-section {
+.skill-card {
     position: relative;
     transition: all 0.3s ease;
 }
 
-.skill-section:hover {
+.skill-card:hover {
     transform: translateY(-2px);
 }
 
-.skill-section h2 {
+.skill-card h2 {
     color: #334155;
     margin-bottom: 1rem;
     font-size: 1.3rem;
@@ -245,7 +245,7 @@
     padding-left: 1rem;
 }
 
-.skill-section h2::before {
+.skill-card h2::before {
     content: '';
     position: absolute;
     left: 0;
@@ -279,7 +279,7 @@
     transform: scale(1.1);
 }
 
-.skill-section p {
+.skill-card p {
     color: #475569;
     line-height: 1.7;
     margin: 0;
@@ -287,7 +287,7 @@
     padding-left: 1rem;
 }
 
-.skill-section strong {
+.skill-card strong {
     color: #1e293b;
     font-weight: 600;
     background: linear-gradient(135deg, #3b82f6, #8b5cf6);
@@ -297,10 +297,10 @@
 }
 
 /* Staggered animation on load */
-.skill-section:nth-child(1) { animation: slideUp 0.6s ease 0.1s both; }
-.skill-section:nth-child(2) { animation: slideUp 0.6s ease 0.2s both; }
-.skill-section:nth-child(3) { animation: slideUp 0.6s ease 0.3s both; }
-.skill-section:nth-child(4) { animation: slideUp 0.6s ease 0.4s both; }
+.skill-card:nth-child(1) { animation: slideUp 0.6s ease 0.1s both; }
+.skill-card:nth-child(2) { animation: slideUp 0.6s ease 0.2s both; }
+.skill-card:nth-child(3) { animation: slideUp 0.6s ease 0.3s both; }
+.skill-card:nth-child(4) { animation: slideUp 0.6s ease 0.4s both; }
 
 @keyframes slideUp {
     from {
@@ -312,6 +312,19 @@
         transform: translateY(0);
     }
 }
+
+/* Different icon colors for variety */
+.skill-card:nth-child(1) .skill-icon { color: #3b82f6; }
+.skill-card:nth-child(1) .skill-icon:hover { color: #1d4ed8; }
+
+.skill-card:nth-child(2) .skill-icon { color: #f59e0b; }
+.skill-card:nth-child(2) .skill-icon:hover { color: #d97706; }
+
+.skill-card:nth-child(3) .skill-icon { color: #ef4444; }
+.skill-card:nth-child(3) .skill-icon:hover { color: #dc2626; }
+
+.skill-card:nth-child(4) .skill-icon { color: #10b981; }
+.skill-card:nth-child(4) .skill-icon:hover { color: #059669; }
 
 /*==========================*/
 /*   Mobile Layout Styles   */
@@ -375,7 +388,7 @@
     }
     
     /* Alternating positioning for visual interest */
-    .skill-section:nth-child(even) {
+    .skill-card:nth-child(even) {
         margin-top: 1rem;
     }
 }
@@ -395,7 +408,7 @@
         gap: 2rem;
     }
     
-    .skill-section:nth-child(even) {
+    .skill-card:nth-child(even) {
         margin-top: 0;
     }
 }
