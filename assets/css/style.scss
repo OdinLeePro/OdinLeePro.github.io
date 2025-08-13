@@ -222,7 +222,8 @@
 
 .skills-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, 1fr);
     gap: 2rem 3rem;
     margin-top: 2rem;
 }
@@ -380,11 +381,13 @@
 /*   Mobile Responsive Styles   */
 /*==============================*/
 
-/* Masonry-like layout for larger screens */
+/* Desktop layout - 2x2 grid */
 @media (min-width: 768px) {
     .skills-grid {
         column-gap: 4rem;
         row-gap: 2.5rem;
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: repeat(2, 1fr);
     }
     
     /* Alternating positioning for visual interest */
@@ -393,7 +396,7 @@
     }
 }
 
-/* Mobile optimizations */
+/* Mobile optimizations - single column */
 @media (max-width: 767px) {
     body {
         padding: 1rem;
@@ -406,6 +409,8 @@
     
     .skills-grid {
         gap: 2rem;
+        grid-template-columns: 1fr;
+        grid-template-rows: auto;
     }
     
     .skill-card:nth-child(even) {
