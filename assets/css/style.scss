@@ -223,9 +223,11 @@
 .skills-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    grid-template-rows: repeat(2, 1fr);
+    grid-template-rows: repeat(2, 1fr); /* You already have this */
     gap: 2rem 3rem;
     margin-top: 2rem;
+    align-items: start; /* Add this to align content to top of each cell */
+    min-height: 400px; /* Add a minimum height to ensure equal row heights */
 }
 
 .skill-card {
