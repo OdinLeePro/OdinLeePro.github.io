@@ -1,1329 +1,437 @@
 ---
+
 ---
 
-/*=============*/
-/*   Import   */
-/*=============*/
+// =============================================
+// Portfolio Theme (Refactored & Commented SCSS)
+// ---------------------------------------------
+// HOW TO USE / QUICK TWEAKS
+// - Change COLORS in the Variables section below (brand hues, text, borders)
+// - Adjust RADIUS & SHADOWS in Variables
+// - Section spacing/layout lives under Mixins & Utilities + per-section blocks
+// - Animations use a single `slideUp` (timing set via nth-child or loops)
+// - Mobile/Tablet/Desktop rules are at the bottom (Media Queries)
+// - Dark Mode tweaks live in the `prefers-color-scheme: dark` block
+//
+// TIP: Search for "CUSTOMIZE:" comments to find likely tweak points fast.
+// =============================================
 
-/* Import minimal Jekyll theme base styles */
-
+/*=============*/
+/*   Imports   */
+/*=============*/
 @import "jekyll-theme-minimal.scss";
 
-/*===========================*/
-/*   Desktop Layout Styles   */
-/*===========================*/
+// =====================
+// Variables (CUSTOMIZE)
+// =====================
+// Fonts, sizes, colors, radii, shadows. Most brand & color changes happen here.
+$font-system: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+$max-width: 1000px; // Max content width for sections
+$radius-md: 8px;    // Base rounded corners (buttons/sections)
+$radius-lg: 12px;   // Larger corners (cards)
 
-/*                                                    */
-/*  Left Side Icon and links (Github, LinkedIn, ...)  */
-/*                                                    */
+// Base surfaces & text
+$surface: #ffffff;
+$panel: #f8fafc;    // Section background (light)
+$text: #475569;     // Body text (slate-600)
+$heading: #334155;  // H2 style text (slate-700)
+$title: #1e293b;    // H1 / strong accents (slate-800)
+$muted: #64748b;    // Secondary text
+$border: rgba(148, 163, 184, 0.3); // Soft border color
 
-/* Enhanced link wrapper with modern styling */
+// Shadows (CUSTOMIZE intensity)
+$shadow-sm: 0 2px 4px -1px rgba(0, 0, 0, 0.1);
+$shadow-md: 0 4px 6px -1px rgba(0,0,0,.1), 0 2px 4px -1px rgba(0,0,0,.06);
+$shadow-lg: 0 20px 25px -5px rgba(0,0,0,.1), 0 10px 10px -5px rgba(0,0,0,.04);
+
+// Brand colors (CUSTOMIZE palette)
+$brand-blue: #3b82f6;        // primary blue
+$brand-blue-deep: #1d4ed8;   // deeper blue for accents
+$brand-purple: #8b5cf6;      // secondary gradient color
+$brand-amber: #f59e0b;       // accent 2
+$brand-amber-deep: #d97706;
+$brand-red: #ef4444;         // accent 3
+$brand-red-deep: #dc2626;
+$brand-green: #10b981;       // accent 4
+$brand-green-deep: #059669;
+
+// Dark mode colors
+$dark-surface: rgba(30, 41, 59, 0.9);
+$dark-panel: rgba(15, 23, 42, 0.8);
+$dark-border: rgba(71, 85, 105, 0.3);
+$dark-text: #cbd5e1;        // light text
+$dark-text-strong: #f1f5f9; // extra light text
+
+// Breakpoints
+$bp-sm: 360px; // extra small phones
+$bp-md: 520px; // small phones
+$bp-tab: 767px; // tablets and below
+$bp-desk: 768px; // tablets and above
+
+// =====================
+// Mixins & Utilities
+// =====================
+// Reusable building blocks to keep styles DRY. Adjust behavior in one place.
+@mixin gradient-accent($c1: $brand-blue, $c2: $brand-purple, $h: 3px) {
+  // Top gradient bars and accents
+  background: linear-gradient(135deg, $c1, $c2);
+  height: $h;
+}
+
+@mixin card($pad: 2rem) {
+  // Generic card container used by projects/education
+  background: $surface;
+  border-radius: $radius-lg;
+  box-shadow: $shadow-md;
+  transition: all 0.3s ease;
+  padding: $pad;
+  position: relative;
+  overflow: hidden;
+}
+
+@mixin focus-ring {
+  // High-visibility accessible focus style
+  box-shadow: 0 0 0 3px rgba($brand-blue, 0.5), $shadow-sm;
+}
+
+@mixin section-base($pad: 2rem) {
+  // Shared section look (About/Education/Projects/Skills)
+  font-family: $font-system;
+  line-height: 1.6;
+  max-width: $max-width;
+  margin: 0 auto;
+  padding: $pad;
+  background: $panel;
+  border-radius: $radius-md;
+  transition: all 0.3s ease;
+  border: 1px solid transparent;
+}
+
+// Apply staggered delays to children (e.g., li, cards)
+@mixin stagger($count, $delay-start: 0.1s, $step: 0.1s, $prop: animation-delay) {
+  @for $i from 1 through $count {
+    &:nth-child(#{$i}) { #{$prop}: calc(#{$delay-start} + (#{$i - 1} * #{$step})); }
+  }
+}
+
+// Animations (single source of truth)
+@keyframes slideUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
+@keyframes slideInLeft { from { opacity: 0; transform: translateX(-20px); } to { opacity: 1; transform: translateX(0); } }
+@keyframes fadeInImage { from { opacity: 0; transform: scale(0.95); } to { opacity: 1; transform: scale(1); } }
+
+// =====================
+// Global helpers
+// =====================
+.section { @include section-base(); }
+.section:hover { border-color: rgba($brand-blue, 0.1); transform: translateY(-2px); box-shadow: 0 10px 25px -5px rgba(0,0,0,.1), 0 4px 6px -2px rgba(0,0,0,.05); }
+
+// Shared title styles (CUSTOMIZE sizes)
+h1.section-title { text-align: center; font-size: clamp(1.8rem, 4vw, 2.5rem); margin-bottom: 3rem; color: $title; font-weight: 700; }
+
+// Section/Card subtitles (left accent bar)
+.sub-title {
+  margin: 0;
+  font-size: clamp(1.1rem, 2.5vw, 1.3rem);
+  line-height: 1.3;
+  font-weight: 600;
+  color: $heading;
+  position: relative;
+  padding-left: 1rem;
+  &::before { content: ''; position: absolute; left: 0; top: 50%; transform: translateY(-50%); width: 4px; height: 20px; @include gradient-accent($brand-blue, $brand-purple); border-radius: 2px; }
+}
+
+.text-body { color: #374151; } // slightly darker body text for better contrast
+
+// =====================
+// Link Wrappers (Desktop & Mobile)
+// =====================
+// Shared button-like link styles for reuse
+%link-button {
+  font-weight: 500;
+  display: inline-block;
+  background: $surface;
+  border: 1px solid $border;
+  border-radius: $radius-md;
+  text-decoration: none;
+  color: $text;
+  text-align: center;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  box-shadow: $shadow-sm;
+  &:hover { background: linear-gradient(135deg, #f8fafc, #f1f5f9); border-color: rgba($brand-blue, 0.3); color: #334155; transform: translateY(-2px); box-shadow: 0 8px 25px -5px rgba(0,0,0,.15), 0 4px 6px -2px rgba(0,0,0,.05); }
+  &:focus-visible { outline: none; @include focus-ring; }
+  &::before { content: ''; position: absolute; top: 0; left: 0; right: 0; @include gradient-accent($brand-blue, $brand-purple, 3px); transform: translateY(-3px); transition: transform .3s ease; }
+  &:hover::before { transform: translateY(0); }
+}
+
+.linkWrapperDesktop,
+.linkWrapperMobile { font-family: $font-system; }
+
+// Desktop link stack (left sidebar buttons)
 .linkWrapperDesktop {
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+  .link { list-style: none; padding: 0; margin: 0; }
+  .link li { margin: 8px 0; opacity: 0; transform: translateX(-20px); animation: slideInLeft .5s ease forwards; }
+  .link li { @include stagger(5, .1s, .1s); }
+  .link a { @extend %link-button; font-size: 16px; padding: 12px 18px; width: 100%; box-sizing: border-box; }
+
+  // Platform accent bars (left border) — update colors here if needed
+  .link a[href*="github"]   { border-left: 3px solid #24292f; }
+  .link a[href*="linkedin"] { border-left: 3px solid #0077b5; }
+  .link a[href*="twitter"]  { border-left: 3px solid #1da1f2; }
+  .link a[href*="email"],
+  .link a[href*="mailto"]   { border-left: 3px solid #ea4335; }
+  .link a:not([href*="github"]):not([href*="linkedin"]):not([href*="twitter"]):not([href*="email"]):not([href*="mailto"]) {
+    border-left: 3px solid; border-image: linear-gradient(135deg, $brand-blue, $brand-purple) 1;
+  }
 }
 
-.linkWrapperDesktop .link a {
-    font-size: 16px;
-    font-weight: 500;
-    display: inline-block;
-    padding: 12px 18px;
-    background: #ffffff;
-    border: 1px solid rgba(148, 163, 184, 0.3);
-    border-radius: 8px;
-    text-decoration: none;
-    color: #475569;
-    text-align: center;
-    transition: all 0.3s ease;
-    margin: 6px 0;
-    width: 100%;
-    box-sizing: border-box;
-    position: relative;
-    overflow: hidden;
-    box-shadow: 0 2px 4px -1px rgba(0, 0, 0, 0.1);
-}
-
-/* Add gradient accent on hover */
-.linkWrapperDesktop .link a::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 3px;
-    background: linear-gradient(135deg, #3b82f6, #8b5cf6);
-    transform: translateY(-3px);
-    transition: transform 0.3s ease;
-}
-
-/* Enhanced hover effect */
-.linkWrapperDesktop .link a:hover {
-    background: linear-gradient(135deg, #f8fafc, #f1f5f9);
-    border-color: rgba(59, 130, 246, 0.3);
-    color: #334155;
-    transform: translateY(-2px);
-    box-shadow: 0 8px 25px -5px rgba(0, 0, 0, 0.15), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
-}
-
-.linkWrapperDesktop .link a:hover::before {
-    transform: translateY(0);
-}
-
-/* Focus state for accessibility */
-.linkWrapperDesktop .link a:focus-visible {
-    outline: none;
-    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.5), 0 2px 4px -1px rgba(0, 0, 0, 0.1);
-}
-
-/* Stack the buttons vertically with enhanced styling */
-.linkWrapperDesktop .link {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-}
-
-.linkWrapperDesktop .link li {
-    margin: 8px 0;
-    opacity: 0;
-    transform: translateX(-20px);
-    animation: slideInLeft 0.5s ease forwards;
-}
-
-/* Staggered animation for links */
-.linkWrapperDesktop .link li:nth-child(1) { animation-delay: 0.1s; }
-.linkWrapperDesktop .link li:nth-child(2) { animation-delay: 0.2s; }
-.linkWrapperDesktop .link li:nth-child(3) { animation-delay: 0.3s; }
-.linkWrapperDesktop .link li:nth-child(4) { animation-delay: 0.4s; }
-.linkWrapperDesktop .link li:nth-child(5) { animation-delay: 0.5s; }
-
-@keyframes slideInLeft {
-    from {
-        opacity: 0;
-        transform: translateX(-20px);
-    }
-    to {
-        opacity: 1;
-        transform: translateX(0);
-    }
-}
-
-/* Special styling for different link types */
-.linkWrapperDesktop .link a[href*="github"] {
-    border-left: 3px solid #24292f;
-}
-
-.linkWrapperDesktop .link a[href*="linkedin"] {
-    border-left: 3px solid #0077b5;
-}
-
-.linkWrapperDesktop .link a[href*="twitter"] {
-    border-left: 3px solid #1da1f2;
-}
-
-.linkWrapperDesktop .link a[href*="email"],
-.linkWrapperDesktop .link a[href*="mailto"] {
-    border-left: 3px solid #ea4335;
-}
-
-/* Default gradient accent for other links */
-.linkWrapperDesktop .link a:not([href*="github"]):not([href*="linkedin"]):not([href*="twitter"]):not([href*="email"]):not([href*="mailto"]) {
-    border-left: 3px solid transparent;
-    border-left: 3px solid;
-    border-image: linear-gradient(135deg, #3b82f6, #8b5cf6) 1;
-}
-
-/*               */
-/* About Section */
-/*               */
-
-/* Scope all styles to only affect the .about section */
-.about * {
-    box-sizing: border-box;
-}
-.about {
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-    line-height: 1.6;
-    max-width: 1000px;
-    margin: 0 auto;
-    padding: 2rem;
-    background: #f8fafc;
-    border-radius: 8px;
-    position: relative;
-    overflow: hidden;
-}
-/* Add subtle gradient accent at the top */
-.about::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 4px;
-    background: linear-gradient(135deg, #3b82f6, #8b5cf6);
-    z-index: 1;
-}
-.about h1 {
-    text-align: center;
-    font-size: 2.5rem;
-    margin-bottom: 3rem;
-    color: #1e293b;
-    font-weight: 700;
-    position: relative;
-    opacity: 0;
-    transform: translateY(30px);
-    animation: slideUpAbout 0.6s ease 0.1s both;
-}
-/* Enhanced paragraph styling */
-.about p {
-    font-size: 1rem;
-    line-height: 1.8;
-    color: #475569;
-    margin: 0 0 1.5rem 0;
-    position: relative;
-    padding-left: 1rem;
-    opacity: 0;
-    transform: translateY(30px);
-}
-/* Add subtle accent bar to each paragraph */
-.about p::before {
-    content: '';
-    position: absolute;
-    left: 0;
-    top: 0.5rem;
-    width: 3px;
-    height: calc(100% - 1rem);
-    background: linear-gradient(135deg, rgba(59, 130, 246, 0.3), rgba(139, 92, 246, 0.3));
-    border-radius: 2px;
-}
-/* Enhanced styling for strong elements */
-.about p strong {
-    color: #1e293b;
-    font-weight: 600;
-    background: linear-gradient(135deg, #3b82f6, #8b5cf6);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    position: relative;
-}
-/* Staggered animation for paragraphs */
-.about p:nth-child(2) { animation: slideUpAbout 0.6s ease 0.3s both; }
-.about p:nth-child(3) { animation: slideUpAbout 0.6s ease 0.5s both; }
-.about p:nth-child(4) { animation: slideUpAbout 0.6s ease 0.7s both; }
-.about p:nth-child(5) { animation: slideUpAbout 0.6s ease 0.9s both; }
-/* Slide up animation */
-@keyframes slideUpAbout {
-    from {
-        opacity: 0;
-        transform: translateY(30px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-/* Hover effect for the entire section */
-.about:hover {
-    transform: translateY(-2px);
-    transition: all 0.3s ease;
-    box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
-}
-/* Responsive adjustments */
-@media (max-width: 640px) {
-    .about {
-        padding: 1.5rem;
-    }
-    .about h1 {
-        font-size: 2rem;
-        margin-bottom: 2rem;
-    }
-    .about p {
-        padding-left: 0.8rem;
-        font-size: 0.95rem;
-    }
-    .about p::before {
-        width: 2px;
-    }
-}
-
-/*                     */
-/*  Education Section  */
-/*                     */
-
-/* Scope all styles to only affect the .education section */
-.education * {
-    box-sizing: border-box;
-}
-.education {
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-    line-height: 1.6;
-    max-width: 1000px;
-    margin: 0 auto;
-    padding: 2rem;
-    background: #f8fafc;
-    border-radius: 8px;
-}
-.education h1 {
-    text-align: center;
-    font-size: 2.5rem;
-    margin-bottom: 3rem;
-    color: #1e293b;
-    font-weight: 700;
-}
-/* Container grid for education cards - vertical stack with centered alignment */
-.educationGrid {
-    display: flex;
-    flex-direction: column;
-    gap: 2rem;
-    align-items: center;
-    margin-top: 2rem;
-}
-/* Individual education card styling - enhanced with skills section styling */
-.educationCard {
-    display: flex;
-    flex-direction: row-reverse;
-    align-items: center;
-    gap: 2rem;
-    padding: 2rem;
-    background: #ffffff;
-    border-radius: 12px;
-    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
-    transition: all 0.3s ease;
-    width: 85%;
-    max-width: 500px;
-    margin: 0 auto;
-    position: relative;
-    opacity: 0;
-    transform: translateY(30px);
-    overflow: hidden;
-}
-/* Add gradient accent border */
-.educationCard::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 4px;
-    background: linear-gradient(135deg, #3b82f6, #8b5cf6);
-    z-index: 1;
-}
-/* Enhanced hover effect */
-.educationCard:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
-}
-/* Text content area - enhanced typography */
-.educationText {
-    flex: 1;
-    position: relative;
-    padding-left: 1rem;
-}
-/* School/Institution name styling - matches project titles */
-.educationText h2 {
-    margin: 0 0 0.5rem 0;
-    font-size: 1.3rem;
-    line-height: 1.3;
-    font-weight: 600;
-    color: #334155;
-    position: relative;
-    padding-left: 1rem;
-}
-.educationText h2::before {
-    content: '';
-    position: absolute;
-    left: 0;
-    top: 50%;
-    transform: translateY(-50%);
-    width: 4px;
-    height: 20px;
-    background: linear-gradient(135deg, #3b82f6, #8b5cf6);
-    border-radius: 2px;
-}
-/* Degree/Program and date styling */
-.educationText p {
-    margin: 0.5rem 0 0 0;
-    font-size: 1rem;
-    color: #475569;
-    padding-left: 1rem;
-    line-height: 1.6;
-}
-.educationText p strong {
-    background: linear-gradient(135deg, #3b82f6, #8b5cf6);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    font-weight: 600;
-}
-.educationText p em {
-    color: #64748b;
-    font-style: italic;
-    font-size: 0.9rem;
-}
-/* Logo container - enhanced with modern styling */
-.educationLogo {
-    position: relative;
-    padding: 1rem;
-    background: linear-gradient(135deg, #f8fafc, #f1f5f9);
-    border-radius: 12px;
-    border: 1px solid rgba(148, 163, 184, 0.2);
-    transition: all 0.3s ease;
-}
-.educationCard:hover .educationLogo {
-    background: linear-gradient(135deg, #f1f5f9, #e2e8f0);
-    transform: scale(1.05);
-}
-/* Logo image styling - matches your width/height attributes */
-.educationLogo img {
-    display: block;
-    width: 60px;
-    height: 60px;
-    object-fit: contain;
-    transition: all 0.3s ease;
-    filter: grayscale(0.2);
-}
-.educationCard:hover .educationLogo img {
-    filter: grayscale(0);
-}
-/* Staggered animation on load - matches other sections */
-.educationCard:nth-child(1) { animation: slideUpEducation 0.6s ease 0.1s both; }
-.educationCard:nth-child(2) { animation: slideUpEducation 0.6s ease 0.3s both; }
-.educationCard:nth-child(3) { animation: slideUpEducation 0.6s ease 0.5s both; }
-.educationCard:nth-child(4) { animation: slideUpEducation 0.6s ease 0.7s both; }
-@keyframes slideUpEducation {
-    from {
-        opacity: 0;
-        transform: translateY(30px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-/* Consistent gradient accent for all education cards */
-.educationCard::before,
-.educationText h2::before {
-    background: linear-gradient(135deg, #3b82f6, #8b5cf6);
-}
-
-/*                     */
-/*   Project Section   */
-/*                     */
-
-/* Scope all styles to only affect the .projects section */
-.projects * {
-    box-sizing: border-box;
-}
-.projects {
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-    line-height: 1.6;
-    max-width: 1000px;
-    margin: 0 auto;
-    padding: 2rem;
-    background: #f8fafc;
-    border-radius: 8px;
-}
-.projects h1 {
-    text-align: center;
-    font-size: 2.5rem;
-    margin-bottom: 3rem;
-    color: #1e293b;
-    font-weight: 700;
-}
-/* Grid container for project cards - responsive auto-fit layout */
-.projectGrid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-    gap: 2rem;
-    align-items: stretch;
-    margin-top: 2rem;
-}
-/* Individual project card - enhanced with skills section styling */
-.projectCard {
-    display: grid;
-    grid-template-rows: auto 1fr;
-    background: #ffffff;
-    border-radius: 12px;
-    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
-    text-decoration: none;
-    color: inherit;
-    overflow: hidden;
-    transition: all 0.3s ease;
-    outline: none;
-    position: relative;
-    opacity: 0;
-    transform: translateY(30px);
-}
-/* Project card hover state - enhanced lift effect */
-.projectCard:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
-}
-/* Project card focus state for accessibility */
-.projectCard:focus-visible {
-    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.5), 0 20px 25px -5px rgba(0, 0, 0, 0.1);
-}
-/* Project image container - maintains aspect ratio */
-.projectImg {
-    margin: 0;
-    background: linear-gradient(135deg, #f1f5f9, #e2e8f0);
-    border-bottom: 1px solid rgba(148, 163, 184, 0.2);
-    position: relative;
-    overflow: hidden;
-}
-.projectImg::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 3px;
-    background: linear-gradient(135deg, #3b82f6, #8b5cf6);
-    z-index: 1;
-}
-/* Project image styling - enhanced with overlay effect */
-.projectImg img {
-    display: block;
-    width: 100%;
-    aspect-ratio: 16 / 9;
-    object-fit: cover;
-    transition: transform 0.3s ease;
-}
-.projectCard:hover .projectImg img {
-    transform: scale(1.02);
-}
-/* Main content area - enhanced spacing and layout */
-.projectBody {
-    display: grid;
-    gap: 1rem;
-    padding: 1.5rem;
-    position: relative;
-}
-/* Project title styling - matches skills section headers */
-.projectTitle {
-    margin: 0;
-    font-size: 1.3rem;
-    line-height: 1.3;
-    font-weight: 600;
-    color: #334155;
-    position: relative;
-    padding-left: 1rem;
-}
-.projectTitle::before {
-    content: '';
-    position: absolute;
-    left: 0;
-    top: 50%;
-    transform: translateY(-50%);
-    width: 4px;
-    height: 20px;
-    background: linear-gradient(135deg, #3b82f6, #8b5cf6);
-    border-radius: 2px;
-}
-/* Container for programming language badges - enhanced styling */
-.languageBadges {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.5rem;
-    list-style: none;
-    margin: 0;
-    padding: 0 0 0 1rem;
-}
-/* Individual language badge - modern pill design */
-.languageBadges li {
-    font-size: 0.8rem;
-    font-weight: 500;
-    padding: 0.4rem 0.8rem;
-    border-radius: 20px;
-    background: linear-gradient(135deg, #f1f5f9, #e2e8f0);
-    border: 1px solid rgba(148, 163, 184, 0.3);
-    color: #475569;
-    transition: all 0.2s ease;
-    position: relative;
-    overflow: hidden;
-}
-.languageBadges li:hover {
-    background: linear-gradient(135deg, #3b82f6, #8b5cf6);
-    color: white;
-    transform: translateY(-1px);
-    border-color: transparent;
-}
-
-/* Fix for typo in project cards - "languegeBadges" should be "languageBadges" */
-.languegeBadges {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.5rem;
-    list-style: none;
-    margin: 0;
-    padding: 0 0 0 1rem;
-}
-
-.languegeBadges li {
-    font-size: 0.8rem;
-    font-weight: 500;
-    padding: 0.4rem 0.8rem;
-    border-radius: 20px;
-    background: linear-gradient(135deg, #f1f5f9, #e2e8f0);
-    border: 1px solid rgba(148, 163, 184, 0.3);
-    color: #475569;
-    transition: all 0.2s ease;
-    position: relative;
-    overflow: hidden;
-}
-
-.languegeBadges li:hover {
-    background: linear-gradient(135deg, #3b82f6, #8b5cf6);
-    color: white;
-    transform: translateY(-1px);
-    border-color: transparent;
-}
-
-/* Project summary text - enhanced typography */
-.projectSummary {
-    margin: 0;
-    color: #475569;
-    line-height: 1.7;
-    font-size: 0.95rem;
-    padding-left: 1rem;
-}
-.projectSummary strong {
-    color: #1e293b;
-    font-weight: 600;
-    background: linear-gradient(135deg, #3b82f6, #8b5cf6);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-}
-/* Bullet list within project cards - enhanced spacing */
-.projectBullets {
-    margin: 0.5rem 0 0;
-    padding-left: 2rem;
-    color: #475569;
-    line-height: 1.6;
-}
-/* Individual bullet points - improved spacing and style */
-.projectBullets li {
-    margin: 0.4rem 0;
-    position: relative;
-}
-.projectBullets li::marker {
-    color: #64748b;
-}
-/* Staggered animation on load - matches skills section */
-.projectCard:nth-child(1) { animation: slideUpProject 0.6s ease 0.1s both; }
-.projectCard:nth-child(2) { animation: slideUpProject 0.6s ease 0.2s both; }
-.projectCard:nth-child(3) { animation: slideUpProject 0.6s ease 0.3s both; }
-.projectCard:nth-child(4) { animation: slideUpProject 0.6s ease 0.4s both; }
-.projectCard:nth-child(5) { animation: slideUpProject 0.6s ease 0.5s both; }
-.projectCard:nth-child(6) { animation: slideUpProject 0.6s ease 0.6s both; }
-@keyframes slideUpProject {
-    from {
-        opacity: 0;
-        transform: translateY(30px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-/* Alternating accent colors for variety - matches skills approach */
-.projectCard:nth-child(4n+1) .projectTitle::before,
-.projectCard:nth-child(4n+1) .projectImg::before {
-    background: linear-gradient(135deg, #3b82f6, #1d4ed8);
-}
-.projectCard:nth-child(4n+2) .projectTitle::before,
-.projectCard:nth-child(4n+2) .projectImg::before {
-    background: linear-gradient(135deg, #f59e0b, #d97706);
-}
-.projectCard:nth-child(4n+3) .projectTitle::before,
-.projectCard:nth-child(4n+3) .projectImg::before {
-    background: linear-gradient(135deg, #ef4444, #dc2626);
-}
-.projectCard:nth-child(4n+4) .projectTitle::before,
-.projectCard:nth-child(4n+4) .projectImg::before {
-    background: linear-gradient(135deg, #10b981, #059669);
-}
-
-/*                    */
-/*   Skills Section   */
-/*                    */
-
-/* Scope all styles to only affect the .skills section */
-.skills * {
-    box-sizing: border-box;
-}
-
-.skills {
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-    line-height: 1.6;
-    max-width: 1000px;
-    margin: 0 auto;
-    padding: 2rem;
-    background: #f8fafc;
-    border-radius: 8px; /* Optional: add some visual separation */
-}
-
-.skills h1 {
-    text-align: center;
-    font-size: 2.5rem;
-    margin-bottom: 3rem;
-    color: #1e293b;
-    font-weight: 700;
-}
-
-.skills-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    grid-template-rows: repeat(2, 1fr); /* You already have this */
-    gap: 2rem 3rem;
-    margin-top: 2rem;
-    align-items: start; /* Add this to align content to top of each cell */
-    min-height: 400px; /* Add a minimum height to ensure equal row heights */
-}
-
-.skill-card {
-    position: relative;
-    transition: all 0.3s ease;
-}
-
-.skill-card:hover {
-    transform: translateY(-2px);
-}
-
-.skill-card h2 {
-    color: #334155;
-    margin-bottom: 1rem;
-    font-size: 1.3rem;
-    font-weight: 600;
-    position: relative;
-    padding-left: 1rem;
-}
-
-.skill-card h2::before {
-    content: '';
-    position: absolute;
-    left: 0;
-    top: 50%;
-    transform: translateY(-50%);
-    width: 4px;
-    height: 20px;
-    background: linear-gradient(135deg, #3b82f6, #8b5cf6);
-    border-radius: 2px;
-}
-
-.skill-icons {
-    display: flex;
-    gap: 0.75rem;
-    margin-bottom: 1.2rem;
-    flex-wrap: wrap;
-    align-items: center;
-    padding-left: 1rem;
-}
-
-.skill-icon {
-    font-size: 1.5rem;
-    color: #64748b;
-    transition: all 0.2s ease;
-    opacity: 0.8;
-}
-
-.skill-icon:hover {
-    color: #3b82f6;
-    opacity: 1;
-    transform: scale(1.1);
-}
-
-.skill-card p {
-    color: #475569;
-    line-height: 1.7;
-    margin: 0;
-    font-size: 0.95rem;
-    padding-left: 1rem;
-}
-
-.skill-card strong {
-    color: #1e293b;
-    font-weight: 600;
-    background: linear-gradient(135deg, #3b82f6, #8b5cf6);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-}
-
-/* Staggered animation on load */
-.skill-card:nth-child(1) { animation: slideUp 0.6s ease 0.1s both; }
-.skill-card:nth-child(2) { animation: slideUp 0.6s ease 0.2s both; }
-.skill-card:nth-child(3) { animation: slideUp 0.6s ease 0.3s both; }
-.skill-card:nth-child(4) { animation: slideUp 0.6s ease 0.4s both; }
-
-@keyframes slideUp {
-    from {
-        opacity: 0;
-        transform: translateY(30px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-/* Different icon colors for variety */
-.skill-card:nth-child(1) .skill-icon { color: #3b82f6; }
-.skill-card:nth-child(1) .skill-icon:hover { color: #1d4ed8; }
-
-.skill-card:nth-child(2) .skill-icon { color: #f59e0b; }
-.skill-card:nth-child(2) .skill-icon:hover { color: #d97706; }
-
-.skill-card:nth-child(3) .skill-icon { color: #ef4444; }
-.skill-card:nth-child(3) .skill-icon:hover { color: #dc2626; }
-
-.skill-card:nth-child(4) .skill-icon { color: #10b981; }
-.skill-card:nth-child(4) .skill-icon:hover { color: #059669; }
-
-/*==========================*/
-/*   Mobile Layout Styles   */
-/*==========================*/
-
-/*                                          */
-/*  Icon and links (Github, LinkedIn, ...)  */
-/*                                          */
-
-/* Mobile link wrapper - enhanced styling */
+// Mobile links (button row)
 .linkWrapperMobile {
-    display: block;
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+  display: block;
+  ul.link { margin: 0 0 20px; list-style: none; padding: 0; display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; }
+  .link li { margin: 0; opacity: 0; transform: translateY(20px); animation: slideUp .4s ease forwards; @include stagger(5, .1s, .05s); }
+  .link a { @extend %link-button; font-size: 14px; padding: 10px 14px; white-space: nowrap; flex: 0 0 auto; &::before { height: 2px; transform: translateY(-2px); } }
+
+  // Platform left borders — thinner on mobile
+  .link a[href*="github"]   { border-left: 2px solid #24292f; }
+  .link a[href*="linkedin"] { border-left: 2px solid #0077b5; }
+  .link a[href*="twitter"]  { border-left: 2px solid #1da1f2; }
+  .link a[href*="email"],
+  .link a[href*="mailto"]   { border-left: 2px solid #ea4335; }
+  .link a:not([href*="github"]):not([href*="linkedin"]):not([href*="twitter"]):not([href*="email"]):not([href*="mailto"]) { border-left: 2px solid $brand-purple; }
 }
 
-/* Mobile link list - horizontal layout with modern styling */
-.linkWrapperMobile ul.link {
-    margin: 0 0 20px;
-    list-style: none;
-    padding: 0;
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
-    justify-content: center;
+// =====================
+// About Section
+// =====================
+.about {
+  @extend .section;
+  position: relative; overflow: hidden;
+
+  // Top gradient bar across section
+  &::before { content: ''; position: absolute; top: 0; left: 0; right: 0; @include gradient-accent(); z-index: 1; }
+
+  // Heading animation
+  h1 { @extend h1.section-title; color: $title; opacity: 0; transform: translateY(30px); animation: slideUp .6s ease .1s both; }
+
+  // Paragraphs with left accent bar
+  p { font-size: 1rem; line-height: 1.8; color: $text; margin: 0 0 1.5rem 0; position: relative; padding-left: 1rem; opacity: 0; transform: translateY(30px); animation: slideUp .6s ease both; }
+  p::before { content: ''; position: absolute; left: 0; top: .5rem; width: 3px; height: calc(100% - 1rem); background: linear-gradient(135deg, rgba($brand-blue, .3), rgba($brand-purple, .3)); border-radius: 2px; }
+  p strong { color: $title; font-weight: 600; background: linear-gradient(135deg, $brand-blue, $brand-purple); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+
+  // Stagger paragraphs (adjust delays if you add/remove p tags)
+  p:nth-child(2) { animation-delay: .3s; }
+  p:nth-child(3) { animation-delay: .5s; }
+  p:nth-child(4) { animation-delay: .7s; }
+  p:nth-child(5) { animation-delay: .9s; }
 }
 
-/* Mobile link buttons - enhanced modern style */
-.linkWrapperMobile .link a {
-    font-size: 14px;
-    font-weight: 500;
-    display: inline-block;
-    padding: 10px 14px;
-    background: #ffffff;
-    border: 1px solid rgba(148, 163, 184, 0.3);
-    border-radius: 8px;
-    text-decoration: none;
-    color: #475569;
-    text-align: center;
-    transition: all 0.3s ease;
-    white-space: nowrap;
-    flex: 0 0 auto;
-    position: relative;
-    overflow: hidden;
-    box-shadow: 0 2px 4px -1px rgba(0, 0, 0, 0.1);
+// =====================
+// Education Section
+// =====================
+.education { @extend .section; }
+.education h1 { @extend h1.section-title; }
+
+.educationGrid { display: flex; flex-direction: column; gap: 2rem; align-items: center; margin-top: 2rem; }
+
+.educationCard {
+  // Each school entry card (logo + text)
+  @include card(); width: 85%; max-width: 500px; margin: 0 auto; display: flex; flex-direction: row-reverse; align-items: center; gap: 2rem; opacity: 0; transform: translateY(30px); overflow: hidden;
+  &::before { content: ''; position: absolute; top: 0; left: 0; right: 0; @include gradient-accent(); z-index: 1; }
+  &:hover { transform: translateY(-4px); box-shadow: $shadow-lg; }
+  // Stagger appearance of cards (tune count if you have more/less)
+  @for $i from 1 through 4 { &:nth-child(#{$i}) { animation: slideUp .6s ease both; animation-delay: .1s * $i; } }
 }
 
-/* Add gradient accent on hover for mobile */
-.linkWrapperMobile .link a::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 2px;
-    background: linear-gradient(135deg, #3b82f6, #8b5cf6);
-    transform: translateY(-2px);
-    transition: transform 0.3s ease;
+.educationText { flex: 1; position: relative; padding-left: 1rem; }
+.educationText h2 { @extend .sub-title; }
+.educationText p { margin: .5rem 0 0 0; font-size: 1rem; color: $text; padding-left: 1rem; line-height: 1.6; strong { background: linear-gradient(135deg, $brand-blue, $brand-purple); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; font-weight: 600; } em { color: $muted; font-style: italic; font-size: .9rem; } }
+
+.educationLogo { position: relative; padding: 1rem; background: linear-gradient(135deg, #f8fafc, #f1f5f9); border-radius: $radius-lg; border: 1px solid rgba(148, 163, 184, 0.2); transition: all .3s ease; }
+.educationCard:hover .educationLogo { background: linear-gradient(135deg, #f1f5f9, #e2e8f0); transform: scale(1.05); }
+.educationLogo img { display: block; width: 60px; height: 60px; object-fit: contain; transition: all .3s ease; filter: grayscale(.2); opacity: 0; animation: fadeInImage .5s ease .2s both; }
+.educationCard:hover .educationLogo img { filter: grayscale(0); }
+
+// =====================
+// Projects Section
+// =====================
+.projects { @extend .section; }
+.projects h1 { @extend h1.section-title; }
+
+.projectGrid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 2rem; align-items: stretch; margin-top: 2rem; }
+
+.projectCard {
+  // Clickable project tile
+  display: grid; grid-template-rows: auto 1fr; color: inherit; outline: none; position: relative; opacity: 0; transform: translateY(30px);
+  @include card(0);
+  &:hover { transform: translateY(-4px); box-shadow: $shadow-lg; }
+  &:focus-visible { @include focus-ring; }
 }
 
-/* Enhanced mobile hover effect */
-.linkWrapperMobile .link a:hover {
-    background: linear-gradient(135deg, #f8fafc, #f1f5f9);
-    border-color: rgba(59, 130, 246, 0.3);
-    color: #334155;
-    transform: translateY(-1px);
-    box-shadow: 0 4px 12px -2px rgba(0, 0, 0, 0.15);
+.projectImg { // Image/header area with a small top gradient bar
+  margin: 0; background: linear-gradient(135deg, #f1f5f9, #e2e8f0); border-bottom: 1px solid rgba(148,163,184,.2); position: relative; overflow: hidden; 
+  &::before { content: ''; position: absolute; top: 0; left: 0; right: 0; @include gradient-accent(); z-index: 1; }
+  img { display: block; width: 100%; aspect-ratio: 16 / 9; object-fit: cover; transition: transform .3s ease; opacity: 0; animation: fadeInImage .5s ease .2s both; }
+}
+.projectCard:hover .projectImg img { transform: scale(1.02); }
+
+.projectBody { display: grid; gap: 1rem; padding: 1.5rem; position: relative; }
+.projectTitle { @extend .sub-title; }
+
+// Language/tech badges under each project title
+.languageBadges { display: flex; flex-wrap: wrap; gap: .5rem; list-style: none; margin: 0; padding: 0 0 0 1rem; li { font-size: .8rem; font-weight: 500; padding: .4rem .8rem; border-radius: 20px; background: linear-gradient(135deg, #f1f5f9, #e2e8f0); border: 1px solid $border; color: $text; transition: all .2s ease; position: relative; overflow: hidden; &:hover { background: linear-gradient(135deg, $brand-blue, $brand-purple); color: white; transform: translateY(-1px); border-color: transparent; } } }
+
+// Legacy typo support (optional): remove if your HTML is fixed
+.languegeBadges { @extend .languageBadges; }
+
+.projectSummary { margin: 0; color: $text; line-height: 1.7; font-size: .95rem; padding-left: 1rem; strong { color: $title; font-weight: 600; background: linear-gradient(135deg, $brand-blue, $brand-purple); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; } }
+
+.projectBullets { margin: .5rem 0 0; padding-left: 2rem; color: $text; line-height: 1.6; li { margin: .4rem 0; position: relative; &::marker { color: $muted; } } }
+
+// Stagger project cards on load (increase loop count if you have more than 6)
+@for $i from 1 through 6 { .projectCard:nth-child(#{$i}) { animation: slideUp .6s ease both; animation-delay: .1s * $i; } }
+
+// Alternating accent colors for visual variety (first 4 types repeat)
+@for $n from 1 through 4 {
+  .projectCard:nth-child(4n + #{$n}) {
+    .projectTitle::before,
+    .projectImg::before {
+      @if $n == 1 { @include gradient-accent($brand-blue, $brand-blue-deep); }
+      @else if $n == 2 { @include gradient-accent($brand-amber, $brand-amber-deep); }
+      @else if $n == 3 { @include gradient-accent($brand-red, $brand-red-deep); }
+      @else { @include gradient-accent($brand-green, $brand-green-deep); }
+    }
+  }
 }
 
-.linkWrapperMobile .link a:hover::before {
-    transform: translateY(0);
-}
+// =====================
+// Skills Section
+// =====================
+.skills { @extend .section; }
+.skills h1 { @extend h1.section-title; }
 
-/* Platform-specific styling for mobile */
-.linkWrapperMobile .link a[href*="github"] {
-    border-left: 2px solid #24292f;
-}
+.skills-grid { display: grid; grid-template-columns: repeat(2, 1fr); grid-template-rows: repeat(2, 1fr); gap: 2rem 3rem; margin-top: 2rem; align-items: start; min-height: 400px; }
 
-.linkWrapperMobile .link a[href*="linkedin"] {
-    border-left: 2px solid #0077b5;
-}
+.skill-card { position: relative; transition: all .3s ease; padding: 0; opacity: 0; transform: translateY(30px); animation: slideUp .6s ease both; @include stagger(4, .1s, .1s); &:hover { transform: translateY(-2px); } }
 
-.linkWrapperMobile .link a[href*="twitter"] {
-    border-left: 2px solid #1da1f2;
-}
+.skill-card h2 { @extend .sub-title; }
 
-.linkWrapperMobile .link a[href*="email"],
-.linkWrapperMobile .link a[href*="mailto"] {
-    border-left: 2px solid #ea4335;
-}
+.skill-icons { display: flex; gap: .75rem; margin-bottom: 1.2rem; flex-wrap: wrap; align-items: center; padding-left: 1rem; }
+.skill-icon { font-size: 1.5rem; color: $muted; transition: all .2s ease; opacity: .8; &:hover { color: $brand-blue; opacity: 1; transform: scale(1.1); } }
 
-.linkWrapperMobile .link a:not([href*="github"]):not([href*="linkedin"]):not([href*="twitter"]):not([href*="email"]):not([href*="mailto"]) {
-    border-left: 2px solid #8b5cf6;
-}
+.skill-card p { color: $text; line-height: 1.7; margin: 0; font-size: .95rem; padding-left: 1rem; strong { color: $title; font-weight: 600; background: linear-gradient(135deg, $brand-blue, $brand-purple); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; } }
 
-.linkWrapperMobile .link li {
-    margin: 0;
-    opacity: 0;
-    transform: translateY(20px);
-    animation: slideUpMobile 0.4s ease forwards;
-}
+// Icon color variety (customize by row/card)
+.skill-card:nth-child(1) .skill-icon { color: $brand-blue; &:hover { color: $brand-blue-deep; } }
+.skill-card:nth-child(2) .skill-icon { color: $brand-amber; &:hover { color: $brand-amber-deep; } }
+.skill-card:nth-child(3) .skill-icon { color: $brand-red; &:hover { color: $brand-red-deep; } }
+.skill-card:nth-child(4) .skill-icon { color: $brand-green; &:hover { color: $brand-green-deep; } }
 
-/* Staggered animation for mobile links */
-.linkWrapperMobile .link li:nth-child(1) { animation-delay: 0.1s; }
-.linkWrapperMobile .link li:nth-child(2) { animation-delay: 0.15s; }
-.linkWrapperMobile .link li:nth-child(3) { animation-delay: 0.2s; }
-.linkWrapperMobile .link li:nth-child(4) { animation-delay: 0.25s; }
-.linkWrapperMobile .link li:nth-child(5) { animation-delay: 0.3s; }
-
-@keyframes slideUpMobile {
-    from {
-        opacity: 0;
-        transform: translateY(20px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-/*==============================*/
-/*   Mobile Responsive Styles   */
-/*==============================*/
-
-/* Desktop layout - 2x2 grid for skills */
-@media (min-width: 768px) {
-    .skills-grid {
-        column-gap: 4rem;
-        row-gap: 2.5rem;
-        grid-template-columns: repeat(2, 1fr);
-        grid-template-rows: repeat(2, 1fr);
-    }
-    
-    /* Alternating positioning for visual interest */
-    .skill-card:nth-child(even) {
-        margin-top: 1rem;
-    }
-}
-
-/* Tablet and mobile optimizations */
-@media (max-width: 767px) {
-    body {
-        padding: 1rem;
-    }
-    
-    /* Skills section mobile adjustments */
-    .skills {
-        padding: 1.5rem;
-    }
-    
-    .skills h1 {
-        font-size: 2rem;
-        margin-bottom: 2rem;
-    }
-    
-    .skills-grid {
-        gap: 2rem;
-        grid-template-columns: 1fr;
-        grid-template-rows: auto;
-    }
-    
-    .skill-card:nth-child(even) {
-        margin-top: 0;
-    }
-    
-    /* Projects section mobile adjustments */
-    .projects {
-        padding: 1.5rem;
-    }
-    
-    .projects h1 {
-        font-size: 2rem;
-        margin-bottom: 2rem;
-    }
-    
-    .projectGrid {
-        grid-template-columns: 1fr;
-        gap: 1.5rem;
-    }
-    
-    .projectCard {
-        margin: 0;
-    }
-    
-    /* Education section mobile adjustments */
-    .education {
-        padding: 1.5rem;
-    }
-    
-    .education h1 {
-        font-size: 2rem;
-        margin-bottom: 2rem;
-    }
-    
-    .educationGrid {
-        gap: 1.5rem;
-    }
-    
-    .educationCard {
-        flex-direction: column;
-        text-align: center;
-        width: 95%;
-        gap: 1.5rem;
-        padding: 1.5rem;
-    }
-    
-    .educationText {
-        padding-left: 0;
-    }
-    
-    .educationText h2,
-    .educationText p {
-        padding-left: 0;
-    }
-    
-    .educationText h2::before {
-        display: none;
-    }
-    
-    /* About section mobile adjustments */
-    .about {
-        padding: 1.5rem;
-    }
-    
-    .about h1 {
-        font-size: 2rem;
-        margin-bottom: 2rem;
-    }
-    
-    .about p {
-        padding-left: 0.8rem;
-        font-size: 0.95rem;
-    }
-    
-    .about p::before {
-        width: 2px;
-    }
-}
-
-/* Mobile-specific adjustments for smaller screens */
-@media (max-width: 520px) {
-    /* Projects adjustments */
-    .projectBody { 
-        padding: 1rem; 
-    }
-    
-    .projectTitle { 
-        font-size: 1.1rem; 
-    }
-    
-    .languageBadges {
-        gap: 0.4rem;
-    }
-    
-    .languageBadges li {
-        font-size: 0.75rem;
-        padding: 0.3rem 0.6rem;
-    }
-    
-    /* Skills adjustments */
-    .skills {
-        padding: 1rem;
-    }
-    
-    .skill-card {
-        padding: 1.2rem;
-    }
-    
-    .skill-card h2 {
-        font-size: 1.1rem;
-    }
-    
-    /* Education adjustments */
-    .education {
-        padding: 1rem;
-    }
-    
-    .educationCard {
-        padding: 1.2rem;
-        width: 98%;
-    }
-    
-    .educationText h2 {
-        font-size: 1.1rem;
-    }
-    
-    /* About adjustments */
-    .about {
-        padding: 1rem;
-    }
-    
-    .about p {
-        padding-left: 0.5rem;
-        font-size: 0.9rem;
-    }
-    
-    .about p::before {
-        width: 2px;
-    }
-    
-    /* Mobile links adjustments */
-    .linkWrapperMobile .link a {
-        font-size: 13px;
-        padding: 8px 12px;
-    }
-    
-    .linkWrapperMobile ul.link {
-        gap: 8px;
-    }
-}
-
-/* Extra small screens */
-@media (max-width: 360px) {
-    .skills,
-    .projects,
-    .education,
-    .about {
-        padding: 0.8rem;
-    }
-    
-    .skills h1,
-    .projects h1,
-    .education h1,
-    .about h1 {
-        font-size: 1.8rem;
-        margin-bottom: 1.5rem;
-    }
-    
-    .linkWrapperMobile .link a {
-        font-size: 12px;
-        padding: 7px 10px;
-    }
-}
-
-/*==========================*/
-/*   ADDITIONAL ENHANCEMENTS */
-/*==========================*/
-
-/* Enhanced Dark Mode Support */
-@media (prefers-color-scheme: dark) {
-    .about,
-    .education,
-    .projects,
-    .skills {
-        background: rgba(15, 23, 42, 0.8);
-        backdrop-filter: blur(10px);
-    }
-
-    .educationCard,
-    .projectCard,
-    .skill-card {
-        background: rgba(30, 41, 59, 0.9);
-        border: 1px solid rgba(71, 85, 105, 0.3);
-    }
-
-    .linkWrapperDesktop .link a,
-    .linkWrapperMobile .link a {
-        background: rgba(30, 41, 59, 0.9);
-        border-color: rgba(71, 85, 105, 0.4);
-        color: #cbd5e1;
-    }
-
-    .linkWrapperDesktop .link a:hover,
-    .linkWrapperMobile .link a:hover {
-        background: linear-gradient(135deg, rgba(59, 130, 246, 0.2), rgba(139, 92, 246, 0.2));
-        color: #f1f5f9;
-    }
-}
-
-/* Enhanced Print Styles */
-@media print {
-    .about,
-    .education,
-    .projects,
-    .skills {
-        background: white !important;
-        box-shadow: none !important;
-        page-break-inside: avoid;
-    }
-
-    .projectCard,
-    .educationCard {
-        box-shadow: none !important;
-        border: 1px solid #e2e8f0 !important;
-        page-break-inside: avoid;
-        margin-bottom: 1rem;
-    }
-
-    .linkWrapperDesktop,
-    .linkWrapperMobile {
-        display: none !important;
-    }
-
-    /* Ensure images print well */
-    .projectImg img,
-    .educationLogo img,
-    .headshot {
-        print-color-adjust: exact;
-        -webkit-print-color-adjust: exact;
-    }
-}
-
-/* Enhanced Focus States for Better Accessibility */
+// =====================
+// Accessibility & Focus States
+// =====================
 .educationCard:focus-within,
-.skill-card:focus-within {
-    outline: 3px solid rgba(59, 130, 246, 0.5);
-    outline-offset: 2px;
+.skill-card:focus-within,
+.projectCard:focus { outline: 3px solid rgba($brand-blue, 0.5); outline-offset: 2px; }
+
+.projectCard:focus { @include focus-ring; }
+
+// =====================
+// Media Queries (CUSTOMIZE breakpoints)
+// =====================
+@media (min-width: $bp-desk) {
+  .skills-grid { column-gap: 4rem; row-gap: 2.5rem; grid-template-columns: repeat(2, 1fr); grid-template-rows: repeat(2, 1fr); }
+  .skill-card:nth-child(even) { margin-top: 1rem; }
 }
 
-/* Better keyboard navigation for project cards */
-.projectCard:focus {
-    outline: 3px solid rgba(59, 130, 246, 0.5);
-    outline-offset: 2px;
+@media (max-width: $bp-tab) {
+  body { padding: 1rem; }
+
+  .skills { padding: 1.5rem; h1 { font-size: 2rem; margin-bottom: 2rem; } }
+  .skills-grid { gap: 2rem; grid-template-columns: 1fr; grid-template-rows: auto; }
+  .skill-card:nth-child(even) { margin-top: 0; }
+
+  .projects { padding: 1.5rem; h1 { font-size: 2rem; margin-bottom: 2rem; } }
+  .projectGrid { grid-template-columns: 1fr; gap: 1.5rem; }
+  .projectCard { margin: 0; }
+
+  .education { padding: 1.5rem; h1 { font-size: 2rem; margin-bottom: 2rem; } }
+  .educationGrid { gap: 1.5rem; }
+  .educationCard { flex-direction: column; text-align: center; width: 95%; gap: 1.5rem; padding: 1.5rem; }
+  .educationText { padding-left: 0; }
+  .educationText h2, .educationText p { padding-left: 0; }
+  .educationText h2::before { display: none; }
+
+  .about { padding: 1.5rem; h1 { font-size: 2rem; margin-bottom: 2rem; } p { padding-left: .8rem; font-size: .95rem; } p::before { width: 2px; } }
+
+  .linkWrapperMobile .link { gap: 10px; }
 }
 
-/* Smooth Section Transitions */
-.about,
-.education,
-.projects,
-.skills {
-    transition: all 0.3s ease;
-    border: 1px solid transparent;
+@media (max-width: $bp-md) {
+  .projectBody { padding: 1rem; }
+  .projectTitle { font-size: 1.1rem; }
+  .languageBadges { gap: .4rem; li { font-size: .75rem; padding: .3rem .6rem; } }
+
+  .skills { padding: 1rem; }
+  .skill-card { padding: 1.2rem; }
+  .skill-card h2 { font-size: 1.1rem; }
+
+  .education { padding: 1rem; }
+  .educationCard { padding: 1.2rem; width: 98%; }
+  .educationText h2 { font-size: 1.1rem; }
+
+  .about { padding: 1rem; p { padding-left: .5rem; font-size: .9rem; } p::before { width: 2px; } }
+
+  .linkWrapperMobile .link a { font-size: 13px; padding: 8px 12px; }
+  .linkWrapperMobile ul.link { gap: 8px; }
 }
 
-.about:hover,
-.education:hover,
-.projects:hover,
-.skills:hover {
-    border-color: rgba(59, 130, 246, 0.1);
+@media (max-width: $bp-sm) {
+  .skills, .projects, .education, .about { padding: .8rem; }
+  .skills h1, .projects h1, .education h1, .about h1 { font-size: 1.8rem; margin-bottom: 1.5rem; }
+  .linkWrapperMobile .link a { font-size: 12px; padding: 7px 10px; }
 }
 
-/* Enhanced Loading States */
-.projectImg img,
-.educationLogo img {
-    opacity: 0;
-    animation: fadeInImage 0.5s ease 0.2s both;
-}
-
-@keyframes fadeInImage {
-    from {
-        opacity: 0;
-        transform: scale(0.95);
-    }
-    to {
-        opacity: 1;
-        transform: scale(1);
-    }
-}
-
-/* Better Error Handling for Missing Images */
-.projectImg img:not([src]),
-.projectImg img[src=""],
-.educationLogo img:not([src]),
-.educationLogo img[src=""] {
-    display: none;
-}
-
-/* Enhanced Color Accessibility */
-.skill-card p,
-.projectSummary,
-.about p {
-    color: #374151;
-}
-
+// =====================
+// Dark Mode (CUSTOMIZE contrasts)
+// =====================
 @media (prefers-color-scheme: dark) {
-    .skill-card p,
-    .projectSummary,
-    .about p {
-        color: #d1d5db;
-    }
+  .about, .education, .projects, .skills { background: $dark-panel; backdrop-filter: blur(10px); }
+  .educationCard, .projectCard, .skill-card { background: $dark-surface; border: 1px solid $dark-border; }
+
+  .linkWrapperDesktop .link a, .linkWrapperMobile .link a { background: $dark-surface; border-color: $dark-border; color: $dark-text; }
+  .linkWrapperDesktop .link a:hover, .linkWrapperMobile .link a:hover { background: linear-gradient(135deg, rgba($brand-blue,.25), rgba($brand-purple,.25)); color: $dark-text-strong; }
+
+  .skill-card p, .projectSummary, .about p { color: #d1d5db; }
 }
 
-/* Optimized Animations for Reduced Motion Preference */
+// =====================
+// Print Styles
+// =====================
+@media print {
+  .about, .education, .projects, .skills { background: white !important; box-shadow: none !important; page-break-inside: avoid; }
+  .projectCard, .educationCard { box-shadow: none !important; border: 1px solid #e2e8f0 !important; page-break-inside: avoid; margin-bottom: 1rem; }
+  .linkWrapperDesktop, .linkWrapperMobile { display: none !important; }
+  .projectImg img, .educationLogo img, .headshot { print-color-adjust: exact; -webkit-print-color-adjust: exact; }
+}
+
+// =====================
+// Reduced Motion
+// =====================
 @media (prefers-reduced-motion: reduce) {
-    *,
-    *::before,
-    *::after {
-        animation-duration: 0.01ms !important;
-        animation-iteration-count: 1 !important;
-        transition-duration: 0.01ms !important;
-        scroll-behavior: auto !important;
-    }
-
-    .projectCard:hover,
-    .educationCard:hover,
-    .skill-card:hover,
-    .about:hover {
-        transform: none;
-    }
+  *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; scroll-behavior: auto !important; }
+  .projectCard:hover, .educationCard:hover, .skill-card:hover, .about:hover { transform: none; }
 }
 
-/* Enhanced Typography Scale */
-.about h1,
-.education h1,
-.projects h1,
-.skills h1 {
-    font-size: clamp(1.8rem, 4vw, 2.5rem);
-}
+// =====================
+// Image Loading & Fallbacks
+// =====================
+.projectImg img:not([src]), .projectImg img[src=""], .educationLogo img:not([src]), .educationLogo img[src=""] { display: none; }
 
-.projectTitle,
-.educationText h2,
-.skill-card h2 {
-    font-size: clamp(1.1rem, 2.5vw, 1.3rem);
-}
-
-/* Better Grid Fallbacks */
-@supports not (display: grid) {
-    .projectGrid {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 2rem;
-    }
-    
-    .projectCard {
-        flex: 1 1 300px;
-        max-width: 450px;
-    }
-    
-    .skills-grid {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 2rem;
-    }
-    
-    .skill-card {
-        flex: 1 1 250px;
-    }
-}
-
-/* Performance Optimizations */
-.projectCard,
-.educationCard,
-.skill-card {
-    contain: layout style paint;
-}
-
-/* Optimize will-change for animated elements */
-.projectCard:hover,
-.educationCard:hover,
-.linkWrapperDesktop .link a:hover,
-.linkWrapperMobile .link a:hover {
-    will-change: transform, box-shadow;
-}
-
-.projectCard:not(:hover),
-.educationCard:not(:hover),
-.linkWrapperDesktop .link a:not(:hover),
-.linkWrapperMobile .link a:not(:hover) {
-    will-change: auto;
-}
+// =====================
+// Performance Hints
+// =====================
+.projectCard, .educationCard, .skill-card { contain: layout style paint; }
+.projectCard:not(:hover), .educationCard:not(:hover), .linkWrapperDesktop .link a:not(:hover), .linkWrapperMobile .link a:not(:hover) { will-change: auto; }
+.projectCard:hover, .educationCard:hover, .linkWrapperDesktop .link a:hover, .linkWrapperMobile .link a:hover { will-change: transform, box-shadow; }
