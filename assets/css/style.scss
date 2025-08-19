@@ -546,6 +546,37 @@
     transform: translateY(-1px);
     border-color: transparent;
 }
+
+/* Fix for typo in project cards - "languegeBadges" should be "languageBadges" */
+.languegeBadges {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    list-style: none;
+    margin: 0;
+    padding: 0 0 0 1rem;
+}
+
+.languegeBadges li {
+    font-size: 0.8rem;
+    font-weight: 500;
+    padding: 0.4rem 0.8rem;
+    border-radius: 20px;
+    background: linear-gradient(135deg, #f1f5f9, #e2e8f0);
+    border: 1px solid rgba(148, 163, 184, 0.3);
+    color: #475569;
+    transition: all 0.2s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.languegeBadges li:hover {
+    background: linear-gradient(135deg, #3b82f6, #8b5cf6);
+    color: white;
+    transform: translateY(-1px);
+    border-color: transparent;
+}
+
 /* Project summary text - enhanced typography */
 .projectSummary {
     margin: 0;
@@ -1078,4 +1109,221 @@
         font-size: 12px;
         padding: 7px 10px;
     }
+}
+
+/*==========================*/
+/*   ADDITIONAL ENHANCEMENTS */
+/*==========================*/
+
+/* Enhanced Dark Mode Support */
+@media (prefers-color-scheme: dark) {
+    .about,
+    .education,
+    .projects,
+    .skills {
+        background: rgba(15, 23, 42, 0.8);
+        backdrop-filter: blur(10px);
+    }
+
+    .educationCard,
+    .projectCard,
+    .skill-card {
+        background: rgba(30, 41, 59, 0.9);
+        border: 1px solid rgba(71, 85, 105, 0.3);
+    }
+
+    .linkWrapperDesktop .link a,
+    .linkWrapperMobile .link a {
+        background: rgba(30, 41, 59, 0.9);
+        border-color: rgba(71, 85, 105, 0.4);
+        color: #cbd5e1;
+    }
+
+    .linkWrapperDesktop .link a:hover,
+    .linkWrapperMobile .link a:hover {
+        background: linear-gradient(135deg, rgba(59, 130, 246, 0.2), rgba(139, 92, 246, 0.2));
+        color: #f1f5f9;
+    }
+}
+
+/* Enhanced Print Styles */
+@media print {
+    .about,
+    .education,
+    .projects,
+    .skills {
+        background: white !important;
+        box-shadow: none !important;
+        page-break-inside: avoid;
+    }
+
+    .projectCard,
+    .educationCard {
+        box-shadow: none !important;
+        border: 1px solid #e2e8f0 !important;
+        page-break-inside: avoid;
+        margin-bottom: 1rem;
+    }
+
+    .linkWrapperDesktop,
+    .linkWrapperMobile {
+        display: none !important;
+    }
+
+    /* Ensure images print well */
+    .projectImg img,
+    .educationLogo img,
+    .headshot {
+        print-color-adjust: exact;
+        -webkit-print-color-adjust: exact;
+    }
+}
+
+/* Enhanced Focus States for Better Accessibility */
+.educationCard:focus-within,
+.skill-card:focus-within {
+    outline: 3px solid rgba(59, 130, 246, 0.5);
+    outline-offset: 2px;
+}
+
+/* Better keyboard navigation for project cards */
+.projectCard:focus {
+    outline: 3px solid rgba(59, 130, 246, 0.5);
+    outline-offset: 2px;
+}
+
+/* Smooth Section Transitions */
+.about,
+.education,
+.projects,
+.skills {
+    transition: all 0.3s ease;
+    border: 1px solid transparent;
+}
+
+.about:hover,
+.education:hover,
+.projects:hover,
+.skills:hover {
+    border-color: rgba(59, 130, 246, 0.1);
+}
+
+/* Enhanced Loading States */
+.projectImg img,
+.educationLogo img {
+    opacity: 0;
+    animation: fadeInImage 0.5s ease 0.2s both;
+}
+
+@keyframes fadeInImage {
+    from {
+        opacity: 0;
+        transform: scale(0.95);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* Better Error Handling for Missing Images */
+.projectImg img:not([src]),
+.projectImg img[src=""],
+.educationLogo img:not([src]),
+.educationLogo img[src=""] {
+    display: none;
+}
+
+/* Enhanced Color Accessibility */
+.skill-card p,
+.projectSummary,
+.about p {
+    color: #374151;
+}
+
+@media (prefers-color-scheme: dark) {
+    .skill-card p,
+    .projectSummary,
+    .about p {
+        color: #d1d5db;
+    }
+}
+
+/* Optimized Animations for Reduced Motion Preference */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+
+    .projectCard:hover,
+    .educationCard:hover,
+    .skill-card:hover,
+    .about:hover {
+        transform: none;
+    }
+}
+
+/* Enhanced Typography Scale */
+.about h1,
+.education h1,
+.projects h1,
+.skills h1 {
+    font-size: clamp(1.8rem, 4vw, 2.5rem);
+}
+
+.projectTitle,
+.educationText h2,
+.skill-card h2 {
+    font-size: clamp(1.1rem, 2.5vw, 1.3rem);
+}
+
+/* Better Grid Fallbacks */
+@supports not (display: grid) {
+    .projectGrid {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 2rem;
+    }
+    
+    .projectCard {
+        flex: 1 1 300px;
+        max-width: 450px;
+    }
+    
+    .skills-grid {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 2rem;
+    }
+    
+    .skill-card {
+        flex: 1 1 250px;
+    }
+}
+
+/* Performance Optimizations */
+.projectCard,
+.educationCard,
+.skill-card {
+    contain: layout style paint;
+}
+
+/* Optimize will-change for animated elements */
+.projectCard:hover,
+.educationCard:hover,
+.linkWrapperDesktop .link a:hover,
+.linkWrapperMobile .link a:hover {
+    will-change: transform, box-shadow;
+}
+
+.projectCard:not(:hover),
+.educationCard:not(:hover),
+.linkWrapperDesktop .link a:not(:hover),
+.linkWrapperMobile .link a:not(:hover) {
+    will-change: auto;
 }
