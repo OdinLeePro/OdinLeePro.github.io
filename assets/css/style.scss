@@ -94,103 +94,208 @@
 /*   Project Section   */
 /*                     */
 
+/* Scope all styles to only affect the .projects section */
+.projects * {
+    box-sizing: border-box;
+}
+.projects {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+    line-height: 1.6;
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 2rem;
+    background: #f8fafc;
+    border-radius: 8px;
+}
+.projects h1 {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 3rem;
+    color: #1e293b;
+    font-weight: 700;
+}
 /* Grid container for project cards - responsive auto-fit layout */
 .projectGrid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 1.25rem;
-  align-items: stretch;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 2rem;
+    align-items: stretch;
+    margin-top: 2rem;
 }
-
-/* Individual project card - grid layout with image and content sections */
+/* Individual project card - enhanced with skills section styling */
 .projectCard {
-  display: grid;
-  grid-template-rows: auto 1fr;
-  background: #E8E8E8;
-  border-radius: 12px;
-  box-shadow: 0 2px 18px rgba(0,0,0,.06);
-  text-decoration: none;
-  color: inherit;
-  overflow: hidden;
-  transition: transform .18s ease, box-shadow .18s ease;
-  outline: none; /* we’ll use focus-visible below */
+    display: grid;
+    grid-template-rows: auto 1fr;
+    background: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    text-decoration: none;
+    color: inherit;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    outline: none;
+    position: relative;
+    opacity: 0;
+    transform: translateY(30px);
 }
-
-/* Project card hover state - slight lift effect */
+/* Project card hover state - enhanced lift effect */
 .projectCard:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 8px 28px rgba(0,0,0,.10);
+    transform: translateY(-4px);
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
 }
-
-/* Project card focus state for keyboard navigation accessibility */
+/* Project card focus state for accessibility */
 .projectCard:focus-visible {
-  box-shadow: 0 0 0 3px rgba(59,130,246,.5), 0 2px 18px rgba(0,0,0,.06);
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.5), 0 20px 25px -5px rgba(0, 0, 0, 0.1);
 }
-
-/* Project image container - maintains consistent aspect ratio */
+/* Project image container - maintains aspect ratio */
 .projectImg {
-  margin: 0;
-  background: #f6f7fb;
-  border-bottom: 1px solid rgba(0,0,0,.06);
+    margin: 0;
+    background: linear-gradient(135deg, #f1f5f9, #e2e8f0);
+    border-bottom: 1px solid rgba(148, 163, 184, 0.2);
+    position: relative;
+    overflow: hidden;
 }
-
-/* Project image styling - responsive with consistent dimensions */
+.projectImg::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(135deg, #3b82f6, #8b5cf6);
+    z-index: 1;
+}
+/* Project image styling - enhanced with overlay effect */
 .projectImg img {
-  display: block;
-  width: 100%;
-  aspect-ratio: 16 / 9;
-  object-fit: cover;
+    display: block;
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
+    transition: transform 0.3s ease;
 }
-
-/* Main content area of project card - uses grid for consistent spacing */
+.projectCard:hover .projectImg img {
+    transform: scale(1.02);
+}
+/* Main content area - enhanced spacing and layout */
 .projectBody {
-  display: grid;
-  gap: .6rem;
-  padding: 1rem 1rem 1.1rem;
+    display: grid;
+    gap: 1rem;
+    padding: 1.5rem;
+    position: relative;
 }
-
-/* Project title styling - prominent but not overwhelming */
+/* Project title styling - matches skills section headers */
 .projectTitle {
-  margin: 0;
-  font-size: 1.05rem;
-  line-height: 1.3;
+    margin: 0;
+    font-size: 1.3rem;
+    line-height: 1.3;
+    font-weight: 600;
+    color: #334155;
+    position: relative;
+    padding-left: 1rem;
 }
-
-/* Container for programming language badges */
+.projectTitle::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 4px;
+    height: 20px;
+    background: linear-gradient(135deg, #3b82f6, #8b5cf6);
+    border-radius: 2px;
+}
+/* Container for programming language badges - enhanced styling */
 .languageBadges {
-  display: flex;
-  flex-wrap: wrap;
-  gap: .35rem;
-  list-style: none;
-  margin: 0;
-  padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    list-style: none;
+    margin: 0;
+    padding: 0 0 0 1rem;
 }
-
-/* Individual language badge styling - pill-shaped indicators */
+/* Individual language badge - modern pill design */
 .languageBadges li {
-  font-size: .78rem;
-  padding: .25rem .5rem;
-  border-radius: 999px;
-  background: #eef2ff;
-  border: 1px solid #e0e7ff;
+    font-size: 0.8rem;
+    font-weight: 500;
+    padding: 0.4rem 0.8rem;
+    border-radius: 20px;
+    background: linear-gradient(135deg, #f1f5f9, #e2e8f0);
+    border: 1px solid rgba(148, 163, 184, 0.3);
+    color: #475569;
+    transition: all 0.2s ease;
+    position: relative;
+    overflow: hidden;
 }
-
-/* Project summary text and bullet points styling */
+.languageBadges li:hover {
+    background: linear-gradient(135deg, #3b82f6, #8b5cf6);
+    color: white;
+    transform: translateY(-1px);
+    border-color: transparent;
+}
+/* Project summary text - enhanced typography */
 .projectSummary {
-  margin: 0;
-  color: #444;
+    margin: 0;
+    color: #475569;
+    line-height: 1.7;
+    font-size: 0.95rem;
+    padding-left: 1rem;
 }
-
-/* Bullet list within project cards */
+.projectSummary strong {
+    color: #1e293b;
+    font-weight: 600;
+    background: linear-gradient(135deg, #3b82f6, #8b5cf6);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+/* Bullet list within project cards - enhanced spacing */
 .projectBullets {
-  margin: .25rem 0 0;
-  padding-left: 1rem;
-  color: #333;
+    margin: 0.5rem 0 0;
+    padding-left: 2rem;
+    color: #475569;
+    line-height: 1.6;
 }
-
-/* Individual bullet point spacing */
-.projectBullets li { 
-  margin: .2rem 0; 
+/* Individual bullet points - improved spacing and style */
+.projectBullets li {
+    margin: 0.4rem 0;
+    position: relative;
+}
+.projectBullets li::marker {
+    color: #64748b;
+}
+/* Staggered animation on load - matches skills section */
+.projectCard:nth-child(1) { animation: slideUpProject 0.6s ease 0.1s both; }
+.projectCard:nth-child(2) { animation: slideUpProject 0.6s ease 0.2s both; }
+.projectCard:nth-child(3) { animation: slideUpProject 0.6s ease 0.3s both; }
+.projectCard:nth-child(4) { animation: slideUpProject 0.6s ease 0.4s both; }
+.projectCard:nth-child(5) { animation: slideUpProject 0.6s ease 0.5s both; }
+.projectCard:nth-child(6) { animation: slideUpProject 0.6s ease 0.6s both; }
+@keyframes slideUpProject {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+/* Alternating accent colors for variety - matches skills approach */
+.projectCard:nth-child(4n+1) .projectTitle::before,
+.projectCard:nth-child(4n+1) .projectImg::before {
+    background: linear-gradient(135deg, #3b82f6, #1d4ed8);
+}
+.projectCard:nth-child(4n+2) .projectTitle::before,
+.projectCard:nth-child(4n+2) .projectImg::before {
+    background: linear-gradient(135deg, #f59e0b, #d97706);
+}
+.projectCard:nth-child(4n+3) .projectTitle::before,
+.projectCard:nth-child(4n+3) .projectImg::before {
+    background: linear-gradient(135deg, #ef4444, #dc2626);
+}
+.projectCard:nth-child(4n+4) .projectTitle::before,
+.projectCard:nth-child(4n+4) .projectImg::before {
+    background: linear-gradient(135deg, #10b981, #059669);
 }
 
 /*                    */
