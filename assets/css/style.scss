@@ -6,47 +6,129 @@
 /*=============*/
 
 /* Import minimal Jekyll theme base styles */
+
 @import "jekyll-theme-minimal.scss";
 
 /*===========================*/
 /*   Desktop Layout Styles   */
 /*===========================*/
-  
+
 /*                                                    */
 /*  Left Side Icon and links (Github, LinkedIn, ...)  */
 /*                                                    */
 
+/* Enhanced link wrapper with modern styling */
+.linkWrapperDesktop {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+}
+
 .linkWrapperDesktop .link a {
-  font-size: 18px;
-  display: inline-block;          /* Makes it behave like a button */
-  padding: 10px 16px;             /* Internal spacing */
-  background-color: #f6f8fa;      /* Light gray background */
-  border: 1px solid #d1d9e0;      /* Border */
-  border-radius: 6px;             /* Rounded corners */
-  text-decoration: none;          /* Remove underline */
-  color: #24292f;                 /* Dark text color */
-  text-align: center;             /* Center the text */
-  transition: background-color 0.2s ease; /* Smooth hover effect */
-  margin: 4px 0;                  /* Small vertical spacing between buttons */
-  width: 100%;                    /* Full width of container */
-  box-sizing: border-box;         /* Include padding in width calculation */
+    font-size: 16px;
+    font-weight: 500;
+    display: inline-block;
+    padding: 12px 18px;
+    background: #ffffff;
+    border: 1px solid rgba(148, 163, 184, 0.3);
+    border-radius: 8px;
+    text-decoration: none;
+    color: #475569;
+    text-align: center;
+    transition: all 0.3s ease;
+    margin: 6px 0;
+    width: 100%;
+    box-sizing: border-box;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 2px 4px -1px rgba(0, 0, 0, 0.1);
 }
 
-/* Hover effect */
+/* Add gradient accent on hover */
+.linkWrapperDesktop .link a::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(135deg, #3b82f6, #8b5cf6);
+    transform: translateY(-3px);
+    transition: transform 0.3s ease;
+}
+
+/* Enhanced hover effect */
 .linkWrapperDesktop .link a:hover {
-  background-color: #f3f4f6;      /* Slightly darker on hover */
-  border-color: #c9d1d9;          /* Darker border on hover */
+    background: linear-gradient(135deg, #f8fafc, #f1f5f9);
+    border-color: rgba(59, 130, 246, 0.3);
+    color: #334155;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px -5px rgba(0, 0, 0, 0.15), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
 }
 
-/* Stack the buttons vertically */
+.linkWrapperDesktop .link a:hover::before {
+    transform: translateY(0);
+}
+
+/* Focus state for accessibility */
+.linkWrapperDesktop .link a:focus-visible {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.5), 0 2px 4px -1px rgba(0, 0, 0, 0.1);
+}
+
+/* Stack the buttons vertically with enhanced styling */
 .linkWrapperDesktop .link {
-  list-style: none;               /* Remove bullet points */
-  padding: 0;                     /* Remove default padding */
-  margin: 0;                      /* Remove default margin */
+    list-style: none;
+    padding: 0;
+    margin: 0;
 }
 
 .linkWrapperDesktop .link li {
-  margin: 6px 0;                  /* Space between button items */
+    margin: 8px 0;
+    opacity: 0;
+    transform: translateX(-20px);
+    animation: slideInLeft 0.5s ease forwards;
+}
+
+/* Staggered animation for links */
+.linkWrapperDesktop .link li:nth-child(1) { animation-delay: 0.1s; }
+.linkWrapperDesktop .link li:nth-child(2) { animation-delay: 0.2s; }
+.linkWrapperDesktop .link li:nth-child(3) { animation-delay: 0.3s; }
+.linkWrapperDesktop .link li:nth-child(4) { animation-delay: 0.4s; }
+.linkWrapperDesktop .link li:nth-child(5) { animation-delay: 0.5s; }
+
+@keyframes slideInLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* Special styling for different link types */
+.linkWrapperDesktop .link a[href*="github"] {
+    border-left: 3px solid #24292f;
+}
+
+.linkWrapperDesktop .link a[href*="linkedin"] {
+    border-left: 3px solid #0077b5;
+}
+
+.linkWrapperDesktop .link a[href*="twitter"] {
+    border-left: 3px solid #1da1f2;
+}
+
+.linkWrapperDesktop .link a[href*="email"],
+.linkWrapperDesktop .link a[href*="mailto"] {
+    border-left: 3px solid #ea4335;
+}
+
+/* Default gradient accent for other links */
+.linkWrapperDesktop .link a:not([href*="github"]):not([href*="linkedin"]):not([href*="twitter"]):not([href*="email"]):not([href*="mailto"]) {
+    border-left: 3px solid transparent;
+    border-left: 3px solid;
+    border-image: linear-gradient(135deg, #3b82f6, #8b5cf6) 1;
 }
 
 /*               */
