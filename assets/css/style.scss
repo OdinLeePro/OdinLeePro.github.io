@@ -756,53 +756,121 @@
 /*  Icon and links (Github, LinkedIn, ...)  */
 /*                                          */
 
-/* Mobile link wrapper - show when needed */
+/* Mobile link wrapper - enhanced styling */
 .linkWrapperMobile {
-  display: block; /* Change from display: none when you want to show it */
+    display: block;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
 }
 
-/* Mobile link list - horizontal layout */
+/* Mobile link list - horizontal layout with modern styling */
 .linkWrapperMobile ul.link {
-  margin: 0 0 20px;
-  list-style: none;
-  padding: 0;
-  display: flex;                  /* Horizontal layout */
-  flex-wrap: wrap;                /* Allow wrapping if needed */
-  gap: 8px;                       /* Space between buttons */
-  justify-content: center;        /* Center the buttons horizontally */
+    margin: 0 0 20px;
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center;
 }
 
-/* Mobile link buttons - horizontal style */
+/* Mobile link buttons - enhanced modern style */
 .linkWrapperMobile .link a {
-  font-size: 16px;                /* Slightly smaller for mobile */
-  display: inline-block;
-  padding: 8px 12px;              /* Smaller padding for mobile */
-  background-color: #f6f8fa;
-  border: 1px solid #d1d9e0;
-  border-radius: 6px;
-  text-decoration: none;
-  color: #24292f;
-  text-align: center;
-  transition: background-color 0.2s ease;
-  white-space: nowrap;            /* Prevent text wrapping */
-  flex: 0 0 auto;                 /* Don't grow or shrink */
+    font-size: 14px;
+    font-weight: 500;
+    display: inline-block;
+    padding: 10px 14px;
+    background: #ffffff;
+    border: 1px solid rgba(148, 163, 184, 0.3);
+    border-radius: 8px;
+    text-decoration: none;
+    color: #475569;
+    text-align: center;
+    transition: all 0.3s ease;
+    white-space: nowrap;
+    flex: 0 0 auto;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 2px 4px -1px rgba(0, 0, 0, 0.1);
 }
 
-/* Mobile hover effect */
+/* Add gradient accent on hover for mobile */
+.linkWrapperMobile .link a::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: linear-gradient(135deg, #3b82f6, #8b5cf6);
+    transform: translateY(-2px);
+    transition: transform 0.3s ease;
+}
+
+/* Enhanced mobile hover effect */
 .linkWrapperMobile .link a:hover {
-  background-color: #f3f4f6;
-  border-color: #c9d1d9;
+    background: linear-gradient(135deg, #f8fafc, #f1f5f9);
+    border-color: rgba(59, 130, 246, 0.3);
+    color: #334155;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px -2px rgba(0, 0, 0, 0.15);
+}
+
+.linkWrapperMobile .link a:hover::before {
+    transform: translateY(0);
+}
+
+/* Platform-specific styling for mobile */
+.linkWrapperMobile .link a[href*="github"] {
+    border-left: 2px solid #24292f;
+}
+
+.linkWrapperMobile .link a[href*="linkedin"] {
+    border-left: 2px solid #0077b5;
+}
+
+.linkWrapperMobile .link a[href*="twitter"] {
+    border-left: 2px solid #1da1f2;
+}
+
+.linkWrapperMobile .link a[href*="email"],
+.linkWrapperMobile .link a[href*="mailto"] {
+    border-left: 2px solid #ea4335;
+}
+
+.linkWrapperMobile .link a:not([href*="github"]):not([href*="linkedin"]):not([href*="twitter"]):not([href*="email"]):not([href*="mailto"]) {
+    border-left: 2px solid #8b5cf6;
 }
 
 .linkWrapperMobile .link li {
-  margin: 0;                      /* Remove vertical margin since we're using gap */
+    margin: 0;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: slideUpMobile 0.4s ease forwards;
+}
+
+/* Staggered animation for mobile links */
+.linkWrapperMobile .link li:nth-child(1) { animation-delay: 0.1s; }
+.linkWrapperMobile .link li:nth-child(2) { animation-delay: 0.15s; }
+.linkWrapperMobile .link li:nth-child(3) { animation-delay: 0.2s; }
+.linkWrapperMobile .link li:nth-child(4) { animation-delay: 0.25s; }
+.linkWrapperMobile .link li:nth-child(5) { animation-delay: 0.3s; }
+
+@keyframes slideUpMobile {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 /*==============================*/
 /*   Mobile Responsive Styles   */
 /*==============================*/
 
-/* Desktop layout - 2x2 grid */
+/* Desktop layout - 2x2 grid for skills */
 @media (min-width: 768px) {
     .skills-grid {
         column-gap: 4rem;
@@ -817,10 +885,15 @@
     }
 }
 
-/* Mobile optimizations - single column */
+/* Tablet and mobile optimizations */
 @media (max-width: 767px) {
     body {
         padding: 1rem;
+    }
+    
+    /* Skills section mobile adjustments */
+    .skills {
+        padding: 1.5rem;
     }
     
     .skills h1 {
@@ -837,10 +910,172 @@
     .skill-card:nth-child(even) {
         margin-top: 0;
     }
+    
+    /* Projects section mobile adjustments */
+    .projects {
+        padding: 1.5rem;
+    }
+    
+    .projects h1 {
+        font-size: 2rem;
+        margin-bottom: 2rem;
+    }
+    
+    .projectGrid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+    
+    .projectCard {
+        margin: 0;
+    }
+    
+    /* Education section mobile adjustments */
+    .education {
+        padding: 1.5rem;
+    }
+    
+    .education h1 {
+        font-size: 2rem;
+        margin-bottom: 2rem;
+    }
+    
+    .educationGrid {
+        gap: 1.5rem;
+    }
+    
+    .educationCard {
+        flex-direction: column;
+        text-align: center;
+        width: 95%;
+        gap: 1.5rem;
+        padding: 1.5rem;
+    }
+    
+    .educationText {
+        padding-left: 0;
+    }
+    
+    .educationText h2,
+    .educationText p {
+        padding-left: 0;
+    }
+    
+    .educationText h2::before {
+        display: none;
+    }
+    
+    /* About section mobile adjustments */
+    .about {
+        padding: 1.5rem;
+    }
+    
+    .about h1 {
+        font-size: 2rem;
+        margin-bottom: 2rem;
+    }
+    
+    .about p {
+        padding-left: 0.8rem;
+        font-size: 0.95rem;
+    }
+    
+    .about p::before {
+        width: 2px;
+    }
 }
 
 /* Mobile-specific adjustments for smaller screens */
 @media (max-width: 520px) {
-  .projectBody { padding: .9rem; }
-  .projectTitle { font-size: 1rem; }
+    /* Projects adjustments */
+    .projectBody { 
+        padding: 1rem; 
+    }
+    
+    .projectTitle { 
+        font-size: 1.1rem; 
+    }
+    
+    .languageBadges {
+        gap: 0.4rem;
+    }
+    
+    .languageBadges li {
+        font-size: 0.75rem;
+        padding: 0.3rem 0.6rem;
+    }
+    
+    /* Skills adjustments */
+    .skills {
+        padding: 1rem;
+    }
+    
+    .skill-card {
+        padding: 1.2rem;
+    }
+    
+    .skill-card h2 {
+        font-size: 1.1rem;
+    }
+    
+    /* Education adjustments */
+    .education {
+        padding: 1rem;
+    }
+    
+    .educationCard {
+        padding: 1.2rem;
+        width: 98%;
+    }
+    
+    .educationText h2 {
+        font-size: 1.1rem;
+    }
+    
+    /* About adjustments */
+    .about {
+        padding: 1rem;
+    }
+    
+    .about p {
+        padding-left: 0.5rem;
+        font-size: 0.9rem;
+    }
+    
+    .about p::before {
+        width: 2px;
+    }
+    
+    /* Mobile links adjustments */
+    .linkWrapperMobile .link a {
+        font-size: 13px;
+        padding: 8px 12px;
+    }
+    
+    .linkWrapperMobile ul.link {
+        gap: 8px;
+    }
+}
+
+/* Extra small screens */
+@media (max-width: 360px) {
+    .skills,
+    .projects,
+    .education,
+    .about {
+        padding: 0.8rem;
+    }
+    
+    .skills h1,
+    .projects h1,
+    .education h1,
+    .about h1 {
+        font-size: 1.8rem;
+        margin-bottom: 1.5rem;
+    }
+    
+    .linkWrapperMobile .link a {
+        font-size: 12px;
+        padding: 7px 10px;
+    }
 }
