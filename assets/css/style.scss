@@ -2,17 +2,9 @@
 ---
 
 // =============================================
-// Portfolio Theme (Refactored & Commented SCSS)
-// ---------------------------------------------
-// HOW TO USE / QUICK TWEAKS
-// - Change COLORS in the Variables section below (brand hues, text, borders)
-// - Adjust RADIUS & SHADOWS in Variables
-// - Section spacing/layout lives under Mixins & Utilities + per-section blocks
-// - Animations use a single `slideUp` (timing set via nth-child or loops)
-// - Mobile/Tablet/Desktop rules are at the bottom (Media Queries)
-// - Dark Mode tweaks live in the `prefers-color-scheme: dark` block
-//
-// TIP: Search for "CUSTOMIZE:" comments to find likely tweak points fast.
+// Portfolio Theme (Refactored, Scoped & Commented SCSS)
+// - Tailored to your actual HTML includes
+// - No HTML/MD changes required
 // =============================================
 
 /*=============*/
@@ -23,62 +15,51 @@
 // =====================
 // Variables (CUSTOMIZE)
 // =====================
-// Fonts, sizes, colors, radii, shadows. Most brand & color changes happen here.
 $font-system: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-$max-width: 1000px; // Max content width for sections
-$radius-md: 8px;    // Base rounded corners (buttons/sections)
-$radius-lg: 12px;   // Larger corners (cards)
+$max-width: 1000px;
+$radius-md: 8px;
+$radius-lg: 12px;
 
-// Base surfaces & text
 $surface: #ffffff;
-$panel: #f8fafc;    // Section background (light)
-$text: #475569;     // Body text (slate-600)
-$heading: #334155;  // H2 style text (slate-700)
-$title: #1e293b;    // H1 / strong accents (slate-800)
-$muted: #64748b;    // Secondary text
-$border: rgba(148, 163, 184, 0.3); // Soft border color
+$panel: #f8fafc;
+$text: #475569;       // body copy
+$heading: #334155;    // subtitles
+$title: #1e293b;      // main titles
+$muted: #64748b;      // secondary
+$border: rgba(148, 163, 184, 0.3);
 
-// Shadows (CUSTOMIZE intensity)
 $shadow-sm: 0 2px 4px -1px rgba(0, 0, 0, 0.1);
 $shadow-md: 0 4px 6px -1px rgba(0,0,0,.1), 0 2px 4px -1px rgba(0,0,0,.06);
 $shadow-lg: 0 20px 25px -5px rgba(0,0,0,.1), 0 10px 10px -5px rgba(0,0,0,.04);
 
-// Brand colors (CUSTOMIZE palette)
-$brand-blue: #3b82f6;        // primary blue
-$brand-blue-deep: #1d4ed8;   // deeper blue for accents
-$brand-purple: #8b5cf6;      // secondary gradient color
-$brand-amber: #f59e0b;       // accent 2
-$brand-amber-deep: #d97706;
-$brand-red: #ef4444;         // accent 3
-$brand-red-deep: #dc2626;
-$brand-green: #10b981;       // accent 4
-$brand-green-deep: #059669;
+$brand-blue: #3b82f6;
+$brand-blue-deep: #1d4ed8;
+$brand-purple: #8b5cf6;
+$brand-amber: #f59e0b; $brand-amber-deep: #d97706;
+$brand-red: #ef4444;   $brand-red-deep: #dc2626;
+$brand-green: #10b981; $brand-green-deep: #059669;
 
-// Dark mode colors
 $dark-surface: rgba(30, 41, 59, 0.9);
 $dark-panel: rgba(15, 23, 42, 0.8);
 $dark-border: rgba(71, 85, 105, 0.3);
-$dark-text: #cbd5e1;        // light text
-$dark-text-strong: #f1f5f9; // extra light text
+$dark-text: #cbd5e1;
+$dark-text-strong: #f1f5f9;
 
 // Breakpoints
-$bp-sm: 360px; // extra small phones
-$bp-md: 520px; // small phones
-$bp-tab: 767px; // tablets and below
-$bp-desk: 768px; // tablets and above
+$bp-sm: 360px;
+$bp-md: 520px;
+$bp-tab: 767px;
+$bp-desk: 768px;
 
 // =====================
 // Mixins & Utilities
 // =====================
-// Reusable building blocks to keep styles DRY. Adjust behavior in one place.
 @mixin gradient-accent($c1: $brand-blue, $c2: $brand-purple, $h: 3px) {
-  // Top gradient bars and accents
   background: linear-gradient(135deg, $c1, $c2);
   height: $h;
 }
 
 @mixin card($pad: 2rem) {
-  // Generic card container used by projects/education
   background: $surface;
   border-radius: $radius-lg;
   box-shadow: $shadow-md;
@@ -88,360 +69,160 @@ $bp-desk: 768px; // tablets and above
   overflow: hidden;
 }
 
-@mixin focus-ring {
-  // High-visibility accessible focus style
-  box-shadow: 0 0 0 3px rgba($brand-blue, 0.5), $shadow-sm;
-}
-
+@mixin focus-ring { box-shadow: 0 0 0 3px rgba($brand-blue, 0.5), $shadow-sm; }
 @mixin section-base($pad: 2rem) {
-  // Shared section look (About/Education/Projects/Skills)
-  font-family: $font-system;
-  line-height: 1.6;
-  max-width: $max-width;
-  margin: 0 auto;
-  padding: $pad;
-  background: $panel;
-  border-radius: $radius-md;
-  transition: all 0.3s ease;
-  border: 1px solid transparent;
+  font-family: $font-system; line-height: 1.6; max-width: $max-width; margin: 0 auto; padding: $pad; background: $panel; border-radius: $radius-md; transition: all .3s ease; border: 1px solid transparent;
 }
-
-// Apply staggered delays to children (e.g., li, cards)
 @mixin stagger($count, $delay-start: 0.1s, $step: 0.1s, $prop: animation-delay) {
-  @for $i from 1 through $count {
-    &:nth-child(#{$i}) { #{$prop}: calc(#{$delay-start} + (#{$i - 1} * #{$step})); }
-  }
+  @for $i from 1 through $count { &:nth-child(#{$i}) { #{$prop}: calc(#{$delay-start} + (#{$i - 1} * #{$step})); } }
 }
 
-// Animations (single source of truth)
+// Animations
 @keyframes slideUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
 @keyframes slideInLeft { from { opacity: 0; transform: translateX(-20px); } to { opacity: 1; transform: translateX(0); } }
 @keyframes fadeInImage { from { opacity: 0; transform: scale(0.95); } to { opacity: 1; transform: scale(1); } }
+@keyframes pulse { 0%,100%{opacity:1} 50%{opacity:.7} }
 
 // =====================
-// Global helpers
+// Global helpers & Titles
 // =====================
 .section { @include section-base(); }
 .section:hover { border-color: rgba($brand-blue, 0.1); transform: translateY(-2px); box-shadow: 0 10px 25px -5px rgba(0,0,0,.1), 0 4px 6px -2px rgba(0,0,0,.05); }
 
-// Shared title styles (CUSTOMIZE sizes)
-h1.section-title { text-align: center; font-size: clamp(1.8rem, 4vw, 2.5rem); margin-bottom: 3rem; color: $title; font-weight: 700; }
+// Use placeholder to avoid heavy selector chains when extending
+%section-title { text-align: center; font-size: clamp(1.8rem, 4vw, 2.5rem); margin-bottom: 3rem; color: $title; font-weight: 700; }
+h1.section-title { @extend %section-title; }
 
-// Section/Card subtitles (left accent bar)
 .sub-title {
-  margin: 0;
-  font-size: clamp(1.1rem, 2.5vw, 1.3rem);
-  line-height: 1.3;
-  font-weight: 600;
-  color: $heading;
-  position: relative;
-  padding-left: 1rem;
+  margin: 0; font-size: clamp(1.1rem, 2.5vw, 1.3rem); line-height: 1.3; font-weight: 600; color: $heading; position: relative; padding-left: 1rem;
   &::before { content: ''; position: absolute; left: 0; top: 50%; transform: translateY(-50%); width: 4px; height: 20px; @include gradient-accent($brand-blue, $brand-purple); border-radius: 2px; }
 }
 
-.text-body { color: #374151; } // slightly darker body text for better contrast
+.text-body { color: #374151; }
 
 // =====================
-// Left Sidebar Header Styling (for leftSideHeader.html)
+// LEFT SIDEBAR HEADER (scoped to your includes)
+// - Matches structure in leftSideHeader.html and leftSideContent.html
+// - No reliance on a <header> wrapper (since none exists)
 // =====================
-// These styles target the specific structure from your leftSideHeader.html include
 
-// Headshot styling
+// Headshot image (always safe to target by class)
 .headshot {
-  border-radius: 100%;
-  margin-bottom: 10px;
-  max-width: 90%;
-  width: 120px;
-  height: 120px;
-  object-fit: cover;
-  transition: all 0.3s ease;
-  filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.1));
-  
-  &:hover {
-    transform: scale(1.05);
-    filter: drop-shadow(0 8px 25px rgba(0, 0, 0, 0.15));
-  }
+  border-radius: 100%; margin-bottom: 10px; max-width: 90%; width: 120px; height: 120px; object-fit: cover; transition: all .3s ease; filter: drop-shadow(0 4px 6px rgba(0,0,0,.1));
+  &:hover { transform: scale(1.05); filter: drop-shadow(0 8px 25px rgba(0,0,0,.15)); }
 }
 
-// Main title (site.title) styling
-header h1 {
-  font-size: 32px;
-  color: $title;
-  margin: 0 0 20px;
-  font-weight: 700;
-  line-height: 1.2;
-  transition: color 0.3s ease;
-  
-  &:hover {
-    background: linear-gradient(135deg, $brand-blue, $brand-purple);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-  }
+// Title immediately after headshot OR immediately before the email paragraph
+.headshot + h1,
+h1:has(+ .addr) {
+  font-size: 32px; color: $title; margin: 0 0 20px; font-weight: 700; line-height: 1.2; transition: color .3s ease;
+}
+.headshot + h1:hover,
+h1:has(+ .addr):hover {
+  background: linear-gradient(135deg, $brand-blue, $brand-purple);
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
 }
 
-// Email address styling (.addr class from leftSideHeader.html)
-.addr {
-  margin: 10px 0 20px 0;
-  font-size: 14px;
-  
-  a {
-    color: $brand-blue;
-    text-decoration: none;
-    transition: all 0.3s ease;
-    font-weight: 500;
-    
-    &:hover,
-    &:focus {
-      color: $brand-blue-deep;
-      text-decoration: underline;
-    }
-  }
-  
-  i {
-    margin-right: 4px;
-    opacity: 0.8;
-  }
-}
+// Email address (addr block)
+.addr { margin: 10px 0 20px 0; font-size: 14px; }
+.addr a { color: $brand-blue; text-decoration: none; transition: all .3s ease; font-weight: 500; }
+.addr a:hover, .addr a:focus { color: $brand-blue-deep; text-decoration: underline; }
+.addr i { margin-right: 4px; opacity: .8; }
 
-// Description text (from leftSideContent.html)
-header p:not(.addr) {
-  color: $text;
-  font-size: 14px;
-  line-height: 1.5;
-  margin: 0 0 25px 0;
-  font-weight: 400;
-  opacity: 0.9;
-}
+// Description paragraph that appears BEFORE the desktop link list include
+// Targets: the <p> that is immediately followed by .linkWrapperDesktop (per leftSideContent.html)
+p:has(+ .linkWrapperDesktop),
+.addr + p { color: $text; font-size: 14px; line-height: 1.5; margin: 0 0 25px 0; font-weight: 400; opacity: .9; }
 
 // =====================
 // Link Wrappers (Desktop & Mobile)
 // =====================
-// Enhanced styling for leftSideContent(Desktop).html and leftSideContent(Mobile).html
-
-// Shared button-like link styles for reuse
 %link-button {
-  font-weight: 500;
-  display: inline-block;
-  background: $surface;
-  border: 1px solid $border;
-  border-radius: $radius-md;
-  text-decoration: none;
-  color: $text;
-  text-align: center;
-  transition: all 0.3s ease;
-  position: relative;
-  overflow: hidden;
-  box-shadow: $shadow-sm;
-  
-  &:hover { 
-    background: linear-gradient(135deg, #f8fafc, #f1f5f9); 
-    border-color: rgba($brand-blue, 0.3); 
-    color: #334155; 
-    transform: translateY(-2px); 
-    box-shadow: 0 8px 25px -5px rgba(0,0,0,.15), 0 4px 6px -2px rgba(0,0,0,.05); 
-  }
-  
-  &:focus-visible { 
-    outline: none; 
-    @include focus-ring; 
-  }
-  
-  &::before { 
-    content: ''; 
-    position: absolute; 
-    top: 0; 
-    left: 0; 
-    right: 0; 
-    @include gradient-accent($brand-blue, $brand-purple, 3px); 
-    transform: translateY(-3px); 
-    transition: transform .3s ease; 
-  }
-  
-  &:hover::before { 
-    transform: translateY(0); 
-  }
-  
-  // Icon spacing within links
-  i {
-    margin-right: 6px;
-    font-size: 0.9em;
-    vertical-align: middle;
-  }
+  font-weight: 500; display: inline-block; background: $surface; border: 1px solid $border; border-radius: $radius-md; text-decoration: none; color: $text; text-align: center; transition: all .3s ease; position: relative; overflow: hidden; box-shadow: $shadow-sm;
+  &:hover { background: linear-gradient(135deg, #f8fafc, #f1f5f9); border-color: rgba($brand-blue, .3); color: #334155; transform: translateY(-2px); box-shadow: 0 8px 25px -5px rgba(0,0,0,.15), 0 4px 6px -2px rgba(0,0,0,.05); }
+  &:focus-visible { outline: none; @include focus-ring; }
+  &::before { content: ''; position: absolute; top: 0; left: 0; right: 0; @include gradient-accent($brand-blue, $brand-purple, 3px); transform: translateY(-3px); transition: transform .3s ease; }
+  &:hover::before { transform: translateY(0); }
+  i { margin-right: 6px; font-size: .9em; vertical-align: middle; }
 }
+
+// Map of platform border colors (keeps rules tidy)
+$platform-borders: (
+  "github":   #24292f,
+  "linkedin": #0077b5,
+  "twitter":  #1da1f2,
+  "instagram":#e4405f,
+  "facebook": #1877f2,
+  "youtube":  #ff0000,
+  "email":    #ea4335,
+  "mailto":   #ea4335,
+  "resume":   $brand-green,
+  "cv":       $brand-green,
+  "pdf":      $brand-green,
+  "portfolio":$brand-purple
+);
 
 .linkWrapperDesktop,
-.linkWrapperMobile { 
-  font-family: $font-system; 
-}
+.linkWrapperMobile { font-family: $font-system; }
 
-// Desktop link stack (left sidebar buttons) - targets leftSideContent(Desktop).html
+// DESKTOP list (structure from leftSideContent(Desktop).html)
 .linkWrapperDesktop {
   margin-top: 20px;
-  
-  .link { 
-    list-style: none; 
-    padding: 0; 
-    margin: 0; 
-  }
-  
-  .link li { 
-    margin: 8px 0; 
-    opacity: 0; 
-    transform: translateX(-20px); 
-    animation: slideInLeft .5s ease forwards; 
-  }
-  
-  .link li { 
-    @include stagger(10, .1s, .1s); // Increased count to handle more links
-  }
-  
-  .link a { 
-    @extend %link-button; 
-    font-size: 16px; 
-    padding: 12px 18px; 
-    width: 100%; 
-    box-sizing: border-box;
-    display: flex;
-    align-items: center;
-    justify-content: flex-start;
-    min-height: 44px; // Better touch target
-  }
+  .link { list-style: none; padding: 0; margin: 0; }
+  .link li { margin: 8px 0; opacity: 0; transform: translateX(-20px); animation: slideInLeft .5s ease forwards; @include stagger(10, .1s, .1s); }
+  .link a { @extend %link-button; font-size: 16px; padding: 12px 18px; width: 100%; box-sizing: border-box; display: flex; align-items: center; justify-content: flex-start; min-height: 44px; }
 
-  // Platform accent bars (left border) – Enhanced with more platforms
-  .link a[href*="github"]     { border-left: 3px solid #24292f; }
-  .link a[href*="linkedin"]   { border-left: 3px solid #0077b5; }
-  .link a[href*="twitter"]    { border-left: 3px solid #1da1f2; }
-  .link a[href*="instagram"]  { border-left: 3px solid #e4405f; }
-  .link a[href*="facebook"]   { border-left: 3px solid #1877f2; }
-  .link a[href*="youtube"]    { border-left: 3px solid #ff0000; }
-  .link a[href*="email"],
-  .link a[href*="mailto"]     { border-left: 3px solid #ea4335; }
-  .link a[href*="resume"],
-  .link a[href*="cv"],
-  .link a[href*="pdf"]        { border-left: 3px solid $brand-green; }
-  .link a[href*="portfolio"]  { border-left: 3px solid $brand-purple; }
-  
+  // Platform-specific left borders via map
+  @each $key, $color in $platform-borders {
+    .link a[href*="#{$key}"] { border-left: 3px solid #{$color}; }
+  }
   // Default gradient for unmatched links
   .link a:not([href*="github"]):not([href*="linkedin"]):not([href*="twitter"]):not([href*="instagram"]):not([href*="facebook"]):not([href*="youtube"]):not([href*="email"]):not([href*="mailto"]):not([href*="resume"]):not([href*="cv"]):not([href*="pdf"]):not([href*="portfolio"]) {
-    border-left: 3px solid; 
-    border-image: linear-gradient(135deg, $brand-blue, $brand-purple) 1;
+    border-left: 3px solid; border-image: linear-gradient(135deg, $brand-blue, $brand-purple) 1;
   }
 }
 
-// Mobile links (button row) - targets leftSideContent(Mobile).html
+// MOBILE list (structure from leftSideContent(Mobile).html)
 .linkWrapperMobile {
-  display: none; // Hidden by default, shown in mobile layouts
+  display: none; // shown on mobile via media query
   margin: 20px 0;
-  
-  ul.link { 
-    margin: 0 0 20px; 
-    list-style: none; 
-    padding: 0; 
-    display: flex; 
-    flex-wrap: wrap; 
-    gap: 10px; 
-    justify-content: center; 
-  }
-  
-  .link li { 
-    margin: 0; 
-    opacity: 0; 
-    transform: translateY(20px); 
-    animation: slideUp .4s ease forwards; 
-    @include stagger(10, .1s, .05s); 
-  }
-  
-  .link a { 
-    @extend %link-button; 
-    font-size: 14px; 
-    padding: 10px 14px; 
-    white-space: nowrap; 
-    flex: 0 0 auto; 
-    min-height: 44px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    
-    &::before { 
-      height: 2px; 
-      transform: translateY(-2px); 
-    }
-    
-    // Adjust icon spacing for mobile
-    i {
-      margin-right: 4px;
-      font-size: 0.85em;
-    }
-  }
+  ul.link { margin: 0 0 20px; list-style: none; padding: 0; display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; }
+  .link li { margin: 0; opacity: 0; transform: translateY(20px); animation: slideUp .4s ease forwards; @include stagger(10, .1s, .05s); }
+  .link a { @extend %link-button; font-size: 14px; padding: 10px 14px; white-space: nowrap; flex: 0 0 auto; min-height: 44px; display: flex; align-items: center; justify-content: center; &::before { height: 2px; transform: translateY(-2px); } i { margin-right: 4px; font-size: .85em; } }
 
-  // Platform left borders – thinner on mobile
-  .link a[href*="github"]     { border-left: 2px solid #24292f; }
-  .link a[href*="linkedin"]   { border-left: 2px solid #0077b5; }
-  .link a[href*="twitter"]    { border-left: 2px solid #1da1f2; }
-  .link a[href*="instagram"]  { border-left: 2px solid #e4405f; }
-  .link a[href*="facebook"]   { border-left: 2px solid #1877f2; }
-  .link a[href*="youtube"]    { border-left: 2px solid #ff0000; }
-  .link a[href*="email"],
-  .link a[href*="mailto"]     { border-left: 2px solid #ea4335; }
-  .link a[href*="resume"],
-  .link a[href*="cv"],
-  .link a[href*="pdf"]        { border-left: 2px solid $brand-green; }
-  .link a[href*="portfolio"]  { border-left: 2px solid $brand-purple; }
-  
-  // Default for unmatched mobile links
-  .link a:not([href*="github"]):not([href*="linkedin"]):not([href*="twitter"]):not([href*="instagram"]):not([href*="facebook"]):not([href*="youtube"]):not([href*="email"]):not([href*="mailto"]):not([href*="resume"]):not([href*="cv"]):not([href*="pdf"]):not([href*="portfolio"]) { 
-    border-left: 2px solid $brand-purple; 
+  @each $key, $color in $platform-borders {
+    .link a[href*="#{$key}"] { border-left: 2px solid #{$color}; }
   }
+  .link a:not([href*="github"]):not([href*="linkedin"]):not([href*="twitter"]):not([href*="instagram"]):not([href*="facebook"]):not([href*="youtube"]):not([href*="email"]):not([href*="mailto"]):not([href*="resume"]):not([href*="cv"]):not([href*="pdf"]):not([href*="portfolio"]) { border-left: 2px solid $brand-purple; }
 }
 
 // =====================
 // About Section
 // =====================
-.about {
-  @extend .section;
-  position: relative; overflow: hidden;
-
-  // Top gradient bar across section
-  &::before { content: ''; position: absolute; top: 0; left: 0; right: 0; @include gradient-accent(); z-index: 1; }
-
-  // Heading animation
-  h1 { @extend h1.section-title; color: $title; opacity: 0; transform: translateY(30px); animation: slideUp .6s ease .1s both; }
-
-  // Paragraphs with left accent bar
-  p { font-size: 1rem; line-height: 1.8; color: $text; margin: 0 0 1.5rem 0; position: relative; padding-left: 1rem; opacity: 0; transform: translateY(30px); animation: slideUp .6s ease both; }
-  p::before { content: ''; position: absolute; left: 0; top: .5rem; width: 3px; height: calc(100% - 1rem); background: linear-gradient(135deg, rgba($brand-blue, .3), rgba($brand-purple, .3)); border-radius: 2px; }
-  p strong { color: $title; font-weight: 600; background: linear-gradient(135deg, $brand-blue, $brand-purple); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
-
-  // Stagger paragraphs (adjust delays if you add/remove p tags)
-  p:nth-child(2) { animation-delay: .3s; }
-  p:nth-child(3) { animation-delay: .5s; }
-  p:nth-child(4) { animation-delay: .7s; }
-  p:nth-child(5) { animation-delay: .9s; }
-}
+.about { @extend .section; position: relative; overflow: hidden; }
+.about::before { content: ''; position: absolute; top: 0; left: 0; right: 0; @include gradient-accent(); z-index: 1; }
+.about h1 { @extend %section-title; color: $title; opacity: 0; transform: translateY(30px); animation: slideUp .6s ease .1s both; }
+.about p { font-size: 1rem; line-height: 1.8; color: $text; margin: 0 0 1.5rem 0; position: relative; padding-left: 1rem; opacity: 0; transform: translateY(30px); animation: slideUp .6s ease both; }
+.about p::before { content: ''; position: absolute; left: 0; top: .5rem; width: 3px; height: calc(100% - 1rem); background: linear-gradient(135deg, rgba($brand-blue,.3), rgba($brand-purple,.3)); border-radius: 2px; }
+.about p strong { color: $title; font-weight: 600; background: linear-gradient(135deg, $brand-blue, $brand-purple); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+.about p:nth-child(2){animation-delay:.3s} .about p:nth-child(3){animation-delay:.5s} .about p:nth-child(4){animation-delay:.7s} .about p:nth-child(5){animation-delay:.9s}
 
 // =====================
 // Education Section
 // =====================
 .education { @extend .section; }
-.education h1 { @extend h1.section-title; }
-
+.education h1 { @extend %section-title; }
 .educationGrid { display: flex; flex-direction: column; gap: 2rem; align-items: center; margin-top: 2rem; }
-
-.educationCard {
-  // Each school entry card (logo + text)
-  @include card(); width: 85%; max-width: 500px; margin: 0 auto; display: flex; flex-direction: row-reverse; align-items: center; gap: 2rem; opacity: 0; transform: translateY(30px); overflow: hidden;
-  &::before { content: ''; position: absolute; top: 0; left: 0; right: 0; @include gradient-accent(); z-index: 1; }
-  &:hover { transform: translateY(-4px); box-shadow: $shadow-lg; }
-  // Stagger appearance of cards (tune count if you have more/less)
-  @for $i from 1 through 4 { &:nth-child(#{$i}) { animation: slideUp .6s ease both; animation-delay: .1s * $i; } }
-}
-
+.educationCard { @include card(); width: 85%; max-width: 500px; margin: 0 auto; display: flex; flex-direction: row-reverse; align-items: center; gap: 2rem; opacity: 0; transform: translateY(30px); overflow: hidden; }
+.educationCard::before { content: ''; position: absolute; top: 0; left: 0; right: 0; @include gradient-accent(); z-index: 1; }
+.educationCard:hover { transform: translateY(-4px); box-shadow: $shadow-lg; }
+@for $i from 1 through 4 { .educationCard:nth-child(#{$i}) { animation: slideUp .6s ease both; animation-delay: .1s * $i; } }
 .educationText { flex: 1; position: relative; padding-left: 1rem; }
 .educationText h2 { @extend .sub-title; }
-.educationText p { margin: .5rem 0 0 0; font-size: 1rem; color: $text; padding-left: 1rem; line-height: 1.6; strong { background: linear-gradient(135deg, $brand-blue, $brand-purple); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; font-weight: 600; } em { color: $muted; font-style: italic; font-size: .9rem; } }
-
-.educationLogo { position: relative; padding: 1rem; background: linear-gradient(135deg, #f8fafc, #f1f5f9); border-radius: $radius-lg; border: 1px solid rgba(148, 163, 184, 0.2); transition: all .3s ease; }
+.educationText p { margin: .5rem 0 0 0; font-size: 1rem; color: $text; padding-left: 1rem; line-height: 1.6; }
+.educationText p strong { background: linear-gradient(135deg, $brand-blue, $brand-purple); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; font-weight: 600; }
+.educationText p em { color: $muted; font-style: italic; font-size: .9rem; }
+.educationLogo { position: relative; padding: 1rem; background: linear-gradient(135deg, #f8fafc, #f1f5f9); border-radius: $radius-lg; border: 1px solid rgba(148,163,184,.2); transition: all .3s ease; }
 .educationCard:hover .educationLogo { background: linear-gradient(135deg, #f1f5f9, #e2e8f0); transform: scale(1.05); }
 .educationLogo img { display: block; width: 60px; height: 60px; object-fit: contain; transition: all .3s ease; filter: grayscale(.2); opacity: 0; animation: fadeInImage .5s ease .2s both; }
 .educationCard:hover .educationLogo img { filter: grayscale(0); }
@@ -450,46 +231,36 @@ header p:not(.addr) {
 // Projects Section
 // =====================
 .projects { @extend .section; }
-.projects h1 { @extend h1.section-title; }
-
+.projects h1 { @extend %section-title; }
 .projectGrid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 2rem; align-items: stretch; margin-top: 2rem; }
 
-.projectCard {
-  // Clickable project tile
-  display: grid; grid-template-rows: auto 1fr; color: inherit; outline: none; position: relative; opacity: 0; transform: translateY(30px);
-  @include card(0);
-  &:hover { transform: translateY(-4px); box-shadow: $shadow-lg; }
-  &:focus-visible { @include focus-ring; }
-}
+// Enable container queries per card (used below)
+.projectCard, .skill-card { container-type: inline-size; container-name: card; }
 
-.projectImg { // Image/header area with a small top gradient bar
-  margin: 0; background: linear-gradient(135deg, #f1f5f9, #e2e8f0); border-bottom: 1px solid rgba(148,163,184,.2); position: relative; overflow: hidden; 
-  &::before { content: ''; position: absolute; top: 0; left: 0; right: 0; @include gradient-accent(); z-index: 1; }
-  img { display: block; width: 100%; aspect-ratio: 16 / 9; object-fit: cover; transition: transform .3s ease; opacity: 0; animation: fadeInImage .5s ease .2s both; }
-}
+.projectCard { display: grid; grid-template-rows: auto 1fr; color: inherit; outline: none; position: relative; opacity: 0; transform: translateY(30px); @include card(0); }
+.projectCard:hover { transform: translateY(-4px); box-shadow: $shadow-lg; }
+.projectCard:focus-visible { @include focus-ring; }
+.projectImg { margin: 0; background: linear-gradient(135deg, #f1f5f9, #e2e8f0); border-bottom: 1px solid rgba(148,163,184,.2); position: relative; overflow: hidden; }
+.projectImg::before { content: ''; position: absolute; top: 0; left: 0; right: 0; @include gradient-accent(); z-index: 1; }
+.projectImg img { display: block; width: 100%; aspect-ratio: 16 / 9; object-fit: cover; transition: transform .3s ease; opacity: 0; animation: fadeInImage .5s ease .2s both; }
 .projectCard:hover .projectImg img { transform: scale(1.02); }
-
 .projectBody { display: grid; gap: 1rem; padding: 1.5rem; position: relative; }
 .projectTitle { @extend .sub-title; }
 
-// Language/tech badges under each project title
-.languageBadges { display: flex; flex-wrap: wrap; gap: .5rem; list-style: none; margin: 0; padding: 0 0 0 1rem; li { font-size: .8rem; font-weight: 500; padding: .4rem .8rem; border-radius: 20px; background: linear-gradient(135deg, #f1f5f9, #e2e8f0); border: 1px solid $border; color: $text; transition: all .2s ease; position: relative; overflow: hidden; &:hover { background: linear-gradient(135deg, $brand-blue, $brand-purple); color: white; transform: translateY(-1px); border-color: transparent; } } }
-
-// Legacy typo support (optional): remove if your HTML is fixed
+.languageBadges { display: flex; flex-wrap: wrap; gap: .5rem; list-style: none; margin: 0; padding: 0 0 0 1rem; }
+.languageBadges li { font-size: .8rem; font-weight: 500; padding: .4rem .8rem; border-radius: 20px; background: linear-gradient(135deg, #f1f5f9, #e2e8f0); border: 1px solid $border; color: $text; transition: all .2s ease; position: relative; overflow: hidden; }
+.languageBadges li:hover { background: linear-gradient(135deg, $brand-blue, $brand-purple); color: white; transform: translateY(-1px); border-color: transparent; }
 .languegeBadges { @extend .languageBadges; }
+.projectSummary { margin: 0; color: $text; line-height: 1.7; font-size: .95rem; padding-left: 1rem; }
+.projectSummary strong { color: $title; font-weight: 600; background: linear-gradient(135deg, $brand-blue, $brand-purple); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+.projectBullets { margin: .5rem 0 0; padding-left: 2rem; color: $text; line-height: 1.6; }
+.projectBullets li { margin: .4rem 0; position: relative; }
+.projectBullets li::marker { color: $muted; }
 
-.projectSummary { margin: 0; color: $text; line-height: 1.7; font-size: .95rem; padding-left: 1rem; strong { color: $title; font-weight: 600; background: linear-gradient(135deg, $brand-blue, $brand-purple); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; } }
-
-.projectBullets { margin: .5rem 0 0; padding-left: 2rem; color: $text; line-height: 1.6; li { margin: .4rem 0; position: relative; &::marker { color: $muted; } } }
-
-// Stagger project cards on load (increase loop count if you have more than 6)
 @for $i from 1 through 6 { .projectCard:nth-child(#{$i}) { animation: slideUp .6s ease both; animation-delay: .1s * $i; } }
-
-// Alternating accent colors for visual variety (first 4 types repeat)
 @for $n from 1 through 4 {
   .projectCard:nth-child(4n + #{$n}) {
-    .projectTitle::before,
-    .projectImg::before {
+    .projectTitle::before, .projectImg::before {
       @if $n == 1 { @include gradient-accent($brand-blue, $brand-blue-deep); }
       @else if $n == 2 { @include gradient-accent($brand-amber, $brand-amber-deep); }
       @else if $n == 3 { @include gradient-accent($brand-red, $brand-red-deep); }
@@ -502,504 +273,198 @@ header p:not(.addr) {
 // Skills Section
 // =====================
 .skills { @extend .section; }
-.skills h1 { @extend h1.section-title; }
-
+.skills h1 { @extend %section-title; }
 .skills-grid { display: grid; grid-template-columns: repeat(2, 1fr); grid-template-rows: repeat(2, 1fr); gap: 2rem 3rem; margin-top: 2rem; align-items: start; min-height: 400px; }
-
-.skill-card { position: relative; transition: all .3s ease; padding: 0; opacity: 0; transform: translateY(30px); animation: slideUp .6s ease both; @include stagger(4, .1s, .1s); &:hover { transform: translateY(-2px); } }
-
+.skill-card { position: relative; transition: all .3s ease; padding: 0; opacity: 0; transform: translateY(30px); animation: slideUp .6s ease both; @include stagger(4, .1s, .1s); }
+.skill-card:hover { transform: translateY(-2px); }
 .skill-card h2 { @extend .sub-title; }
-
 .skill-icons { display: flex; gap: .75rem; margin-bottom: 1.2rem; flex-wrap: wrap; align-items: center; padding-left: 1rem; }
-.skill-icon { font-size: 1.5rem; color: $muted; transition: all .2s ease; opacity: .8; &:hover { color: $brand-blue; opacity: 1; transform: scale(1.1); } }
-
-.skill-card p { color: $text; line-height: 1.7; margin: 0; font-size: .95rem; padding-left: 1rem; strong { color: $title; font-weight: 600; background: linear-gradient(135deg, $brand-blue, $brand-purple); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; } }
-
-// Icon color variety (customize by row/card)
-.skill-card:nth-child(1) .skill-icon { color: $brand-blue; &:hover { color: $brand-blue-deep; } }
-.skill-card:nth-child(2) .skill-icon { color: $brand-amber; &:hover { color: $brand-amber-deep; } }
-.skill-card:nth-child(3) .skill-icon { color: $brand-red; &:hover { color: $brand-red-deep; } }
-.skill-card:nth-child(4) .skill-icon { color: $brand-green; &:hover { color: $brand-green-deep; } }
+.skill-icon { font-size: 1.5rem; color: $muted; transition: all .2s ease; opacity: .8; }
+.skill-icon:hover { color: $brand-blue; opacity: 1; transform: scale(1.1); }
+.skill-card p { color: $text; line-height: 1.7; margin: 0; font-size: .95rem; padding-left: 1rem; }
+.skill-card p strong { color: $title; font-weight: 600; background: linear-gradient(135deg, $brand-blue, $brand-purple); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+.skill-card:nth-child(1) .skill-icon { color: $brand-blue; }
+.skill-card:nth-child(1) .skill-icon:hover { color: $brand-blue-deep; }
+.skill-card:nth-child(2) .skill-icon { color: $brand-amber; }
+.skill-card:nth-child(2) .skill-icon:hover { color: $brand-amber-deep; }
+.skill-card:nth-child(3) .skill-icon { color: $brand-red; }
+.skill-card:nth-child(3) .skill-icon:hover { color: $brand-red-deep; }
+.skill-card:nth-child(4) .skill-icon { color: $brand-green; }
+.skill-card:nth-child(4) .skill-icon:hover { color: $brand-green-deep; }
 
 // =====================
 // Accessibility & Focus States
 // =====================
-.educationCard:focus-within,
-.skill-card:focus-within,
-.projectCard:focus { outline: 3px solid rgba($brand-blue, 0.5); outline-offset: 2px; }
-
+.educationCard:focus-within, .skill-card:focus-within, .projectCard:focus { outline: 3px solid rgba($brand-blue, 0.5); outline-offset: 2px; }
 .projectCard:focus { @include focus-ring; }
 
 // =====================
-// Media Queries (CUSTOMIZE breakpoints)
+// Media Queries
 // =====================
 @media (min-width: $bp-desk) {
   .skills-grid { column-gap: 4rem; row-gap: 2.5rem; grid-template-columns: repeat(2, 1fr); grid-template-rows: repeat(2, 1fr); }
   .skill-card:nth-child(even) { margin-top: 1rem; }
-  
-  // Ensure mobile links are hidden on desktop
   .linkWrapperMobile { display: none !important; }
 }
 
 @media (max-width: $bp-tab) {
   body { padding: 1rem; }
-
-  // Show mobile links, hide desktop links
   .linkWrapperDesktop { display: none !important; }
   .linkWrapperMobile { display: block !important; }
-
-  .skills { padding: 1.5rem; h1 { font-size: 2rem; margin-bottom: 2rem; } }
+  .skills { padding: 1.5rem; }
+  .skills h1 { font-size: 2rem; margin-bottom: 2rem; }
   .skills-grid { gap: 2rem; grid-template-columns: 1fr; grid-template-rows: auto; }
   .skill-card:nth-child(even) { margin-top: 0; }
-
-  .projects { padding: 1.5rem; h1 { font-size: 2rem; margin-bottom: 2rem; } }
+  .projects { padding: 1.5rem; }
+  .projects h1 { font-size: 2rem; margin-bottom: 2rem; }
   .projectGrid { grid-template-columns: 1fr; gap: 1.5rem; }
   .projectCard { margin: 0; }
-
-  .education { padding: 1.5rem; h1 { font-size: 2rem; margin-bottom: 2rem; } }
+  .education { padding: 1.5rem; }
+  .education h1 { font-size: 2rem; margin-bottom: 2rem; }
   .educationGrid { gap: 1.5rem; }
   .educationCard { flex-direction: column; text-align: center; width: 95%; gap: 1.5rem; padding: 1.5rem; }
   .educationText { padding-left: 0; }
   .educationText h2, .educationText p { padding-left: 0; }
   .educationText h2::before { display: none; }
-
-  .about { padding: 1.5rem; h1 { font-size: 2rem; margin-bottom: 2rem; } p { padding-left: .8rem; font-size: .95rem; } p::before { width: 2px; } }
-
+  .about { padding: 1.5rem; }
+  .about h1 { font-size: 2rem; margin-bottom: 2rem; }
+  .about p { padding-left: .8rem; font-size: .95rem; }
+  .about p::before { width: 2px; }
   .linkWrapperMobile .link { gap: 10px; }
-  
-  // Header adjustments for mobile
-  header h1 {
-    font-size: 28px;
-    margin-bottom: 15px;
-  }
-  
-  .headshot {
-    width: 100px;
-    height: 100px;
-  }
+  // Header scale for mobile
+  .headshot { width: 100px; height: 100px; }
+  .headshot + h1, h1:has(+ .addr) { font-size: 28px; margin-bottom: 15px; }
 }
 
 @media (max-width: $bp-md) {
   .projectBody { padding: 1rem; }
   .projectTitle { font-size: 1.1rem; }
-  .languageBadges { gap: .4rem; li { font-size: .75rem; padding: .3rem .6rem; } }
-
+  .languageBadges { gap: .4rem; }
+  .languageBadges li { font-size: .75rem; padding: .3rem .6rem; }
   .skills { padding: 1rem; }
   .skill-card { padding: 1.2rem; }
   .skill-card h2 { font-size: 1.1rem; }
-
   .education { padding: 1rem; }
   .educationCard { padding: 1.2rem; width: 98%; }
   .educationText h2 { font-size: 1.1rem; }
-
-  .about { padding: 1rem; p { padding-left: .5rem; font-size: .9rem; } p::before { width: 2px; } }
-
+  .about { padding: 1rem; }
+  .about p { padding-left: .5rem; font-size: .9rem; }
+  .about p::before { width: 2px; }
   .linkWrapperMobile .link a { font-size: 13px; padding: 8px 12px; }
   .linkWrapperMobile ul.link { gap: 8px; }
-  
-  // Smaller header for mobile
-  header h1 {
-    font-size: 24px;
-  }
-  
-  .headshot {
-    width: 80px;
-    height: 80px;
-  }
-  
-  .addr {
-    font-size: 13px;
-  }
-  
-  header p:not(.addr) {
-    font-size: 13px;
-  }
+  .headshot { width: 80px; height: 80px; }
+  .addr { font-size: 13px; }
+  p:has(+ .linkWrapperDesktop), .addr + p { font-size: 13px; }
 }
 
 @media (max-width: $bp-sm) {
   .skills, .projects, .education, .about { padding: .8rem; }
   .skills h1, .projects h1, .education h1, .about h1 { font-size: 1.8rem; margin-bottom: 1.5rem; }
   .linkWrapperMobile .link a { font-size: 12px; padding: 7px 10px; }
-  
-  // Extra small header adjustments
-  header h1 {
-    font-size: 20px;
-    margin-bottom: 10px;
-  }
-  
-  .headshot {
-    width: 70px;
-    height: 70px;
-  }
-  
-  .addr {
-    font-size: 12px;
-    margin: 8px 0 15px 0;
-  }
-  
-  header p:not(.addr) {
-    font-size: 12px;
-    margin-bottom: 20px;
-  }
+  .headshot { width: 70px; height: 70px; }
+  .headshot + h1, h1:has(+ .addr) { font-size: 20px; margin-bottom: 10px; }
+  .addr { font-size: 12px; margin: 8px 0 15px 0; }
+  p:has(+ .linkWrapperDesktop), .addr + p { font-size: 12px; margin-bottom: 20px; }
 }
 
 // =====================
-// Dark Mode (CUSTOMIZE contrasts)
+// Dark Mode
 // =====================
 @media (prefers-color-scheme: dark) {
-  .about, .education, .projects, .skills { 
-    background: $dark-panel; 
-    backdrop-filter: blur(10px); 
-  }
-  
-  .educationCard, .projectCard, .skill-card { 
-    background: $dark-surface; 
-    border: 1px solid $dark-border; 
-  }
-
-  .linkWrapperDesktop .link a, .linkWrapperMobile .link a { 
-    background: $dark-surface; 
-    border-color: $dark-border; 
-    color: $dark-text; 
-    
-    &:hover { 
-      background: linear-gradient(135deg, rgba($brand-blue,.25), rgba($brand-purple,.25)); 
-      color: $dark-text-strong; 
-    }
-  }
-
-  .skill-card p, .projectSummary, .about p { 
-    color: #d1d5db; 
-  }
-  
-  // Dark mode adjustments for header elements
-  header h1 {
-    color: $dark-text-strong;
-  }
-  
-  header p:not(.addr) {
-    color: $dark-text;
-  }
-  
-  .addr a {
-    color: lighten($brand-blue, 20%);
-    
-    &:hover,
-    &:focus {
-      color: lighten($brand-blue, 30%);
-    }
-  }
-  
-  .headshot {
-    filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.3));
-    
-    &:hover {
-      filter: drop-shadow(0 8px 25px rgba(0, 0, 0, 0.4));
-    }
-  }
+  .about, .education, .projects, .skills { background: $dark-panel; backdrop-filter: blur(10px); }
+  .educationCard, .projectCard, .skill-card { background: $dark-surface; border: 1px solid $dark-border; }
+  .linkWrapperDesktop .link a, .linkWrapperMobile .link a { background: $dark-surface; border-color: $dark-border; color: $dark-text; }
+  .linkWrapperDesktop .link a:hover, .linkWrapperMobile .link a:hover { background: linear-gradient(135deg, rgba($brand-blue,.25), rgba($brand-purple,.25)); color: $dark-text-strong; }
+  .skill-card p, .projectSummary, .about p { color: #d1d5db; }
+  // Header tweaks
+  .headshot { filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.3)); }
+  .headshot:hover { filter: drop-shadow(0 8px 25px rgba(0, 0, 0, 0.4)); }
+  .addr a { color: lighten($brand-blue, 20%); }
+  .addr a:hover, .addr a:focus { color: lighten($brand-blue, 30%); }
 }
 
 // =====================
 // Print Styles
 // =====================
 @media print {
-  .about, .education, .projects, .skills { 
-    background: white !important; 
-    box-shadow: none !important; 
-    page-break-inside: avoid; 
-  }
-  
-  .projectCard, .educationCard { 
-    box-shadow: none !important; 
-    border: 1px solid #e2e8f0 !important; 
-    page-break-inside: avoid; 
-    margin-bottom: 1rem; 
-  }
-  
-  .linkWrapperDesktop, .linkWrapperMobile { 
-    display: none !important; 
-  }
-  
-  .projectImg img, .educationLogo img, .headshot { 
-    print-color-adjust: exact; 
-    -webkit-print-color-adjust: exact; 
-  }
-  
-  // Header adjustments for print
-  header h1 {
-    color: #000 !important;
-    font-size: 24px !important;
-  }
-  
-  header p:not(.addr) {
-    color: #333 !important;
-  }
-  
-  .addr a {
-    color: #000 !important;
-    text-decoration: underline !important;
-  }
-  
-  .headshot {
-    filter: none !important;
-  }
+  .about, .education, .projects, .skills { background: #fff !important; box-shadow: none !important; page-break-inside: avoid; }
+  .projectCard, .educationCard { box-shadow: none !important; border: 1px solid #e2e8f0 !important; page-break-inside: avoid; margin-bottom: 1rem; }
+  .linkWrapperDesktop, .linkWrapperMobile { display: none !important; }
+  .projectImg img, .educationLogo img, .headshot { print-color-adjust: exact; -webkit-print-color-adjust: exact; }
+  // Hide tiny external-link icons in print
+  .linkWrapperDesktop .link a[target="_blank"]::after, .linkWrapperMobile .link a[target="_blank"]::after { display: none !important; }
 }
 
 // =====================
 // Reduced Motion
 // =====================
 @media (prefers-reduced-motion: reduce) {
-  *, *::before, *::after { 
-    animation-duration: .01ms !important; 
-    animation-iteration-count: 1 !important; 
-    transition-duration: .01ms !important; 
-    scroll-behavior: auto !important; 
-  }
-  
-  .projectCard:hover, 
-  .educationCard:hover, 
-  .skill-card:hover, 
-  .about:hover,
-  .headshot:hover { 
-    transform: none; 
-  }
+  *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; scroll-behavior: auto !important; }
+  .projectCard:hover, .educationCard:hover, .skill-card:hover, .about:hover, .headshot:hover { transform: none; }
+  // Also stop loading pulse animations
+  .headshot[src=""], .projectImg img[src=""], .educationLogo img[src=""] { animation: none !important; }
 }
 
 // =====================
-// Image Loading & Fallbacks
+// Images & Fallbacks
 // =====================
-.projectImg img:not([src]), 
-.projectImg img[src=""], 
-.educationLogo img:not([src]), 
-.educationLogo img[src=""],
-.headshot:not([src]),
-.headshot[src=""] { 
-  display: none; 
-}
-
-// Fallback for missing headshot
-.headshot:not([src])::after,
-.headshot[src=""]::after {
-  content: '👤';
-  font-size: 60px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 120px;
-  height: 120px;
-  background: linear-gradient(135deg, $brand-blue, $brand-purple);
-  border-radius: 50%;
-  color: white;
-}
+.projectImg img:not([src]), .projectImg img[src=""], .educationLogo img:not([src]), .educationLogo img[src=""], .headshot:not([src]), .headshot[src=""] { display: none; }
+.headshot:not([src])::after, .headshot[src=""]::after { content: '👤'; font-size: 60px; display: flex; align-items: center; justify-content: center; width: 120px; height: 120px; background: linear-gradient(135deg, $brand-blue, $brand-purple); border-radius: 50%; color: white; }
 
 // =====================
 // Performance Hints
 // =====================
-.projectCard, 
-.educationCard, 
-.skill-card,
-.linkWrapperDesktop .link a,
-.linkWrapperMobile .link a { 
-  contain: layout style paint; 
-}
-
-.projectCard:not(:hover), 
-.educationCard:not(:hover), 
-.linkWrapperDesktop .link a:not(:hover), 
-.linkWrapperMobile .link a:not(:hover),
-.headshot:not(:hover) { 
-  will-change: auto; 
-}
-
-.projectCard:hover, 
-.educationCard:hover, 
-.linkWrapperDesktop .link a:hover, 
-.linkWrapperMobile .link a:hover,
-.headshot:hover { 
-  will-change: transform, box-shadow; 
-}
+.projectCard, .educationCard, .skill-card, .linkWrapperDesktop .link a, .linkWrapperMobile .link a { contain: layout style paint; }
+.projectCard:not(:hover), .educationCard:not(:hover), .linkWrapperDesktop .link a:not(:hover), .linkWrapperMobile .link a:not(:hover), .headshot:not(:hover) { will-change: auto; }
+.projectCard:hover, .educationCard:hover, .linkWrapperDesktop .link a:hover, .linkWrapperMobile .link a:hover, .headshot:hover { will-change: transform, box-shadow; }
 
 // =====================
-// Enhanced Link Styling for Better UX
+// External link indicator (desktop & mobile link lists)
 // =====================
-// Add support for external link indicators
 .linkWrapperDesktop .link a[target="_blank"]::after,
 .linkWrapperMobile .link a[target="_blank"]::after {
   content: '';
-  display: inline-block;
-  width: 12px;
-  height: 12px;
-  margin-left: 6px;
+  display: inline-block; width: 12px; height: 12px; margin-left: 6px;
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='currentColor'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14'/%3E%3C/svg%3E");
-  background-size: contain;
-  background-repeat: no-repeat;
-  vertical-align: middle;
-  opacity: 0.7;
-  transition: opacity 0.3s ease;
+  background-size: contain; background-repeat: no-repeat; vertical-align: middle; opacity: .7; transition: opacity .3s ease;
 }
-
 .linkWrapperDesktop .link a:hover[target="_blank"]::after,
-.linkWrapperMobile .link a:hover[target="_blank"]::after {
-  opacity: 1;
+.linkWrapperMobile .link a:hover[target="_blank"]::after { opacity: 1; }
+
+// =====================
+// Container Queries (named container: card)
+// =====================
+@container card (max-width: 500px) {
+  .skill-card { padding: 1rem; }
+  .projectBody { padding: 1rem; }
 }
 
 // =====================
-// Loading States
-// =====================
-// Add subtle loading animations for better perceived performance
-@keyframes pulse {
-  0%, 100% { opacity: 1; }
-  50% { opacity: 0.7; }
-}
-
-.headshot[src=""],
-.projectImg img[src=""],
-.educationLogo img[src=""] {
-  animation: pulse 2s infinite;
-}
-
-// =====================
-// Enhanced Error States
-// =====================
-// Better fallbacks for broken images
-.projectImg:has(img:not([src])),
-.projectImg:has(img[src=""]) {
-  background: linear-gradient(135deg, #f1f5f9, #e2e8f0);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  min-height: 200px;
-  
-  &::after {
-    content: '🖼️ Image Coming Soon';
-    color: $muted;
-    font-style: italic;
-    text-align: center;
-    font-size: 14px;
-  }
-}
-
-.educationLogo:has(img:not([src])),
-.educationLogo:has(img[src=""]) {
-  &::after {
-    content: '🏫';
-    font-size: 30px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 60px;
-    height: 60px;
-  }
-}
-
-// =====================
-// Improved Touch Targets for Mobile
-// =====================
-@media (max-width: $bp-tab) {
-  .linkWrapperMobile .link a {
-    min-height: 44px;
-    min-width: 44px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 12px 16px;
-  }
-
-  .projectCard {
-    min-height: 300px;
-  }
-  
-  // Better spacing for touch interaction
-  .linkWrapperMobile ul.link {
-    gap: 12px;
-  }
-}
-
-// =====================
-// Container Queries Support (Future-proofing)
-// =====================
-@container (max-width: 500px) {
-  .skill-card {
-    padding: 1rem;
-  }
-  
-  .projectBody {
-    padding: 1rem;
-  }
-}
-
-// =====================
-// Better Grid Fallbacks for Older Browsers
+// Fallbacks for older browsers (no grid)
 // =====================
 @supports not (display: grid) {
-  .projectGrid {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 2rem;
-  }
-  
-  .projectCard {
-    flex: 1 1 300px;
-    max-width: 450px;
-  }
-  
-  .skills-grid {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 2rem;
-  }
-  
-  .skill-card {
-    flex: 1 1 250px;
-  }
+  .projectGrid { display: flex; flex-wrap: wrap; gap: 2rem; }
+  .projectCard { flex: 1 1 300px; max-width: 450px; }
+  .skills-grid { display: flex; flex-wrap: wrap; gap: 2rem; }
+  .skill-card { flex: 1 1 250px; }
 }
 
 // =====================
-// High Contrast Mode Support
+// High Contrast Mode
 // =====================
 @media (prefers-contrast: high) {
-  .linkWrapperDesktop .link a,
-  .linkWrapperMobile .link a {
-    border: 2px solid currentColor;
-    background: transparent;
-  }
-  
-  .projectCard,
-  .educationCard,
-  .skill-card {
-    border: 2px solid currentColor;
-  }
-  
-  .headshot {
-    border: 2px solid currentColor;
-  }
+  .linkWrapperDesktop .link a, .linkWrapperMobile .link a { border: 2px solid currentColor; background: transparent; }
+  .projectCard, .educationCard, .skill-card { border: 2px solid currentColor; }
+  .headshot { border: 2px solid currentColor; }
 }
 
 // =====================
-// RTL Language Support
+// RTL Support (basic)
 // =====================
 [dir="rtl"] {
-  .sub-title {
-    padding-right: 1rem;
-    padding-left: 0;
-    
-    &::before {
-      right: 0;
-      left: auto;
-    }
-  }
-  
-  .about p {
-    padding-right: 1rem;
-    padding-left: 0;
-    
-    &::before {
-      right: 0;
-      left: auto;
-    }
-  }
-  
-  .linkWrapperDesktop .link a {
-    text-align: right;
-  }
+  .sub-title { padding-right: 1rem; padding-left: 0; }
+  .sub-title::before { right: 0; left: auto; }
+  .about p { padding-right: 1rem; padding-left: 0; }
+  .about p::before { right: 0; left: auto; }
+  .linkWrapperDesktop .link a { text-align: right; }
 }
