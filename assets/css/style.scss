@@ -1,567 +1,510 @@
----
----
+/* ============================ */
+/*        Simple Styles         */
+/* ============================ */
 
-// =============================================
-// Portfolio Theme (Refactored, Scoped & Commented SCSS)
-// - Tailored to your actual HTML includes
-// - No HTML/MD changes required
-// =============================================
-
-/*=============*/
-/*   Imports   */
-/*=============*/
-@import "jekyll-theme-minimal.scss";
-
-// =====================
-// Variables (CUSTOMIZE)
-// =====================
-$font-system: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+/* Variables */
+$font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
 $max-width: 1000px;
-$radius-md: 8px;
-$radius-lg: 12px;
+$border-radius: 8px;
+$border-radius-large: 12px;
 
-$surface: #ffffff;
-$panel: #f8fafc;
-$text: #475569;       // body copy
-$heading: #334155;    // subtitles
-$title: #1e293b;      // main titles
-$muted: #64748b;      // secondary
-$border: rgba(148, 163, 184, 0.3);
+/* Colors */
+$white: #ffffff;
+$light-gray: #f8fafc;
+$text-color: #475569;
+$heading-color: #334155;
+$title-color: #1e293b;
+$muted-color: #64748b;
+$border-color: rgba(148, 163, 184, 0.3);
 
-$shadow-sm: 0 2px 4px -1px rgba(0, 0, 0, 0.1);
-$shadow-md: 0 4px 6px -1px rgba(0,0,0,.1), 0 2px 4px -1px rgba(0,0,0,.06);
-$shadow-lg: 0 20px 25px -5px rgba(0,0,0,.1), 0 10px 10px -5px rgba(0,0,0,.04);
+$blue: #3b82f6;
+$purple: #8b5cf6;
+$green: #10b981;
+$amber: #f59e0b;
+$red: #ef4444;
 
-$brand-blue: #3b82f6;
-$brand-blue-deep: #1d4ed8;
-$brand-purple: #8b5cf6;
-$brand-amber: #f59e0b; $brand-amber-deep: #d97706;
-$brand-red: #ef4444;   $brand-red-deep: #dc2626;
-$brand-green: #10b981; $brand-green-deep: #059669;
-
-$dark-surface: rgba(30, 41, 59, 0.9);
-$dark-panel: rgba(15, 23, 42, 0.8);
-$dark-border: rgba(71, 85, 105, 0.3);
-$dark-text: #cbd5e1;
-$dark-text-strong: #f1f5f9;
-
-/* =====================
-   Cascade layers + color scheme
-   ===================== */
-@layer reset, tokens, base, layout, components, utilities, overrides;
-:root { color-scheme: light dark; }
-
-// =====================
-// Variables (CUSTOMIZE)
-// =====================
-$font-system: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-$max-width: 1000px;
-$radius-md: 8px;
-$radius-lg: 12px;
-
-$surface: #ffffff;
-$panel: #f8fafc;
-$text: #475569;       // body copy
-$heading: #334155;    // subtitles
-$title: #1e293b;      // main titles
-$muted: #64748b;      // secondary
-$border: rgba(148, 163, 184, 0.3);
-
-$shadow-sm: 0 2px 4px -1px rgba(0, 0, 0, 0.1);
-$shadow-md: 0 4px 6px -1px rgba(0,0,0,.1), 0 2px 4px -1px rgba(0,0,0,.06);
-$shadow-lg: 0 20px 25px -5px rgba(0,0,0,.1), 0 10px 10px -5px rgba(0,0,0,.04);
-
-$brand-blue: #3b82f6;
-$brand-blue-deep: #1d4ed8;
-$brand-purple: #8b5cf6;
-$brand-amber: #f59e0b; $brand-amber-deep: #d97706;
-$brand-red: #ef4444;   $brand-red-deep: #dc2626;
-$brand-green: #10b981; $brand-green-deep: #059669;
-
-$dark-surface: rgba(30, 41, 59, 0.9);
-$dark-panel: rgba(15, 23, 42, 0.8);
-$dark-border: rgba(71, 85, 105, 0.3);
-$dark-text: #cbd5e1;
-$dark-text-strong: #f1f5f9;
-
-/* =====================
-   Tokens: expose a few runtime CSS vars (keeps Sass as source of truth)
-   ===================== */
-@layer tokens {
-  :root {
-    --surface: #{$surface};
-    --panel: #{$panel};
-    --text: #{$text};
-    --title: #{$title};
-    --radius-md: #{$radius-md};
-    --radius-lg: #{$radius-lg};
-  }
-  @media (prefers-color-scheme: dark) {
-    :root {
-      --surface: #{$dark-surface};
-      --panel: #{$dark-panel};
-      --text: #{$dark-text};
-      --title: #{$dark-text-strong};
-    }
-  }
+/* Base Styles */
+body {
+  font-family: $font-family;
+  line-height: 1.6;
+  color: $text-color;
+  background: $light-gray;
+  margin: 0;
+  padding: 2rem;
 }
 
-// Breakpoints
-$bp-sm: 360px;
-$bp-md: 520px;
-$bp-tab: 767px;
-$bp-desk: 768px;
-
-// Central map (optional helper)
-$bp: (sm: $bp-sm, md: $bp-md, tab: $bp-tab, desk: $bp-desk);
-@mixin mq($key, $dir: min) { @media (#{$dir}-width: #{map-get($bp, $key)}) { @content; }}
-
-// =====================
-// Mixins & Utilities
-// =====================
-@mixin gradient-accent($c1: $brand-blue, $c2: $brand-purple, $h: 3px) {
-  background: linear-gradient(135deg, $c1, $c2);
-  height: $h;
+/* Layout */
+.section {
+  max-width: $max-width;
+  margin: 0 auto;
+  padding: 2rem;
+  background: $white;
+  border-radius: $border-radius;
+  margin-bottom: 2rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-// Targeted UI transitions (replaces `transition: all`)
-@mixin _ui-transitions {
-  transition:
-    transform .3s ease,
-    box-shadow .3s ease,
-    border-color .2s ease,
-    background-color .2s ease,
-    color .15s ease,
-    opacity .2s ease,
-    filter .3s ease;
+/* Typography */
+h1.section-title {
+  text-align: center;
+  font-size: 2.5rem;
+  margin-bottom: 3rem;
+  color: $title-color;
+  font-weight: 700;
 }
 
-@mixin card($pad: 2rem) {
-  background: var(--surface, #{$surface});
-  border-radius: var(--radius-lg, #{$radius-lg});
-  box-shadow: $shadow-md;
-  @include _ui-transitions;
-  padding: $pad;
+.sub-title {
+  margin: 0;
+  font-size: 1.3rem;
+  line-height: 1.3;
+  font-weight: 600;
+  color: $heading-color;
+  margin-bottom: 1rem;
+  padding-left: 1rem;
+  position: relative;
+}
+
+.sub-title::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 4px;
+  height: 20px;
+  background: linear-gradient(135deg, $blue, $purple);
+  border-radius: 2px;
+}
+
+/* Header Styles */
+.headshot {
+  border-radius: 50%;
+  margin-bottom: 10px;
+  max-width: 90%;
+  width: 120px;
+  height: 120px;
+  object-fit: cover;
+}
+
+.headshot + h1,
+h1:has(+ .addr) {
+  font-size: 32px;
+  color: $title-color;
+  margin: 0 0 20px;
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+.addr {
+  margin: 10px 0 20px 0;
+  font-size: 14px;
+}
+
+.addr a {
+  color: $blue;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.addr a:hover {
+  text-decoration: underline;
+}
+
+/* Link Lists */
+.linkWrapperDesktop,
+.linkWrapperMobile {
+  font-family: $font-family;
+}
+
+.linkWrapperDesktop {
+  margin-top: 20px;
+}
+
+.linkWrapperDesktop .link {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.linkWrapperDesktop .link li {
+  margin: 8px 0;
+}
+
+.linkWrapperDesktop .link a {
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  background: $white;
+  border: 1px solid $border-color;
+  border-radius: $border-radius;
+  text-decoration: none;
+  color: $text-color;
+  font-size: 16px;
+  padding: 12px 18px;
+  width: 100%;
+  box-sizing: border-box;
+  min-height: 44px;
+}
+
+.linkWrapperDesktop .link a:hover {
+  background: #f1f5f9;
+  border-color: rgba($blue, 0.3);
+  color: #334155;
+}
+
+/* Mobile Links */
+.linkWrapperMobile {
+  display: none;
+  margin: 20px 0;
+}
+
+.linkWrapperMobile ul.link {
+  margin: 0 0 20px;
+  list-style: none;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+}
+
+.linkWrapperMobile .link li {
+  margin: 0;
+}
+
+.linkWrapperMobile .link a {
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  background: $white;
+  border: 1px solid $border-color;
+  border-radius: $border-radius;
+  text-decoration: none;
+  color: $text-color;
+  font-size: 14px;
+  padding: 10px 14px;
+  white-space: nowrap;
+  min-height: 44px;
+}
+
+.linkWrapperMobile .link a:hover {
+  background: #f1f5f9;
+  border-color: rgba($blue, 0.3);
+}
+
+/* About Section */
+.about::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(135deg, $blue, $purple);
+}
+
+.about {
   position: relative;
   overflow: hidden;
 }
 
-@mixin focus-ring { box-shadow: 0 0 0 3px rgba($brand-blue, 0.5), $shadow-sm; }
-@mixin section-base($pad: 2rem) {
-  font-family: $font-system; line-height: 1.6; max-width: $max-width; margin: 0 auto; padding: $pad; background: $panel; border-radius: $radius-md; transition: border-color .3s ease, box-shadow .3s ease, transform .3s ease; border: 1px solid transparent;
-}
-@mixin stagger($count, $delay-start: 0.1s, $step: 0.1s, $prop: animation-delay) {
-  @for $i from 1 through $count { &:nth-child(#{$i}) { #{$prop}: calc(#{$delay-start} + (#{$i - 1} * #{$step})); } }
-}
-
-// Animations
-@keyframes slideUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
-@keyframes slideInLeft { from { opacity: 0; transform: translateX(-20px); } to { opacity: 1; transform: translateX(0); } }
-@keyframes fadeInImage { from { opacity: 0; transform: scale(0.95); } to { opacity: 1; transform: scale(1); } }
-@keyframes pulse { 0%,100%{opacity:1} 50%{opacity:.7} }
-
-// =====================
-// Global helpers & Titles
-// =====================
-.section { @include section-base(); }
-.section:hover { border-color: rgba($brand-blue, 0.1); transform: translateY(-2px); box-shadow: 0 10px 25px -5px rgba(0,0,0,.1), 0 4px 6px -2px rgba(0,0,0,.05); }
-
-// Use placeholder to avoid heavy selector chains when extending
-%section-title { text-align: center; font-size: clamp(1.8rem, 4vw, 2.5rem); margin-bottom: 3rem; color: $title; font-weight: 700; }
-h1.section-title { @extend %section-title; }
-
-.sub-title {
-  margin: 0; font-size: clamp(1.1rem, 2.5vw, 1.3rem); line-height: 1.3; font-weight: 600; color: $heading; position: relative; padding-inline-start: 1rem;
-  &::before { content: ''; position: absolute; inset-inline-start: 0; top: 50%; transform: translateY(-50%); width: 4px; height: 20px; @include gradient-accent($brand-blue, $brand-purple); border-radius: 2px; }
+.about p {
+  font-size: 1rem;
+  line-height: 1.8;
+  color: $text-color;
+  margin: 0 0 1.5rem 0;
+  padding-left: 1rem;
+  position: relative;
 }
 
-.text-body { color: #374151; }
-
-// =====================
-// LEFT SIDEBAR HEADER (scoped to your includes)
-// =====================
-
-// Headshot image (always safe to target by class)
-.headshot {
-  border-radius: 100%; margin-bottom: 10px; max-width: 90%; width: 120px; height: 120px; object-fit: cover; @include _ui-transitions; filter: drop-shadow(0 4px 6px rgba(0,0,0,.1));
-  &:hover { transform: scale(1.05); filter: drop-shadow(0 8px 25px rgba(0,0,0,.15)); }
+.about p::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0.5rem;
+  width: 3px;
+  height: calc(100% - 1rem);
+  background: linear-gradient(135deg, rgba($blue, 0.3), rgba($purple, 0.3));
+  border-radius: 2px;
 }
 
-// Title immediately after headshot OR immediately before the email paragraph
-.headshot + h1,
-h1:has(+ .addr) {
-  font-size: 32px; color: $title; margin: 0 0 20px; font-weight: 700; line-height: 1.2; transition: color .3s ease, background-position .3s ease;
-}
-.headshot + h1:hover,
-h1:has(+ .addr):hover {
-  background: linear-gradient(135deg, $brand-blue, $brand-purple);
-  -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+.about p strong {
+  color: $title-color;
+  font-weight: 600;
 }
 
-// Email address (addr block)
-.addr { margin: 10px 0 20px 0; font-size: 14px; }
-.addr a { color: $brand-blue; text-decoration: none; transition: color .2s ease, text-decoration-color .2s ease; font-weight: 500; }
-.addr a:hover, .addr a:focus { color: $brand-blue-deep; text-decoration: underline; }
-.addr i { margin-right: 4px; opacity: .8; }
-
-// Description paragraph that appears BEFORE the desktop link list include
-p:has(+ .linkWrapperDesktop),
-.addr + p { color: $text; font-size: 14px; line-height: 1.5; margin: 0 0 25px 0; font-weight: 400; opacity: .9; }
-
-// =====================
-// Link Wrappers (Desktop & Mobile)
-// =====================
-%link-button {
-  font-weight: 500; display: inline-block; background: var(--surface, #{$surface}); border: 1px solid $border; border-radius: var(--radius-md, #{$radius-md}); text-decoration: none; color: var(--text, #{$text}); text-align: center; position: relative; overflow: hidden; box-shadow: $shadow-sm; @include _ui-transitions;
-  &:hover { background: linear-gradient(135deg, #f8fafc, #f1f5f9); border-color: rgba($brand-blue, .3); color: #334155; transform: translateY(-2px); box-shadow: 0 8px 25px -5px rgba(0,0,0,.15), 0 4px 6px -2px rgba(0,0,0,.05); }
-  &:focus-visible { outline: none; @include focus-ring; }
-  &::before { content: ''; position: absolute; top: 0; left: 0; right: 0; @include gradient-accent($brand-blue, $brand-purple, 3px); transform: translateY(-3px); transition: transform .3s ease; }
-  &:hover::before { transform: translateY(0); }
-  i { margin-right: 6px; font-size: .9em; vertical-align: middle; }
+/* Education Section */
+.educationGrid {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  align-items: center;
+  margin-top: 2rem;
 }
 
-// Map of platform border colors (keeps rules tidy)
-$platform-borders: (
-  "github":   #24292f,
-  "linkedin": #0077b5,
-  "twitter":  #1da1f2,
-  "instagram":#e4405f,
-  "facebook": #1877f2,
-  "youtube":  #ff0000,
-  "email":    #ea4335,
-  "mailto":   #ea4335,
-  "resume":   $brand-green,
-  "cv":       $brand-green,
-  "pdf":      $brand-green,
-  "portfolio":$brand-purple
-);
-
-.linkWrapperDesktop,
-.linkWrapperMobile { font-family: $font-system; }
-
-// DESKTOP list (structure from leftSideContent(Desktop).html)
-.linkWrapperDesktop {
-  margin-top: 20px;
-  .link { list-style: none; padding: 0; margin: 0; }
-  .link li { margin: 8px 0; opacity: 0; transform: translateX(-20px); animation: slideInLeft .5s ease forwards; @include stagger(10, .1s, .1s); }
-  .link a { @extend %link-button; font-size: 16px; padding: 12px 18px; width: 100%; box-sizing: border-box; display: flex; align-items: center; justify-content: flex-start; min-height: 44px; }
-
-  // Platform-specific left borders via map
-  @each $key, $color in $platform-borders {
-    .link a[href*="#{$key}"] { border-left: 3px solid #{$color}; }
-  }
-  // Default gradient for unmatched links
-  .link a:not([href*="github"]):not([href*="linkedin"]):not([href*="twitter"]):not([href*="instagram"]):not([href*="facebook"]):not([href*="youtube"]):not([href*="email"]):not([href*="mailto"]):not([href*="resume"]):not([href*="cv"]):not([href*="pdf"]):not([href*="portfolio"]) {
-    border-left: 3px solid; border-image: linear-gradient(135deg, $brand-blue, $brand-purple) 1;
-  }
+.educationCard {
+  background: $white;
+  border-radius: $border-radius-large;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  padding: 2rem;
+  width: 85%;
+  max-width: 500px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: row-reverse;
+  align-items: center;
+  gap: 2rem;
+  position: relative;
+  overflow: hidden;
 }
 
-// MOBILE list (structure from leftSideContent(Mobile).html)
-.linkWrapperMobile {
-  display: none; // shown on mobile via media query
-  margin: 20px 0;
-  ul.link { margin: 0 0 20px; list-style: none; padding: 0; display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; }
-  .link li { margin: 0; opacity: 0; transform: translateY(20px); animation: slideUp .4s ease forwards; @include stagger(10, .1s, .05s); }
-  .link a { @extend %link-button; font-size: 14px; padding: 10px 14px; white-space: nowrap; flex: 0 0 auto; min-height: 44px; display: flex; align-items: center; justify-content: center; &::before { height: 2px; transform: translateY(-2px); } i { margin-right: 4px; font-size: .85em; } }
-
-  @each $key, $color in $platform-borders {
-    .link a[href*="#{$key}"] { border-left: 2px solid #{$color}; }
-  }
-  .link a:not([href*="github"]):not([href*="linkedin"]):not([href*="twitter"]):not([href*="instagram"]):not([href*="facebook"]):not([href*="youtube"]):not([href*="email"]):not([href*="mailto"]):not([href*="resume"]):not([href*="cv"]):not([href*="pdf"]):not([href*="portfolio"]) { border-left: 2px solid $brand-purple; }
+.educationCard::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(135deg, $blue, $purple);
 }
 
-// =====================
-// About Section
-// =====================
-.about { @extend .section; position: relative; overflow: hidden; }
-.about::before { content: ''; position: absolute; top: 0; left: 0; right: 0; @include gradient-accent(); z-index: 1; }
-.about h1 { @extend %section-title; color: $title; opacity: 0; transform: translateY(30px); animation: slideUp .6s ease .1s both; }
-.about p { font-size: 1rem; line-height: 1.8; color: $text; margin: 0 0 1.5rem 0; position: relative; padding-inline-start: 1rem; opacity: 0; transform: translateY(30px); animation: slideUp .6s ease both; }
-.about p::before { content: ''; position: absolute; inset-inline-start: 0; top: .5rem; width: 3px; height: calc(100% - 1rem); background: linear-gradient(135deg, rgba($brand-blue,.3), rgba($brand-purple,.3)); border-radius: 2px; }
-.about p strong { color: $title; font-weight: 600; background: linear-gradient(135deg, $brand-blue, $brand-purple); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
-.about p:nth-child(2){animation-delay:.3s} .about p:nth-child(3){animation-delay:.5s} .about p:nth-child(4){animation-delay:.7s} .about p:nth-child(5){animation-delay:.9s}
-
-// =====================
-// Education Section
-// =====================
-.education { @extend .section; }
-.education h1 { @extend %section-title; }
-.educationGrid { display: flex; flex-direction: column; gap: 2rem; align-items: center; margin-top: 2rem; }
-.educationCard { @include card(); width: 85%; max-width: 500px; margin: 0 auto; display: flex; flex-direction: row-reverse; align-items: center; gap: 2rem; opacity: 0; transform: translateY(30px); overflow: hidden; }
-.educationCard::before { content: ''; position: absolute; top: 0; left: 0; right: 0; @include gradient-accent(); z-index: 1; }
-.educationCard:hover { transform: translateY(-4px); box-shadow: $shadow-lg; }
-@for $i from 1 through 4 { .educationCard:nth-child(#{$i}) { animation: slideUp .6s ease both; animation-delay: .1s * $i; } }
-.educationText { flex: 1; position: relative; padding-inline-start: 1rem; }
-.educationText h2 { @extend .sub-title; }
-.educationText p { margin: .5rem 0 0 0; font-size: 1rem; color: $text; padding-inline-start: 1rem; line-height: 1.6; }
-.educationText p strong { background: linear-gradient(135deg, $brand-blue, $brand-purple); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; font-weight: 600; }
-.educationText p em { color: $muted; font-style: italic; font-size: .9rem; }
-.educationLogo { position: relative; padding: 1rem; background: linear-gradient(135deg, #f8fafc, #f1f5f9); border-radius: $radius-lg; border: 1px solid rgba(148,163,184,.2); transition: background-color .3s ease, transform .3s ease; }
-.educationCard:hover .educationLogo { background: linear-gradient(135deg, #f1f5f9, #e2e8f0); transform: scale(1.05); }
-.educationLogo img { display: block; width: 60px; height: 60px; object-fit: contain; transition: opacity .3s ease, transform .3s ease, filter .3s ease; filter: grayscale(.2); opacity: 0; animation: fadeInImage .5s ease .2s both; }
-.educationCard:hover .educationLogo img { filter: grayscale(0); }
-
-// =====================
-// Projects Section
-// =====================
-.projects { @extend .section; }
-.projects h1 { @extend %section-title; }
-.projectGrid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 2rem; align-items: stretch; margin-top: 2rem; }
-
-// Enable container queries per card (used below)
-.projectCard, .skill-card { container-type: inline-size; container-name: card; }
-
-.projectCard { display: grid; grid-template-rows: auto 1fr; color: inherit; outline: none; position: relative; opacity: 0; transform: translateY(30px); @include card(0); }
-.projectCard:hover { transform: translateY(-4px); box-shadow: $shadow-lg; }
-.projectCard:focus-visible { @include focus-ring; }
-.projectImg { margin: 0; background: linear-gradient(135deg, #f1f5f9, #e2e8f0); border-bottom: 1px solid rgba(148,163,184,.2); position: relative; overflow: hidden; }
-.projectImg::before { content: ''; position: absolute; top: 0; left: 0; right: 0; @include gradient-accent(); z-index: 1; }
-.projectImg img { display: block; width: 100%; aspect-ratio: 16 / 9; object-fit: cover; transition: transform .3s ease, opacity .3s ease; opacity: 0; animation: fadeInImage .5s ease .2s both; }
-.projectCard:hover .projectImg img { transform: scale(1.02); }
-.projectBody { display: grid; gap: 1rem; padding: 1.5rem; position: relative; }
-.projectTitle { @extend .sub-title; }
-
-.languageBadges { display: flex; flex-wrap: wrap; gap: .5rem; list-style: none; margin: 0; padding: 0 0 0 1rem; }
-.languageBadges li { font-size: .8rem; font-weight: 500; padding: .4rem .8rem; border-radius: 20px; background: linear-gradient(135deg, #f1f5f9, #e2e8f0); border: 1px solid $border; color: $text; transition: background-color .2s ease, color .2s ease, transform .2s ease; position: relative; overflow: hidden; }
-.languageBadges li:hover { background: linear-gradient(135deg, $brand-blue, $brand-purple); color: white; transform: translateY(-1px); border-color: transparent; }
-.languegeBadges { @extend .languageBadges; }
-.projectSummary { margin: 0; color: $text; line-height: 1.7; font-size: .95rem; padding-inline-start: 1rem; }
-.projectSummary strong { color: $title; font-weight: 600; background: linear-gradient(135deg, $brand-blue, $brand-purple); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
-.projectBullets { margin: .5rem 0 0; padding-left: 2rem; color: $text; line-height: 1.6; }
-.projectBullets li { margin: .4rem 0; position: relative; }
-.projectBullets li::marker { color: $muted; }
-
-@for $i from 1 through 6 { .projectCard:nth-child(#{$i}) { animation: slideUp .6s ease both; animation-delay: .1s * $i; } }
-@for $n from 1 through 4 {
-  .projectCard:nth-child(4n + #{$n}) {
-    .projectTitle::before, .projectImg::before {
-      @if $n == 1 { @include gradient-accent($brand-blue, $brand-blue-deep); }
-      @else if $n == 2 { @include gradient-accent($brand-amber, $brand-amber-deep); }
-      @else if $n == 3 { @include gradient-accent($brand-red, $brand-red-deep); }
-      @else { @include gradient-accent($brand-green, $brand-green-deep); }
-    }
-  }
+.educationText {
+  flex: 1;
+  padding-left: 1rem;
 }
 
-// =====================
-// Skills Section
-// =====================
-.skills { @extend .section; }
-.skills h1 { @extend %section-title; }
-.skills-grid { display: grid; grid-template-columns: repeat(2, 1fr); grid-template-rows: repeat(2, 1fr); gap: 2rem 3rem; margin-top: 2rem; align-items: start; min-height: 400px; }
-.skill-card { position: relative; transition: transform .3s ease, box-shadow .3s ease; padding: 0; opacity: 0; transform: translateY(30px); animation: slideUp .6s ease both; @include stagger(4, .1s, .1s); }
-.skill-card:hover { transform: translateY(-2px); }
-.skill-card h2 { @extend .sub-title; }
-.skill-icons { display: flex; gap: .75rem; margin-bottom: 1.2rem; flex-wrap: wrap; align-items: center; padding-inline-start: 1rem; }
-.skill-icon { font-size: 1.5rem; color: $muted; transition: color .2s ease, opacity .2s ease, transform .2s ease; opacity: .8; }
-.skill-icon:hover { color: $brand-blue; opacity: 1; transform: scale(1.1); }
-.skill-card p { color: $text; line-height: 1.7; margin: 0; font-size: .95rem; padding-inline-start: 1rem; }
-.skill-card p strong { color: $title; font-weight: 600; background: linear-gradient(135deg, $brand-blue, $brand-purple); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
-.skill-card:nth-child(1) .skill-icon { color: $brand-blue; }
-.skill-card:nth-child(1) .skill-icon:hover { color: $brand-blue-deep; }
-.skill-card:nth-child(2) .skill-icon { color: $brand-amber; }
-.skill-card:nth-child(2) .skill-icon:hover { color: $brand-amber-deep; }
-.skill-card:nth-child(3) .skill-icon { color: $brand-red; }
-.skill-card:nth-child(3) .skill-icon:hover { color: $brand-red-deep; }
-.skill-card:nth-child(4) .skill-icon { color: $brand-green; }
-.skill-card:nth-child(4) .skill-icon:hover { color: $brand-green-deep; }
-
-// =====================
-// Accessibility & Focus States
-// =====================
-.educationCard:focus-within, .skill-card:focus-within, .projectCard:focus { outline: 3px solid rgba($brand-blue, 0.5); outline-offset: 2px; }
-.projectCard:focus { @include focus-ring; }
-
-// =====================
-// Media Queries
-// =====================
-@media (min-width: $bp-desk) {
-  .skills-grid { column-gap: 4rem; row-gap: 2.5rem; grid-template-columns: repeat(2, 1fr); grid-template-rows: repeat(2, 1fr); }
-  .skill-card:nth-child(even) { margin-top: 1rem; }
-  .linkWrapperMobile { display: none !important; }
+.educationText p {
+  margin: 0.5rem 0 0 0;
+  font-size: 1rem;
+  color: $text-color;
+  padding-left: 1rem;
+  line-height: 1.6;
 }
 
-@media (max-width: $bp-tab) {
+.educationText p strong {
+  font-weight: 600;
+}
+
+.educationText p em {
+  color: $muted-color;
+  font-style: italic;
+  font-size: 0.9rem;
+}
+
+.educationLogo {
+  padding: 1rem;
+  background: #f8fafc;
+  border-radius: $border-radius-large;
+  border: 1px solid rgba(148, 163, 184, 0.2);
+}
+
+.educationLogo img {
+  display: block;
+  width: 60px;
+  height: 60px;
+  object-fit: contain;
+}
+
+/* Projects Section */
+.projectGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.projectCard {
+  display: grid;
+  grid-template-rows: auto 1fr;
+  background: $white;
+  border-radius: $border-radius-large;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  position: relative;
+}
+
+.projectImg {
+  margin: 0;
+  background: #f1f5f9;
+  border-bottom: 1px solid rgba(148, 163, 184, 0.2);
+  position: relative;
+}
+
+.projectImg::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(135deg, $blue, $purple);
+}
+
+.projectImg img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+}
+
+.projectBody {
+  display: grid;
+  gap: 1rem;
+  padding: 1.5rem;
+}
+
+.languageBadges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  list-style: none;
+  margin: 0;
+  padding: 0 0 0 1rem;
+}
+
+.languageBadges li {
+  font-size: 0.8rem;
+  font-weight: 500;
+  padding: 0.4rem 0.8rem;
+  border-radius: 20px;
+  background: #f1f5f9;
+  border: 1px solid $border-color;
+  color: $text-color;
+}
+
+.projectSummary {
+  margin: 0;
+  color: $text-color;
+  line-height: 1.7;
+  font-size: 0.95rem;
+  padding-left: 1rem;
+}
+
+.projectSummary strong {
+  color: $title-color;
+  font-weight: 600;
+}
+
+.projectBullets {
+  margin: 0.5rem 0 0;
+  padding-left: 2rem;
+  color: $text-color;
+  line-height: 1.6;
+}
+
+.projectBullets li {
+  margin: 0.4rem 0;
+}
+
+/* Skills Section */
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2rem 3rem;
+  margin-top: 2rem;
+}
+
+.skill-card {
+  padding: 0;
+}
+
+.skill-icons {
+  display: flex;
+  gap: 0.75rem;
+  margin-bottom: 1.2rem;
+  flex-wrap: wrap;
+  align-items: center;
+  padding-left: 1rem;
+}
+
+.skill-icon {
+  font-size: 1.5rem;
+  color: $muted-color;
+}
+
+.skill-card p {
+  color: $text-color;
+  line-height: 1.7;
+  margin: 0;
+  font-size: 0.95rem;
+  padding-left: 1rem;
+}
+
+.skill-card p strong {
+  color: $title-color;
+  font-weight: 600;
+}
+
+/* Color variations for different cards */
+.skill-card:nth-child(1) .skill-icon { color: $blue; }
+.skill-card:nth-child(2) .skill-icon { color: $amber; }
+.skill-card:nth-child(3) .skill-icon { color: $red; }
+.skill-card:nth-child(4) .skill-icon { color: $green; }
+
+/* Mobile Responsive */
+@media (max-width: 767px) {
   body { padding: 1rem; }
+  
   .linkWrapperDesktop { display: none !important; }
   .linkWrapperMobile { display: block !important; }
-  .skills { padding: 1.5rem; }
-  .skills h1 { font-size: 2rem; margin-bottom: 2rem; }
-  .skills-grid { gap: 2rem; grid-template-columns: 1fr; grid-template-rows: auto; }
-  .skill-card:nth-child(even) { margin-top: 0; }
-  .projects { padding: 1.5rem; }
-  .projects h1 { font-size: 2rem; margin-bottom: 2rem; }
-  .projectGrid { grid-template-columns: 1fr; gap: 1.5rem; }
-  .projectCard { margin: 0; }
-  .education { padding: 1.5rem; }
-  .education h1 { font-size: 2rem; margin-bottom: 2rem; }
-  .educationGrid { gap: 1.5rem; }
-  .educationCard { flex-direction: column; text-align: center; width: 95%; gap: 1.5rem; padding: 1.5rem; }
-  .educationText { padding-inline-start: 0; }
-  .educationText h2, .educationText p { padding-inline-start: 0; }
+  
+  .section { padding: 1.5rem; }
+  
+  h1.section-title { font-size: 2rem; }
+  
+  .skills-grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+  
+  .projectGrid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  
+  .educationCard {
+    flex-direction: column;
+    text-align: center;
+    width: 95%;
+    gap: 1.5rem;
+  }
+  
+  .educationText { padding-left: 0; }
   .educationText h2::before { display: none; }
-  .about { padding: 1.5rem; }
-  .about h1 { font-size: 2rem; margin-bottom: 2rem; }
-  .about p { padding-inline-start: .8rem; font-size: .95rem; }
-  .about p::before { width: 2px; }
-  .linkWrapperMobile .link { gap: 10px; }
-  // Header scale for mobile
-  .headshot { width: 100px; height: 100px; }
-  .headshot + h1, h1:has(+ .addr) { font-size: 28px; margin-bottom: 15px; }
-}
-
-@media (max-width: $bp-md) {
-  .projectBody { padding: 1rem; }
-  .projectTitle { font-size: 1.1rem; }
-  .languageBadges { gap: .4rem; }
-  .languageBadges li { font-size: .75rem; padding: .3rem .6rem; }
-  .skills { padding: 1rem; }
-  .skill-card { padding: 1.2rem; }
-  .skill-card h2 { font-size: 1.1rem; }
-  .education { padding: 1rem; }
-  .educationCard { padding: 1.2rem; width: 98%; }
-  .educationText h2 { font-size: 1.1rem; }
-  .about { padding: 1rem; }
-  .about p { padding-inline-start: .5rem; font-size: .9rem; }
-  .about p::before { width: 2px; }
-  .linkWrapperMobile .link a { font-size: 13px; padding: 8px 12px; }
-  .linkWrapperMobile ul.link { gap: 8px; }
-  .headshot { width: 80px; height: 80px; }
-  .addr { font-size: 13px; }
-  p:has(+ .linkWrapperDesktop), .addr + p { font-size: 13px; }
-}
-
-@media (max-width: $bp-sm) {
-  .skills, .projects, .education, .about { padding: .8rem; }
-  .skills h1, .projects h1, .education h1, .about h1 { font-size: 1.8rem; margin-bottom: 1.5rem; }
-  .linkWrapperMobile .link a { font-size: 12px; padding: 7px 10px; }
-  .headshot { width: 70px; height: 70px; }
-  .headshot + h1, h1:has(+ .addr) { font-size: 20px; margin-bottom: 10px; }
-  .addr { font-size: 12px; margin: 8px 0 15px 0; }
-  p:has(+ .linkWrapperDesktop), .addr + p { font-size: 12px; margin-bottom: 20px; }
-}
-
-// =====================
-// Dark Mode
-// =====================
-@media (prefers-color-scheme: dark) {
-  .about, .education, .projects, .skills { background: var(--panel, #{$dark-panel}); }
-  .educationCard, .projectCard, .skill-card { background: var(--surface, #{$dark-surface}); border: 1px solid $dark-border; }
-  .linkWrapperDesktop .link a, .linkWrapperMobile .link a { background: var(--surface, #{$dark-surface}); border-color: $dark-border; color: $dark-text; }
-  .linkWrapperDesktop .link a:hover, .linkWrapperMobile .link a:hover { background: linear-gradient(135deg, rgba($brand-blue,.25), rgba($brand-purple,.25)); color: $dark-text-strong; }
-  .skill-card p, .projectSummary, .about p { color: #d1d5db; }
-  // Header tweaks
-  .headshot { filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.3)); }
-  .headshot:hover { filter: drop-shadow(0 8px 25px rgba(0, 0, 0, 0.4)); }
-  .addr a { color: lighten($brand-blue, 20%); }
-  .addr a:hover, .addr a:focus { color: lighten($brand-blue, 30%); }
-
-  // Safer backdrop blur
-  @supports (backdrop-filter: blur(8px)) or (-webkit-backdrop-filter: blur(8px)) {
-    .about, .education, .projects, .skills { backdrop-filter: blur(10px); }
+  .educationText p { padding-left: 0; }
+  
+  .headshot {
+    width: 100px;
+    height: 100px;
+  }
+  
+  .headshot + h1,
+  h1:has(+ .addr) {
+    font-size: 28px;
   }
 }
 
-// =====================
-// Print Styles
-// =====================
-@media print {
-  .about, .education, .projects, .skills { background: #fff !important; box-shadow: none !important; page-break-inside: avoid; }
-  .projectCard, .educationCard { box-shadow: none !important; border: 1px solid #e2e8f0 !important; page-break-inside: avoid; margin-bottom: 1rem; }
-  .linkWrapperDesktop, .linkWrapperMobile { display: none !important; }
-  .projectImg img, .educationLogo img, .headshot { print-color-adjust: exact; -webkit-print-color-adjust: exact; }
-  // Hide tiny external-link icons in print
-  .linkWrapperDesktop .link a[target="_blank"]::after, .linkWrapperMobile .link a[target="_blank"]::after { display: none !important; }
-}
-
-// =====================
-// Reduced Motion
-// =====================
-@media (prefers-reduced-motion: reduce) {
-  *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; scroll-behavior: auto !important; }
-  .projectCard:hover, .educationCard:hover, .skill-card:hover, .about:hover, .headshot:hover { transform: none; }
-  // Also stop loading pulse animations
-  .headshot[src=""], .projectImg img[src=""], .educationLogo img[src=""] { animation: none !important; }
-}
-
-// =====================
-// Hover gating for touch devices
-// =====================
-@media (hover: none) {
-  .section:hover,
-  .projectCard:hover,
-  .educationCard:hover,
-  .skill-card:hover,
-  .linkWrapperDesktop .link a:hover,
-  .linkWrapperMobile .link a:hover,
-  .headshot:hover { transform: none; box-shadow: $shadow-md; }
-}
-
-// =====================
-// Images & Fallbacks
-// =====================
-.projectImg img:not([src]), .projectImg img[src=""], .educationLogo img:not([src]), .educationLogo img[src=""], .headshot:not([src]), .headshot[src=""] { display: none; }
-.headshot:not([src])::after, .headshot[src=""]::after { content: '👤'; font-size: 60px; display: flex; align-items: center; justify-content: center; width: 120px; height: 120px; background: linear-gradient(135deg, $brand-blue, $brand-purple); border-radius: 50%; color: white; }
-
-// =====================
-// Performance Hints
-// =====================
-.projectCard, .educationCard, .skill-card, .linkWrapperDesktop .link a, .linkWrapperMobile .link a { contain: layout style paint; }
-.projectCard:not(:hover), .educationCard:not(:hover), .linkWrapperDesktop .link a:not(:hover), .linkWrapperMobile .link a:not(:hover), .headshot:not(:hover) { will-change: auto; }
-.projectCard:hover, .educationCard:hover, .linkWrapperDesktop .link a:hover, .linkWrapperMobile .link a:hover, .headshot:hover { will-change: transform, box-shadow; }
-
-// =====================
-// External link indicator (desktop & mobile link lists)
-// =====================
-.linkWrapperDesktop .link a[target="_blank"]::after,
-.linkWrapperMobile .link a[target="_blank"]::after {
-  content: '';
-  display: inline-block; width: 12px; height: 12px; margin-left: 6px;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='currentColor'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14'/%3E%3C/svg%3E");
-  background-size: contain; background-repeat: no-repeat; vertical-align: middle; opacity: .7; transition: opacity .3s ease;
-}
-.linkWrapperDesktop .link a:hover[target="_blank"]::after,
-.linkWrapperMobile .link a:hover[target="_blank"]::after { opacity: 1; }
-
-// =====================
-// Container Queries (named container: card)
-// =====================
-@container card (max-width: 500px) {
-  .skill-card { padding: 1rem; }
-  .projectBody { padding: 1rem; }
-}
-
-// Extra-tight cards
-@container card (max-width: 380px) {
-  .languageBadges li { font-size: .7rem; padding: .25rem .5rem; }
-}
-
-// =====================
-// Fallbacks for older browsers (no grid)
-// =====================
-@supports not (display: grid) {
-  .projectGrid { display: flex; flex-wrap: wrap; gap: 2rem; }
-  .projectCard { flex: 1 1 300px; max-width: 450px; }
-  .skills-grid { display: flex; flex-wrap: wrap; gap: 2rem; }
-  .skill-card { flex: 1 1 250px; }
-}
-
-// =====================
-// High Contrast Mode
-// =====================
-@media (prefers-contrast: high) {
-  .linkWrapperDesktop .link a, .linkWrapperMobile .link a { border: 2px solid currentColor; background: transparent; }
-  .projectCard, .educationCard, .skill-card { border: 2px solid currentColor; }
-  .headshot { border: 2px solid currentColor; }
-}
-
-// =====================
-// RTL Support (basic)
-// =====================
-[dir="rtl"] {
-  .sub-title { padding-inline-end: 1rem; padding-inline-start: 0; }
-  .sub-title::before { inset-inline-end: 0; inset-inline-start: auto; }
-  .about p { padding-inline-end: 1rem; padding-inline-start: 0; }
-  .about p::before { inset-inline-end: 0; inset-inline-start: auto; }
-  .linkWrapperDesktop .link a { text-align: right; }
+@media (max-width: 520px) {
+  .section { padding: 1rem; }
+  
+  h1.section-title {
+    font-size: 1.8rem;
+    margin-bottom: 1.5rem;
+  }
+  
+  .headshot {
+    width: 70px;
+    height: 70px;
+  }
+  
+  .headshot + h1,
+  h1:has(+ .addr) {
+    font-size: 20px;
+    margin-bottom: 10px;
+  }
+  
+  .addr {
+    font-size: 12px;
+    margin: 8px 0 15px 0;
+  }
 }
