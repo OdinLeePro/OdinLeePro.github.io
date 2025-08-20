@@ -12,6 +12,34 @@
 /*=============*/
 @import "jekyll-theme-minimal.scss";
 
+/* =====================
+   Cascade layers + color scheme
+   ===================== */
+@layer reset, tokens, base, layout, components, utilities, overrides;
+:root { color-scheme: light dark; }
+
+/* =====================
+   Tokens: expose a few runtime CSS vars (keeps Sass as source of truth)
+   ===================== */
+@layer tokens {
+  :root {
+    --surface: #{$surface};
+    --panel: #{$panel};
+    --text: #{$text};
+    --title: #{$title};
+    --radius-md: #{$radius-md};
+    --radius-lg: #{$radius-lg};
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --surface: #{$dark-surface};
+      --panel: #{$dark-panel};
+      --text: #{$dark-text};
+      --title: #{$dark-text-strong};
+    }
+  }
+}
+
 // =====================
 // Variables (CUSTOMIZE)
 // =====================
@@ -51,6 +79,11 @@ $bp-md: 520px;
 $bp-tab: 767px;
 $bp-desk: 768px;
 
+// Central map (optional helper)
+@use "sass:map";
+$bp: (sm: $bp-sm, md: $bp-md, tab: $bp-tab, desk: $bp-desk);
+@mixin mq($key, $dir: min) { @media (#{$dir}-width: map.get($bp, $key)) { @content; }}
+
 // =====================
 // Mixins & Utilities
 // =====================
@@ -59,11 +92,23 @@ $bp-desk: 768px;
   height: $h;
 }
 
+// Targeted UI transitions (replaces `transition: all`)
+@mixin _ui-transitions {
+  transition:
+    transform .3s ease,
+    box-shadow .3s ease,
+    border-color .2s ease,
+    background-color .2s ease,
+    color .15s ease,
+    opacity .2s ease,
+    filter .3s ease;
+}
+
 @mixin card($pad: 2rem) {
-  background: $surface;
-  border-radius: $radius-lg;
+  background: var(--surface, #{$surface});
+  border-radius: var(--radius-lg, #{$radius-lg});
   box-shadow: $shadow-md;
-  transition: all 0.3s ease;
+  @include _ui-transitions;
   padding: $pad;
   position: relative;
   overflow: hidden;
@@ -71,7 +116,7 @@ $bp-desk: 768px;
 
 @mixin focus-ring { box-shadow: 0 0 0 3px rgba($brand-blue, 0.5), $shadow-sm; }
 @mixin section-base($pad: 2rem) {
-  font-family: $font-system; line-height: 1.6; max-width: $max-width; margin: 0 auto; padding: $pad; background: $panel; border-radius: $radius-md; transition: all .3s ease; border: 1px solid transparent;
+  font-family: $font-system; line-height: 1.6; max-width: $max-width; margin: 0 auto; padding: $pad; background: $panel; border-radius: $radius-md; transition: border-color .3s ease, box-shadow .3s ease, transform .3s ease; border: 1px solid transparent;
 }
 @mixin stagger($count, $delay-start: 0.1s, $step: 0.1s, $prop: animation-delay) {
   @for $i from 1 through $count { &:nth-child(#{$i}) { #{$prop}: calc(#{$delay-start} + (#{$i - 1} * #{$step})); } }
@@ -94,28 +139,26 @@ $bp-desk: 768px;
 h1.section-title { @extend %section-title; }
 
 .sub-title {
-  margin: 0; font-size: clamp(1.1rem, 2.5vw, 1.3rem); line-height: 1.3; font-weight: 600; color: $heading; position: relative; padding-left: 1rem;
-  &::before { content: ''; position: absolute; left: 0; top: 50%; transform: translateY(-50%); width: 4px; height: 20px; @include gradient-accent($brand-blue, $brand-purple); border-radius: 2px; }
+  margin: 0; font-size: clamp(1.1rem, 2.5vw, 1.3rem); line-height: 1.3; font-weight: 600; color: $heading; position: relative; padding-inline-start: 1rem;
+  &::before { content: ''; position: absolute; inset-inline-start: 0; top: 50%; transform: translateY(-50%); width: 4px; height: 20px; @include gradient-accent($brand-blue, $brand-purple); border-radius: 2px; }
 }
 
 .text-body { color: #374151; }
 
 // =====================
 // LEFT SIDEBAR HEADER (scoped to your includes)
-// - Matches structure in leftSideHeader.html and leftSideContent.html
-// - No reliance on a <header> wrapper (since none exists)
 // =====================
 
 // Headshot image (always safe to target by class)
 .headshot {
-  border-radius: 100%; margin-bottom: 10px; max-width: 90%; width: 120px; height: 120px; object-fit: cover; transition: all .3s ease; filter: drop-shadow(0 4px 6px rgba(0,0,0,.1));
+  border-radius: 100%; margin-bottom: 10px; max-width: 90%; width: 120px; height: 120px; object-fit: cover; @include _ui-transitions; filter: drop-shadow(0 4px 6px rgba(0,0,0,.1));
   &:hover { transform: scale(1.05); filter: drop-shadow(0 8px 25px rgba(0,0,0,.15)); }
 }
 
 // Title immediately after headshot OR immediately before the email paragraph
 .headshot + h1,
 h1:has(+ .addr) {
-  font-size: 32px; color: $title; margin: 0 0 20px; font-weight: 700; line-height: 1.2; transition: color .3s ease;
+  font-size: 32px; color: $title; margin: 0 0 20px; font-weight: 700; line-height: 1.2; transition: color .3s ease, background-position .3s ease;
 }
 .headshot + h1:hover,
 h1:has(+ .addr):hover {
@@ -125,12 +168,11 @@ h1:has(+ .addr):hover {
 
 // Email address (addr block)
 .addr { margin: 10px 0 20px 0; font-size: 14px; }
-.addr a { color: $brand-blue; text-decoration: none; transition: all .3s ease; font-weight: 500; }
+.addr a { color: $brand-blue; text-decoration: none; transition: color .2s ease, text-decoration-color .2s ease; font-weight: 500; }
 .addr a:hover, .addr a:focus { color: $brand-blue-deep; text-decoration: underline; }
 .addr i { margin-right: 4px; opacity: .8; }
 
 // Description paragraph that appears BEFORE the desktop link list include
-// Targets: the <p> that is immediately followed by .linkWrapperDesktop (per leftSideContent.html)
 p:has(+ .linkWrapperDesktop),
 .addr + p { color: $text; font-size: 14px; line-height: 1.5; margin: 0 0 25px 0; font-weight: 400; opacity: .9; }
 
@@ -138,7 +180,7 @@ p:has(+ .linkWrapperDesktop),
 // Link Wrappers (Desktop & Mobile)
 // =====================
 %link-button {
-  font-weight: 500; display: inline-block; background: $surface; border: 1px solid $border; border-radius: $radius-md; text-decoration: none; color: $text; text-align: center; transition: all .3s ease; position: relative; overflow: hidden; box-shadow: $shadow-sm;
+  font-weight: 500; display: inline-block; background: var(--surface, #{$surface}); border: 1px solid $border; border-radius: var(--radius-md, #{$radius-md}); text-decoration: none; color: var(--text, #{$text}); text-align: center; position: relative; overflow: hidden; box-shadow: $shadow-sm; @include _ui-transitions;
   &:hover { background: linear-gradient(135deg, #f8fafc, #f1f5f9); border-color: rgba($brand-blue, .3); color: #334155; transform: translateY(-2px); box-shadow: 0 8px 25px -5px rgba(0,0,0,.15), 0 4px 6px -2px rgba(0,0,0,.05); }
   &:focus-visible { outline: none; @include focus-ring; }
   &::before { content: ''; position: absolute; top: 0; left: 0; right: 0; @include gradient-accent($brand-blue, $brand-purple, 3px); transform: translateY(-3px); transition: transform .3s ease; }
@@ -202,8 +244,8 @@ $platform-borders: (
 .about { @extend .section; position: relative; overflow: hidden; }
 .about::before { content: ''; position: absolute; top: 0; left: 0; right: 0; @include gradient-accent(); z-index: 1; }
 .about h1 { @extend %section-title; color: $title; opacity: 0; transform: translateY(30px); animation: slideUp .6s ease .1s both; }
-.about p { font-size: 1rem; line-height: 1.8; color: $text; margin: 0 0 1.5rem 0; position: relative; padding-left: 1rem; opacity: 0; transform: translateY(30px); animation: slideUp .6s ease both; }
-.about p::before { content: ''; position: absolute; left: 0; top: .5rem; width: 3px; height: calc(100% - 1rem); background: linear-gradient(135deg, rgba($brand-blue,.3), rgba($brand-purple,.3)); border-radius: 2px; }
+.about p { font-size: 1rem; line-height: 1.8; color: $text; margin: 0 0 1.5rem 0; position: relative; padding-inline-start: 1rem; opacity: 0; transform: translateY(30px); animation: slideUp .6s ease both; }
+.about p::before { content: ''; position: absolute; inset-inline-start: 0; top: .5rem; width: 3px; height: calc(100% - 1rem); background: linear-gradient(135deg, rgba($brand-blue,.3), rgba($brand-purple,.3)); border-radius: 2px; }
 .about p strong { color: $title; font-weight: 600; background: linear-gradient(135deg, $brand-blue, $brand-purple); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
 .about p:nth-child(2){animation-delay:.3s} .about p:nth-child(3){animation-delay:.5s} .about p:nth-child(4){animation-delay:.7s} .about p:nth-child(5){animation-delay:.9s}
 
@@ -217,14 +259,14 @@ $platform-borders: (
 .educationCard::before { content: ''; position: absolute; top: 0; left: 0; right: 0; @include gradient-accent(); z-index: 1; }
 .educationCard:hover { transform: translateY(-4px); box-shadow: $shadow-lg; }
 @for $i from 1 through 4 { .educationCard:nth-child(#{$i}) { animation: slideUp .6s ease both; animation-delay: .1s * $i; } }
-.educationText { flex: 1; position: relative; padding-left: 1rem; }
+.educationText { flex: 1; position: relative; padding-inline-start: 1rem; }
 .educationText h2 { @extend .sub-title; }
-.educationText p { margin: .5rem 0 0 0; font-size: 1rem; color: $text; padding-left: 1rem; line-height: 1.6; }
+.educationText p { margin: .5rem 0 0 0; font-size: 1rem; color: $text; padding-inline-start: 1rem; line-height: 1.6; }
 .educationText p strong { background: linear-gradient(135deg, $brand-blue, $brand-purple); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; font-weight: 600; }
 .educationText p em { color: $muted; font-style: italic; font-size: .9rem; }
-.educationLogo { position: relative; padding: 1rem; background: linear-gradient(135deg, #f8fafc, #f1f5f9); border-radius: $radius-lg; border: 1px solid rgba(148,163,184,.2); transition: all .3s ease; }
+.educationLogo { position: relative; padding: 1rem; background: linear-gradient(135deg, #f8fafc, #f1f5f9); border-radius: $radius-lg; border: 1px solid rgba(148,163,184,.2); transition: background-color .3s ease, transform .3s ease; }
 .educationCard:hover .educationLogo { background: linear-gradient(135deg, #f1f5f9, #e2e8f0); transform: scale(1.05); }
-.educationLogo img { display: block; width: 60px; height: 60px; object-fit: contain; transition: all .3s ease; filter: grayscale(.2); opacity: 0; animation: fadeInImage .5s ease .2s both; }
+.educationLogo img { display: block; width: 60px; height: 60px; object-fit: contain; transition: opacity .3s ease, transform .3s ease, filter .3s ease; filter: grayscale(.2); opacity: 0; animation: fadeInImage .5s ease .2s both; }
 .educationCard:hover .educationLogo img { filter: grayscale(0); }
 
 // =====================
@@ -242,16 +284,16 @@ $platform-borders: (
 .projectCard:focus-visible { @include focus-ring; }
 .projectImg { margin: 0; background: linear-gradient(135deg, #f1f5f9, #e2e8f0); border-bottom: 1px solid rgba(148,163,184,.2); position: relative; overflow: hidden; }
 .projectImg::before { content: ''; position: absolute; top: 0; left: 0; right: 0; @include gradient-accent(); z-index: 1; }
-.projectImg img { display: block; width: 100%; aspect-ratio: 16 / 9; object-fit: cover; transition: transform .3s ease; opacity: 0; animation: fadeInImage .5s ease .2s both; }
+.projectImg img { display: block; width: 100%; aspect-ratio: 16 / 9; object-fit: cover; transition: transform .3s ease, opacity .3s ease; opacity: 0; animation: fadeInImage .5s ease .2s both; }
 .projectCard:hover .projectImg img { transform: scale(1.02); }
 .projectBody { display: grid; gap: 1rem; padding: 1.5rem; position: relative; }
 .projectTitle { @extend .sub-title; }
 
 .languageBadges { display: flex; flex-wrap: wrap; gap: .5rem; list-style: none; margin: 0; padding: 0 0 0 1rem; }
-.languageBadges li { font-size: .8rem; font-weight: 500; padding: .4rem .8rem; border-radius: 20px; background: linear-gradient(135deg, #f1f5f9, #e2e8f0); border: 1px solid $border; color: $text; transition: all .2s ease; position: relative; overflow: hidden; }
+.languageBadges li { font-size: .8rem; font-weight: 500; padding: .4rem .8rem; border-radius: 20px; background: linear-gradient(135deg, #f1f5f9, #e2e8f0); border: 1px solid $border; color: $text; transition: background-color .2s ease, color .2s ease, transform .2s ease; position: relative; overflow: hidden; }
 .languageBadges li:hover { background: linear-gradient(135deg, $brand-blue, $brand-purple); color: white; transform: translateY(-1px); border-color: transparent; }
 .languegeBadges { @extend .languageBadges; }
-.projectSummary { margin: 0; color: $text; line-height: 1.7; font-size: .95rem; padding-left: 1rem; }
+.projectSummary { margin: 0; color: $text; line-height: 1.7; font-size: .95rem; padding-inline-start: 1rem; }
 .projectSummary strong { color: $title; font-weight: 600; background: linear-gradient(135deg, $brand-blue, $brand-purple); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
 .projectBullets { margin: .5rem 0 0; padding-left: 2rem; color: $text; line-height: 1.6; }
 .projectBullets li { margin: .4rem 0; position: relative; }
@@ -275,13 +317,13 @@ $platform-borders: (
 .skills { @extend .section; }
 .skills h1 { @extend %section-title; }
 .skills-grid { display: grid; grid-template-columns: repeat(2, 1fr); grid-template-rows: repeat(2, 1fr); gap: 2rem 3rem; margin-top: 2rem; align-items: start; min-height: 400px; }
-.skill-card { position: relative; transition: all .3s ease; padding: 0; opacity: 0; transform: translateY(30px); animation: slideUp .6s ease both; @include stagger(4, .1s, .1s); }
+.skill-card { position: relative; transition: transform .3s ease, box-shadow .3s ease; padding: 0; opacity: 0; transform: translateY(30px); animation: slideUp .6s ease both; @include stagger(4, .1s, .1s); }
 .skill-card:hover { transform: translateY(-2px); }
 .skill-card h2 { @extend .sub-title; }
-.skill-icons { display: flex; gap: .75rem; margin-bottom: 1.2rem; flex-wrap: wrap; align-items: center; padding-left: 1rem; }
-.skill-icon { font-size: 1.5rem; color: $muted; transition: all .2s ease; opacity: .8; }
+.skill-icons { display: flex; gap: .75rem; margin-bottom: 1.2rem; flex-wrap: wrap; align-items: center; padding-inline-start: 1rem; }
+.skill-icon { font-size: 1.5rem; color: $muted; transition: color .2s ease, opacity .2s ease, transform .2s ease; opacity: .8; }
 .skill-icon:hover { color: $brand-blue; opacity: 1; transform: scale(1.1); }
-.skill-card p { color: $text; line-height: 1.7; margin: 0; font-size: .95rem; padding-left: 1rem; }
+.skill-card p { color: $text; line-height: 1.7; margin: 0; font-size: .95rem; padding-inline-start: 1rem; }
 .skill-card p strong { color: $title; font-weight: 600; background: linear-gradient(135deg, $brand-blue, $brand-purple); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
 .skill-card:nth-child(1) .skill-icon { color: $brand-blue; }
 .skill-card:nth-child(1) .skill-icon:hover { color: $brand-blue-deep; }
@@ -323,12 +365,12 @@ $platform-borders: (
   .education h1 { font-size: 2rem; margin-bottom: 2rem; }
   .educationGrid { gap: 1.5rem; }
   .educationCard { flex-direction: column; text-align: center; width: 95%; gap: 1.5rem; padding: 1.5rem; }
-  .educationText { padding-left: 0; }
-  .educationText h2, .educationText p { padding-left: 0; }
+  .educationText { padding-inline-start: 0; }
+  .educationText h2, .educationText p { padding-inline-start: 0; }
   .educationText h2::before { display: none; }
   .about { padding: 1.5rem; }
   .about h1 { font-size: 2rem; margin-bottom: 2rem; }
-  .about p { padding-left: .8rem; font-size: .95rem; }
+  .about p { padding-inline-start: .8rem; font-size: .95rem; }
   .about p::before { width: 2px; }
   .linkWrapperMobile .link { gap: 10px; }
   // Header scale for mobile
@@ -348,7 +390,7 @@ $platform-borders: (
   .educationCard { padding: 1.2rem; width: 98%; }
   .educationText h2 { font-size: 1.1rem; }
   .about { padding: 1rem; }
-  .about p { padding-left: .5rem; font-size: .9rem; }
+  .about p { padding-inline-start: .5rem; font-size: .9rem; }
   .about p::before { width: 2px; }
   .linkWrapperMobile .link a { font-size: 13px; padding: 8px 12px; }
   .linkWrapperMobile ul.link { gap: 8px; }
@@ -371,9 +413,9 @@ $platform-borders: (
 // Dark Mode
 // =====================
 @media (prefers-color-scheme: dark) {
-  .about, .education, .projects, .skills { background: $dark-panel; backdrop-filter: blur(10px); }
-  .educationCard, .projectCard, .skill-card { background: $dark-surface; border: 1px solid $dark-border; }
-  .linkWrapperDesktop .link a, .linkWrapperMobile .link a { background: $dark-surface; border-color: $dark-border; color: $dark-text; }
+  .about, .education, .projects, .skills { background: var(--panel, #{$dark-panel}); }
+  .educationCard, .projectCard, .skill-card { background: var(--surface, #{$dark-surface}); border: 1px solid $dark-border; }
+  .linkWrapperDesktop .link a, .linkWrapperMobile .link a { background: var(--surface, #{$dark-surface}); border-color: $dark-border; color: $dark-text; }
   .linkWrapperDesktop .link a:hover, .linkWrapperMobile .link a:hover { background: linear-gradient(135deg, rgba($brand-blue,.25), rgba($brand-purple,.25)); color: $dark-text-strong; }
   .skill-card p, .projectSummary, .about p { color: #d1d5db; }
   // Header tweaks
@@ -381,6 +423,11 @@ $platform-borders: (
   .headshot:hover { filter: drop-shadow(0 8px 25px rgba(0, 0, 0, 0.4)); }
   .addr a { color: lighten($brand-blue, 20%); }
   .addr a:hover, .addr a:focus { color: lighten($brand-blue, 30%); }
+
+  // Safer backdrop blur
+  @supports (backdrop-filter: blur(8px)) or (-webkit-backdrop-filter: blur(8px)) {
+    .about, .education, .projects, .skills { backdrop-filter: blur(10px); }
+  }
 }
 
 // =====================
@@ -403,6 +450,19 @@ $platform-borders: (
   .projectCard:hover, .educationCard:hover, .skill-card:hover, .about:hover, .headshot:hover { transform: none; }
   // Also stop loading pulse animations
   .headshot[src=""], .projectImg img[src=""], .educationLogo img[src=""] { animation: none !important; }
+}
+
+// =====================
+// Hover gating for touch devices
+// =====================
+@media (hover: none) {
+  .section:hover,
+  .projectCard:hover,
+  .educationCard:hover,
+  .skill-card:hover,
+  .linkWrapperDesktop .link a:hover,
+  .linkWrapperMobile .link a:hover,
+  .headshot:hover { transform: none; box-shadow: $shadow-md; }
 }
 
 // =====================
@@ -439,6 +499,11 @@ $platform-borders: (
   .projectBody { padding: 1rem; }
 }
 
+// Extra-tight cards
+@container card (max-width: 380px) {
+  .languageBadges li { font-size: .7rem; padding: .25rem .5rem; }
+}
+
 // =====================
 // Fallbacks for older browsers (no grid)
 // =====================
@@ -462,9 +527,9 @@ $platform-borders: (
 // RTL Support (basic)
 // =====================
 [dir="rtl"] {
-  .sub-title { padding-right: 1rem; padding-left: 0; }
-  .sub-title::before { right: 0; left: auto; }
-  .about p { padding-right: 1rem; padding-left: 0; }
-  .about p::before { right: 0; left: auto; }
+  .sub-title { padding-inline-end: 1rem; padding-inline-start: 0; }
+  .sub-title::before { inset-inline-end: 0; inset-inline-start: auto; }
+  .about p { padding-inline-end: 1rem; padding-inline-start: 0; }
+  .about p::before { inset-inline-end: 0; inset-inline-start: auto; }
   .linkWrapperDesktop .link a { text-align: right; }
 }
