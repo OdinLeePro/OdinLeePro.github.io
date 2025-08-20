@@ -55,7 +55,7 @@ body {
   background: $white;
   border-radius: $border-radius;
   margin-bottom: 2rem;
-  box-shadow: 0 2px 4px rgb(255, 0, 0);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 /* -------- Typography -------- */
@@ -99,6 +99,8 @@ h1.section-title {
   max-width: 90%;
   width: 120px;
   height: 120px;
+  display: block;
+  margin-inline: auto;  
   object-fit: cover;
 }
 
