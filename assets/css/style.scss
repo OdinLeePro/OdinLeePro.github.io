@@ -1,5 +1,4 @@
 ---
-
 ---
 
 // =============================================
@@ -143,8 +142,83 @@ h1.section-title { text-align: center; font-size: clamp(1.8rem, 4vw, 2.5rem); ma
 .text-body { color: #374151; } // slightly darker body text for better contrast
 
 // =====================
+// Left Sidebar Header Styling (for leftSideHeader.html)
+// =====================
+// These styles target the specific structure from your leftSideHeader.html include
+
+// Headshot styling
+.headshot {
+  border-radius: 100%;
+  margin-bottom: 10px;
+  max-width: 90%;
+  width: 120px;
+  height: 120px;
+  object-fit: cover;
+  transition: all 0.3s ease;
+  filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.1));
+  
+  &:hover {
+    transform: scale(1.05);
+    filter: drop-shadow(0 8px 25px rgba(0, 0, 0, 0.15));
+  }
+}
+
+// Main title (site.title) styling
+header h1 {
+  font-size: 32px;
+  color: $title;
+  margin: 0 0 20px;
+  font-weight: 700;
+  line-height: 1.2;
+  transition: color 0.3s ease;
+  
+  &:hover {
+    background: linear-gradient(135deg, $brand-blue, $brand-purple);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+}
+
+// Email address styling (.addr class from leftSideHeader.html)
+.addr {
+  margin: 10px 0 20px 0;
+  font-size: 14px;
+  
+  a {
+    color: $brand-blue;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    font-weight: 500;
+    
+    &:hover,
+    &:focus {
+      color: $brand-blue-deep;
+      text-decoration: underline;
+    }
+  }
+  
+  i {
+    margin-right: 4px;
+    opacity: 0.8;
+  }
+}
+
+// Description text (from leftSideContent.html)
+header p:not(.addr) {
+  color: $text;
+  font-size: 14px;
+  line-height: 1.5;
+  margin: 0 0 25px 0;
+  font-weight: 400;
+  opacity: 0.9;
+}
+
+// =====================
 // Link Wrappers (Desktop & Mobile)
 // =====================
+// Enhanced styling for leftSideContent(Desktop).html and leftSideContent(Mobile).html
+
 // Shared button-like link styles for reuse
 %link-button {
   font-weight: 500;
@@ -159,47 +233,166 @@ h1.section-title { text-align: center; font-size: clamp(1.8rem, 4vw, 2.5rem); ma
   position: relative;
   overflow: hidden;
   box-shadow: $shadow-sm;
-  &:hover { background: linear-gradient(135deg, #f8fafc, #f1f5f9); border-color: rgba($brand-blue, 0.3); color: #334155; transform: translateY(-2px); box-shadow: 0 8px 25px -5px rgba(0,0,0,.15), 0 4px 6px -2px rgba(0,0,0,.05); }
-  &:focus-visible { outline: none; @include focus-ring; }
-  &::before { content: ''; position: absolute; top: 0; left: 0; right: 0; @include gradient-accent($brand-blue, $brand-purple, 3px); transform: translateY(-3px); transition: transform .3s ease; }
-  &:hover::before { transform: translateY(0); }
-}
-
-.linkWrapperDesktop,
-.linkWrapperMobile { font-family: $font-system; }
-
-// Desktop link stack (left sidebar buttons)
-.linkWrapperDesktop {
-  .link { list-style: none; padding: 0; margin: 0; }
-  .link li { margin: 8px 0; opacity: 0; transform: translateX(-20px); animation: slideInLeft .5s ease forwards; }
-  .link li { @include stagger(5, .1s, .1s); }
-  .link a { @extend %link-button; font-size: 16px; padding: 12px 18px; width: 100%; box-sizing: border-box; }
-
-  // Platform accent bars (left border) — update colors here if needed
-  .link a[href*="github"]   { border-left: 3px solid #24292f; }
-  .link a[href*="linkedin"] { border-left: 3px solid #0077b5; }
-  .link a[href*="twitter"]  { border-left: 3px solid #1da1f2; }
-  .link a[href*="email"],
-  .link a[href*="mailto"]   { border-left: 3px solid #ea4335; }
-  .link a:not([href*="github"]):not([href*="linkedin"]):not([href*="twitter"]):not([href*="email"]):not([href*="mailto"]) {
-    border-left: 3px solid; border-image: linear-gradient(135deg, $brand-blue, $brand-purple) 1;
+  
+  &:hover { 
+    background: linear-gradient(135deg, #f8fafc, #f1f5f9); 
+    border-color: rgba($brand-blue, 0.3); 
+    color: #334155; 
+    transform: translateY(-2px); 
+    box-shadow: 0 8px 25px -5px rgba(0,0,0,.15), 0 4px 6px -2px rgba(0,0,0,.05); 
+  }
+  
+  &:focus-visible { 
+    outline: none; 
+    @include focus-ring; 
+  }
+  
+  &::before { 
+    content: ''; 
+    position: absolute; 
+    top: 0; 
+    left: 0; 
+    right: 0; 
+    @include gradient-accent($brand-blue, $brand-purple, 3px); 
+    transform: translateY(-3px); 
+    transition: transform .3s ease; 
+  }
+  
+  &:hover::before { 
+    transform: translateY(0); 
+  }
+  
+  // Icon spacing within links
+  i {
+    margin-right: 6px;
+    font-size: 0.9em;
+    vertical-align: middle;
   }
 }
 
-// Mobile links (button row)
-.linkWrapperMobile {
-  display: block;
-  ul.link { margin: 0 0 20px; list-style: none; padding: 0; display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; }
-  .link li { margin: 0; opacity: 0; transform: translateY(20px); animation: slideUp .4s ease forwards; @include stagger(5, .1s, .05s); }
-  .link a { @extend %link-button; font-size: 14px; padding: 10px 14px; white-space: nowrap; flex: 0 0 auto; &::before { height: 2px; transform: translateY(-2px); } }
+.linkWrapperDesktop,
+.linkWrapperMobile { 
+  font-family: $font-system; 
+}
 
-  // Platform left borders — thinner on mobile
-  .link a[href*="github"]   { border-left: 2px solid #24292f; }
-  .link a[href*="linkedin"] { border-left: 2px solid #0077b5; }
-  .link a[href*="twitter"]  { border-left: 2px solid #1da1f2; }
+// Desktop link stack (left sidebar buttons) - targets leftSideContent(Desktop).html
+.linkWrapperDesktop {
+  margin-top: 20px;
+  
+  .link { 
+    list-style: none; 
+    padding: 0; 
+    margin: 0; 
+  }
+  
+  .link li { 
+    margin: 8px 0; 
+    opacity: 0; 
+    transform: translateX(-20px); 
+    animation: slideInLeft .5s ease forwards; 
+  }
+  
+  .link li { 
+    @include stagger(10, .1s, .1s); // Increased count to handle more links
+  }
+  
+  .link a { 
+    @extend %link-button; 
+    font-size: 16px; 
+    padding: 12px 18px; 
+    width: 100%; 
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    min-height: 44px; // Better touch target
+  }
+
+  // Platform accent bars (left border) – Enhanced with more platforms
+  .link a[href*="github"]     { border-left: 3px solid #24292f; }
+  .link a[href*="linkedin"]   { border-left: 3px solid #0077b5; }
+  .link a[href*="twitter"]    { border-left: 3px solid #1da1f2; }
+  .link a[href*="instagram"]  { border-left: 3px solid #e4405f; }
+  .link a[href*="facebook"]   { border-left: 3px solid #1877f2; }
+  .link a[href*="youtube"]    { border-left: 3px solid #ff0000; }
   .link a[href*="email"],
-  .link a[href*="mailto"]   { border-left: 2px solid #ea4335; }
-  .link a:not([href*="github"]):not([href*="linkedin"]):not([href*="twitter"]):not([href*="email"]):not([href*="mailto"]) { border-left: 2px solid $brand-purple; }
+  .link a[href*="mailto"]     { border-left: 3px solid #ea4335; }
+  .link a[href*="resume"],
+  .link a[href*="cv"],
+  .link a[href*="pdf"]        { border-left: 3px solid $brand-green; }
+  .link a[href*="portfolio"]  { border-left: 3px solid $brand-purple; }
+  
+  // Default gradient for unmatched links
+  .link a:not([href*="github"]):not([href*="linkedin"]):not([href*="twitter"]):not([href*="instagram"]):not([href*="facebook"]):not([href*="youtube"]):not([href*="email"]):not([href*="mailto"]):not([href*="resume"]):not([href*="cv"]):not([href*="pdf"]):not([href*="portfolio"]) {
+    border-left: 3px solid; 
+    border-image: linear-gradient(135deg, $brand-blue, $brand-purple) 1;
+  }
+}
+
+// Mobile links (button row) - targets leftSideContent(Mobile).html
+.linkWrapperMobile {
+  display: none; // Hidden by default, shown in mobile layouts
+  margin: 20px 0;
+  
+  ul.link { 
+    margin: 0 0 20px; 
+    list-style: none; 
+    padding: 0; 
+    display: flex; 
+    flex-wrap: wrap; 
+    gap: 10px; 
+    justify-content: center; 
+  }
+  
+  .link li { 
+    margin: 0; 
+    opacity: 0; 
+    transform: translateY(20px); 
+    animation: slideUp .4s ease forwards; 
+    @include stagger(10, .1s, .05s); 
+  }
+  
+  .link a { 
+    @extend %link-button; 
+    font-size: 14px; 
+    padding: 10px 14px; 
+    white-space: nowrap; 
+    flex: 0 0 auto; 
+    min-height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+    &::before { 
+      height: 2px; 
+      transform: translateY(-2px); 
+    }
+    
+    // Adjust icon spacing for mobile
+    i {
+      margin-right: 4px;
+      font-size: 0.85em;
+    }
+  }
+
+  // Platform left borders – thinner on mobile
+  .link a[href*="github"]     { border-left: 2px solid #24292f; }
+  .link a[href*="linkedin"]   { border-left: 2px solid #0077b5; }
+  .link a[href*="twitter"]    { border-left: 2px solid #1da1f2; }
+  .link a[href*="instagram"]  { border-left: 2px solid #e4405f; }
+  .link a[href*="facebook"]   { border-left: 2px solid #1877f2; }
+  .link a[href*="youtube"]    { border-left: 2px solid #ff0000; }
+  .link a[href*="email"],
+  .link a[href*="mailto"]     { border-left: 2px solid #ea4335; }
+  .link a[href*="resume"],
+  .link a[href*="cv"],
+  .link a[href*="pdf"]        { border-left: 2px solid $brand-green; }
+  .link a[href*="portfolio"]  { border-left: 2px solid $brand-purple; }
+  
+  // Default for unmatched mobile links
+  .link a:not([href*="github"]):not([href*="linkedin"]):not([href*="twitter"]):not([href*="instagram"]):not([href*="facebook"]):not([href*="youtube"]):not([href*="email"]):not([href*="mailto"]):not([href*="resume"]):not([href*="cv"]):not([href*="pdf"]):not([href*="portfolio"]) { 
+    border-left: 2px solid $brand-purple; 
+  }
 }
 
 // =====================
@@ -343,10 +536,17 @@ h1.section-title { text-align: center; font-size: clamp(1.8rem, 4vw, 2.5rem); ma
 @media (min-width: $bp-desk) {
   .skills-grid { column-gap: 4rem; row-gap: 2.5rem; grid-template-columns: repeat(2, 1fr); grid-template-rows: repeat(2, 1fr); }
   .skill-card:nth-child(even) { margin-top: 1rem; }
+  
+  // Ensure mobile links are hidden on desktop
+  .linkWrapperMobile { display: none !important; }
 }
 
 @media (max-width: $bp-tab) {
   body { padding: 1rem; }
+
+  // Show mobile links, hide desktop links
+  .linkWrapperDesktop { display: none !important; }
+  .linkWrapperMobile { display: block !important; }
 
   .skills { padding: 1.5rem; h1 { font-size: 2rem; margin-bottom: 2rem; } }
   .skills-grid { gap: 2rem; grid-template-columns: 1fr; grid-template-rows: auto; }
@@ -366,6 +566,17 @@ h1.section-title { text-align: center; font-size: clamp(1.8rem, 4vw, 2.5rem); ma
   .about { padding: 1.5rem; h1 { font-size: 2rem; margin-bottom: 2rem; } p { padding-left: .8rem; font-size: .95rem; } p::before { width: 2px; } }
 
   .linkWrapperMobile .link { gap: 10px; }
+  
+  // Header adjustments for mobile
+  header h1 {
+    font-size: 28px;
+    margin-bottom: 15px;
+  }
+  
+  .headshot {
+    width: 100px;
+    height: 100px;
+  }
 }
 
 @media (max-width: $bp-md) {
@@ -385,53 +596,410 @@ h1.section-title { text-align: center; font-size: clamp(1.8rem, 4vw, 2.5rem); ma
 
   .linkWrapperMobile .link a { font-size: 13px; padding: 8px 12px; }
   .linkWrapperMobile ul.link { gap: 8px; }
+  
+  // Smaller header for mobile
+  header h1 {
+    font-size: 24px;
+  }
+  
+  .headshot {
+    width: 80px;
+    height: 80px;
+  }
+  
+  .addr {
+    font-size: 13px;
+  }
+  
+  header p:not(.addr) {
+    font-size: 13px;
+  }
 }
 
 @media (max-width: $bp-sm) {
   .skills, .projects, .education, .about { padding: .8rem; }
   .skills h1, .projects h1, .education h1, .about h1 { font-size: 1.8rem; margin-bottom: 1.5rem; }
   .linkWrapperMobile .link a { font-size: 12px; padding: 7px 10px; }
+  
+  // Extra small header adjustments
+  header h1 {
+    font-size: 20px;
+    margin-bottom: 10px;
+  }
+  
+  .headshot {
+    width: 70px;
+    height: 70px;
+  }
+  
+  .addr {
+    font-size: 12px;
+    margin: 8px 0 15px 0;
+  }
+  
+  header p:not(.addr) {
+    font-size: 12px;
+    margin-bottom: 20px;
+  }
 }
 
 // =====================
 // Dark Mode (CUSTOMIZE contrasts)
 // =====================
 @media (prefers-color-scheme: dark) {
-  .about, .education, .projects, .skills { background: $dark-panel; backdrop-filter: blur(10px); }
-  .educationCard, .projectCard, .skill-card { background: $dark-surface; border: 1px solid $dark-border; }
+  .about, .education, .projects, .skills { 
+    background: $dark-panel; 
+    backdrop-filter: blur(10px); 
+  }
+  
+  .educationCard, .projectCard, .skill-card { 
+    background: $dark-surface; 
+    border: 1px solid $dark-border; 
+  }
 
-  .linkWrapperDesktop .link a, .linkWrapperMobile .link a { background: $dark-surface; border-color: $dark-border; color: $dark-text; }
-  .linkWrapperDesktop .link a:hover, .linkWrapperMobile .link a:hover { background: linear-gradient(135deg, rgba($brand-blue,.25), rgba($brand-purple,.25)); color: $dark-text-strong; }
+  .linkWrapperDesktop .link a, .linkWrapperMobile .link a { 
+    background: $dark-surface; 
+    border-color: $dark-border; 
+    color: $dark-text; 
+    
+    &:hover { 
+      background: linear-gradient(135deg, rgba($brand-blue,.25), rgba($brand-purple,.25)); 
+      color: $dark-text-strong; 
+    }
+  }
 
-  .skill-card p, .projectSummary, .about p { color: #d1d5db; }
+  .skill-card p, .projectSummary, .about p { 
+    color: #d1d5db; 
+  }
+  
+  // Dark mode adjustments for header elements
+  header h1 {
+    color: $dark-text-strong;
+  }
+  
+  header p:not(.addr) {
+    color: $dark-text;
+  }
+  
+  .addr a {
+    color: lighten($brand-blue, 20%);
+    
+    &:hover,
+    &:focus {
+      color: lighten($brand-blue, 30%);
+    }
+  }
+  
+  .headshot {
+    filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.3));
+    
+    &:hover {
+      filter: drop-shadow(0 8px 25px rgba(0, 0, 0, 0.4));
+    }
+  }
 }
 
 // =====================
 // Print Styles
 // =====================
 @media print {
-  .about, .education, .projects, .skills { background: white !important; box-shadow: none !important; page-break-inside: avoid; }
-  .projectCard, .educationCard { box-shadow: none !important; border: 1px solid #e2e8f0 !important; page-break-inside: avoid; margin-bottom: 1rem; }
-  .linkWrapperDesktop, .linkWrapperMobile { display: none !important; }
-  .projectImg img, .educationLogo img, .headshot { print-color-adjust: exact; -webkit-print-color-adjust: exact; }
+  .about, .education, .projects, .skills { 
+    background: white !important; 
+    box-shadow: none !important; 
+    page-break-inside: avoid; 
+  }
+  
+  .projectCard, .educationCard { 
+    box-shadow: none !important; 
+    border: 1px solid #e2e8f0 !important; 
+    page-break-inside: avoid; 
+    margin-bottom: 1rem; 
+  }
+  
+  .linkWrapperDesktop, .linkWrapperMobile { 
+    display: none !important; 
+  }
+  
+  .projectImg img, .educationLogo img, .headshot { 
+    print-color-adjust: exact; 
+    -webkit-print-color-adjust: exact; 
+  }
+  
+  // Header adjustments for print
+  header h1 {
+    color: #000 !important;
+    font-size: 24px !important;
+  }
+  
+  header p:not(.addr) {
+    color: #333 !important;
+  }
+  
+  .addr a {
+    color: #000 !important;
+    text-decoration: underline !important;
+  }
+  
+  .headshot {
+    filter: none !important;
+  }
 }
 
 // =====================
 // Reduced Motion
 // =====================
 @media (prefers-reduced-motion: reduce) {
-  *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; scroll-behavior: auto !important; }
-  .projectCard:hover, .educationCard:hover, .skill-card:hover, .about:hover { transform: none; }
+  *, *::before, *::after { 
+    animation-duration: .01ms !important; 
+    animation-iteration-count: 1 !important; 
+    transition-duration: .01ms !important; 
+    scroll-behavior: auto !important; 
+  }
+  
+  .projectCard:hover, 
+  .educationCard:hover, 
+  .skill-card:hover, 
+  .about:hover,
+  .headshot:hover { 
+    transform: none; 
+  }
 }
 
 // =====================
 // Image Loading & Fallbacks
 // =====================
-.projectImg img:not([src]), .projectImg img[src=""], .educationLogo img:not([src]), .educationLogo img[src=""] { display: none; }
+.projectImg img:not([src]), 
+.projectImg img[src=""], 
+.educationLogo img:not([src]), 
+.educationLogo img[src=""],
+.headshot:not([src]),
+.headshot[src=""] { 
+  display: none; 
+}
+
+// Fallback for missing headshot
+.headshot:not([src])::after,
+.headshot[src=""]::after {
+  content: '👤';
+  font-size: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 120px;
+  height: 120px;
+  background: linear-gradient(135deg, $brand-blue, $brand-purple);
+  border-radius: 50%;
+  color: white;
+}
 
 // =====================
 // Performance Hints
 // =====================
-.projectCard, .educationCard, .skill-card { contain: layout style paint; }
-.projectCard:not(:hover), .educationCard:not(:hover), .linkWrapperDesktop .link a:not(:hover), .linkWrapperMobile .link a:not(:hover) { will-change: auto; }
-.projectCard:hover, .educationCard:hover, .linkWrapperDesktop .link a:hover, .linkWrapperMobile .link a:hover { will-change: transform, box-shadow; }
+.projectCard, 
+.educationCard, 
+.skill-card,
+.linkWrapperDesktop .link a,
+.linkWrapperMobile .link a { 
+  contain: layout style paint; 
+}
+
+.projectCard:not(:hover), 
+.educationCard:not(:hover), 
+.linkWrapperDesktop .link a:not(:hover), 
+.linkWrapperMobile .link a:not(:hover),
+.headshot:not(:hover) { 
+  will-change: auto; 
+}
+
+.projectCard:hover, 
+.educationCard:hover, 
+.linkWrapperDesktop .link a:hover, 
+.linkWrapperMobile .link a:hover,
+.headshot:hover { 
+  will-change: transform, box-shadow; 
+}
+
+// =====================
+// Enhanced Link Styling for Better UX
+// =====================
+// Add support for external link indicators
+.linkWrapperDesktop .link a[target="_blank"]::after,
+.linkWrapperMobile .link a[target="_blank"]::after {
+  content: '';
+  display: inline-block;
+  width: 12px;
+  height: 12px;
+  margin-left: 6px;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='currentColor'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14'/%3E%3C/svg%3E");
+  background-size: contain;
+  background-repeat: no-repeat;
+  vertical-align: middle;
+  opacity: 0.7;
+  transition: opacity 0.3s ease;
+}
+
+.linkWrapperDesktop .link a:hover[target="_blank"]::after,
+.linkWrapperMobile .link a:hover[target="_blank"]::after {
+  opacity: 1;
+}
+
+// =====================
+// Loading States
+// =====================
+// Add subtle loading animations for better perceived performance
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.7; }
+}
+
+.headshot[src=""],
+.projectImg img[src=""],
+.educationLogo img[src=""] {
+  animation: pulse 2s infinite;
+}
+
+// =====================
+// Enhanced Error States
+// =====================
+// Better fallbacks for broken images
+.projectImg:has(img:not([src])),
+.projectImg:has(img[src=""]) {
+  background: linear-gradient(135deg, #f1f5f9, #e2e8f0);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 200px;
+  
+  &::after {
+    content: '🖼️ Image Coming Soon';
+    color: $muted;
+    font-style: italic;
+    text-align: center;
+    font-size: 14px;
+  }
+}
+
+.educationLogo:has(img:not([src])),
+.educationLogo:has(img[src=""]) {
+  &::after {
+    content: '🏫';
+    font-size: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 60px;
+    height: 60px;
+  }
+}
+
+// =====================
+// Improved Touch Targets for Mobile
+// =====================
+@media (max-width: $bp-tab) {
+  .linkWrapperMobile .link a {
+    min-height: 44px;
+    min-width: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 12px 16px;
+  }
+
+  .projectCard {
+    min-height: 300px;
+  }
+  
+  // Better spacing for touch interaction
+  .linkWrapperMobile ul.link {
+    gap: 12px;
+  }
+}
+
+// =====================
+// Container Queries Support (Future-proofing)
+// =====================
+@container (max-width: 500px) {
+  .skill-card {
+    padding: 1rem;
+  }
+  
+  .projectBody {
+    padding: 1rem;
+  }
+}
+
+// =====================
+// Better Grid Fallbacks for Older Browsers
+// =====================
+@supports not (display: grid) {
+  .projectGrid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+  }
+  
+  .projectCard {
+    flex: 1 1 300px;
+    max-width: 450px;
+  }
+  
+  .skills-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+  }
+  
+  .skill-card {
+    flex: 1 1 250px;
+  }
+}
+
+// =====================
+// High Contrast Mode Support
+// =====================
+@media (prefers-contrast: high) {
+  .linkWrapperDesktop .link a,
+  .linkWrapperMobile .link a {
+    border: 2px solid currentColor;
+    background: transparent;
+  }
+  
+  .projectCard,
+  .educationCard,
+  .skill-card {
+    border: 2px solid currentColor;
+  }
+  
+  .headshot {
+    border: 2px solid currentColor;
+  }
+}
+
+// =====================
+// RTL Language Support
+// =====================
+[dir="rtl"] {
+  .sub-title {
+    padding-right: 1rem;
+    padding-left: 0;
+    
+    &::before {
+      right: 0;
+      left: auto;
+    }
+  }
+  
+  .about p {
+    padding-right: 1rem;
+    padding-left: 0;
+    
+    &::before {
+      right: 0;
+      left: auto;
+    }
+  }
+  
+  .linkWrapperDesktop .link a {
+    text-align: right;
+  }
+}
