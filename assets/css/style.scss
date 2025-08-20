@@ -96,11 +96,11 @@ h1.section-title {
 .headshot {
   border-radius: 50%;
   margin-bottom: 10px;
-  max-width: 90%;
-  width: 160px;
-  height: 160px;
+  max-width: 90%;      
+  aspect-ratio: 1 / 1;
+  height: auto;     
   display: block;
-  margin-inline: auto;  
+  margin-inline: auto;      
   object-fit: cover;
 }
 
@@ -509,11 +509,6 @@ h1:has(+ .addr) {
   .educationText h2::before { display: none; }
   .educationText p { padding-left: 0; }
   
-  .headshot {
-    width: 130px;
-    height: 130px;
-  }
-  
   .headshot + h1,
   h1:has(+ .addr) {
     font-size: 28px;
@@ -526,11 +521,6 @@ h1:has(+ .addr) {
   h1.section-title {
     font-size: 1.8rem;
     margin-bottom: 1.5rem;
-  }
-  
-  .headshot {
-    width: 90px;
-    height: 90px;
   }
   
   .headshot + h1,
