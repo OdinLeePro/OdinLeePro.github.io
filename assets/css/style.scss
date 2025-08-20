@@ -162,17 +162,12 @@ h1.section-title {
   transform: scale(1.05);
 }
 
-.addr i {
-  color: $blue; // default solid color
-  transition: transform 0.2s ease, color 0.2s ease; // smooth hover effects
-}
-
+/* apply gradient on hover to the envalope icon */
 .addr:hover i {
-  // apply gradient on hover
   background: linear-gradient(135deg, $blue, $purple);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  background-clip: text; // modern support
+  background-clip: text;
 }
 
 
