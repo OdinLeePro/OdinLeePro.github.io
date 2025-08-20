@@ -30,14 +30,6 @@
     --radius-md: #{$radius-md};
     --radius-lg: #{$radius-lg};
   }
-  @media (prefers-color-scheme: dark) {
-    :root {
-      --surface: #{$dark-surface};
-      --panel: #{$dark-panel};
-      --text: #{$dark-text};
-      --title: #{$dark-text-strong};
-    }
-  }
 }
 
 // =====================
@@ -80,9 +72,12 @@ $bp-tab: 767px;
 $bp-desk: 768px;
 
 // Central map (optional helper)
-@use "sass:map";
 $bp: (sm: $bp-sm, md: $bp-md, tab: $bp-tab, desk: $bp-desk);
-@mixin mq($key, $dir: min) { @media (#{$dir}-width: map.get($bp, $key)) { @content; }}
+@mixin mq($key, $dir: min) {
+  @media (#{$dir}-width: #{map-get($bp, $key)}) {
+    @content;
+  }
+}
 
 // =====================
 // Mixins & Utilities
