@@ -12,25 +12,44 @@
 /*=============*/
 @import "jekyll-theme-minimal.scss";
 
+// =====================
+// Variables (CUSTOMIZE)
+// =====================
+$font-system: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+$max-width: 1000px;
+$radius-md: 8px;
+$radius-lg: 12px;
+
+$surface: #ffffff;
+$panel: #f8fafc;
+$text: #475569;       // body copy
+$heading: #334155;    // subtitles
+$title: #1e293b;      // main titles
+$muted: #64748b;      // secondary
+$border: rgba(148, 163, 184, 0.3);
+
+$shadow-sm: 0 2px 4px -1px rgba(0, 0, 0, 0.1);
+$shadow-md: 0 4px 6px -1px rgba(0,0,0,.1), 0 2px 4px -1px rgba(0,0,0,.06);
+$shadow-lg: 0 20px 25px -5px rgba(0,0,0,.1), 0 10px 10px -5px rgba(0,0,0,.04);
+
+$brand-blue: #3b82f6;
+$brand-blue-deep: #1d4ed8;
+$brand-purple: #8b5cf6;
+$brand-amber: #f59e0b; $brand-amber-deep: #d97706;
+$brand-red: #ef4444;   $brand-red-deep: #dc2626;
+$brand-green: #10b981; $brand-green-deep: #059669;
+
+$dark-surface: rgba(30, 41, 59, 0.9);
+$dark-panel: rgba(15, 23, 42, 0.8);
+$dark-border: rgba(71, 85, 105, 0.3);
+$dark-text: #cbd5e1;
+$dark-text-strong: #f1f5f9;
+
 /* =====================
    Cascade layers + color scheme
    ===================== */
 @layer reset, tokens, base, layout, components, utilities, overrides;
 :root { color-scheme: light dark; }
-
-/* =====================
-   Tokens: expose a few runtime CSS vars (keeps Sass as source of truth)
-   ===================== */
-@layer tokens {
-  :root {
-    --surface: #{$surface};
-    --panel: #{$panel};
-    --text: #{$text};
-    --title: #{$title};
-    --radius-md: #{$radius-md};
-    --radius-lg: #{$radius-lg};
-  }
-}
 
 // =====================
 // Variables (CUSTOMIZE)
@@ -65,6 +84,28 @@ $dark-border: rgba(71, 85, 105, 0.3);
 $dark-text: #cbd5e1;
 $dark-text-strong: #f1f5f9;
 
+/* =====================
+   Tokens: expose a few runtime CSS vars (keeps Sass as source of truth)
+   ===================== */
+@layer tokens {
+  :root {
+    --surface: #{$surface};
+    --panel: #{$panel};
+    --text: #{$text};
+    --title: #{$title};
+    --radius-md: #{$radius-md};
+    --radius-lg: #{$radius-lg};
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --surface: #{$dark-surface};
+      --panel: #{$dark-panel};
+      --text: #{$dark-text};
+      --title: #{$dark-text-strong};
+    }
+  }
+}
+
 // Breakpoints
 $bp-sm: 360px;
 $bp-md: 520px;
@@ -73,11 +114,7 @@ $bp-desk: 768px;
 
 // Central map (optional helper)
 $bp: (sm: $bp-sm, md: $bp-md, tab: $bp-tab, desk: $bp-desk);
-@mixin mq($key, $dir: min) {
-  @media (#{$dir}-width: #{map-get($bp, $key)}) {
-    @content;
-  }
-}
+@mixin mq($key, $dir: min) { @media (#{$dir}-width: #{map-get($bp, $key)}) { @content; }}
 
 // =====================
 // Mixins & Utilities
