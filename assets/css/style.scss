@@ -91,49 +91,89 @@ h1.section-title {
   border-radius: 2px;
 }
 
-/* -------- Header Styles -------- */
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* ==================================== */
+/*          Left Side / Header          */
+/* ==================================== */
 
 .headshot {
-  border-radius: 50%;
-  margin-bottom: 15px;
-  max-width: 90%;      
-  aspect-ratio: 1 / 1;
-  height: auto;     
-  display: block;
-  margin-inline: auto;      
-  object-fit: cover;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+  border-radius: 50%;                       // make the image perfectly circular
+  margin-bottom: 15px;                   
+  max-width: 90%;                        
+  aspect-ratio: 1 / 1;                   
+  height: auto;                             // keeps height responsive with width
+  display: block;                           // makes the image behave like a block (so margin auto works)
+  margin-inline: auto;                      // horizontally center the image
+  object-fit: cover;                        // crop the image neatly to fill its circle
+  box-shadow: 0 2px 6px rgba(0,0,0,0.08); // subtle shadow for depth
 }
 
-.headshot + h1,
-h1:has(+ .addr) {
-  font-size: 32px;
-  color: $title-color;
-  margin: 0 0 20px;
-  font-weight: 700;
-  line-height: 1.2;
+/* style the <h1> that follows a headshot, or an <h1> that directly precedes an .addr */
+.headshot + h1, h1:has(+ .addr) {
+  font-size: 32px;        
+  color: $title-color;    
+  margin: 0 0 20px; // no top margin, 20px bottom spacing
+  font-weight: 700; // bold text
+  line-height: 1.2; // compact line height for titles
 }
+
+/* -------- Email Address Styling -------- */
 
 .addr {
-  margin: 10px 0 20px 0;
-  font-size: 1rem;
+  margin: 10px 0 20px 0;  
+  font-size: 1rem;        
 }
 
 .addr a {
-  color: $blue; // default                                                                              
+
+  // fallback solid color if gradient isn’t supported
+  color: $blue;
+  
+  // gradient text (blue → purple)
   background: linear-gradient(135deg, $blue, $purple);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  text-decoration: none;
-  font-weight: 500;
-  display: inline-block;
+  -webkit-background-clip: text;       
+  -webkit-text-fill-color: transparent; 
+  background-clip: text;               
+  
+  text-decoration: none;   // remove default underline
+  font-weight: 500;        // make email text slightly bolder
+  display: inline-block;   // allows transform/scale on the link
+}
+
+/* apply smooth animation to both the envelope icon and the email link */
+.addr i, .addr a {
   transition: transform 0.2s ease;
 }
 
-.addr a:hover {
+/* when hovering over the whole address container, both the icon and the link increase in size */
+.addr:hover i, .addr:hover a {
   transform: scale(1.05);
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 /* -------- Link Lists -------- */
 
