@@ -102,6 +102,7 @@ h1.section-title {
   display: block;
   margin-inline: auto;      
   object-fit: cover;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.08);
 }
 
 .headshot + h1,
@@ -115,11 +116,11 @@ h1:has(+ .addr) {
 
 .addr {
   margin: 10px 0 20px 0;
-  font-size: 14px;
+  font-size: 1rem;
 }
 
 .addr a {
-  color: $blue;
+  color: linear-gradient(135deg, $blue, $purple);
   text-decoration: none;
   font-weight: 500;
 }
