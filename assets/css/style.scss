@@ -15,118 +15,107 @@
 /* -------- Variables -------- */
 
 $font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-$max-width: 1000px;
-$border-radius: 8px;
-$border-radius-large: 12px;
+$max-width: 1000px;           // max content width
+$border-radius: 8px;          // default corner radius
+$border-radius-large: 12px;   // larger corner radius
 
 /* -------- Colors -------- */
 
-$white: #ffffff;
-$light-gray: #f8fafc;
-$text-color: #475569;
-$heading-color: #334155;
-$title-color: #1e293b;
-$muted-color: #64748b;
-$border-color: rgba(148, 163, 184, 0.3);
+/* Neutrals & Base Colors */
+$white: #ffffff;                            // Pure white used in backgrounds
+$light-gray: #f8fafc;                       // Light gray used for app/page background
+$text-color: #475569;                       // Primary color used for body text
+$heading-color: #334155;                    // Color used for headings
+$title-color: #1e293b;                      // Color used for prominent titles
+$muted-color: #64748b;                      // Color used for secondary/muted text
+$border-color: rgba(148, 163, 184, 0.3);    // Subtle color used for borders/dividers
 
-$blue: #3b82f6;
-$purple: #8b5cf6;
-$green: #10b981;
-$amber: #f59e0b;
-$red: #ef4444;
+/* Accent & Skills Section Colors */
+$blue: #3b82f6;     // Primary accent for Gradient & Used in Skills Section (Programming Languages)
+$purple: #8b5cf6;   // Secondary accent for Gradient
+$amber: #f59e0b;    // Used in Skills Section (Tools/Technologies)
+$red: #ef4444;      // Used in Skills Section (Frameworks & Libraries)
+$green: #10b981;    // Used in Skills Section (Data Science Skills)
 
 /* -------- Base Styles -------- */
 
 body {
-  font-family: $font-family;
-  line-height: 1.6;
-  color: $text-color;
-  background: $light-gray;
-  margin: 0;
-  padding: 2rem;
+  font-family: $font-family;    // system font stack for readable UI fonts
+  line-height: 1.6;             // comfortable line spacing for body text
+  color: $text-color;           // default text color for the page
+  background: $light-gray;      // light page background
+  margin: 0;                    // remove browser’s default body margin
+  padding: 2rem;                // page gutters (space around all content)
 }
 
 /* -------- Layout -------- */
 
 .section {
-  max-width: $max-width;
-  margin: 0 auto;
-  padding: 2rem;
-  background: $white;
-  border-radius: $border-radius;
-  margin-bottom: 2rem;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  max-width: $max-width;                        // limit content width (e.g., 1000px)
+  margin: 0 auto;                               // center the section horizontally
+  padding: 2rem;                                // inner spacing
+  background: $white;                           // white card background
+  border-radius: $border-radius;                // rounded corners (8px)
+  margin-bottom: 2rem;                          // space below each section
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);   // subtle elevation
 }
 
 /* -------- Typography -------- */
 
 h1.section-title {
-  text-align: center;
-  font-size: 2.5rem;
-  margin-bottom: 3rem;
-  color: $title-color;
-  font-weight: 700;
+  text-align: center;     // center the main section title
+  font-size: 2.5rem;      // large, prominent heading size
+  margin-bottom: 3rem;    // generous spacing below the title
+  color: $title-color;    // use the theme title color
+  font-weight: 700;       // bold weight for strong emphasis
 }
 
 .sub-title {
-  margin: 0;
-  font-size: 1.3rem;
-  line-height: 1.3;
-  font-weight: 600;
-  color: $heading-color;
-  margin-bottom: 1rem;
-  padding-left: 1rem;
-  position: relative;
+  margin: 0;                // reset default margins
+  font-size: 1.3rem;        // slightly larger than body text
+  line-height: 1.3;         // tighter line height for headings
+  font-weight: 600;         // semi-bold for hierarchy below h1
+  color: $heading-color;    // use the theme heading color
+  margin-bottom: 1rem;      // space below each subtitle
+  padding-left: 1rem;       // room for the decorative bar on the left
+  position: relative;       // establish positioning context for ::before
 }
 
 .sub-title::before {
-  content: '';
-  position: absolute;
-  left: 0;
-  top: 50%;
-  transform: translateY(-50%);
-  width: 4px;
-  height: 20px;
-  background: linear-gradient(135deg, $blue, $purple);
-  border-radius: 2px;
+  content: '';                                            // draw a decorative element
+  position: absolute;                                     // position relative to .sub-title
+  left: 0;                                                // align to the far left
+  top: 50%;                                               // vertically center reference
+  transform: translateY(-50%);                            // actual vertical centering
+  width: 4px;                                             // bar thickness
+  height: 20px;                                           // bar height
+  background: linear-gradient(135deg, $blue, $purple);    // gradient accent
+  border-radius: 2px;                                     // soften the bar edges
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 /* ==================================== */
 /*          Left Side / Header          */
 /* ==================================== */
 
 .headshot {
-  border-radius: 50%;                       // make the image perfectly circular
+  border-radius: 50%;                         // make the image perfectly circular
   margin-bottom: 15px;                   
   max-width: 90%;                        
   aspect-ratio: 1 / 1;                   
-  height: auto;                             // keeps height responsive with width
-  display: block;                           // makes the image behave like a block (so margin auto works)
-  margin-inline: auto;                      // horizontally center the image
-  object-fit: cover;                        // crop the image neatly to fill its circle
-  box-shadow: 0 2px 6px rgba(0,0,0,0.08); // subtle shadow for depth
+  height: auto;                               // keeps height responsive with width
+  display: block;                             // makes the image behave like a block (so margin auto works)
+  margin-inline: auto;                        // horizontally center the image
+  object-fit: cover;                          // crop the image neatly to fill its circle
+  box-shadow: 0 2px 6px rgba(0,0,0,0.08);   // subtle shadow for depth
 }
 
 /* style the <h1> that follows a headshot, or an <h1> that directly precedes an .addr */
 .headshot + h1, h1:has(+ .addr) {
   font-size: 32px;        
   color: $title-color;    
-  margin: 0 0 20px; // no top margin, 20px bottom spacing
-  font-weight: 700; // bold text
-  line-height: 1.2; // compact line height for titles
+  margin: 0 0 20px;   // no top margin, 20px bottom spacing
+  font-weight: 700;   // bold text
+  line-height: 1.2;   // compact line height for titles
 }
 
 /* -------- Email Address Styling -------- */
@@ -147,9 +136,9 @@ h1.section-title {
   -webkit-text-fill-color: transparent; 
   background-clip: text;               
   
-  text-decoration: none;   // remove default underline
-  font-weight: 500;        // make email text slightly bolder
-  display: inline-block;   // allows transform/scale on the link
+  text-decoration: none;    // remove default underline
+  font-weight: 500;         // make email text slightly bolder
+  display: inline-block;    // allows transform/scale on the link
 }
 
 /* apply smooth animation to both the envelope icon and the email link */
@@ -170,63 +159,64 @@ h1.section-title {
   background-clip: text;
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-/* -------- Link Lists -------- */
+/* -------- Socials Links (e.g. Github, LinkedIn) -------- */
 
 .linkWrapperDesktop,
 .linkWrapperMobile {
   font-family: $font-family;
 }
 
+/* -------- Socials Links DESKTOP -------- */
+
 .linkWrapperDesktop {
-  margin-top: 20px;
+  margin-top: 20px;   // space above the links block
 }
 
 .linkWrapperDesktop .link {
-  list-style: none;
-  padding: 0;
-  margin: 0;
+  list-style: none;   // remove bullets
+  padding: 0;         // reset padding
+  margin: 0;          // reset margin
 }
 
 .linkWrapperDesktop .link li {
-  margin: 8px 0;
+  margin: 8px 0;    // vertical spacing between items
 }
 
 .linkWrapperDesktop .link a {
-  font-weight: 500;
-  display: flex;
-  align-items: center;
-  background: $white;
-  border: 1px solid $border-color;
-  border-radius: $border-radius;
-  text-decoration: none;
-  color: $text-color;
-  font-size: 16px;
-  padding: 12px 18px;
-  width: 100%;
-  box-sizing: border-box;
-  min-height: 44px;
+  font-weight: 500;                   // semi-bold link text
+  display: flex;                      // layout for icon + text
+  align-items: center;                // vertically center contents
+  background: $white;                 // white card look
+  border: 1px solid $border-color;    // subtle border
+  border-radius: $border-radius;      // rounded corners
+  text-decoration: none;              // remove underline
+  color: $text-color;                 // default link color
+  font-size: 16px;                    // readable size
+  padding: 12px 18px;                 // inner spacing
+  width: 100%;                        // fill container width
+  box-sizing: border-box;             // include border/padding in width
+  min-height: 44px;                   // accessible tap target
 }
 
+/* normal hover (solid text color as fallback) */
 .linkWrapperDesktop .link a:hover {
-  background: #f1f5f9;
-  border-color: rgba($blue, 0.3);
-  color: #334155;
+  background: #f1f5f9;            // subtle hover background
+  border-color: rgba($blue, 0.3);   // tinted border on hover
+  color: #334155;                 // slightly darker text on hover
 }
 
-/* -------- Mobile Links -------- */
+/* upgrade to gradient text only if supported */
+@supports (-webkit-background-clip: text) or (background-clip: text) {
+  .linkWrapperDesktop .link a:hover {
+    background-image: linear-gradient(135deg, $blue, $purple);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+  }
+}
+
+/* -------- Socials Links MOBILE -------- */
 
 .linkWrapperMobile {
   display: none;
