@@ -219,49 +219,42 @@ h1.section-title {
 /* -------- Socials Links MOBILE -------- */
 
 .linkWrapperMobile {
-  display: none;                 // hidden by default (shown via media query)
-  margin: 10px 10px;            // bleed to screen edges (counter parent padding)
+  display: none;      // hidden by default (shown via media query)
+  margin: 10px 10px;   // spacing above/below the mobile links block
 }
 
 .linkWrapperMobile ul.link {
-  margin: 0 0 10px;              // space below the list
-  list-style: none;              // remove bullets
-  padding: 0;                    // reset padding
-  display: flex;                 // lay items in a row
-  flex-wrap: wrap;               // wrap to next line on small screens
-  gap: 8px;                      // spacing between items
-  justify-content: flex-start;   // use full row width (no centered gutter)
+  margin: 0 0 10px;           // space below the list
+  list-style: none;           // remove bullets
+  padding: 0;                 // reset padding
+  display: flex;              // lay items in a row
+  flex-wrap: wrap;            // wrap to next line on small screens
+  gap: 8px;                   // spacing between items
+  justify-content: center;    // center the pills
 }
 
 .linkWrapperMobile .link li {
-  margin: 0;                     // gap handles spacing
-  flex: 1 1 calc(50% - 4px);     // two per row (accounts for 8px row gap)
+  margin: 0;    // no per-item margins (gap handles spacing)
 }
 
 .linkWrapperMobile .link a {
-  font-weight: 500;              // semi-bold label
-  display: flex;                 // align icon + text horizontally
-  align-items: center;           // vertically center contents
-  justify-content: center;       // center label inside the pill
-  background: $white;            // pill background
-  border: 1px solid $border-color; // subtle outline
-  border-radius: $border-radius; // rounded pill corners
-  text-decoration: none;         // no underline
-  color: $text-color;            // text color
-  font-size: 14px;               // compact size for mobile
-  padding: 8px;                  // inner spacing
-  white-space: nowrap;           // keep each pill on one line
-  min-height: 44px;              // accessible touch target
-  width: 100%;                   // fill the li’s width (makes buttons wider)
-  box-sizing: border-box;        // include padding/border in width
-  min-width: 0;                  // allow flex items to shrink
-  overflow: hidden;              // prevent overflow on long labels
-  text-overflow: ellipsis;       // add … if label is too long
+  font-weight: 500;                   // semi-bold label
+  display: flex;                      // align icon + text horizontally
+  align-items: center;                // vertically center contents
+  background: $white;                 // pill background
+  border: 1px solid $border-color;    // subtle outline
+  border-radius: $border-radius;      // rounded pill corners
+  text-decoration: none;              // no underline
+  color: $text-color;                 // text color
+  font-size: 14px;                    // compact size for mobile
+  padding: 8px 8px;                   // inner spacing
+  white-space: nowrap;                // keep each pill on one line
+  min-height: 44px;                   // accessible touch target
 }
 
 .linkWrapperMobile .link a:hover {
-  background: #f1f5f9;           // subtle hover background
-  border-color: rgba($purple, 0.3); // tinted border on hover
+  background: #f1f5f9;              // subtle hover background
+  border-color: rgba($purple, 0.3);   // tinted border on hover
 }
 
 /* =============================== */
