@@ -200,9 +200,9 @@ h1.section-title {
 
 /* normal hover (solid text color as fallback) */
 .linkWrapperDesktop .link a:hover {
-  background: #f1f5f9;            // subtle hover background
-  border-color: rgba($blue, 0.3);   // tinted border on hover
-  color: #334155;                 // slightly darker text on hover
+  background: #f1f5f9;              // subtle hover background
+  border-color: rgba($purple, 0.3);   // tinted border on hover
+  color: #334155;                   // slightly darker text on hover
 }
 
 /* upgrade to gradient text only if supported */
@@ -253,8 +253,8 @@ h1.section-title {
 }
 
 .linkWrapperMobile .link a:hover {
-  background: #f1f5f9;            // subtle hover background
-  border-color: rgba($blue, 0.3);   // tinted border on hover
+  background: #f1f5f9;              // subtle hover background
+  border-color: rgba($purple, 0.3);   // tinted border on hover
 }
 
 /* =============================== */
