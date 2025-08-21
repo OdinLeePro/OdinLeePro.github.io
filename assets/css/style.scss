@@ -111,7 +111,7 @@ h1.section-title {
 
 /* style the <h1> that follows a headshot, or an <h1> that directly precedes an .addr */
 .headshot + h1, h1:has(+ .addr) {
-  font-size: 2rem;        
+  font-size: 2.5rem;        
   color: $title-color;    
   margin: 0 0 15px;   // no top margin, 20px bottom spacing
   font-weight: 700;   // bold text
@@ -556,7 +556,7 @@ h1.section-title {
   
   .headshot + h1,
   h1:has(+ .addr) {
-    font-size: 3rem;
+    font-size: 2.5rem;
   }
 }
 
@@ -570,7 +570,7 @@ h1.section-title {
   
   .headshot + h1,
   h1:has(+ .addr) {
-    font-size: 3rem;
+    font-size: 2.5rem;
     margin-bottom: 10px;
   }
   
