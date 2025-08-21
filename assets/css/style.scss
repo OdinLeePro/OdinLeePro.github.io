@@ -220,7 +220,7 @@ h1.section-title {
 
 .linkWrapperMobile {
   display: none;                 // hidden by default (shown via media query)
-  margin: 10px -20px;            // bleed to screen edges (counter parent padding)
+  margin: 10px 10px;            // bleed to screen edges (counter parent padding)
 }
 
 .linkWrapperMobile ul.link {
