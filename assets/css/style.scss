@@ -234,7 +234,8 @@ h1.section-title {
 }
 
 .linkWrapperMobile .link li {
-  margin: 0;    // no per-item margins (gap handles spacing)
+  margin: 0;        // no per-item margins (gap handles spacing)
+  flex: 1 1 100%;   // each item takes a full line
 }
 
 .linkWrapperMobile .link a {
@@ -249,7 +250,8 @@ h1.section-title {
   font-size: 14px;                    // compact size for mobile
   padding: 8px 8px;                   // inner spacing
   white-space: nowrap;                // keep each pill on one line
-  min-height: 30px;                   // accessible touch target
+  min-height: 44px;                   // accessible touch target
+  width: 100%;                        // anchor fills the item’s width
 }
 
 .linkWrapperMobile .link a:hover {
