@@ -113,7 +113,7 @@ h1.section-title {
 .headshot + h1, h1:has(+ .addr) {
   font-size: 2rem;        
   color: $title-color;    
-  margin: 0 0 20px;   // no top margin, 20px bottom spacing
+  margin: 0 0 15px;   // no top margin, 20px bottom spacing
   font-weight: 700;   // bold text
   line-height: 1.2;   // compact line height for titles
 }
@@ -121,7 +121,7 @@ h1.section-title {
 /* -------- Email Address Styling -------- */
 
 .addr {
-  margin: 10px 0 20px 0;  
+  margin: 10px 0 15px 0;  
   font-size: 1rem;        
 }
 
@@ -556,7 +556,7 @@ h1.section-title {
   
   .headshot + h1,
   h1:has(+ .addr) {
-    font-size: 2rem;
+    font-size: 3rem;
   }
 }
 
@@ -570,7 +570,7 @@ h1.section-title {
   
   .headshot + h1,
   h1:has(+ .addr) {
-    font-size: 2rem;
+    font-size: 3rem;
     margin-bottom: 10px;
   }
   
