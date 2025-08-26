@@ -562,10 +562,23 @@ h1.section-title {
   h1:has(+ .addr) {
     font-size: 2.5rem;
   }
+
+  .headshot {
+    float: right;
+    width: 140px;                     
+    box-sizing: border-box;
+    margin-bottom: 0px;
+  }
 }
 
 @media (max-width: 520px) {
-  .section { padding: 1rem; }
+  .section { 
+    padding: 1rem; 
+  }
+
+  .headshot {
+    width: 120px;
+  }
   
   h1.section-title {
     font-size: 1.8rem;
