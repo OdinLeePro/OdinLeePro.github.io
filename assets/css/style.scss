@@ -219,8 +219,8 @@ h1.section-title {
 /* -------- Socials Links MOBILE -------- */
 
 .linkWrapperMobile {
-  display: none;      // hidden by default (shown via media query)
-  margin: 10px 10px;   // spacing above/below the mobile links block
+  display: none;    // hidden by default (shown via media query)
+  margin: 10px 0;   // spacing above/below the mobile links block
 }
 
 .linkWrapperMobile ul.link {
@@ -230,11 +230,13 @@ h1.section-title {
   display: flex;              // lay items in a row
   flex-wrap: wrap;            // wrap to next line on small screens
   gap: 8px;                   // spacing between items
-  justify-content: center;    // center the pills
+  width: 100%;                // take full width
 }
 
 .linkWrapperMobile .link li {
-  margin: 0;    // no per-item margins (gap handles spacing)
+  margin: 0;      // no per-item margins (gap handles spacing)
+  flex: 1;        // make each item grow equally
+  min-width: 0;   //allow flex items to shrink below content size
 }
 
 .linkWrapperMobile .link a {
@@ -250,6 +252,8 @@ h1.section-title {
   padding: 8px 8px;                   // inner spacing
   white-space: nowrap;                // keep each pill on one line
   min-height: 44px;                   // accessible touch target
+  width: 100%;                        // fill the flex item completely
+  box-sizing: border-box;             // include padding/border in width
 }
 
 .linkWrapperMobile .link a:hover {
