@@ -251,9 +251,9 @@ h1.section-title {
   font-size: 14px;                    // compact size for mobile
   padding: 8px 8px;                   // inner spacing
   white-space: nowrap;                // keep each pill on one line
-  min-height: 44px;                   // accessible touch target
   width: 100%;                        // fill the flex item completely
   box-sizing: border-box;             // include padding/border in width
+  min-height: 44px;                   // accessible touch target
 }
 
 .linkWrapperMobile .link a:hover {
@@ -266,43 +266,52 @@ h1.section-title {
 /* =============================== */
 
 .about::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 3px;
-  background: linear-gradient(135deg, $blue, $purple);
+  content: '';                                            // decorative top bar
+  position: absolute;                                     // position inside .about
+  top: 0; left: 0; right: 0;                              // full width across the top
+  height: 3px;                                            // bar thickness
+  background: linear-gradient(135deg, $blue, $purple);    // gradient accent
 }
 
 .about {
-  position: relative;
-  overflow: hidden;
+  position: relative;   // anchor for ::before positioning
+  overflow: hidden;     // clip any overflow past rounded edges/containers
 }
 
 .about p {
-  font-size: 1rem;
-  line-height: 1.8;
-  color: $text-color;
-  margin: 0 0 1.5rem 0;
-  padding-left: 1rem;
-  position: relative;
+  font-size: 1rem;        // base paragraph size
+  line-height: 1.8;       // comfortable reading line height
+  color: $text-color;     // body text color
+  margin: 0 0 1.5rem 0;   // space below each paragraph
+  padding-left: 1rem;     // room for the left vertical bar
+  position: relative;     // anchor for p::before
 }
 
 .about p::before {
-  content: '';
-  position: absolute;
-  left: 0;
-  top: 0.5rem;
-  width: 3px;
-  height: calc(100% - 1rem);
-  background: linear-gradient(135deg, rgba($blue, 0.3), rgba($purple, 0.3));
-  border-radius: 2px;
+  content: '';                                                                  // left-side bar per paragraph
+  position: absolute;                                                           // position relative to p
+  left: 0;                                                                      // flush to the left edge
+  top: 0.5rem;                                                                  // start slightly below top
+  width: 3px;                                                                   // bar thickness
+  height: calc(100% - 1rem);                                                    // run most of the paragraph height
+  background: linear-gradient(135deg, rgba($blue, 0.3), rgba($purple, 0.3));    // subtle gradient
+  border-radius: 2px;                                                           // soften bar ends
 }
 
 .about p strong {
-  color: $title-color;
-  font-weight: 600;
+  color: $title-color;    // stronger color for emphasis
+  font-weight: 600;       // semi-bold emphasis
+}
+
+/* upgrade to gradient text only if supported */
+@supports (-webkit-background-clip: text) or (background-clip: text) {
+  .about p strong {
+    background-image: linear-gradient(135deg, $blue, $purple); 
+    -webkit-background-clip: text;   
+    background-clip: text;           
+    -webkit-text-fill-color: transparent; 
+    color: transparent;             
+  }
 }
 
 /* =================================== */
@@ -565,7 +574,7 @@ h1.section-title {
 
   .headshot {
     float: right;
-    width: 140px;                     
+    width: 160px;                     
     box-sizing: border-box;
     margin-bottom: 0px;
   }
@@ -577,7 +586,7 @@ h1.section-title {
   }
 
   .headshot {
-    width: 120px;
+    width: 140px;
   }
   
   h1.section-title {
