@@ -1,9 +1,13 @@
 title: Odin Lee
-description: Data Scientist in Training | Graduate Student at University of St. Thomas | Skilled in Python, SQL, R, and Tableau.
+location: "St. Paul, Minnesota"
+professional_title: "Graduate Data Scientist"
+tagline: "Turning complex data into actionable insights"
+
 url: "https://odinleepro.github.io"
 author: Odin Lee
 headshot: /assets/img/headshot.png
 email: odinlee.pro@gmail.com
+
 colorScheme: auto
 google_analytics: G-Z8WYPTRT2V
 
@@ -12,18 +16,21 @@ social:
   links:
     - https://github.com/odinleepro
     - https://www.linkedin.com/in/odinlee
-
+    
 platforms:
+  - name: Resume
+    icon: <i class="fa-solid fa-file-user"></i>
+    link: /assets/file/resume.pdf
   - name: GitHub
     icon: <i class="fa-brands fa-github"></i>
     link: https://github.com/odinleepro
   - name: LinkedIn
     icon: <i class="fa-brands fa-linkedin"></i>
     link: https://www.linkedin.com/in/odinlee
-  - name: Resume
-    icon: <i class="fa-solid fa-file"></i>
-    link: /assets/file/resume.pdf
-
+  - name: Email
+    icon: <i class="fa-solid fa-envelope"></i>
+    link: mailto:odinlee.pro@gmail.com
+    
 plugins:
   - jekyll-sitemap
   - jekyll-seo-tag
