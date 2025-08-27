@@ -22,11 +22,3 @@
 {% if site.tagline %} <!-- if a tagline is defined in the _config.yml(e.g. tagline: Turning complex data into actionable insights) -->
   <p class="tagline">"{{ site.tagline }}"</p>
 {% endif %}
-
-<!-- Email - link to email address displayed under title (kept for backward compatibility) -->
-{% if site.email %} <!-- if an email is defined in the _config.yml(email: odinlee.pro@gmail.com) -->
-  <p class="addr">
-    <i class="fa-solid fa-envelope"></i>&nbsp;
-    <a href="mailto:{{site.email}}">{{ site.email }}</a>
-  </p>
-{% endif %}
