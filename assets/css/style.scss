@@ -156,26 +156,13 @@ h1.section-title {
   margin: 0 0 24px 0;
   font-size: 0.95rem;
   color: $text-color;
-  line-height: 1.4;
-  padding: 0 8px;                              // slight padding for mobile
-  position: relative;
+  line-height: 1.5;
+  padding: 0 8px;                 // slight padding for mobile
 }
 
 .tagline::before,
 .tagline::after {
-  position: absolute;
-  top: 50%;
-  width: 20px;
-  height: 1px;
-  background: linear-gradient(135deg, rgba($blue, 0.4), rgba($purple, 0.4));
-}
-
-.tagline::before {
-  left: -30px;
-}
-
-.tagline::after {
-  right: -30px;
+  content: none;
 }
 
 /* -------- Email Address Styling (Hidden by default) -------- */
