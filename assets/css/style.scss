@@ -260,8 +260,8 @@ h1.section-title {
 .linkWrapperDesktop .link a {
   display: inline-flex;                        // layout for icon + text
   align-items: center;                         // vertically center contents
-  justify-content: center;
-  gap: 10px;                                   // more space for icons
+  justify-content: center;                     // horizontally center contents
+  gap: 8px;                                    // reduced from 10px for better balance
   width: 100%;                                 // fill container width
   min-height: 48px;                            // larger accessible tap target
   height: 48px;
@@ -273,6 +273,7 @@ h1.section-title {
   font-size: 15px;                             // readable size
   font-weight: 600;                            // semi-bold
   letter-spacing: 0.3px;
+  line-height: 1;                              // CRITICAL FIX: prevents text spacing issues
 
   transition: all 0.2s ease;                   // smooth transitions
 }
@@ -319,8 +320,13 @@ h1.section-title {
 /* Icon sizing harmony */
 .linkWrapperDesktop .link a svg,
 .linkWrapperDesktop .link a i {
-  width: 20px;                                 // slightly larger icons
-  height: 20px;
+  width: 18px;                                 // slightly smaller for better proportion
+  height: 18px;
+  display: inline-flex;                        // CRITICAL FIX: proper icon alignment
+  align-items: center;                         // center icon content vertically
+  justify-content: center;                     // center icon content horizontally
+  flex-shrink: 0;                              // prevent icons from shrinking
+  line-height: 1;                              // ensure icons don't inherit text line-height
 }
 
 /* -------- Socials Links MOBILE -------- */
