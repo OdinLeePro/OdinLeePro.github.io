@@ -155,7 +155,6 @@ h1.section-title {
   text-align: center;
   margin: 0 0 24px 0;
   font-size: 0.95rem;
-  font-style: italic;
   color: $text-color;
   line-height: 1.4;
   padding: 0 8px;                              // slight padding for mobile
@@ -164,7 +163,6 @@ h1.section-title {
 
 .tagline::before,
 .tagline::after {
-  content: '';
   position: absolute;
   top: 50%;
   width: 20px;
