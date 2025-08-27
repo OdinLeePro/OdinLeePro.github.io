@@ -6,8 +6,25 @@
 <!-- Title - main title(e.g. Odin Lee) on header on left side of webpage -->
 <h1>{{ site.title | default: site.github.repository_name }}</h1> <!-- If a title is not defined site.github.repository_name is the default -->
 
-<!-- Email - link to email address displayed under title -->
-{% if site.email %} <!-- if a email is defined in the _config.yml(email: odinlee.pro@gmail.com) -->
+<!-- Location - displays location under name -->
+{% if site.location %} <!-- if a location is defined in the _config.yml(e.g. location: St. Paul, Minnesota) -->
+  <p class="location">
+    <i class="fa-solid fa-location-dot"></i>&nbsp;{{ site.location }}
+  </p>
+{% endif %}
+
+<!-- Professional Title - displays professional title/role -->
+{% if site.professional_title %} <!-- if a professional_title is defined in the _config.yml(e.g. professional_title: Graduate Data Scientist) -->
+  <p class="professional-title">{{ site.professional_title }}</p>
+{% endif %}
+
+<!-- Value Proposition Tagline - short, compelling tagline -->
+{% if site.tagline %} <!-- if a tagline is defined in the _config.yml(e.g. tagline: Turning complex data into actionable insights) -->
+  <p class="tagline">"{{ site.tagline }}"</p>
+{% endif %}
+
+<!-- Email - link to email address displayed under title (kept for backward compatibility) -->
+{% if site.email %} <!-- if an email is defined in the _config.yml(email: odinlee.pro@gmail.com) -->
   <p class="addr">
     <i class="fa-solid fa-envelope"></i>&nbsp;
     <a href="mailto:{{site.email}}">{{ site.email }}</a>
