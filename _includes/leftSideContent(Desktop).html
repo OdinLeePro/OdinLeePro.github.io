@@ -8,9 +8,15 @@
     <ul class="link">
       {%- for platform in site.platforms %}
         <li>
-          <a href="{{ platform.link }}" target="_blank" rel="noopener">
-            {{ platform.icon | safe }}&nbsp;{{ platform.name }}
-          </a>
+          {%- if platform.name == "Resume" or platform.name == "CV" -%}
+            <a href="{{ platform.link }}" class="primaryButton" target="_blank" rel="noopener">
+              {{ platform.icon | safe }}&nbsp;{{ platform.name }}
+            </a>
+          {%- else -%}
+            <a href="{{ platform.link }}" class="baseButton" target="_blank" rel="noopener">
+              {{ platform.icon | safe }}&nbsp;{{ platform.name }}
+            </a>
+          {%- endif -%}
         </li>
       {%- endfor %}
     </ul>
