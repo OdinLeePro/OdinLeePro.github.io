@@ -1,22 +1,13 @@
+author: Odin Lee
+url: "https://odinleepro.github.io"
+colorScheme: auto
+google_analytics: G-Z8WYPTRT2V
+
+headshot: /assets/img/headshot.png
 title: Odin Lee
 location: "St. Paul, Minnesota"
 professional_title: "Graduate Data Scientist"
 tagline: "Turning complex data into actionable insights"
-
-url: "https://odinleepro.github.io"
-author: Odin Lee
-headshot: /assets/img/headshot.png
-email: odinlee.pro@gmail.com
-
-colorScheme: auto
-google_analytics: G-Z8WYPTRT2V
-
-social:
-  name: Odin Lee
-  links:
-    - https://github.com/odinleepro
-    - https://www.linkedin.com/in/odinlee
-    
 platforms:
   - name: Resume
     icon: <i class="fa-solid fa-file-user"></i>
