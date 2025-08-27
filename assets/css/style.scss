@@ -98,31 +98,31 @@ h1.section-title {
 /* ==================================== */
 
 .headshot {
-  border-radius: 50%;                         // make the image perfectly circular
-  margin-bottom: 15px;                   
-  max-width: 90%;                        
+  border-radius: 50%;                           // make the image perfectly circular
+  margin-bottom: 14px;                   
+  max-width: 72%;                        
   aspect-ratio: 1 / 1;                   
-  height: auto;                               // keeps height responsive with width
-  display: block;                             // makes the image behave like a block (so margin auto works)
-  margin-inline: auto;                        // horizontally center the image
-  object-fit: cover;                          // crop the image neatly to fill its circle
-  box-shadow: 0 2px 6px rgba(0,0,0,0.08);   // subtle shadow for depth
+  height: auto;                                 // keeps height responsive with width
+  display: block;                               // makes the image behave like a block (so margin auto works)
+  margin-inline: auto;                          // horizontally center the image
+  object-fit: cover;                            // crop the image neatly to fill its circle
+  box-shadow: 0 2px 14px rgba(0,0,0,0.08);    // subtle shadow for depth
 }
 
 /* style the <h1> that follows a headshot, or an <h1> that directly precedes an .addr */
 .headshot + h1, h1:has(+ .addr) {
-  font-size: 2.5rem;        
+  font-size: 2rem;        
   color: $title-color;    
-  margin: 0 0 15px;   // no top margin, 20px bottom spacing
-  font-weight: 700;   // bold text
-  line-height: 1.2;   // compact line height for titles
+  margin: 0 0 6px;        // no top margin, 20px bottom spacing
+  font-weight: 800;       // bold text
+  line-height: 1.1;       // compact line height for titles
 }
 
 /* -------- Email Address Styling -------- */
 
 .addr {
-  margin: 10px 0 15px 0;  
-  font-size: 1rem;        
+  margin: 2px 0 12px 0;  
+  font-size: 0.98rem;        
 }
 
 .addr a {
@@ -132,12 +132,12 @@ h1.section-title {
   
   // gradient text (blue → purple)
   background: linear-gradient(135deg, $blue, $purple);
-  -webkit-background-clip: text;       
-  -webkit-text-fill-color: transparent; 
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
   background-clip: text;               
   
   text-decoration: none;    // remove default underline
-  font-weight: 500;         // make email text slightly bolder
+  font-weight: 600;         // make email text slightly bolder
   display: inline-block;    // allows transform/scale on the link
 }
 
@@ -159,9 +159,16 @@ h1.section-title {
   background-clip: text;
 }
 
+/* accessible focus for the email link */
+.addr a:focus-visible {
+  outline: 3px solid rgba(59, 130, 246, 0.35);    // blue focus ring
+  outline-offset: 3px;
+  border-radius: 6px;
+}
+
 /* -------- Socials Links (e.g. Github, LinkedIn) -------- */
 
-.linkWrapperDesktop,
+.linkWrapperDesktop, 
 .linkWrapperMobile {
   font-family: $font-family;
 }
@@ -176,26 +183,52 @@ h1.section-title {
   list-style: none;   // remove bullets
   padding: 0;         // reset padding
   margin: 0;          // reset margin
+
+  /* use grid for consistent vertical rhythm */
+  display: grid;
+  gap: 10px;
 }
 
 .linkWrapperDesktop .link li {
-  margin: 8px 0;    // vertical spacing between items
+  margin: 0;    // vertical spacing between items
 }
 
+/* Base button appearance (White Buttons) */
 .linkWrapperDesktop .link a {
-  font-weight: 500;                   // semi-bold link text
-  display: flex;                      // layout for icon + text
-  align-items: center;                // vertically center contents
-  background: $white;                 // white card look
-  border: 1px solid $border-color;    // subtle border
-  border-radius: $border-radius;      // rounded corners
-  text-decoration: none;              // remove underline
-  color: $text-color;                 // default link color
-  font-size: 16px;                    // readable size
-  padding: 12px 18px;                 // inner spacing
-  width: 100%;                        // fill container width
-  box-sizing: border-box;             // include border/padding in width
-  min-height: 44px;                   // accessible tap target
+  display: inline-flex;                       // layout for icon + text
+  align-items: center;                        // vertically center contents
+  justify-content: center;
+  gap: 8px;
+  width: 100%;                                // fill container width
+  min-height: 44px;                           // accessible tap target (kept)
+  height: 44px;
+  padding: 0 18px;                            // inner spacing
+  box-sizing: border-box;                     // include border/padding in width
+
+  background: $white;                         // white card look
+  border: 1.5px solid $border-color;          // subtle border (slightly stronger)
+  border-radius: 12px;                        // rounder corners (was $border-radius)
+  box-shadow: 0 2px 8px rgba(0,0,0,0.04);   // gentle lift
+
+  text-decoration: none;                      // remove underline
+  color: $title-color;                        // default link color
+  font-size: 16px;                            // readable size
+  font-weight: 700;                           // stronger weight
+  letter-spacing: .2px;
+
+  transition: background-color .15s ease,
+              border-color .15s ease,
+              color .15s ease,
+              transform .04s ease;
+}
+
+.linkWrapperDesktop .link a:active {
+  transform: translateY(1px);
+}
+
+.linkWrapperDesktop .link a:focus-visible {
+  outline: 3px solid rgba(59, 130, 246, 0.35);  // blue focus ring
+  outline-offset: 2px;
 }
 
 /* normal hover (solid text color as fallback) */
@@ -207,13 +240,45 @@ h1.section-title {
 
 /* upgrade to gradient text only if supported */
 @supports (-webkit-background-clip: text) or (background-clip: text) {
-  .linkWrapperDesktop .link a:hover {
+  .linkWrapperDesktop .link a.baseButton:hover {
     background-image: linear-gradient(135deg, $blue, $purple);
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;
     color: transparent;
   }
+}
+
+
+/* --------------------------------*/
+
+
+/* PRIMARY (Resume) — solid accent */
+.linkWrapperDesktop .link a.primaryButton {
+  background: $blue;
+  color: #ffffff;
+  border-color: transparent;
+}
+.linkWrapperDesktop .link a.primaryButton:hover {
+  background: darken($blue, 12%);             // richer hover
+}
+
+/* SECONDARY (GitHub / LinkedIn) — subtle outline */
+.linkWrapperDesktop .link a.baseButton {
+  background: $white;
+  color: $title-color;
+}
+.linkWrapperDesktop .link a.baseButton:hover {
+  background: mix($blue, #ffffff, 8%);        // soft tinted hover
+  border-color: rgba($blue, 0.35);
+  color: $heading-color;
+}
+
+/* Icon sizing harmony */
+.linkWrapperDesktop .link a svg,
+.linkWrapperDesktop .link a i {
+  width: 18px;
+  height: 18px;
 }
 
 /* -------- Socials Links MOBILE -------- */
@@ -236,7 +301,7 @@ h1.section-title {
 .linkWrapperMobile .link li {
   margin: 0;      // no per-item margins (gap handles spacing)
   flex: 1;        // make each item grow equally
-  min-width: 0;   //allow flex items to shrink below content size
+  min-width: 0;   // allow flex items to shrink below content size
 }
 
 .linkWrapperMobile .link a {
