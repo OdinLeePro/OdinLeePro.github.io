@@ -247,7 +247,7 @@ h1.section-title {
   display: inline-flex;                        // layout for icon + text
   align-items: center;                         // vertically center contents
   justify-content: center;                     // horizontally center contents
-  gap: 8px;                                    // reduced from 10px for better balance
+  gap: 6px;                                    // reduced from 10px for better balance
   width: 100%;                                 // fill container width
   min-height: 48px;                            // larger accessible tap target
   height: 48px;
@@ -313,13 +313,9 @@ h1.section-title {
 /* Icon sizing harmony */
 .linkWrapperDesktop .link a svg,
 .linkWrapperDesktop .link a i {
-  width: 18px;                                 // slightly smaller for better proportion
-  height: 18px;
-  display: inline-flex;                        // CRITICAL FIX: proper icon alignment
-  align-items: center;                         // center icon content vertically
-  justify-content: center;                     // center icon content horizontally
-  flex-shrink: 0;                              // prevent icons from shrinking
-  line-height: 1;                              // ensure icons don't inherit text line-height
+  width: 16px;              /* slightly smaller than text cap height */
+  height: 16px;
+  vertical-align: middle;   /* aligns baseline with text */
 }
 
 /* -------- Socials Links MOBILE -------- */
