@@ -160,9 +160,11 @@ h1.section-title {
   padding: 0 8px;                 // slight padding for mobile
 }
 
+/* kill pseudo-elements entirely */
 .tagline::before,
 .tagline::after {
-  content: none;
+  content: none !important;
+  display: none !important;
 }
 
 /* -------- Email Address Styling (Hidden by default) -------- */
