@@ -582,321 +582,255 @@ including layout wrappers, base button design, hover/focus states, and style var
 
 
 /* =================================== */
-/*      Mobile Header Section CSS      */
+/*          Mobile Responsive          */
 /* =================================== */
 
-/* -------- Mobile Layout Base -------- */
-@media (max-width: 767px) {
-  body { 
-    padding: 1rem; 
-    font-family: $font-family;
-  }
-  
-  /* Hide desktop buttons, show mobile buttons */
-  .linkWrapperDesktop { display: none !important; }
-  .linkWrapperMobile { display: block !important; }
-  
-  /* -------- Mobile Headshot Styling -------- */
-  .headshot {
-    float: right;
-    width: 140px;
-    height: 140px;
-    box-sizing: border-box;
-    margin: 0 0 0 1rem;
-    border-radius: 50%;
-    object-fit: cover;
-    box-shadow: 0 4px 20px rgba(0,0,0,0.12);
-  }
+/* -------- Platform Buttons (MOBILE) -------- */
+/* Enhanced mobile button styling with improved visual hierarchy and touch interactions */
 
-  /* -------- Mobile Header Text Hierarchy -------- */
-  /* Main name - bold and prominent */
-  .headshot + h1,
-  h1:has(+ .addr),
-  h1:has(+ .location) {
-    font-size: 2.4rem;
-    font-weight: 800;
-    line-height: 1.1;
-    margin-bottom: 6px;
-    color: $title-color;
-  }
-
-  /* Professional title - clean hierarchy */
-  .professional-title {
-    font-size: 1rem;
-    font-weight: 600;
-    color: $heading-color;
-    margin-bottom: 8px;
-    letter-spacing: 0.5px;
-    text-transform: none;
-    text-align: left;
-  }
-
-  /* Location with icon */
-  .location {
-    display: flex;
-    align-items: center;
-    justify-content: flex-start;
-    gap: 6px;
-    font-size: 0.9rem;
-    margin: 0 0 12px 0;
-    color: $muted-color;
-    line-height: 1.4;
-    font-weight: 500;
-  }
-
-  .location i {
-    color: rgba($blue, 0.7);
-    width: 16px;
-    height: 16px;
-  }
-
-  /* Tagline - supporting text styling */
-  .tagline {
-    font-size: 0.95rem;
-    line-height: 1.5;
-    color: lighten($text-color, 10%);
-    font-weight: 400;
-    margin-bottom: 28px; /* Space above Resume button */
-    clear: both;
-    padding-top: 0.5rem;
-  }
-  
-  /* -------- Enhanced section spacing for mobile -------- */
-  .section { 
-    padding: 1.6rem 1.2rem;
-    margin-bottom: 1.5rem;
-  }
-  
-  h1.section-title { 
-    font-size: 2rem;
-    margin-bottom: 1.5rem;
-    text-align: center;
-  }
-}
-
-/* -------- Mobile Platform Buttons -------- */
 .linkWrapperMobile {
-  display: none;
-  margin: 0;
-  padding: 0 4px;
-  clear: both;
-  font-family: $font-family;
+  display: none;                                                                                            // hidden by default (shown via media query)
+  margin: 20px 0;                                                                                           // increased spacing for better visual separation
+  padding: 0 4px;                                                                                           // slight padding to prevent edge touching
 }
 
 .linkWrapperMobile ul.link {
-  margin: 0;
-  list-style: none;
-  padding: 0;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 0; /* We'll handle spacing with margins */
-  width: 100%;
+  margin: 0 0 12px;                                                                                         // space below the list
+  list-style: none;                                                                                         // remove bullets
+  padding: 0;                                                                                               // reset padding
+  display: flex;                                                                                            // lay items in a row
+  flex-wrap: wrap;                                                                                          // wrap to next line on small screens
+  gap: 10px;                                                                                                // increased gap for better touch targets
+  width: 100%;                                                                                              // take full width
+  justify-content: center;                                                                                  // center the button group
 }
 
-/* Base button styling */
+.linkWrapperMobile .link li {
+  margin: 0;                                                                                                // no per-item margins (gap handles spacing)
+  flex: 1;                                                                                                  // make each item grow equally
+  min-width: 0;                                                                                             // allow flex items to shrink below content size
+  max-width: 160px;                                                                                         // prevent buttons from getting too wide
+}
+
+/* Enhanced base mobile button styling */
 .linkWrapperMobile .link a {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 8px;
-  width: 100%;
-  min-height: 48px;
-  padding: 14px 24px;
-  box-sizing: border-box;
-  font-size: 15px;
-  font-weight: 600;
-  text-decoration: none;
-  white-space: nowrap;
-  letter-spacing: 0.3px;
-  transition: all 0.25s ease;
-  -webkit-tap-highlight-color: transparent;
+  font-weight: 600;                                                                                         // increased weight for better readability
+  display: flex;                                                                                            // align icon + text horizontally
+  align-items: center;                                                                                      // vertically center contents
+  justify-content: center;                                                                                  // center content horizontally
+  background: $white;                                                                                       // clean white background
+  border: 1.5px solid $border-color;                                                                        // slightly thicker border for definition
+  border-radius: 12px;                                                                                      // increased border radius for modern look
+  text-decoration: none;                                                                                    // no underline
+  color: $text-color;                                                                                       // default text color
+  font-size: 14px;                                                                                          // compact but readable size
+  padding: 12px 8px;                                                                                        // increased padding for better touch targets
+  white-space: nowrap;                                                                                      // keep text on one line
+  width: 100%;                                                                                              // fill the flex item completely
+  box-sizing: border-box;                                                                                   // include padding/border in width
+  min-height: 48px;                                                                                         // improved accessible touch target
+  gap: 6px;                                                                                                 // spacing between icon and text
+  transition: all 0.2s ease;                                                                                // smooth transitions
+  box-shadow: 0 2px 4px rgba(0,0,0,0.04);                                                                 // subtle depth
+  -webkit-tap-highlight-color: transparent;                                                                 // remove iOS tap highlight
 }
 
-/* Primary button (Resume/CV) - pill shape, centered, prominent */
-.linkWrapperMobile .link a.primaryButton {
-  background: linear-gradient(135deg, $blue, $purple);
-  color: white;
-  border: none;
-  font-weight: 700;
-  box-shadow: 0 4px 12px rgba($blue, 0.3);
-  letter-spacing: 0.4px;
-  border-radius: 50px; /* Full pill shape */
-  max-width: 200px;
-  margin-bottom: 24px; /* Space below Resume button */
+.linkWrapperMobile .link a:hover {
+  background: #f8fafc;                                                                                     // improved hover background
+  border-color: rgba($blue, 0.3);                                                                          // blue-tinted border on hover
+  transform: translateY(-1px);                                                                              // subtle lift effect
+  box-shadow: 0 4px 8px rgba(0,0,0,0.08);                                                                 // enhanced shadow on hover
+  color: $heading-color;                                                                                    // darker text on hover
 }
 
-.linkWrapperMobile .link a.primaryButton:hover {
-  background: linear-gradient(135deg, darken($blue, 5%), darken($purple, 5%));
-  transform: translateY(-3px);
-  box-shadow: 0 8px 20px rgba($blue, 0.4);
-}
-
-.linkWrapperMobile .link a.primaryButton:active {
-  transform: translateY(0px);
-  box-shadow: 0 4px 12px rgba($blue, 0.3);
-}
-
-/* Add "Connect" divider before first non-primary button */
-.linkWrapperMobile .link a.baseButton:first-of-type {
-  position: relative;
-  margin-top: 8px; /* Space above Connect section */
-}
-
-.linkWrapperMobile .link a.baseButton:first-of-type::before {
-  content: 'Connect';
-  position: absolute;
-  top: -32px;
-  left: 50%;
-  transform: translateX(-50%);
-  color: $muted-color;
-  font-size: 0.85rem;
-  font-weight: 500;
-  letter-spacing: 1px;
-  background: $white;
-  padding: 0 12px;
-  z-index: 1;
-}
-
-.linkWrapperMobile .link a.baseButton:first-of-type::after {
-  content: '';
-  position: absolute;
-  top: -24px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 120px;
-  height: 1px;
-  background: $border-color;
-  z-index: 0;
-}
-
-/* Social buttons - horizontal layout for larger screens */
-.linkWrapperMobile .link li:has(a.baseButton) {
-  width: auto;
-  flex: 1;
-  max-width: 90px;
-}
-
-/* Change flex direction for social buttons only */
-.linkWrapperMobile .link a.baseButton:first-of-type ~ li,
-.linkWrapperMobile .link li:has(a.baseButton) {
-  display: inline-block;
-}
-
-/* Create horizontal layout for social buttons */
-.linkWrapperMobile .link {
-  flex-wrap: wrap;
-  justify-content: center;
-}
-
-.linkWrapperMobile .link li:has(a.baseButton) {
-  margin: 0 6px 0 6px; /* Horizontal spacing between social buttons */
-}
-
-/* Social buttons styling */
-.linkWrapperMobile .link a.baseButton {
-  background: $white;
-  border: 1.5px solid $border-color;
-  border-radius: 12px;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
-  color: $text-color;
-  font-size: 14px;
-  padding: 12px 16px;
-  margin-bottom: 16px; /* Space below social buttons */
-}
-
-.linkWrapperMobile .link a.baseButton:hover {
-  background: $light-gray;
-  border-color: rgba($blue, 0.4);
-  transform: translateY(-2px);
-  box-shadow: 0 6px 16px rgba($blue, 0.15);
-  color: $heading-color;
-}
-
-.linkWrapperMobile .link a.baseButton:active {
-  transform: translateY(0px);
-  transition: transform 0.1s ease;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+.linkWrapperMobile .link a:active {
+  transform: translateY(0px);                                                                               // return to normal position
+  transition: transform 0.1s ease;                                                                          // quick press response
+  box-shadow: 0 1px 3px rgba(0,0,0,0.06);                                                                 // reduced shadow when pressed
 }
 
 .linkWrapperMobile .link a:focus-visible {
-  outline: 2px solid rgba($blue, 0.4);
-  outline-offset: 2px;
+  outline: 2px solid rgba(59, 130, 246, 0.4);                                                             // accessible focus outline
+  outline-offset: 2px;                                                                                      // space between outline and button
 }
 
-/* Enhanced icon styling */
+/* Enhanced primary button styling for mobile */
+.linkWrapperMobile .link a.primaryButton {
+  background: linear-gradient(135deg, $blue, $purple);                                                      // maintain gradient from desktop
+  color: white;                                                                                            // white text for contrast
+  border: none;                                                                                             // no border needed with gradient
+  font-weight: 700;                                                                                         // bold text for primary action
+  margin-bottom: 8px;                                                                                       // extra spacing below primary button
+  box-shadow: 0 3px 8px rgba($blue, 0.25);                                                                // enhanced shadow for primary
+  letter-spacing: 0.3px;                                                                                    // slight letter spacing for emphasis
+}
+
+.linkWrapperMobile .link a.primaryButton:hover {
+  background: linear-gradient(135deg, darken($blue, 5%), darken($purple, 5%));                            // subtle darkening on hover
+  transform: translateY(-2px);                                                                              // more pronounced lift for primary
+  box-shadow: 0 6px 15px rgba($blue, 0.35);                                                               // stronger shadow on hover
+}
+
+.linkWrapperMobile .link a.primaryButton:active {
+  transform: translateY(0px);                                                                               // return to normal
+  box-shadow: 0 2px 6px rgba($blue, 0.3);                                                                 // reduced shadow when pressed
+}
+
+/* Icon styling for mobile buttons */
 .linkWrapperMobile .link a svg,
 .linkWrapperMobile .link a i {
-  width: 18px;
-  height: 18px;
-  vertical-align: middle;
-  flex-shrink: 0;
-  transition: color 0.25s ease;
+  width: 16px;                                                                                              // consistent icon size
+  height: 16px;                                                                                             // maintain aspect ratio
+  vertical-align: middle;                                                                                   // align with text
+  flex-shrink: 0;                                                                                           // prevent icon from shrinking
 }
 
-/* Icon color changes on hover for secondary buttons */
-.linkWrapperMobile .link a.baseButton:hover svg,
-.linkWrapperMobile .link a.baseButton:hover i {
-  color: rgba($blue, 0.8);
-}
+/* -------- Enhanced Mobile Layout Breakpoints -------- */
 
-/* -------- Small Mobile Devices (< 520px) -------- */
-@media (max-width: 520px) {
+@media (max-width: 767px) {
+  body { 
+    padding: 1rem; 
+    font-family: $font-family;                                                                              // ensure font consistency
+  }
+  
+  /* Hide/Show appropriate button wrappers */
+  .linkWrapperDesktop { display: none !important; }
+  .linkWrapperMobile { display: block !important; }
+  
+  /* Enhanced section spacing */
   .section { 
-    padding: 1.2rem 0.8rem;
+    padding: 1.8rem 1.2rem;                                                                                 // improved padding
+    margin-bottom: 1.5rem;                                                                                  // consistent spacing between sections
+  }
+  
+  /* Typography scaling */
+  h1.section-title { 
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+    text-align: center;                                                                                     // center section titles on mobile
+  }
+  
+  /* Grid layouts for mobile */
+  .skills-grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+  
+  .projectGrid {
+    grid-template-columns: 1fr;
+    gap: 1.8rem;                                                                                            // slightly increased gap
+  }
+  
+  /* Enhanced education card layout */
+  .educationCard {
+    flex-direction: column;
+    text-align: center;
+    width: 95%;
+    gap: 1.8rem;                                                                                            // increased gap
+    padding: 1.5rem;                                                                                        // ensure adequate padding
+    margin: 0 auto;                                                                                         // center the card
+  }
+  
+  .educationText { 
+    padding-left: 0; 
+    text-align: center;                                                                                     // center text on mobile
+  }
+  .educationText h2::before { display: none; }
+  .educationText p { 
+    padding-left: 0;
+    margin-bottom: 1rem;                                                                                    // consistent paragraph spacing
+  }
+  
+  /* Enhanced header styling for mobile */
+  .headshot + h1,
+  h1:has(+ .addr) {
+    font-size: 2.2rem;                                                                                      // slightly smaller for mobile
+    margin-bottom: 8px;
+    line-height: 1.1;                                                                                       // tight line spacing
+    font-weight: 800;                                                                                       // maintain strong weight
   }
 
   .headshot {
-    width: 120px;
-    height: 120px;
+    float: right;
+    width: 140px;                                                                                           // optimized size for mobile
+    height: 140px;                                                                                          // maintain square aspect
+    box-sizing: border-box;
+    margin-bottom: 0px;
+    margin-left: 1rem;                                                                                      // space from text
+    border-radius: 50%;                                                                                     // ensure circular shape
+    object-fit: cover;                                                                                      // proper image cropping
+    box-shadow: 0 3px 12px rgba(0,0,0,0.1);                                                               // subtle shadow for depth
+  }
+
+  /* Enhanced location/address styling */
+  .location, .addr {
+    font-size: 0.9rem;
+    margin: 8px 0 12px 0;
+    color: $muted-color;
+    line-height: 1.4;
+  }
+
+  /* Professional title mobile styling */
+  .professional-title {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: $heading-color;
+    margin-bottom: 1rem;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+  }
+
+  /* Tagline mobile styling */
+  .tagline {
+    font-size: 0.9rem;
+    line-height: 1.5;
+    color: $text-color;
+    margin-bottom: 1.5rem;
+  }
+}
+
+/* -------- Small Mobile Devices (< 520px) -------- */
+
+@media (max-width: 520px) {
+  .section { 
+    padding: 1.2rem 0.8rem;                                                                                 // reduced padding for small screens
+  }
+
+  .headshot {
+    width: 120px;                                                                                           // smaller headshot
+    height: 120px;                                                                                          // maintain aspect ratio
   }
   
   h1.section-title {
-    font-size: 1.7rem;
+    font-size: 1.7rem;                                                                                      // smaller section titles
     margin-bottom: 1.2rem;
   }
   
   .headshot + h1,
-  h1:has(+ .addr),
-  h1:has(+ .location) {
-    font-size: 2.1rem;
-    margin-bottom: 6px;
+  h1:has(+ .addr) {
+    font-size: 2rem;                                                                                        // smaller main title
+    margin-bottom: 8px;
   }
   
-  .professional-title {
-    font-size: 0.95rem;
-  }
-  
-  .location {
+  .addr, .location {
     font-size: 0.85rem;
+    margin: 6px 0 10px 0;
   }
 
-  .tagline {
-    font-size: 0.9rem;
-    margin-bottom: 24px;
+  /* Adjust button layout for very small screens */
+  .linkWrapperMobile ul.link {
+    gap: 8px;                                                                                               // tighter spacing
+    flex-direction: column;                                                                                 // stack buttons vertically on very small screens
   }
 
-  /* Stack social buttons vertically on very small screens */
-  .linkWrapperMobile .link {
-    flex-direction: column;
+  .linkWrapperMobile .link li {
+    flex: none;                                                                                             // don't stretch buttons
+    max-width: none;                                                                                        // remove width restriction
   }
 
-  .linkWrapperMobile .link li:has(a.baseButton) {
-    width: 100%;
-    max-width: 200px;
-    margin: 0 0 10px 0;
-    display: block;
-  }
-
-  .linkWrapperMobile .link a.baseButton {
-    font-size: 13px;
-    padding: 10px 16px;
-    min-height: 44px;
-    width: 100%;
-  }
-
-  /* Adjust connect divider for smaller screens */
-  .linkWrapperMobile .link a.baseButton:first-of-type::after {
-    width: 80px;
+  .linkWrapperMobile .link a {
+    font-size: 13px;                                                                                        // slightly smaller text
+    padding: 10px 12px;                                                                                     // adjusted padding
+    min-height: 44px;                                                                                       // maintain touch target
   }
 }
