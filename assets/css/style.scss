@@ -582,7 +582,7 @@ including layout wrappers, base button design, hover/focus states, and style var
 
 
 /* =================================== */
-/*          Mobile Responsive          */
+/*      Mobile Header Section CSS      */
 /* =================================== */
 
 /* -------- Mobile Layout Base -------- */
@@ -605,7 +605,7 @@ including layout wrappers, base button design, hover/focus states, and style var
     margin: 0 0 0 1rem;
     border-radius: 50%;
     object-fit: cover;
-    box-shadow: 0 4px 20px rgba(0,0,0,0.12); /* Enhanced shadow like desktop */
+    box-shadow: 0 4px 20px rgba(0,0,0,0.12);
   }
 
   /* -------- Mobile Header Text Hierarchy -------- */
@@ -613,21 +613,21 @@ including layout wrappers, base button design, hover/focus states, and style var
   .headshot + h1,
   h1:has(+ .addr),
   h1:has(+ .location) {
-    font-size: 2.2rem;
+    font-size: 2.4rem;
     font-weight: 800;
     line-height: 1.1;
-    margin-bottom: 4px; /* Tighter spacing to location */
+    margin-bottom: 6px;
     color: $title-color;
   }
 
-  /* Professional title - refined hierarchy */
+  /* Professional title - clean hierarchy */
   .professional-title {
-    font-size: 0.95rem;
+    font-size: 1rem;
     font-weight: 600;
     color: $heading-color;
-    margin-bottom: 6px; /* Tighter spacing to location */
-    letter-spacing: 0.8px; /* Increased letter spacing for elegance */
-    text-transform: none; /* Remove ALL CAPS */
+    margin-bottom: 8px;
+    letter-spacing: 0.5px;
+    text-transform: none;
     text-align: left;
   }
 
@@ -637,34 +637,33 @@ including layout wrappers, base button design, hover/focus states, and style var
     align-items: center;
     justify-content: flex-start;
     gap: 6px;
-    font-size: 0.85rem; /* Slightly smaller */
-    margin: 0 0 16px 0; /* Space below before tagline */
+    font-size: 0.9rem;
+    margin: 0 0 12px 0;
     color: $muted-color;
     line-height: 1.4;
-    font-weight: 400; /* Lighter weight */
+    font-weight: 500;
   }
 
   .location i {
     color: rgba($blue, 0.7);
-    width: 14px;
-    height: 14px;
+    width: 16px;
+    height: 16px;
   }
 
   /* Tagline - supporting text styling */
   .tagline {
-    font-size: 0.9rem;
+    font-size: 0.95rem;
     line-height: 1.5;
-    color: lighten($text-color, 15%); /* Lighter color */
-    font-weight: 400; /* Lighter weight */
-    font-style: italic; /* Italicized for distinction */
-    margin-bottom: 24px; /* Increased breathing room above buttons */
+    color: lighten($text-color, 10%);
+    font-weight: 400;
+    margin-bottom: 28px; /* Space above Resume button */
     clear: both;
     padding-top: 0.5rem;
   }
   
   /* -------- Enhanced section spacing for mobile -------- */
   .section { 
-    padding: 1.6rem 1.2rem; /* Reduced overall height */
+    padding: 1.6rem 1.2rem;
     margin-bottom: 1.5rem;
   }
   
@@ -677,8 +676,8 @@ including layout wrappers, base button design, hover/focus states, and style var
 
 /* -------- Mobile Platform Buttons -------- */
 .linkWrapperMobile {
-  display: none; /* Hidden by default, shown in media query */
-  margin: 0; /* Remove extra margin */
+  display: none;
+  margin: 0;
   padding: 0 4px;
   clear: both;
   font-family: $font-family;
@@ -689,57 +688,132 @@ including layout wrappers, base button design, hover/focus states, and style var
   list-style: none;
   padding: 0;
   display: flex;
-  flex-direction: column; /* Stack buttons vertically for better hierarchy */
-  gap: 14px; /* Increased consistent spacing between buttons */
-  width: 100%;
+  flex-direction: column;
   align-items: center;
-}
-
-.linkWrapperMobile .link li {
-  margin: 0;
+  gap: 0; /* We'll handle spacing with margins */
   width: 100%;
-  max-width: 280px; /* Slightly wider for better proportions */
 }
 
-/* Base mobile button styling - consistent border radius */
+/* Base button styling */
 .linkWrapperMobile .link a {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 8px; /* Increased space between icon and text */
+  gap: 8px;
   width: 100%;
   min-height: 48px;
-  padding: 14px 20px; /* Increased padding for better touch targets */
+  padding: 14px 24px;
   box-sizing: border-box;
-  
-  /* Appearance - consistent border radius */
-  background: $white;
-  border: 1.5px solid $border-color;
-  border-radius: 14px; /* Consistent with primary button */
-  box-shadow: 0 2px 8px rgba(0,0,0,0.05); /* Subtle depth */
-  
-  /* Typography */
   font-size: 15px;
   font-weight: 600;
-  color: $text-color;
   text-decoration: none;
   white-space: nowrap;
   letter-spacing: 0.3px;
-  
-  /* Interactions */
   transition: all 0.25s ease;
   -webkit-tap-highlight-color: transparent;
 }
 
-.linkWrapperMobile .link a:hover {
+/* Primary button (Resume/CV) - pill shape, centered, prominent */
+.linkWrapperMobile .link a.primaryButton {
+  background: linear-gradient(135deg, $blue, $purple);
+  color: white;
+  border: none;
+  font-weight: 700;
+  box-shadow: 0 4px 12px rgba($blue, 0.3);
+  letter-spacing: 0.4px;
+  border-radius: 50px; /* Full pill shape */
+  max-width: 200px;
+  margin-bottom: 24px; /* Space below Resume button */
+}
+
+.linkWrapperMobile .link a.primaryButton:hover {
+  background: linear-gradient(135deg, darken($blue, 5%), darken($purple, 5%));
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba($blue, 0.4);
+}
+
+.linkWrapperMobile .link a.primaryButton:active {
+  transform: translateY(0px);
+  box-shadow: 0 4px 12px rgba($blue, 0.3);
+}
+
+/* Add "Connect" divider before first non-primary button */
+.linkWrapperMobile .link a.baseButton:first-of-type {
+  position: relative;
+  margin-top: 8px; /* Space above Connect section */
+}
+
+.linkWrapperMobile .link a.baseButton:first-of-type::before {
+  content: 'Connect';
+  position: absolute;
+  top: -32px;
+  left: 50%;
+  transform: translateX(-50%);
+  color: $muted-color;
+  font-size: 0.85rem;
+  font-weight: 500;
+  letter-spacing: 1px;
+  background: $white;
+  padding: 0 12px;
+  z-index: 1;
+}
+
+.linkWrapperMobile .link a.baseButton:first-of-type::after {
+  content: '';
+  position: absolute;
+  top: -24px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 120px;
+  height: 1px;
+  background: $border-color;
+  z-index: 0;
+}
+
+/* Social buttons - horizontal layout for larger screens */
+.linkWrapperMobile .link li:has(a.baseButton) {
+  width: auto;
+  flex: 1;
+  max-width: 90px;
+}
+
+/* Change flex direction for social buttons only */
+.linkWrapperMobile .link a.baseButton:first-of-type ~ li,
+.linkWrapperMobile .link li:has(a.baseButton) {
+  display: inline-block;
+}
+
+/* Create horizontal layout for social buttons */
+.linkWrapperMobile .link {
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.linkWrapperMobile .link li:has(a.baseButton) {
+  margin: 0 6px 0 6px; /* Horizontal spacing between social buttons */
+}
+
+/* Social buttons styling */
+.linkWrapperMobile .link a.baseButton {
+  background: $white;
+  border: 1.5px solid $border-color;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+  color: $text-color;
+  font-size: 14px;
+  padding: 12px 16px;
+  margin-bottom: 16px; /* Space below social buttons */
+}
+
+.linkWrapperMobile .link a.baseButton:hover {
   background: $light-gray;
   border-color: rgba($blue, 0.4);
   transform: translateY(-2px);
-  box-shadow: 0 6px 16px rgba($blue, 0.15); /* Enhanced hover shadow with accent color */
+  box-shadow: 0 6px 16px rgba($blue, 0.15);
   color: $heading-color;
 }
 
-.linkWrapperMobile .link a:active {
+.linkWrapperMobile .link a.baseButton:active {
   transform: translateY(0px);
   transition: transform 0.1s ease;
   box-shadow: 0 2px 8px rgba(0,0,0,0.08);
@@ -750,32 +824,10 @@ including layout wrappers, base button design, hover/focus states, and style var
   outline-offset: 2px;
 }
 
-/* Primary button (Resume) - matches secondary button radius */
-.linkWrapperMobile .link a.primaryButton {
-  background: linear-gradient(135deg, $blue, $purple);
-  color: white;
-  border: none;
-  font-weight: 700;
-  box-shadow: 0 4px 12px rgba($blue, 0.3); /* Enhanced shadow */
-  letter-spacing: 0.4px;
-  border-radius: 14px; /* Consistent radius */
-}
-
-.linkWrapperMobile .link a.primaryButton:hover {
-  background: linear-gradient(135deg, darken($blue, 5%), darken($purple, 5%));
-  transform: translateY(-3px); /* Slightly more lift for primary */
-  box-shadow: 0 8px 20px rgba($blue, 0.4);
-}
-
-.linkWrapperMobile .link a.primaryButton:active {
-  transform: translateY(0px);
-  box-shadow: 0 4px 12px rgba($blue, 0.3);
-}
-
-/* Enhanced icon styling with accent colors on hover */
+/* Enhanced icon styling */
 .linkWrapperMobile .link a svg,
 .linkWrapperMobile .link a i {
-  width: 18px; /* Slightly larger icons */
+  width: 18px;
   height: 18px;
   vertical-align: middle;
   flex-shrink: 0;
@@ -807,36 +859,44 @@ including layout wrappers, base button design, hover/focus states, and style var
   .headshot + h1,
   h1:has(+ .addr),
   h1:has(+ .location) {
-    font-size: 2rem;
-    margin-bottom: 4px;
+    font-size: 2.1rem;
+    margin-bottom: 6px;
   }
   
   .professional-title {
-    font-size: 0.9rem;
+    font-size: 0.95rem;
   }
   
   .location {
-    font-size: 0.8rem;
-    margin: 0 0 14px 0;
+    font-size: 0.85rem;
   }
 
   .tagline {
-    font-size: 0.85rem;
-    margin-bottom: 20px;
+    font-size: 0.9rem;
+    margin-bottom: 24px;
   }
 
-  /* Maintain vertical stacking with consistent spacing */
-  .linkWrapperMobile ul.link {
-    gap: 12px;
+  /* Stack social buttons vertically on very small screens */
+  .linkWrapperMobile .link {
+    flex-direction: column;
   }
 
-  .linkWrapperMobile .link li {
-    max-width: none;
+  .linkWrapperMobile .link li:has(a.baseButton) {
+    width: 100%;
+    max-width: 200px;
+    margin: 0 0 10px 0;
+    display: block;
   }
 
-  .linkWrapperMobile .link a {
-    font-size: 14px;
-    padding: 12px 16px;
+  .linkWrapperMobile .link a.baseButton {
+    font-size: 13px;
+    padding: 10px 16px;
     min-height: 44px;
+    width: 100%;
+  }
+
+  /* Adjust connect divider for smaller screens */
+  .linkWrapperMobile .link a.baseButton:first-of-type::after {
+    width: 80px;
   }
 }
