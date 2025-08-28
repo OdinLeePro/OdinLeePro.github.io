@@ -6,420 +6,286 @@
 /*          Imports          */
 /* ========================= */
 
-@import "jekyll-theme-minimal.scss";
+@import "jekyll-theme-minimal.scss";                                                                          // import base Jekyll theme styles
 
 /* =============================== */
 /*          Simple Styles          */
 /* =============================== */
 
-/* -------- Variables -------- */
+/* ------------------------ Variables ------------------------ */
+/* Defines reusable values for fonts, sizing, and corner radii */
 
-$font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-$max-width: 1000px;           // max content width
-$border-radius: 8px;          // default corner radius
-$border-radius-large: 12px;   // larger corner radius
+$font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;   // default font stack
+$max-width: 1000px;                                                                                           // maximum content width
+$border-radius: 8px;                                                                                          // standard corner radius
+$border-radius-large: 12px;                                                                                   // larger corner radius
 
-/* -------- Colors -------- */
+/* ------------------------------- Colors -------------------------------- */
+/* Defines the neutral base colors and accent colors used across the theme */
 
 /* Neutrals & Base Colors */
-$white: #ffffff;                            // Pure white used in backgrounds
-$light-gray: #f8fafc;                       // Light gray used for app/page background
-$text-color: #475569;                       // Primary color used for body text
-$heading-color: #334155;                    // Color used for headings
-$title-color: #1e293b;                      // Color used for prominent titles
-$muted-color: #64748b;                      // Color used for secondary/muted text
-$border-color: rgba(148, 163, 184, 0.3);    // Subtle color used for borders/dividers
+$white: #ffffff;                                                                                            // pure white for backgrounds
+$light-gray: #f8fafc;                                                                                       // light gray for app/page background
+$text-color: #475569;                                                                                       // main body text color
+$heading-color: #334155;                                                                                    // color for headings
+$title-color: #1e293b;                                                                                      // color for prominent titles
+$muted-color: #64748b;                                                                                      // secondary/muted text color
+$border-color: rgba(148, 163, 184, 0.3);                                                                    // subtle border/divider color
 
 /* Accent & Skills Section Colors */
-$blue: #3b82f6;     // Primary accent for Gradient & Used in Skills Section (Programming Languages)
-$purple: #8b5cf6;   // Secondary accent for Gradient
-$amber: #f59e0b;    // Used in Skills Section (Tools/Technologies)
-$red: #ef4444;      // Used in Skills Section (Frameworks & Libraries)
-$green: #10b981;    // Used in Skills Section (Data Science Skills)
+$blue: #3b82f6;                                                                                             // Primary accent for Gradient & Used in Skills Section (Programming Languages)
+$purple: #8b5cf6;                                                                                           // Secondary accent for Gradient
+$amber: #f59e0b;                                                                                            // Used in Skills Section (Tools/Technologies)
+$red: #ef4444;                                                                                              // Used in Skills Section (Frameworks & Libraries)
+$green: #10b981;                                                                                            // Used in Skills Section (Data Science Skills)
 
-/* -------- Base Styles -------- */
+/* -------------------------- Base Styles -------------------------- */
+/* Sets the global text, spacing, and background styles for the page */
 
 body {
-  font-family: $font-family;    // system font stack for readable UI fonts
-  line-height: 1.6;             // comfortable line spacing for body text
-  color: $text-color;           // default text color for the page
-  background: $light-gray;      // light page background
-  margin: 0;                    // remove browser’s default body margin
-  padding: 2rem;                // page gutters (space around all content)
+  font-family: $font-family;                                                                                  // system font stack for readable UI fonts
+  line-height: 1.6;                                                                                           // comfortable line spacing for body text
+  color: $text-color;                                                                                         // default text color for the page
+  background: $light-gray;                                                                                    // light page background
+  margin: 0;                                                                                                  // remove browser’s default body margin
+  padding: 2rem;                                                                                              // page gutters (space around all content)
 }
 
-/* -------- Layout -------- */
+/* --------------------------------- Layout --------------------------------- */
+/* Styles for content sections with spacing, background, and subtle elevation */
 
 .section {
-  max-width: $max-width;                        // limit content width (e.g., 1000px)
-  margin: 0 auto;                               // center the section horizontally
-  padding: 2rem;                                // inner spacing
-  background: $white;                           // white card background
-  border-radius: $border-radius;                // rounded corners (8px)
-  margin-bottom: 2rem;                          // space below each section
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);   // subtle elevation
+  max-width: $max-width;                                                                                      // limit content width
+  margin: 0 auto;                                                                                             // center section horizontally
+  padding: 2rem;                                                                                              // inner spacing inside section
+  background: $white;                                                                                         // white background for section
+  border-radius: $border-radius;                                                                              // rounded corners (8px)
+  margin-bottom: 2rem;                                                                                        // space below each section
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);                                                                 // subtle shadow for depth
 }
 
-/* -------- Typography -------- */
+/* -------------------------------- Typography --------------------------------- */
+/* Styles for section titles and subtitles with hierarchy and decorative accents */
 
 h1.section-title {
-  text-align: center;     // center the main section title
-  font-size: 2.5rem;      // large, prominent heading size
-  margin-bottom: 3rem;    // generous spacing below the title
-  color: $title-color;    // use the theme title color
-  font-weight: 700;       // bold weight for strong emphasis
+  text-align: center;                                                                                         // center align main section title
+  font-size: 2.5rem;                                                                                          // large, prominent heading size
+  margin-bottom: 3rem;                                                                                        // space below title
+  color: $title-color;                                                                                        // theme color for titles
+  font-weight: 700;                                                                                           // bold for strong emphasis
 }
 
 .sub-title {
-  margin: 0;                // reset default margins
-  font-size: 1.3rem;        // slightly larger than body text
-  line-height: 1.3;         // tighter line height for headings
-  font-weight: 600;         // semi-bold for hierarchy below h1
-  color: $heading-color;    // use the theme heading color
-  margin-bottom: 1rem;      // space below each subtitle
-  padding-left: 1rem;       // room for the decorative bar on the left
-  position: relative;       // establish positioning context for ::before
+  margin: 0;                                                                                                  // remove default margins
+  font-size: 1.3rem;                                                                                          // slightly larger than body text
+  line-height: 1.3;                                                                                           // tighter spacing for headings
+  font-weight: 600;                                                                                           // semi-bold for sub hierarchy
+  color: $heading-color;                                                                                      // theme color for headings
+  margin-bottom: 1rem;                                                                                        // space below subtitle
+  padding-left: 1rem;                                                                                         // space for decorative bar
+  position: relative;                                                                                         // positioning context for ::before
 }
 
 .sub-title::before {
-  content: '';                                            // draw a decorative element
-  position: absolute;                                     // position relative to .sub-title
-  left: 0;                                                // align to the far left
-  top: 50%;                                               // vertically center reference
-  transform: translateY(-50%);                            // actual vertical centering
-  width: 4px;                                             // bar thickness
-  height: 20px;                                           // bar height
-  background: linear-gradient(135deg, $blue, $purple);    // gradient accent
-  border-radius: 2px;                                     // soften the bar edges
+  content: '';                                                                                                // decorative bar element
+  position: absolute;                                                                                         // position relative to subtitle
+  left: 0;                                                                                                    // align to left edge
+  top: 50%;                                                                                                   // reference vertical center
+  transform: translateY(-50%);                                                                                // perfectly center vertically
+  width: 4px;                                                                                                 // bar thickness
+  height: 20px;                                                                                               // bar height
+  background: linear-gradient(135deg, $blue, $purple);                                                        // gradient accent color
+  border-radius: 2px;                                                                                         // rounded bar edges
 }
 
-/* ==================================== */
-/*          Left Side / Header          */
-/* ==================================== */
+/* ============================================== */
+/*          Left Side / Header (Desktop)          */
+/* ============================================== */
+
+/* ----- Headshot Styling ----- */
+/* Headshot image styling */
 
 .headshot {
-  border-radius: 50%;                           // make the image perfectly circular
-  margin-bottom: 1.5rem;                        // increased spacing below headshot
-  max-width: 65%;                               // reduced from 72% for better text balance
-  aspect-ratio: 1 / 1;                   
-  height: auto;                                 // keeps height responsive with width
-  display: block;                               // makes the image behave like a block (so margin auto works)
-  margin-inline: auto;                          // horizontally center the image
-  object-fit: cover;                            // crop the image neatly to fill its circle
-  box-shadow: 0 4px 20px rgba(0,0,0,0.12);     // enhanced shadow for more depth
+  border-radius: 50%;                                                                                         // make the image perfectly circular
+  margin-bottom: 1.5rem;                                                                                      // spacing below headshot
+  max-width: 65%;                                                                                             // size limit for better text balance
+  aspect-ratio: 1 / 1;                                                                                        // maintain square proportions
+  height: auto;                                                                                               // keeps height responsive with width
+  display: block;                                                                                             // treat as block so margin auto works
+  margin-inline: auto;                                                                                        // horizontally center the image
+  object-fit: cover;                                                                                          // crop image neatly within circle
+  box-shadow: 0 4px 20px rgba(0,0,0,0.12);                                                                  // subtle depth with shadow
 }
+/* ---------------- Title Styling ---------------- */
+/* Main name/title heading styling (e.g. Odin Lee) */
 
-/* style the <h1> that follows a headshot - updated for new fields */
 .headshot + h1, h1:has(+ .location), h1:has(+ .addr) {
-  font-size: 2.2rem;                            // slightly smaller for better hierarchy
-  color: $title-color;    
-  margin: 0 0 8px;                              // tight spacing to next element
-  font-weight: 800;                             // bold text
-  line-height: 1.1;                             // compact line height for titles
-  text-align: center;                           // center the name
+  font-size: 2.2rem;                                                                                          // slightly smaller for better hierarchy
+  color: $title-color;                                                                                        // theme color for titles
+  margin: 0 0 8px;                                                                                            // tight spacing below heading
+  font-weight: 800;                                                                                           // strong bold text
+  line-height: 1.1;                                                                                           // compact spacing between lines
+  text-align: center;                                                                                         // center align the name
 }
 
-/* -------- Location Styling -------- */
+/* ------------------------------- Location Styling ------------------------------- */
+/* Styles for the location line below the header, including icon and text alignment */
 
 .location {
-  text-align: center;
-  margin: 0 0 12px 0;
-  font-size: 0.9rem;
-  color: $muted-color;
-  font-weight: 500;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 6px;
+  text-align: center;                                                                                         // center the location text
+  margin: 0 0 12px 0;                                                                                         // space below location line
+  font-size: 0.9rem;                                                                                          // smaller text size
+  color: $muted-color;                                                                                        // muted text color
+  font-weight: 500;                                                                                           // medium font weight
+  display: flex;                                                                                              // use flex for icon + text alignment
+  align-items: center;                                                                                        // vertically center icon and text
+  justify-content: center;                                                                                    // horizontally center content
+  gap: 6px;                                                                                                   // space between icon and text
 }
 
 .location i {
-  color: rgba($blue, 0.7);                      // subtle blue accent for location icon
+  color: rgba($blue, 0.7);                                                                                    // subtle blue accent for location icon
 }
 
-/* -------- Professional Title Styling -------- */
+/* ------------------- Professional Title Styling ------------------- */
+/* Styles for the professional title/credential line under the header */
 
 .professional-title {
-  text-align: center;
-  margin: 0 0 16px 0;
-  font-size: 0.95rem;
-  font-weight: 600;
-  color: $heading-color;
-  letter-spacing: 0.3px;
-  text-transform: uppercase;                    // makes it feel more like a credential
+  text-align: center;                                                                                         // center align the title text
+  margin: 0 0 16px 0;                                                                                         // space below the title
+  font-size: 0.95rem;                                                                                         // slightly smaller text size
+  font-weight: 600;                                                                                           // semi-bold for emphasis
+  color: $heading-color;                                                                                      // theme heading color
+  letter-spacing: 0.3px;                                                                                      // slight spacing for readability
+  text-transform: uppercase;                                                                                  // makes it feel like a credential
 }
 
-/* -------- Value Proposition Tagline -------- */
+/* ----------------------- Tagline Styling ------------------------ */
+/* Styles for the tagline/summary text below the professional title */
 
 .tagline {
-  text-align: center;
-  margin: 0 0 24px 0;
-  font-size: 0.95rem;
-  color: $text-color;
-  line-height: 1.5;
-  padding: 0 8px;                 // slight padding for mobile
+  text-align: center;                                                                                         // center align tagline text
+  margin: 0 0 24px 0;                                                                                         // space below tagline
+  font-size: 0.95rem;                                                                                         // slightly smaller text size
+  color: $text-color;                                                                                         // default body text color
+  line-height: 1.5;                                                                                           // comfortable line spacing
+  padding: 0 8px;                                                                                             // slight horizontal padding for mobile
 }
 
-/* kill pseudo-elements entirely */
 .tagline::before,
 .tagline::after {
-  content: none !important;
-  display: none !important;
+  content: none !important;                                                                                   // remove any pseudo-elements
+  display: none !important;                                                                                   // ensure they don't render
 }
 
-/* -------- Email Address Styling (Hidden by default) -------- */
-
-.addr {
-  display: none;                               // hidden since email is now a button
-  margin: 2px 0 12px 0;  
-  font-size: 0.98rem;        
-}
-
-.addr a {
-  // fallback solid color if gradient isn't supported
-  color: $blue;
-  
-  // gradient text (blue → purple)
-  background: linear-gradient(135deg, $blue, $purple);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;               
-  
-  text-decoration: none;                       // remove default underline
-  font-weight: 600;                            // make email text slightly bolder
-  display: inline-block;                       // allows transform/scale on the link
-}
-
-/* apply smooth animation to both the envelope icon and the email link */
-.addr i, .addr a {
-  transition: transform 0.2s ease;
-}
-
-/* when hovering over the whole address container, both the icon and the link increase in size */
-.addr:hover i, .addr:hover a {
-  transform: scale(1.05);
-}
-
-/* apply gradient on hover to the envelope icon */
-.addr:hover i {
-  background: linear-gradient(135deg, $blue, $purple);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-}
-
-/* accessible focus for the email link */
-.addr a:focus-visible {
-  outline: 3px solid rgba(59, 130, 246, 0.35);  // blue focus ring
-  outline-offset: 3px;
-  border-radius: 6px;
-}
-
-/* -------- Socials Links (e.g. Github, LinkedIn) -------- */
+/* ----------------------------- Platform Buttons Styling ------------------------------ */
+/* Defines the appearance and behavior of action buttons (Resume, GitHub, LinkedIn, Email), 
+including layout wrappers, base button design, hover/focus states, and style variations. */
 
 .linkWrapperDesktop, 
 .linkWrapperMobile {
-  font-family: $font-family;
+  font-family: $font-family;                                                                                  // use global font stack
 }
 
-/* -------- Socials Links DESKTOP -------- */
+/* ---------------- Platform Buttons Layout ---------------- */
+/* Layout and appearance of platform buttons on desktop view */
 
 .linkWrapperDesktop {
-  margin-top: 24px;                            // increased spacing above buttons
+  margin-top: 24px;                                                                                           // spacing above button group
 }
 
 .linkWrapperDesktop .link {
-  list-style: none;                            // remove bullets
-  padding: 0;                                  // reset padding
-  margin: 0;                                   // reset margin
-
-  /* use grid for consistent vertical rhythm */
-  display: grid;
-  gap: 12px;                                   // increased spacing between buttons
+  list-style: none;                                                                                           // remove list bullets
+  padding: 0;                                                                                                 // reset padding
+  margin: 0;                                                                                                  // reset margin
+  display: grid;                                                                                              // use grid for vertical alignment
+  gap: 12px;                                                                                                  // spacing between buttons
 }
 
 .linkWrapperDesktop .link li {
-  margin: 0;                                   // vertical spacing between items
+  margin: 0;                                                                                                  // reset list item margins
 }
 
-/* Base button appearance */
+/* --------- Base Button Styles ---------- */
+/* Default styling for all desktop buttons */
+
 .linkWrapperDesktop .link a {
-  display: inline-flex;                        // layout for icon + text
-  align-items: center;                         // vertically center contents
-  justify-content: center;                     // horizontally center contents
-  gap: 6px;                                    // reduced from 10px for better balance
-  width: 100%;                                 // fill container width
-  min-height: 48px;                            // larger accessible tap target
-  height: 48px;
-  padding: 0 20px;                             // inner spacing
-  box-sizing: border-box;                      // include border/padding in width
-
-  border-radius: 14px;                         // more rounded corners
-  text-decoration: none;                       // remove underline
-  font-size: 15px;                             // readable size
-  font-weight: 600;                            // semi-bold
-  letter-spacing: 0.3px;
-  line-height: 1;                              // CRITICAL FIX: prevents text spacing issues
-
-  transition: all 0.2s ease;                   // smooth transitions
+  display: inline-flex;                                                                                       // layout for icon + text
+  align-items: center;                                                                                        // vertically center contents
+  justify-content: center;                                                                                    // horizontally center contents
+  gap: 6px;                                                                                                   // spacing between icon and text
+  width: 100%;                                                                                                // button fills container width
+  min-height: 48px;                                                                                           // accessible tap target size
+  height: 48px;                                                                                               // fixed button height for consistency
+  padding: 0 20px;                                                                                            // inner spacing
+  box-sizing: border-box;                                                                                     // include padding/border in width
+  border-radius: 14px;                                                                                        // rounded corners
+  text-decoration: none;                                                                                      // remove underline
+  font-size: 15px;                                                                                            // readable font size
+  font-weight: 600;                                                                                           // semi-bold text
+  letter-spacing: 0.3px;                                                                                      // subtle spacing
+  line-height: 1;                                                                                             // fixes spacing issues
+  transition: all 0.2s ease;                                                                                  // smooth hover/focus transitions
 }
 
 .linkWrapperDesktop .link a:active {
-  transform: translateY(1px);
+  transform: translateY(1px);                                                                                 // slight press effect
 }
 
 .linkWrapperDesktop .link a:focus-visible {
-  outline: 3px solid rgba(59, 130, 246, 0.35);  // blue focus ring
-  outline-offset: 2px;
+  outline: 3px solid rgba(59, 130, 246, 0.35);                                                              // blue focus ring around button
+  outline-offset: 2px;                                                                                        // space between outline and button edge
 }
 
-/* PRIMARY BUTTON (Resume) — Hero CTA */
+/* ----- Primary Button / Resume Button ------ */
+/* Primary/Top Button with gradient background */
+
 .linkWrapperDesktop .link a.primaryButton {
-  background: linear-gradient(135deg, $blue, $purple);
-  color: white;
-  border: none;
-  box-shadow: 0 4px 12px rgba($blue, 0.3);
-  font-weight: 700;                            // bolder for primary action
+  background: linear-gradient(135deg, $blue, $purple);                                                        // gradient background (blue → purple)
+  color: white;                                                                                             // white text for contrast
+  border: none;                                                                                               // remove default border
+  box-shadow: 0 4px 12px rgba($blue, 0.3);                                                                    // subtle shadow for depth
+  font-weight: 700;                                                                                           // bolder text for primary action
 }
 
 .linkWrapperDesktop .link a.primaryButton:hover {
-  transform: translateY(-2px);                 // lift effect
-  box-shadow: 0 6px 20px rgba($blue, 0.4);    // stronger shadow on hover
+  transform: translateY(-2px);                                                                                // lift effect on hover
+  box-shadow: 0 6px 20px rgba($blue, 0.4);                                                                    // stronger shadow on hover
 }
 
 .linkWrapperDesktop .link a.primaryButton:focus-visible,
 .linkWrapperDesktop .link a.baseButton:focus-visible {
-  outline: 3px solid rgba(59,130,246,0.35);
-  outline-offset: 2px;
-  border-radius: 14px;
+  outline: 3px solid rgba(59,130,246,0.35);                                                                 // shared blue focus outline
+  outline-offset: 2px;                                                                                        // space between outline and element
+  border-radius: 14px;                                                                                        // rounded outline matches button shape
 }
 
-/* SECONDARY BUTTONS (GitHub, LinkedIn, Email) — Clean outline style */
+/* ----- Secondary Button e.g. GitHub, LinkedIn, Email ----- */
+/* Clean outlined style for supporting actions */
+
 .linkWrapperDesktop .link a.baseButton {
-  background: $white;
-  color: $title-color;
-  border: 1.5px solid $border-color;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+  background: $white;                                                                                         // white background for clean look
+  color: $title-color;                                                                                        // dark text color
+  border: 1.5px solid $border-color;                                                                          // subtle border
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);                                                                   // light shadow for depth
 }
 
 .linkWrapperDesktop .link a.baseButton:hover {
-  background: #f8fafc;                         // subtle hover background
-  border-color: rgba($blue, 0.3);             // tinted border on hover
-  transform: translateY(-1px);                 // slight lift
-  box-shadow: 0 4px 12px rgba(0,0,0,0.1);     // enhanced shadow
-  color: $heading-color;
+  background: #f8fafc;                                                                                      // subtle hover background
+  border-color: rgba($blue, 0.3);                                                                             // blue-tinted border on hover
+  transform: translateY(-1px);                                                                                // slight lift effect
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);                                                                   // stronger shadow on hover
+  color: $heading-color;                                                                                      // switch to heading color for contrast
 }
 
-/* Icon sizing harmony */
+/* ---------------- Platform Button Icon Styling ----------------- */
+/* Ensures consistent sizing and alignment of icons within buttons */
+
 .linkWrapperDesktop .link a svg,
 .linkWrapperDesktop .link a i {
-  width: 16px;              /* slightly smaller than text cap height */
-  height: 16px;
-  vertical-align: middle;   /* aligns baseline with text */
-}
-
-/* -------- Socials Links MOBILE -------- */
-
-.linkWrapperMobile {
-  display: none;                               // hidden by default (shown via media query)
-  margin: 12px 0;                              // spacing above/below the mobile links block
-}
-
-.linkWrapperMobile ul.link {
-  margin: 0 0 10px;                            // space below the list
-  list-style: none;                            // remove bullets
-  padding: 0;                                  // reset padding
-  display: flex;                               // lay items in a row
-  flex-wrap: wrap;                             // wrap to next line on small screens
-  gap: 8px;                                    // spacing between items
-  width: 100%;                                 // take full width
-}
-
-.linkWrapperMobile .link li {
-  margin: 0;                                   // no per-item margins (gap handles spacing)
-  flex: 1;                                     // make each item grow equally
-  min-width: 0;                                // allow flex items to shrink below content size
-}
-
-.linkWrapperMobile .link a {
-  font-weight: 500;                            // semi-bold label
-  display: flex;                               // align icon + text horizontally
-  align-items: center;                         // vertically center contents
-  justify-content: center;                     // center content
-  background: $white;                          // pill background
-  border: 1px solid $border-color;             // subtle outline
-  border-radius: $border-radius;               // rounded pill corners
-  text-decoration: none;                       // no underline
-  color: $text-color;                          // text color
-  font-size: 14px;                             // compact size for mobile
-  padding: 8px 8px;                            // inner spacing
-  white-space: nowrap;                         // keep each pill on one line
-  width: 100%;                                 // fill the flex item completely
-  box-sizing: border-box;                      // include padding/border in width
-  min-height: 44px;                            // accessible touch target
-}
-
-.linkWrapperMobile .link a:hover {
-  background: #f1f5f9;                         // subtle hover background
-  border-color: rgba($purple, 0.3);           // tinted border on hover
-}
-
-/* Special styling for primary button on mobile */
-.linkWrapperMobile .link a.primaryButton {
-  background: linear-gradient(135deg, $blue, $purple);
-  color: white;
-  border: none;
-  font-weight: 600;
-  margin-bottom: 6px;
-}
-
-.linkWrapperMobile .link a.primaryButton:hover {
-  background: linear-gradient(135deg, darken($blue, 8%), darken($purple, 8%));
-}
-
-/* -------- Socials Links MOBILE -------- */
-
-.linkWrapperMobile {
-  display: none;    // hidden by default (shown via media query)
-  margin: 10px 0;   // spacing above/below the mobile links block
-}
-
-.linkWrapperMobile ul.link {
-  margin: 0 0 10px;           // space below the list
-  list-style: none;           // remove bullets
-  padding: 0;                 // reset padding
-  display: flex;              // lay items in a row
-  flex-wrap: wrap;            // wrap to next line on small screens
-  gap: 8px;                   // spacing between items
-  width: 100%;                // take full width
-}
-
-.linkWrapperMobile .link li {
-  margin: 0;      // no per-item margins (gap handles spacing)
-  flex: 1;        // make each item grow equally
-  min-width: 0;   // allow flex items to shrink below content size
-}
-
-.linkWrapperMobile .link a {
-  font-weight: 500;                   // semi-bold label
-  display: flex;                      // align icon + text horizontally
-  align-items: center;                // vertically center contents
-  background: $white;                 // pill background
-  border: 1px solid $border-color;    // subtle outline
-  border-radius: $border-radius;      // rounded pill corners
-  text-decoration: none;              // no underline
-  color: $text-color;                 // text color
-  font-size: 14px;                    // compact size for mobile
-  padding: 8px 8px;                   // inner spacing
-  white-space: nowrap;                // keep each pill on one line
-  width: 100%;                        // fill the flex item completely
-  box-sizing: border-box;             // include padding/border in width
-  min-height: 44px;                   // accessible touch target
-}
-
-.linkWrapperMobile .link a:hover {
-  background: #f1f5f9;              // subtle hover background
-  border-color: rgba($purple, 0.3);   // tinted border on hover
+  width: 16px;                                                                                                // set icon width
+  height: 16px;                                                                                               // set icon height
+  vertical-align: middle;                                                                                     // align icons with text baseline
 }
 
 /* =============================== */
@@ -693,20 +559,158 @@ h1.section-title {
 .skill-card:nth-child(3) .skill-icon { color: $red; }
 .skill-card:nth-child(4) .skill-icon { color: $green; }
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 /* =================================== */
 /*          Mobile Responsive          */
 /* =================================== */
 
+/* -------- Platform Buttons (MOBILE) -------- */
+/* Enhanced mobile button styling with improved visual hierarchy and touch interactions */
+
+.linkWrapperMobile {
+  display: none;                                                                                            // hidden by default (shown via media query)
+  margin: 20px 0;                                                                                           // increased spacing for better visual separation
+  padding: 0 4px;                                                                                           // slight padding to prevent edge touching
+}
+
+.linkWrapperMobile ul.link {
+  margin: 0 0 12px;                                                                                         // space below the list
+  list-style: none;                                                                                         // remove bullets
+  padding: 0;                                                                                               // reset padding
+  display: flex;                                                                                            // lay items in a row
+  flex-wrap: wrap;                                                                                          // wrap to next line on small screens
+  gap: 10px;                                                                                                // increased gap for better touch targets
+  width: 100%;                                                                                              // take full width
+  justify-content: center;                                                                                  // center the button group
+}
+
+.linkWrapperMobile .link li {
+  margin: 0;                                                                                                // no per-item margins (gap handles spacing)
+  flex: 1;                                                                                                  // make each item grow equally
+  min-width: 0;                                                                                             // allow flex items to shrink below content size
+  max-width: 160px;                                                                                         // prevent buttons from getting too wide
+}
+
+/* Enhanced base mobile button styling */
+.linkWrapperMobile .link a {
+  font-weight: 600;                                                                                         // increased weight for better readability
+  display: flex;                                                                                            // align icon + text horizontally
+  align-items: center;                                                                                      // vertically center contents
+  justify-content: center;                                                                                  // center content horizontally
+  background: $white;                                                                                       // clean white background
+  border: 1.5px solid $border-color;                                                                        // slightly thicker border for definition
+  border-radius: 12px;                                                                                      // increased border radius for modern look
+  text-decoration: none;                                                                                    // no underline
+  color: $text-color;                                                                                       // default text color
+  font-size: 14px;                                                                                          // compact but readable size
+  padding: 12px 8px;                                                                                        // increased padding for better touch targets
+  white-space: nowrap;                                                                                      // keep text on one line
+  width: 100%;                                                                                              // fill the flex item completely
+  box-sizing: border-box;                                                                                   // include padding/border in width
+  min-height: 48px;                                                                                         // improved accessible touch target
+  gap: 6px;                                                                                                 // spacing between icon and text
+  transition: all 0.2s ease;                                                                                // smooth transitions
+  box-shadow: 0 2px 4px rgba(0,0,0,0.04);                                                                 // subtle depth
+  -webkit-tap-highlight-color: transparent;                                                                 // remove iOS tap highlight
+}
+
+.linkWrapperMobile .link a:hover {
+  background: #f8fafc;                                                                                     // improved hover background
+  border-color: rgba($blue, 0.3);                                                                          // blue-tinted border on hover
+  transform: translateY(-1px);                                                                              // subtle lift effect
+  box-shadow: 0 4px 8px rgba(0,0,0,0.08);                                                                 // enhanced shadow on hover
+  color: $heading-color;                                                                                    // darker text on hover
+}
+
+.linkWrapperMobile .link a:active {
+  transform: translateY(0px);                                                                               // return to normal position
+  transition: transform 0.1s ease;                                                                          // quick press response
+  box-shadow: 0 1px 3px rgba(0,0,0,0.06);                                                                 // reduced shadow when pressed
+}
+
+.linkWrapperMobile .link a:focus-visible {
+  outline: 2px solid rgba(59, 130, 246, 0.4);                                                             // accessible focus outline
+  outline-offset: 2px;                                                                                      // space between outline and button
+}
+
+/* Enhanced primary button styling for mobile */
+.linkWrapperMobile .link a.primaryButton {
+  background: linear-gradient(135deg, $blue, $purple);                                                      // maintain gradient from desktop
+  color: white;                                                                                            // white text for contrast
+  border: none;                                                                                             // no border needed with gradient
+  font-weight: 700;                                                                                         // bold text for primary action
+  margin-bottom: 8px;                                                                                       // extra spacing below primary button
+  box-shadow: 0 3px 8px rgba($blue, 0.25);                                                                // enhanced shadow for primary
+  letter-spacing: 0.3px;                                                                                    // slight letter spacing for emphasis
+}
+
+.linkWrapperMobile .link a.primaryButton:hover {
+  background: linear-gradient(135deg, darken($blue, 5%), darken($purple, 5%));                            // subtle darkening on hover
+  transform: translateY(-2px);                                                                              // more pronounced lift for primary
+  box-shadow: 0 6px 15px rgba($blue, 0.35);                                                               // stronger shadow on hover
+}
+
+.linkWrapperMobile .link a.primaryButton:active {
+  transform: translateY(0px);                                                                               // return to normal
+  box-shadow: 0 2px 6px rgba($blue, 0.3);                                                                 // reduced shadow when pressed
+}
+
+/* Icon styling for mobile buttons */
+.linkWrapperMobile .link a svg,
+.linkWrapperMobile .link a i {
+  width: 16px;                                                                                              // consistent icon size
+  height: 16px;                                                                                             // maintain aspect ratio
+  vertical-align: middle;                                                                                   // align with text
+  flex-shrink: 0;                                                                                           // prevent icon from shrinking
+}
+
+/* -------- Enhanced Mobile Layout Breakpoints -------- */
+
 @media (max-width: 767px) {
-  body { padding: 1rem; }
+  body { 
+    padding: 1rem; 
+    font-family: $font-family;                                                                              // ensure font consistency
+  }
   
+  /* Hide/Show appropriate button wrappers */
   .linkWrapperDesktop { display: none !important; }
   .linkWrapperMobile { display: block !important; }
   
-  .section { padding: 1.5rem; }
+  /* Enhanced section spacing */
+  .section { 
+    padding: 1.8rem 1.2rem;                                                                                 // improved padding
+    margin-bottom: 1.5rem;                                                                                  // consistent spacing between sections
+  }
   
-  h1.section-title { font-size: 2rem; }
+  /* Typography scaling */
+  h1.section-title { 
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+    text-align: center;                                                                                     // center section titles on mobile
+  }
   
+  /* Grid layouts for mobile */
   .skills-grid {
     grid-template-columns: 1fr;
     gap: 2rem;
@@ -714,55 +718,119 @@ h1.section-title {
   
   .projectGrid {
     grid-template-columns: 1fr;
-    gap: 1.5rem;
+    gap: 1.8rem;                                                                                            // slightly increased gap
   }
   
+  /* Enhanced education card layout */
   .educationCard {
     flex-direction: column;
     text-align: center;
     width: 95%;
-    gap: 1.5rem;
+    gap: 1.8rem;                                                                                            // increased gap
+    padding: 1.5rem;                                                                                        // ensure adequate padding
+    margin: 0 auto;                                                                                         // center the card
   }
   
-  .educationText { padding-left: 0; }
+  .educationText { 
+    padding-left: 0; 
+    text-align: center;                                                                                     // center text on mobile
+  }
   .educationText h2::before { display: none; }
-  .educationText p { padding-left: 0; }
+  .educationText p { 
+    padding-left: 0;
+    margin-bottom: 1rem;                                                                                    // consistent paragraph spacing
+  }
   
+  /* Enhanced header styling for mobile */
   .headshot + h1,
   h1:has(+ .addr) {
-    font-size: 2.5rem;
+    font-size: 2.2rem;                                                                                      // slightly smaller for mobile
+    margin-bottom: 8px;
+    line-height: 1.1;                                                                                       // tight line spacing
+    font-weight: 800;                                                                                       // maintain strong weight
   }
 
   .headshot {
     float: right;
-    width: 160px;                     
+    width: 140px;                                                                                           // optimized size for mobile
+    height: 140px;                                                                                          // maintain square aspect
     box-sizing: border-box;
     margin-bottom: 0px;
+    margin-left: 1rem;                                                                                      // space from text
+    border-radius: 50%;                                                                                     // ensure circular shape
+    object-fit: cover;                                                                                      // proper image cropping
+    box-shadow: 0 3px 12px rgba(0,0,0,0.1);                                                               // subtle shadow for depth
+  }
+
+  /* Enhanced location/address styling */
+  .location, .addr {
+    font-size: 0.9rem;
+    margin: 8px 0 12px 0;
+    color: $muted-color;
+    line-height: 1.4;
+  }
+
+  /* Professional title mobile styling */
+  .professional-title {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: $heading-color;
+    margin-bottom: 1rem;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+  }
+
+  /* Tagline mobile styling */
+  .tagline {
+    font-size: 0.9rem;
+    line-height: 1.5;
+    color: $text-color;
+    margin-bottom: 1.5rem;
   }
 }
 
+/* -------- Small Mobile Devices (< 520px) -------- */
+
 @media (max-width: 520px) {
   .section { 
-    padding: 1rem; 
+    padding: 1.2rem 0.8rem;                                                                                 // reduced padding for small screens
   }
 
   .headshot {
-    width: 140px;
+    width: 120px;                                                                                           // smaller headshot
+    height: 120px;                                                                                          // maintain aspect ratio
   }
   
   h1.section-title {
-    font-size: 1.8rem;
-    margin-bottom: 1.5rem;
+    font-size: 1.7rem;                                                                                      // smaller section titles
+    margin-bottom: 1.2rem;
   }
   
   .headshot + h1,
   h1:has(+ .addr) {
-    font-size: 2.5rem;
-    margin-bottom: 10px;
+    font-size: 2rem;                                                                                        // smaller main title
+    margin-bottom: 8px;
   }
   
-  .addr {
-    font-size: 1rem;
-    margin: 8px 0 15px 0;
+  .addr, .location {
+    font-size: 0.85rem;
+    margin: 6px 0 10px 0;
+  }
+
+  /* Adjust button layout for very small screens */
+  .linkWrapperMobile ul.link {
+    gap: 8px;                                                                                               // tighter spacing
+    flex-direction: column;                                                                                 // stack buttons vertically on very small screens
+  }
+
+  .linkWrapperMobile .link li {
+    flex: none;                                                                                             // don't stretch buttons
+    max-width: none;                                                                                        // remove width restriction
+  }
+
+  .linkWrapperMobile .link a {
+    font-size: 13px;                                                                                        // slightly smaller text
+    padding: 10px 12px;                                                                                     // adjusted padding
+    min-height: 44px;                                                                                       // maintain touch target
   }
 }
