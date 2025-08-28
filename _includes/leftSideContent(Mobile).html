@@ -8,7 +8,7 @@
   {% if site.platforms %}
     <ul class="link">
       {%- for platform in site.platforms %}
-        <li{% if platform.name == "Resume" or platform.name == "CV" %} class="isPrimary"{% endif %}>
+        <li>
           {%- if platform.name == "Resume" or platform.name == "CV" -%}
             <a href="{{ platform.link }}" class="primaryButton" rel="me">
               {{ platform.icon }}&nbsp;{{ platform.name }}
