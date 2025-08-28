@@ -594,29 +594,22 @@ including layout wrappers, base button design, hover/focus states, and style var
   padding: 0 4px;                                                                                           // slight padding to prevent edge touching
 }
 
-/* LAYOUT CHANGE: one UL, grid layout.
-   Row 1: primary (spans all columns)
-   Row 2: three secondary buttons side-by-side */
 .linkWrapperMobile ul.link {
   margin: 0 0 12px;                                                                                         // space below the list
   list-style: none;                                                                                         // remove bullets
   padding: 0;                                                                                               // reset padding
-  display: grid;                                                                                            // grid for precise control
-  grid-template-columns: repeat(3, 1fr);                                                                    // 3 equal columns for secondary buttons
+  display: flex;                                                                                            // lay items in a row
+  flex-wrap: wrap;                                                                                          // wrap to next line on small screens
   gap: 10px;                                                                                                // increased gap for better touch targets
   width: 100%;                                                                                              // take full width
-  justify-items: stretch;                                                                                   // buttons fill their cells
-}
-
-/* Primary LI spans the full width (all columns) */
-.linkWrapperMobile .link li.isPrimary {
-  grid-column: 1 / -1;
+  justify-content: center;                                                                                  // center the button group
 }
 
 .linkWrapperMobile .link li {
   margin: 0;                                                                                                // no per-item margins (gap handles spacing)
-  min-width: 0;                                                                                             // allow shrinking for narrow screens
-  max-width: 100%;
+  flex: 1;                                                                                                  // make each item grow equally
+  min-width: 0;                                                                                             // allow flex items to shrink below content size
+  max-width: 160px;                                                                                         // prevent buttons from getting too wide
 }
 
 /* Enhanced base mobile button styling */
@@ -633,63 +626,54 @@ including layout wrappers, base button design, hover/focus states, and style var
   font-size: 14px;                                                                                          // compact but readable size
   padding: 12px 8px;                                                                                        // increased padding for better touch targets
   white-space: nowrap;                                                                                      // keep text on one line
-  width: 100%;                                                                                              // fill the grid cell completely
+  width: 100%;                                                                                              // fill the flex item completely
   box-sizing: border-box;                                                                                   // include padding/border in width
   min-height: 48px;                                                                                         // improved accessible touch target
   gap: 6px;                                                                                                 // spacing between icon and text
   transition: all 0.2s ease;                                                                                // smooth transitions
-  box-shadow: 0 2px 4px rgba(0,0,0,0.04);                                                                    // subtle depth
+  box-shadow: 0 2px 4px rgba(0,0,0,0.04);                                                                 // subtle depth
   -webkit-tap-highlight-color: transparent;                                                                 // remove iOS tap highlight
-  overflow: hidden;                                                                                         // defensive for long text
-  text-overflow: ellipsis;
 }
 
-/* Hover effects limited to devices with hover (prevents sticky hover on touch) */
-@media (hover: hover) and (pointer: fine) {
-  .linkWrapperMobile .link a:hover {
-    background: #f8fafc;                                                                                   // improved hover background
-    border-color: rgba($blue, 0.3);                                                                         // blue-tinted border on hover
-    transform: translateY(-1px);                                                                            // subtle lift effect
-    box-shadow: 0 4px 8px rgba(0,0,0,0.08);                                                                 // enhanced shadow on hover
-    color: $heading-color;                                                                                  // darker text on hover
-  }
+.linkWrapperMobile .link a:hover {
+  background: #f8fafc;                                                                                     // improved hover background
+  border-color: rgba($blue, 0.3);                                                                          // blue-tinted border on hover
+  transform: translateY(-1px);                                                                              // subtle lift effect
+  box-shadow: 0 4px 8px rgba(0,0,0,0.08);                                                                 // enhanced shadow on hover
+  color: $heading-color;                                                                                    // darker text on hover
 }
 
-/* Pressed state */
 .linkWrapperMobile .link a:active {
   transform: translateY(0px);                                                                               // return to normal position
   transition: transform 0.1s ease;                                                                          // quick press response
-  box-shadow: 0 1px 3px rgba(0,0,0,0.06);                                                                   // reduced shadow when pressed
+  box-shadow: 0 1px 3px rgba(0,0,0,0.06);                                                                 // reduced shadow when pressed
 }
 
-/* Focus visible */
 .linkWrapperMobile .link a:focus-visible {
-  outline: 2px solid rgba(59, 130, 246, 0.4);                                                               // accessible focus outline
+  outline: 2px solid rgba(59, 130, 246, 0.4);                                                             // accessible focus outline
   outline-offset: 2px;                                                                                      // space between outline and button
 }
 
 /* Enhanced primary button styling for mobile */
 .linkWrapperMobile .link a.primaryButton {
   background: linear-gradient(135deg, $blue, $purple);                                                      // maintain gradient from desktop
-  color: white;                                                                                             // white text for contrast
+  color: white;                                                                                            // white text for contrast
   border: none;                                                                                             // no border needed with gradient
   font-weight: 700;                                                                                         // bold text for primary action
-  margin-bottom: 0;                                                                                         // grid gap handles spacing
-  box-shadow: 0 3px 8px rgba($blue, 0.25);                                                                  // enhanced shadow for primary
-  letter-spacing: 0.3px;                                                                                     // slight letter spacing for emphasis
+  margin-bottom: 8px;                                                                                       // extra spacing below primary button
+  box-shadow: 0 3px 8px rgba($blue, 0.25);                                                                // enhanced shadow for primary
+  letter-spacing: 0.3px;                                                                                    // slight letter spacing for emphasis
 }
 
-@media (hover: hover) and (pointer: fine) {
-  .linkWrapperMobile .link a.primaryButton:hover {
-    background: linear-gradient(135deg, darken($blue, 5%), darken($purple, 5%));                            // subtle darkening on hover
-    transform: translateY(-2px);                                                                            // more pronounced lift for primary
-    box-shadow: 0 6px 15px rgba($blue, 0.35);                                                               // stronger shadow on hover
-  }
+.linkWrapperMobile .link a.primaryButton:hover {
+  background: linear-gradient(135deg, darken($blue, 5%), darken($purple, 5%));                            // subtle darkening on hover
+  transform: translateY(-2px);                                                                              // more pronounced lift for primary
+  box-shadow: 0 6px 15px rgba($blue, 0.35);                                                               // stronger shadow on hover
 }
 
 .linkWrapperMobile .link a.primaryButton:active {
   transform: translateY(0px);                                                                               // return to normal
-  box-shadow: 0 2px 6px rgba($blue, 0.3);                                                                   // reduced shadow when pressed
+  box-shadow: 0 2px 6px rgba($blue, 0.3);                                                                 // reduced shadow when pressed
 }
 
 /* Icon styling for mobile buttons */
@@ -705,9 +689,7 @@ including layout wrappers, base button design, hover/focus states, and style var
 
 @media (max-width: 767px) {
   body { 
-    /* safer padding on iOS notches while keeping your 1rem */
-    padding: max(1rem, env(safe-area-inset-top)) max(1rem, env(safe-area-inset-right))
-             max(1rem, env(safe-area-inset-bottom)) max(1rem, env(safe-area-inset-left));
+    padding: 1rem; 
     font-family: $font-family;                                                                              // ensure font consistency
   }
   
@@ -759,8 +741,9 @@ including layout wrappers, base button design, hover/focus states, and style var
     margin-bottom: 1rem;                                                                                    // consistent paragraph spacing
   }
   
-  /* Enhanced header styling for mobile (use a wrapper like .headerBlock if you want; avoiding :has()) */
-  .headshot + h1 {
+  /* Enhanced header styling for mobile */
+  .headshot + h1,
+  h1:has(+ .addr) {
     font-size: 2.2rem;                                                                                      // slightly smaller for mobile
     margin-bottom: 8px;
     line-height: 1.1;                                                                                       // tight line spacing
@@ -776,7 +759,7 @@ including layout wrappers, base button design, hover/focus states, and style var
     margin-left: 1rem;                                                                                      // space from text
     border-radius: 50%;                                                                                     // ensure circular shape
     object-fit: cover;                                                                                      // proper image cropping
-    box-shadow: 0 3px 12px rgba(0,0,0,0.1);                                                                 // subtle shadow for depth
+    box-shadow: 0 3px 12px rgba(0,0,0,0.1);                                                               // subtle shadow for depth
   }
 
   /* Enhanced location/address styling */
@@ -823,7 +806,8 @@ including layout wrappers, base button design, hover/focus states, and style var
     margin-bottom: 1.2rem;
   }
   
-  .headshot + h1 {
+  .headshot + h1,
+  h1:has(+ .addr) {
     font-size: 2rem;                                                                                        // smaller main title
     margin-bottom: 8px;
   }
@@ -833,13 +817,14 @@ including layout wrappers, base button design, hover/focus states, and style var
     margin: 6px 0 10px 0;
   }
 
-  /* On very small phones, stack the three again for tap comfort (optional) */
+  /* Adjust button layout for very small screens */
   .linkWrapperMobile ul.link {
-    grid-template-columns: 1fr;                                                                             // stack beneath primary
-    gap: 8px;                                                                                                // tighter spacing
+    gap: 8px;                                                                                               // tighter spacing
+    flex-direction: column;                                                                                 // stack buttons vertically on very small screens
   }
 
   .linkWrapperMobile .link li {
+    flex: none;                                                                                             // don't stretch buttons
     max-width: none;                                                                                        // remove width restriction
   }
 
@@ -848,50 +833,4 @@ including layout wrappers, base button design, hover/focus states, and style var
     padding: 10px 12px;                                                                                     // adjusted padding
     min-height: 44px;                                                                                       // maintain touch target
   }
-}
-
-/* --- Reduced motion (respect OS setting) --- */
-@media (prefers-reduced-motion: reduce) {
-  .linkWrapperMobile .link a,
-  .linkWrapperMobile .link a.primaryButton {
-    transition: none !important;
-    transform: none !important;
-  }
-}
-
-/* --- High contrast / forced colors (Windows) --- */
-@media (forced-colors: active) {
-  .linkWrapperMobile .link a {
-    border: 1px solid CanvasText;
-    background: Canvas;
-    color: CanvasText;
-    box-shadow: none;
-  }
-  .linkWrapperMobile .link a:focus-visible {
-    outline: 2px solid Highlight;
-  }
-}
-
-/* --- Optional dark mode support (auto via user preference) --- */
-@media (prefers-color-scheme: dark) {
-  .linkWrapperMobile .link a {
-    background: mix(#000, $white, 92%);
-    color: if(global-variable-exists(text-color-dark), $text-color-dark, #e5e7eb);
-    border-color: rgba(#fff, 0.12);
-    box-shadow: 0 2px 4px rgba(0,0,0,0.3);
-  }
-  .linkWrapperMobile .link a:hover {
-    background: rgba(#fff, 0.06);
-    border-color: rgba(#fff, 0.2);
-    color: if(global-variable-exists(heading-color-dark), $heading-color-dark, #fff);
-  }
-  .linkWrapperMobile .link a.primaryButton {
-    box-shadow: 0 3px 10px rgba($blue, 0.35);
-  }
-  .location, .addr, .tagline { color: if(global-variable-exists(muted-color-dark), $muted-color-dark, #9ca3af); }
-}
-
-/* --- RTL-friendly icons/text alignment --- */
-[dir="rtl"] .linkWrapperMobile .link a {
-  flex-direction: row-reverse;
 }
