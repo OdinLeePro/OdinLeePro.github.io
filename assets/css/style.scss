@@ -210,7 +210,7 @@ including layout wrappers, base button design, hover/focus states, and style var
 /* Default styling for all desktop buttons */
 
 .linkWrapperDesktop .link a {
-  display: flex;                                                                                              // layout for icon + text
+  display: inline-flex;                                                                                       // layout for icon + text
   align-items: center;                                                                                        // vertically center contents
   justify-content: center;                                                                                    // horizontally center contents
   gap: 6px;                                                                                                   // spacing between icon and text
@@ -249,6 +249,7 @@ including layout wrappers, base button design, hover/focus states, and style var
   border: none;                                                                                               // remove default border
   box-shadow: 0 4px 12px rgba($blue, 0.3);                                                                    // subtle shadow for depth
   font-weight: 700;                                                                                           // bolder text for primary action
+  line-height: 1;
 }
 
 .linkWrapperDesktop .link a.primaryButton:hover {
@@ -284,16 +285,14 @@ including layout wrappers, base button design, hover/focus states, and style var
 /* ---------------- Platform Button Icon Styling ----------------- */
 /* Ensures consistent sizing and alignment of icons within buttons */
 
-.linkWrapperDesktop .link a svg,
 .linkWrapperDesktop .link a i {
-  width: 16px;                                                                                                // set icon width
-  height: 16px;                                                                                               // set icon height
+  font-size: 16px; 
+  line-height: 1;
   flex-shrink: 0;
   display: inline-block;
   vertical-align: middle;                                                                                     // align icons with text baseline
   margin: 0;
   padding: 0; 
-  line-height: 1;
 }
 
 /* =============================== */
@@ -685,7 +684,6 @@ including layout wrappers, base button design, hover/focus states, and style var
 }
 
 /* Icon styling for mobile buttons */
-.linkWrapperMobile .link a svg,
 .linkWrapperMobile .link a i {
   width: 16px;                                                                                              // consistent icon size
   height: 16px;                                                                                             // maintain aspect ratio
