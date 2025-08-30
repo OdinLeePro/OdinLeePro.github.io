@@ -210,7 +210,7 @@ including layout wrappers, base button design, hover/focus states, and style var
 /* Default styling for all desktop buttons */
 
 .linkWrapperDesktop .link a {
-  display: inline-flex;                                                                                       // layout for icon + text
+  display: flex;                                                                                              // layout for icon + text
   align-items: center;                                                                                        // vertically center contents
   justify-content: center;                                                                                    // horizontally center contents
   gap: 6px;                                                                                                   // spacing between icon and text
@@ -226,6 +226,9 @@ including layout wrappers, base button design, hover/focus states, and style var
   letter-spacing: 0.3px;                                                                                      // subtle spacing
   line-height: 1;                                                                                             // fixes spacing issues
   transition: all 0.2s ease;                                                                                  // smooth hover/focus transitions
+  text-align: center; 
+  white-space: nowrap;  
+  vertical-align: middle;
 }
 
 .linkWrapperDesktop .link a:active {
@@ -285,7 +288,12 @@ including layout wrappers, base button design, hover/focus states, and style var
 .linkWrapperDesktop .link a i {
   width: 16px;                                                                                                // set icon width
   height: 16px;                                                                                               // set icon height
+  flex-shrink: 0;
+  display: inline-block;
   vertical-align: middle;                                                                                     // align icons with text baseline
+  margin: 0;
+  padding: 0; 
+  line-height: 1;
 }
 
 /* =============================== */
