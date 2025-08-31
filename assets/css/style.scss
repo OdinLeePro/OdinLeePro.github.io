@@ -226,9 +226,9 @@ including layout wrappers, base button design, hover/focus states, and style var
   letter-spacing: 0.3px;                                                                                      // subtle spacing
   line-height: 1;                                                                                             // fixes spacing issues
   transition: all 0.2s ease;                                                                                  // smooth hover/focus transitions
-  text-align: center; 
-  white-space: nowrap;  
-  vertical-align: middle;
+  text-align: center;                                                                                         // center align text within button
+  white-space: nowrap;                                                                                        // prevent text from wrapping
+  vertical-align: middle;                                                                                     // align with surrounding inline elements
 }
 
 .linkWrapperDesktop .link a:active {
@@ -249,7 +249,7 @@ including layout wrappers, base button design, hover/focus states, and style var
   border: none;                                                                                               // remove default border
   box-shadow: 0 4px 12px rgba($blue, 0.3);                                                                    // subtle shadow for depth
   font-weight: 700;                                                                                           // bolder text for primary action
-  line-height: 1;
+  line-height: 1;                                                                                             // keeps text vertically aligned
 }
 
 .linkWrapperDesktop .link a.primaryButton:hover {
@@ -286,65 +286,82 @@ including layout wrappers, base button design, hover/focus states, and style var
 /* Ensures consistent sizing and alignment of icons within buttons */
 
 .linkWrapperDesktop .link a i {
-  font-size: 16px; 
-  line-height: 1;
-  flex-shrink: 0;
-  display: inline-block;
+  font-size: 16px;                                                                                            // set icon size
+  line-height: 1;                                                                                             // prevent extra vertical spacing
+  flex-shrink: 0;                                                                                             // keep icon from shrinking inside flex layout
+  display: inline-block;                                                                                      // treat as inline-block for better alignment control
   vertical-align: middle;                                                                                     // align icons with text baseline
-  margin: 0;
-  padding: 0; 
+  margin: 0;                                                                                                  // reset default margin
+  padding: 0;                                                                                                 // reset default padding
 }
 
 /* =============================== */
 /*          About Section          */
 /* =============================== */
 
+/* --------------------------- Top Decorative Bar --------------------------- */
+/* Adds a gradient bar at the top of the .about section for visual accent */
+
 .about::before {
-  content: '';                                            // decorative top bar
-  position: absolute;                                     // position inside .about
-  top: 0; left: 0; right: 0;                              // full width across the top
-  height: 3px;                                            // bar thickness
-  background: linear-gradient(135deg, $blue, $purple);    // gradient accent
+  content: '';                                                                                                // create decorative bar element
+  position: absolute;                                                                                         // position within .about container
+  top: 0; left: 0; right: 0;                                                                                  // span full width across top
+  height: 3px;                                                                                                // set bar thickness
+  background: linear-gradient(135deg, $blue, $purple);                                                        // apply gradient accent
 }
+
+/* ------------------------------- Section Container ------------------------------- */
+/* Establishes positioning context and ensures clean layout inside the About section */
 
 .about {
-  position: relative;   // anchor for ::before positioning
-  overflow: hidden;     // clip any overflow past rounded edges/containers
+  position: relative;                                                                                         // anchor for ::before positioning
+  overflow: hidden;                                                                                           // clip any overflow past rounded edges/containers
 }
+
+/* --------------------------------------------------------- Paragraph Styling --------------------------------------------------------- */
+/* Sets typography and layout for paragraphs inside the About section, including spacing, readability, and space for decorative elements */
 
 .about p {
-  font-size: 1rem;        // base paragraph size
-  line-height: 1.8;       // comfortable reading line height
-  color: $text-color;     // body text color
-  margin: 0 0 1.5rem 0;   // space below each paragraph
-  padding-left: 1rem;     // room for the left vertical bar
-  position: relative;     // anchor for p::before
+  font-size: 1rem;                                                                                            // base paragraph size
+  line-height: 1.8;                                                                                           // comfortable reading line height
+  color: $text-color;                                                                                         // body text color
+  margin: 0 0 1.5rem 0;                                                                                       // space below each paragraph
+  padding-left: 1rem;                                                                                         // room for the left vertical bar
+  position: relative;                                                                                         // anchor for p::before
 }
+
+/* ------------------------------ Virtical Decorative Bars ------------------------------ */
+/* Adds a subtle vertical gradient bar to the left of each paragraph in the About section */
 
 .about p::before {
-  content: '';                                                                  // left-side bar per paragraph
-  position: absolute;                                                           // position relative to p
-  left: 0;                                                                      // flush to the left edge
-  top: 0.5rem;                                                                  // start slightly below top
-  width: 3px;                                                                   // bar thickness
-  height: calc(100% - 1rem);                                                    // run most of the paragraph height
-  background: linear-gradient(135deg, rgba($blue, 0.3), rgba($purple, 0.3));    // subtle gradient
-  border-radius: 2px;                                                           // soften bar ends
+  content: '';                                                                                                // left-side bar per paragraph
+  position: absolute;                                                                                         // position relative to p
+  left: 0;                                                                                                    // flush to the left edge
+  top: 0.5rem;                                                                                                // start slightly below top
+  width: 3px;                                                                                                 // bar thickness
+  height: calc(100% - 1rem);                                                                                  // run most of the paragraph height
+  background: linear-gradient(135deg, rgba($blue, 0.3), rgba($purple, 0.3));                                  // subtle gradient
+  border-radius: 2px;                                                                                         // soften bar ends
 }
+
+/* ------------------------------------- Bold/Strong Font (Backup) ------------------------------------- */
+/* Styles for bold/strong text inside About paragraphs, with fallback color and optional gradient upgrade */
 
 .about p strong {
-  color: $title-color;    // stronger color for emphasis
-  font-weight: 600;       // semi-bold emphasis
+  color: $title-color;                                                                                        // stronger color for emphasis
+  font-weight: 600;                                                                                           // semi-bold emphasis
 }
 
-/* upgrade to gradient text only if supported */
+/* ----------------------- Bold/Strong Font (Gradient) ----------------------- */
+/* Upgrades bold/strong text to gradient fill only if supported by the browser */
+
 @supports (-webkit-background-clip: text) or (background-clip: text) {
   .about p strong {
-    background-image: linear-gradient(135deg, $blue, $purple); 
-    -webkit-background-clip: text;   
-    background-clip: text;           
-    -webkit-text-fill-color: transparent; 
-    color: transparent;             
+    background-image: linear-gradient(135deg, $blue, $purple);                                                // gradient fill
+    -webkit-background-clip: text;                                                                            // Safari/Chrome support
+    background-clip: text;                                                                                    // standard property
+    -webkit-text-fill-color: transparent;                                                                     // Safari/Chrome transparent text
+    color: transparent;                                                                                       // fallback for gradient fill
   }
 }
 
@@ -352,75 +369,129 @@ including layout wrappers, base button design, hover/focus states, and style var
 /*          Education Section          */
 /* =================================== */
 
+/* -------------------------- Education Grid --------------------------- */
+/* Layout container for stacking education cards vertically with spacing */
+
 .educationGrid {
-  display: flex;
-  flex-direction: column;
-  gap: 2rem;
-  align-items: center;
-  margin-top: 2rem;
+  display: flex;                                                                                              // use flexbox layout
+  flex-direction: column;                                                                                     // stack cards in a column
+  gap: 2rem;                                                                                                  // spacing between cards
+  align-items: center;                                                                                        // center cards horizontally
+  margin-top: 2rem;                                                                                           // spacing above the grid
 }
+
+/* ------------------------ Education Card ------------------------ */
+/* Individual card layout for each education entry with text + logo */
 
 .educationCard {
-  background: $white;
-  border-radius: $border-radius-large;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  padding: 2rem;
-  width: 85%;
-  max-width: 500px;
-  margin: 0 auto;
-  display: flex;
-  flex-direction: row-reverse;
-  align-items: center;
-  gap: 2rem;
-  position: relative;
-  overflow: hidden;
+  background: $white;                                                                                         // white card background
+  border-radius: $border-radius-large;                                                                        // rounded corners
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);                                                                 // subtle shadow for depth
+  padding: 2rem;                                                                                              // inner spacing
+  width: 85%;                                                                                                 // relative card width
+  max-width: 500px;                                                                                           // limit card size
+  margin: 0 auto;                                                                                             // center card horizontally
+  display: flex;                                                                                              // flex container for text + logo
+  flex-direction: row-reverse;                                                                                // place logo on the right
+  align-items: center;                                                                                        // vertically center contents
+  gap: 2rem;                                                                                                  // spacing between text and logo
+  position: relative;                                                                                         // anchor for ::before decorative bar
+  overflow: hidden;                                                                                           // clip any overflowing elements
 }
+
+/* ---------------------- Education Card Decorative Bar ----------------------- */
+/* Adds a thin gradient bar at the top of each education card for visual accent */
 
 .educationCard::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 3px;
-  background: linear-gradient(135deg, $blue, $purple);
+  content: '';                                                                                                // create decorative bar
+  position: absolute;                                                                                         // position inside the card
+  top: 0; left: 0; right: 0;                                                                                  // stretch full width at top
+  height: 3px;                                                                                                // set bar thickness
+  background: linear-gradient(135deg, $blue, $purple);                                                        // gradient accent color
 }
+
+/* ----------------------- Education Text ------------------------ */
+/* Text container inside an education card, placed beside the logo */
 
 .educationText {
-  flex: 1;
-  padding-left: 1rem;
+  flex: 1;                                                                                                    // take up remaining horizontal space
+  padding-left: 1rem;                                                                                         // spacing between text and logo
 }
+
+/* ------------- Education Text Paragraph -------------- */
+/* Styles for paragraph content inside an education card */
 
 .educationText p {
-  margin: 0.5rem 0 0 0;
-  font-size: 1rem;
-  color: $text-color;
-  padding-left: 1rem;
-  line-height: 1.6;
+  margin: 0.5rem 0 0 0;                                                                                       // small spacing above each paragraph
+  font-size: 1rem;                                                                                            // base paragraph size
+  color: $text-color;                                                                                         // standard body text color
+  padding-left: 1rem;                                                                                         // inner left padding for readability
+  line-height: 1.6;                                                                                           // comfortable reading line height
 }
+
+/* ---------- Education Text Strong ---------- */
+/* Emphasized text inside education paragraphs */
 
 .educationText p strong {
-  font-weight: 600;
+  font-weight: 600;                                                                                           // semi-bold emphasis
 }
+
+/* --------------------- Education Text Emphasis --------------------- */
+/* Styles for secondary/emphasized details inside education paragraphs */
 
 .educationText p em {
-  color: $muted-color;
-  font-style: italic;
-  font-size: 0.9rem;
+  color: $muted-color;                                                                                        // muted color for subtle emphasis
+  font-style: italic;                                                                                         // italic style for differentiation
+  font-size: 0.9rem;                                                                                          // slightly smaller than base text
 }
+
+/* -------------------- Education Logo --------------------- */
+/* Container for school/company logos inside education cards */
 
 .educationLogo {
-  padding: 1rem;
-  background: #f8fafc;
-  border-radius: $border-radius-large;
-  border: 1px solid rgba(148, 163, 184, 0.2);
+  padding: 1rem;                                                                                              // spacing around the logo
+  background: #f8fafc;                                                                                      // light background behind logo
+  border-radius: $border-radius-large;                                                                        // rounded corners
+  border: 1px solid rgba(148, 163, 184, 0.2);                                                               // subtle border for definition
 }
 
+/* ------------------- Education Logo Image -------------------- */
+/* Styles for the logo image inside the education logo container */
+
 .educationLogo img {
-  display: block;
-  width: 60px;
-  height: 60px;
-  object-fit: contain;
+  display: block;                                                                                             // treat image as a block element
+  width: 60px;                                                                                                // fixed width for logo
+  height: 60px;                                                                                               // fixed height for logo
+  object-fit: contain;                                                                                        // scale logo without distortion
+}
+
+/* ---------------------- Status Badge ---------------------- */
+/* "In Progress" or "Graduated" status indicators */
+
+.educationText .status-badge {
+  display: inline-block;                                                                                      // inline badge element
+  padding: 0.25rem 0.75rem;                                                                                   // compact padding (4px top/bottom, 12px left/right)
+  border-radius: 12px;                                                                                        // pill shape with rounded corners
+  font-size: 0.8rem;                                                                                          // small text (12.8px if base is 16px)
+  font-weight: 600;                                                                                           // semi-bold text weight
+  text-transform: uppercase;                                                                                  // convert text to uppercase
+  letter-spacing: 0.5px;                                                                                      // slight letter spacing for readability
+  margin-left: 0.75rem;                                                                                       // spacing from the degree text (12px)
+  transition: all 0.2s ease;                                                                                  // smooth transition for hover effects
+}
+
+/* "In Progress" badge styling - Green theme */
+.educationText .status-badge.in-progress {
+  background: linear-gradient(135deg, rgba(34, 197, 94, 0.1), rgba(16, 185, 129, 0.1));                    // subtle green gradient background
+  color: #059669;                                                                                            // dark green text color
+  border: 1px solid rgba(34, 197, 94, 0.2);                                                                  // light green border
+}
+
+/* "Graduated/Completed" badge styling - Blue theme */
+.educationText .status-badge.completed {
+  background: linear-gradient(135deg, rgba(59, 130, 246, 0.1), rgba(99, 102, 241, 0.1));                   // subtle blue gradient background
+  color: #2563eb;                                                                                            // dark blue text color
+  border: 1px solid rgba(59, 130, 246, 0.2);                                                                 // light blue border
 }
 
 /* ================================== */
