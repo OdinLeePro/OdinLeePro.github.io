@@ -30,7 +30,7 @@ title: Portfolio
     <div class="educationCard">
       <div class="educationText">
         <h2>University of St. Thomas</h2>
-        <p><strong>MS, Data Science</strong><br><em>Sep 2024 – May 2026</em></p>
+        <p><strong>MS, Data Science</strong> <span class="status-badge in-progress">In Progress</span></p><p><em>Sep 2024 – May 2026</em></p>
       </div>
       <div class="educationLogo">
         <img src="assets/img/UniversitySt.Thomas-Logo.png" alt="University of St. Thomas Logo" width="60" height="60" />
@@ -39,7 +39,7 @@ title: Portfolio
     <div class="educationCard">
       <div class="educationText">
         <h2>Augsburg University</h2>
-        <p><strong>BS, Data Science</strong><br><em>Jan 2019 – May 2024</em></p>
+        <p><strong>BS, Data Science</strong> <span class="status-badge completed">Graduated</span></p><p><em>Jan 2019 – May 2024</em></p>
       </div>
       <div class="educationLogo">
         <img src="assets/img/AugsburgUniversity-Logo.png" alt="Augsburg University Logo" width="60" height="60" />
