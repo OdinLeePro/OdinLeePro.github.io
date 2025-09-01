@@ -528,7 +528,7 @@ including layout wrappers, base button design, hover/focus states, and style var
 
 .projectGrid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));                                        // wider min-width for better two-up layout
+  grid-template-columns: repeat(auto-fit, minmax(MIN, 1fr));                                        // wider min-width for better two-up layout
   gap: 2.5rem;                                                                                        // increased spacing for better rhythm
   margin-top: 2rem;
   width: 100%;
