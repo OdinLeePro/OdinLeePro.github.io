@@ -386,10 +386,10 @@ including layout wrappers, base button design, hover/focus states, and style var
 .educationCard {
   background: $white;                                                                                         // white card background
   border-radius: $border-radius-large;                                                                        // rounded corners
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);                                                                 // subtle shadow for depth
-  padding: 2rem;                                                                                              // inner spacing
-  width: 85%;                                                                                                 // relative card width
-  max-width: 500px;                                                                                           // limit card size
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08), 0 1px 3px rgba(0, 0, 0, 0.12);                               // improved layered shadow for depth
+  padding: 1.75rem;                                                                                           // reduced padding for shorter height
+  width: 90%;                                                                                                 // slightly wider cards
+  max-width: 600px;                                                                                           // increased max width
   margin: 0 auto;                                                                                             // center card horizontally
   display: flex;                                                                                              // flex container for text + logo
   flex-direction: row-reverse;                                                                                // place logo on the right
@@ -410,39 +410,70 @@ including layout wrappers, base button design, hover/focus states, and style var
   background: linear-gradient(135deg, $blue, $purple);                                                        // gradient accent color
 }
 
-/* ----------------------- Education Text ------------------------ */
-/* Text container inside an education card, placed beside the logo */
+/* ------------------------ Education Text ------------------------ */
+/* Text container inside the education card, placed beside the logo */
 
 .educationText {
   flex: 1;                                                                                                    // take up remaining horizontal space
-  padding-left: 1rem;                                                                                         // spacing between text and logo
+  min-width: 0;                                                                                               // prevent flex item from overflowing
 }
 
-/* ------------- Education Text Paragraph -------------- */
-/* Styles for paragraph content inside an education card */
+/* ---------------- University/School Heading ---------------- */
+/* Styles for the university/school name inside education card */
+
+.educationText h2 {
+  color: $text-color;                                                                                         // standard text color
+  margin: 0 0 0.5rem 0;                                                                                       // space below heading
+  font-size: 1.75rem;                                                                                         // larger font size for hierarchy
+  font-weight: 800;                                                                                           // extra-bold for emphasis
+  letter-spacing: -0.025em;                                                                                   // slight letter tightening for balance
+}
+
+/* ----------------- Education Text Spacing & Hieght ----------------- */
+/* Basic spacing and line-height for paragraphs inside education cards */
 
 .educationText p {
-  margin: 0.5rem 0 0 0;                                                                                       // small spacing above each paragraph
-  font-size: 1rem;                                                                                            // base paragraph size
+  margin: 0 0 0.25rem 0;                                                                                      // small bottom spacing between paragraphs
+  line-height: 1.4;                                                                                           // slightly tighter line height for compact text
+}
+
+/* ---------------------------- Degree + Status Badge Paragraph ---------------------------- */
+/* Special styling for the first paragraph inside the education card (degree + status badge) */
+
+.educationText p:first-of-type {
+  font-size: 1.125rem;                                                                                        // slightly larger font size for prominence
   color: $text-color;                                                                                         // standard body text color
-  padding-left: 1rem;                                                                                         // inner left padding for readability
-  line-height: 1.6;                                                                                           // comfortable reading line height
+  font-weight: 700;                                                                                           // bold text for emphasis
+  display: flex;                                                                                              // flex layout to align degree + badge
+  align-items: center;                                                                                        // vertically center contents
+  flex-wrap: wrap;                                                                                            // wrap onto new lines if needed
+  gap: 1rem;                                                                                                  // spacing between degree and status badge
 }
 
-/* ---------- Education Text Strong ---------- */
-/* Emphasized text inside education paragraphs */
+/* -------------------------- Degree + Status Badge Paragraph Bold/Strong Font -------------------------- */
+/* Ensures strong text inside the first paragraph inherits parent weight instead of adding extra boldness */
 
-.educationText p strong {
-  font-weight: 600;                                                                                           // semi-bold emphasis
+.educationText p:first-of-type strong {
+  font-weight: inherit;                                                                                       // inherit the 700 weight from parent
 }
 
-/* --------------------- Education Text Emphasis --------------------- */
-/* Styles for secondary/emphasized details inside education paragraphs */
+/* --------------------- Dates Paragraph ---------------------- */
+/* Styles for the final paragraph in the education card (Dates) */
 
-.educationText p em {
-  color: $muted-color;                                                                                        // muted color for subtle emphasis
-  font-style: italic;                                                                                         // italic style for differentiation
-  font-size: 0.9rem;                                                                                          // slightly smaller than base text
+.educationText p:last-of-type {
+  font-size: 0.95rem;                                                                                         // slightly smaller text size
+  color: #64748b;                                                                                           // muted color for dates/details
+  font-weight: 500;                                                                                           // medium weight for readability
+  margin: 0;                                                                                                  // remove extra spacing below
+}
+
+/* --------------------------------- Dates Paragraph Bold/Strong Font ---------------------------------- */
+/* Normalizes emphasized text inside the last paragraph (dates/details) so it blends with parent styling */
+
+.educationText p:last-of-type em {
+  font-style: normal;                                                                                         // remove italic styling
+  color: inherit;                                                                                             // inherit muted color from parent
+  font-size: inherit;                                                                                         // inherit font size from parent
 }
 
 /* -------------------- Education Logo --------------------- */
@@ -465,33 +496,32 @@ including layout wrappers, base button design, hover/focus states, and style var
   object-fit: contain;                                                                                        // scale logo without distortion
 }
 
-/* ---------------------- Status Badge ---------------------- */
+/* ---------------- Status Badge ---------------- */
 /* "In Progress" or "Graduated" status indicators */
 
-.educationText .status-badge {
-  display: inline-block;                                                                                      // inline badge element
-  padding: 0.25rem 0.75rem;                                                                                   // compact padding (4px top/bottom, 12px left/right)
-  border-radius: 12px;                                                                                        // pill shape with rounded corners
-  font-size: 0.8rem;                                                                                          // small text (12.8px if base is 16px)
-  font-weight: 600;                                                                                           // semi-bold text weight
+.status-badge {
+  padding: 0.375rem 0.875rem;                                                                                 // slightly larger padding for better presence
+  border-radius: 16px;                                                                                        // more rounded pill shape
+  font-size: 0.75rem;                                                                                         // refined text size
+  font-weight: 700;                                                                                           // standardized bold text weight
   text-transform: uppercase;                                                                                  // convert text to uppercase
-  letter-spacing: 0.5px;                                                                                      // slight letter spacing for readability
-  margin-left: 0.75rem;                                                                                       // spacing from the degree text (12px)
+  letter-spacing: 0.75px;                                                                                     // increased letter spacing for readability
   transition: all 0.2s ease;                                                                                  // smooth transition for hover effects
+  white-space: nowrap;                                                                                        // prevent text wrapping
 }
 
-/* "In Progress" badge styling - Green theme */
-.educationText .status-badge.in-progress {
-  background: linear-gradient(135deg, rgba(34, 197, 94, 0.1), rgba(16, 185, 129, 0.1));                    // subtle green gradient background
-  color: #059669;                                                                                            // dark green text color
-  border: 1px solid rgba(34, 197, 94, 0.2);                                                                  // light green border
+/* "In Progress" badge styling - (Green Theme) */
+.status-badge.in-progress {
+  background: linear-gradient(135deg, rgba(34, 197, 94, 0.12), rgba(16, 185, 129, 0.12));                 // consistent background opacity
+  color: #047857;                                                                                           // green text color
+  border: 1px solid rgba(34, 197, 94, 0.25);                                                                // consistent border opacity
 }
 
-/* "Graduated/Completed" badge styling - Blue theme */
-.educationText .status-badge.completed {
-  background: linear-gradient(135deg, rgba(59, 130, 246, 0.1), rgba(99, 102, 241, 0.1));                   // subtle blue gradient background
-  color: #2563eb;                                                                                            // dark blue text color
-  border: 1px solid rgba(59, 130, 246, 0.2);                                                                 // light blue border
+/* "Graduated/Completed" badge styling - (Blue Theme) */
+.status-badge.completed {
+  background: linear-gradient(135deg, rgba(59, 130, 246, 0.12), rgba(99, 102, 241, 0.12));                // consistent background opacity
+  color: #1d4ed8;                                                                                           // blue text color
+  border: 1px solid rgba(59, 130, 246, 0.25);                                                               // consistent border opacity
 }
 
 /* ================================== */
