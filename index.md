@@ -98,8 +98,31 @@ title: Portfolio
           A structured database for fantasy football analytics using cleaned NFL data (2021–2023).
         </p>
         <ul class="projectBullets">
+          <li>Normalize</li>
+          <li>Optimized for future dashboard integration</li>
+        </ul>
+      </div>
+    </a>
+
+    <!-- Project TEST -->
+    <a class="projectCard"
+       href="https://github.com/OdinLeePro/FantasyFootballAnalysisDB"
+       target="_blank" rel="noopener noreferrer"
+       aria-label="Open Fantasy Football Analysis Database on GitHub (opens in a new tab)">
+      <figure class="projectImg">
+        <img src="/assets/img/FinalProjectRationalModel.png" alt="Fantasy Football ER Diagram">
+      </figure>
+      <div class="projectBody">
+        <h3 class="projectTitle"><u>Fantasyase</u></h3>
+        <ul class="languageBadges">
+          <li>SQL</li><li>R</li>
+        </ul>
+        <p class="projectSummary">
+          A structuredalytics using cleaned NFL data (2021–2023).
+        </p>
+        <ul class="projectBullets">
           <li>Normalized schemas for efficient querying</li>
-          <li>Data wrangling and transformation with R</li>
+          <li>Data wran with R</li>
           <li>SQL triggers to ensure data integrity</li>
           <li>Optimized for future dashboard integration</li>
         </ul>
@@ -123,34 +146,6 @@ title: Portfolio
           A structured database for fantasy football analytics using cleaned NFL data (2021–2023).
         </p>
         <ul class="projectBullets">
-          <li>Normalized schemas for efficient querying</li>
-          <li>Data wrangling and transformation with R</li>
-          <li>SQL triggers to ensure data integrity</li>
-          <li>Optimized for future dashboard integration</li>
-        </ul>
-      </div>
-    </a>
-
-    <!-- Project TEST -->
-    <a class="projectCard"
-       href="https://github.com/OdinLeePro/FantasyFootballAnalysisDB"
-       target="_blank" rel="noopener noreferrer"
-       aria-label="Open Fantasy Football Analysis Database on GitHub (opens in a new tab)">
-      <figure class="projectImg">
-        <img src="/assets/img/FinalProjectRationalModel.png" alt="Fantasy Football ER Diagram">
-      </figure>
-      <div class="projectBody">
-        <h3 class="projectTitle"><u>Fantasy Football Analysis Database</u></h3>
-        <ul class="languageBadges">
-          <li>SQL</li><li>R</li>
-        </ul>
-        <p class="projectSummary">
-          A structured database for fantasy football analytics using cleaned NFL data (2021–2023).
-        </p>
-        <ul class="projectBullets">
-          <li>Normalized schemas for efficient querying</li>
-          <li>Data wrangling and transformation with R</li>
-          <li>SQL triggers to ensure data integrity</li>
           <li>Optimized for future dashboard integration</li>
         </ul>
       </div>
