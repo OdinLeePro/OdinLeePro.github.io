@@ -58,25 +58,6 @@ title: Portfolio
   <h1>Projects</h1>
 
   <div class="projectCarousel">
-    <!-- Play/Pause Button -->
-    <button class="playPauseBtn" id="playPauseBtn" title="Pause auto-play" aria-label="Pause auto-play">
-      <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-        <path d="M6 4h4v16H6V4zm8 0h4v16h-4V4z"/>
-      </svg>
-    </button>
-
-    <!-- Navigation Arrows -->
-    <button class="carouselNav prev" id="prevBtn" title="Previous project" aria-label="Previous project">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
-        <polyline points="15,18 9,12 15,6"></polyline>
-      </svg>
-    </button>
-
-    <button class="carouselNav next" id="nextBtn" title="Next project" aria-label="Next project">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
-        <polyline points="9,6 15,12 9,18"></polyline>
-      </svg>
-    </button>
 
     <!-- Slides track -->
     <div class="projectGrid" role="list">
@@ -182,8 +163,28 @@ title: Portfolio
       </a>
     </div>
 
-    <!-- Carousel Indicators -->
-    <div class="carouselIndicators" id="indicators" aria-label="Slide indicators"></div>
+    <!-- Controls row -->
+    <div class="carouselControls" aria-label="Carousel controls">
+      <button class="carouselNav prev" id="prevBtn" title="Previous project" aria-label="Previous project">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+          <polyline points="15,18 9,12 15,6"></polyline>
+        </svg>
+      </button>
+
+      <div class="carouselIndicators" id="indicators" aria-label="Slide indicators"></div>
+
+      <button class="carouselNav next" id="nextBtn" title="Next project" aria-label="Next project">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+          <polyline points="9,6 15,12 9,18"></polyline>
+        </svg>
+      </button>
+
+      <button class="playPauseBtn" id="playPauseBtn" title="Pause auto-play" aria-label="Pause auto-play">
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+          <path d="M6 4h4v16H6V4zm8 0h4v16h-4V4z"/>
+        </svg>
+      </button>
+    </div>
   </div>
 </section>
 
