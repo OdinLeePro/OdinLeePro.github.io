@@ -528,10 +528,9 @@ including layout wrappers, base button design, hover/focus states, and style var
 
 .projectGrid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); // lowered from 380px
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
   gap: 2.5rem;
   margin-top: 2rem;
-  width: 100%; // ensure grid uses full container width
 }
 
 .projectCard {
@@ -545,9 +544,6 @@ including layout wrappers, base button design, hover/focus states, and style var
   text-decoration: none;
   color: inherit;
   transition: all 0.3s ease;
-
-  /* 🔑 allow shrink inside grid track */
-  min-width: 0;
 }
 
 .projectCard:hover {
