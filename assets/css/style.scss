@@ -528,23 +528,22 @@ including layout wrappers, base button design, hover/focus states, and style var
 
 .projectCarousel {
   position: relative;
-  margin-top: 2rem;
+  margin: 2rem auto;     
   overflow: hidden;
   border-radius: $border-radius-large;
+  max-width: 800px;         
 }
 
 .projectGrid {
   display: flex;
   transition: transform 0.4s ease-in-out;
   width: 100%;
+  will-change: transform;   // optional perf hint
 }
 
 .projectCard {
   flex: 0 0 100%;
   width: 100%;
-  max-width: 800px;
-  margin: 0 auto;
-
   display: grid;
   grid-template-rows: auto 1fr;
   background: $white;
