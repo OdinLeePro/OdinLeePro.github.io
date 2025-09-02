@@ -52,110 +52,138 @@ title: Portfolio
 <!-- Project Section -->
 <!--                 -->
 
-<section class="projects">
+<script src="/assets/js/project-carousel.js" defer></script>
+
+<section class="projects" aria-label="Projects">
   <h1>Projects</h1>
-  <div class="projectGrid">
+
+  <div class="projectCarousel">
+    <!-- Play/Pause Button -->
+    <button class="playPauseBtn" id="playPauseBtn" title="Pause auto-play" aria-label="Pause auto-play">
+      <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+        <path d="M6 4h4v16H6V4zm8 0h4v16h-4V4z"/>
+      </svg>
+    </button>
+
+    <!-- Navigation Arrows -->
+    <button class="carouselNav prev" id="prevBtn" title="Previous project" aria-label="Previous project">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+        <polyline points="15,18 9,12 15,6"></polyline>
+      </svg>
+    </button>
+
+    <button class="carouselNav next" id="nextBtn" title="Next project" aria-label="Next project">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+        <polyline points="9,6 15,12 9,18"></polyline>
+      </svg>
+    </button>
+
+    <!-- Slides track -->
+    <div class="projectGrid" role="list">
     
-    <!-- Project 1: Fantasy Football Analysis -->
-    <a class="projectCard"
-       href="https://github.com/OdinLeePro/FantasyFootballAnalysisDB"
-       target="_blank" rel="noopener noreferrer"
-       aria-label="Open Fantasy Football Analysis Database on GitHub (opens in a new tab)">
-      <figure class="projectImg">
-        <img src="/assets/img/FinalProjectRationalModel.png" alt="Fantasy Football ER Diagram">
-      </figure>
-      <div class="projectBody">
-        <h3 class="projectTitle"><u>Fantasy Football Analysis Database</u></h3>
-        <ul class="languageBadges">
-          <li>SQL</li><li>R</li>
-        </ul>
-        <p class="projectSummary">
-          A structured database for fantasy football analytics using cleaned NFL data (2021–2023).
-        </p>
-        <ul class="projectBullets">
-          <li>Normalized schemas for efficient querying</li>
-          <li>Data wrangling and transformation with R</li>
-          <li>SQL triggers to ensure data integrity</li>
-          <li>Optimized for future dashboard integration</li>
-        </ul>
-      </div>
-    </a>
+      <!-- Project 1: Fantasy Football Analysis -->
+      <a class="projectCard"
+         href="https://github.com/OdinLeePro/FantasyFootballAnalysisDB"
+         target="_blank" rel="noopener noreferrer"
+         aria-label="Open Fantasy Football Analysis Database on GitHub (opens in a new tab)" role="listitem">
+        <figure class="projectImg">
+          <img src="/assets/img/FinalProjectRationalModel.png" alt="Fantasy Football ER Diagram">
+        </figure>
+        <div class="projectBody">
+          <h3 class="projectTitle"><u>Fantasy Football Analysis Database</u></h3>
+          <ul class="languageBadges">
+            <li>SQL</li><li>R</li>
+          </ul>
+          <p class="projectSummary">
+            A structured database for fantasy football analytics using cleaned NFL data (2021–2023).
+          </p>
+          <ul class="projectBullets">
+            <li>Normalized schemas for efficient querying</li>
+            <li>Data wrangling and transformation with R</li>
+            <li>SQL triggers to ensure data integrity</li>
+            <li>Optimized for future dashboard integration</li>
+          </ul>
+        </div>
+      </a>
 
+      <!-- Project TEST: TEST -->
+      <a class="projectCard"
+         href="https://github.com/OdinLeePro/FantasyFootballAnalysisDB"
+         target="_blank" rel="noopener noreferrer"
+         aria-label="Open Fantasy Football Analysis Database on GitHub (opens in a new tab)" role="listitem">
+        <figure class="projectImg">
+          <img src="/assets/img/FinalProjectRationalModel.png" alt="Fantasy Football ER Diagram">
+        </figure>
+        <div class="projectBody">
+          <h3 class="projectTitle"><u>Fantasy Football Analysis Database</u></h3>
+          <ul class="languageBadges">
+            <li>SQL</li><li>R</li>
+          </ul>
+          <p class="projectSummary">
+            A structured database for fantasy football analytics using cleaned NFL data (2021–2023).
+          </p>
+          <ul class="projectBullets">
+            <li>Normalized schemas for efficient querying</li>
+            <li>Data wrangling and transformation with R</li>
+            <li>SQL triggers to ensure data integrity</li>
+            <li>Optimized for future dashboard integration</li>
+          </ul>
+        </div>
+      </a>
 
-<a class="projectCard"
-       href="https://github.com/OdinLeePro/FantasyFootballAnalysisDB"
-       target="_blank" rel="noopener noreferrer"
-       aria-label="Open Fantasy Football Analysis Database on GitHub (opens in a new tab)">
-      <figure class="projectImg">
-        <img src="/assets/img/FinalProjectRationalModel.png" alt="Fantasy Football ER Diagram">
-      </figure>
-      <div class="projectBody">
-        <h3 class="projectTitle"><u>Fantasy Football Analysis Database</u></h3>
-        <ul class="languageBadges">
-          <li>SQL</li><li>R</li>
-        </ul>
-        <p class="projectSummary">
-          A structured database for fantasy football analytics using cleaned NFL data (2021–2023).
-        </p>
-        <ul class="projectBullets">
-          <li>Normalized schemas for efficient querying</li>
-          <li>Data wrangling and transformation with R</li>
-          <li>SQL triggers to ensure data integrity</li>
-          <li>Optimized for future dashboard integration</li>
-        </ul>
-      </div>
-    </a>
+      <!-- Project TEST: TEST -->
+      <a class="projectCard"
+         href="https://github.com/OdinLeePro/FantasyFootballAnalysisDB"
+         target="_blank" rel="noopener noreferrer"
+         aria-label="Open Fantasy Football Analysis Database on GitHub (opens in a new tab)" role="listitem">
+        <figure class="projectImg">
+          <img src="/assets/img/FinalProjectRationalModel.png" alt="Fantasy Football ER Diagram">
+        </figure>
+        <div class="projectBody">
+          <h3 class="projectTitle"><u>Fantasy Football Analysis Database</u></h3>
+          <ul class="languageBadges">
+            <li>SQL</li><li>R</li>
+          </ul>
+          <p class="projectSummary">
+            A structured database for fantasy football analytics using cleaned NFL data (2021–2023).
+          </p>
+          <ul class="projectBullets">
+            <li>Normalized schemas for efficient querying</li>
+            <li>Data wrangling and transformation with R</li>
+            <li>SQL triggers to ensure data integrity</li>
+            <li>Optimized for future dashboard integration</li>
+          </ul>
+        </div>
+      </a>
 
+      <!-- Project TEST: TEST -->
+      <a class="projectCard"
+         href="https://github.com/OdinLeePro/FantasyFootballAnalysisDB"
+         target="_blank" rel="noopener noreferrer"
+         aria-label="Open Fantasy Football Analysis Database on GitHub (opens in a new tab)" role="listitem">
+        <figure class="projectImg">
+          <img src="/assets/img/FinalProjectRationalModel.png" alt="Fantasy Football ER Diagram">
+        </figure>
+        <div class="projectBody">
+          <h3 class="projectTitle"><u>Fantasy Football Analysis Database</u></h3>
+          <ul class="languageBadges">
+            <li>SQL</li><li>R</li>
+          </ul>
+          <p class="projectSummary">
+            A structured database for fantasy football analytics using cleaned NFL data (2021–2023).
+          </p>
+          <ul class="projectBullets">
+            <li>Normalized schemas for efficient querying</li>
+            <li>Data wrangling and transformation with R</li>
+            <li>SQL triggers to ensure data integrity</li>
+            <li>Optimized for future dashboard integration</li>
+          </ul>
+        </div>
+      </a>
+    </div>
 
-<a class="projectCard"
-       href="https://github.com/OdinLeePro/FantasyFootballAnalysisDB"
-       target="_blank" rel="noopener noreferrer"
-       aria-label="Open Fantasy Football Analysis Database on GitHub (opens in a new tab)">
-      <figure class="projectImg">
-        <img src="/assets/img/FinalProjectRationalModel.png" alt="Fantasy Football ER Diagram">
-      </figure>
-      <div class="projectBody">
-        <h3 class="projectTitle"><u>Fantasy Football Analysis Database</u></h3>
-        <ul class="languageBadges">
-          <li>SQL</li><li>R</li>
-        </ul>
-        <p class="projectSummary">
-          A structured database for fantasy football analytics using cleaned NFL data (2021–2023).
-        </p>
-        <ul class="projectBullets">
-          <li>Normalized schemas for efficient querying</li>
-          <li>Data wrangling and transformation with R</li>
-          <li>SQL triggers to ensure data integrity</li>
-          <li>Optimized for future dashboard integration</li>
-        </ul>
-      </div>
-    </a>
-
-
-<a class="projectCard"
-       href="https://github.com/OdinLeePro/FantasyFootballAnalysisDB"
-       target="_blank" rel="noopener noreferrer"
-       aria-label="Open Fantasy Football Analysis Database on GitHub (opens in a new tab)">
-      <figure class="projectImg">
-        <img src="/assets/img/FinalProjectRationalModel.png" alt="Fantasy Football ER Diagram">
-      </figure>
-      <div class="projectBody">
-        <h3 class="projectTitle"><u>Fantasy Football Analysis Database</u></h3>
-        <ul class="languageBadges">
-          <li>SQL</li><li>R</li>
-        </ul>
-        <p class="projectSummary">
-          A structured database for fantasy football analytics using cleaned NFL data (2021–2023).
-        </p>
-        <ul class="projectBullets">
-          <li>Normalized schemas for efficient querying</li>
-          <li>Data wrangling and transformation with R</li>
-          <li>SQL triggers to ensure data integrity</li>
-          <li>Optimized for future dashboard integration</li>
-        </ul>
-      </div>
-    </a>
-
+    <!-- Carousel Indicators -->
+    <div class="carouselIndicators" id="indicators" aria-label="Slide indicators"></div>
   </div>
 </section>
 
