@@ -192,51 +192,68 @@ title: Portfolio
 <!-- Skills Section -->
 <!--                -->
 
-<section class="skills">
-  <h1>Skills</h1>
-  <div class="skills-grid">
-      <div class="skill-card">
-          <h2>Programming Languages</h2>
-          <div class="skill-icons">
-              <i class="fa-brands fa-python skill-icon"></i>
-              <i class="fa-brands fa-r-project skill-icon"></i>
-              <i class="fa-solid fa-database skill-icon"></i>
-          </div>
-            <p>I primarily use <strong>Python</strong>, <strong>SQL</strong>, and <strong>R</strong> for data analysis, statistical modeling, and machine learning. Python is my main language for data wrangling, visualization, and predictive modeling, while R is often used for statistical analysis and advanced visualizations. I also have experience with <strong>Java</strong> from coursework in algorithms and data structures, giving me a strong foundation in computational problem-solving.
-            </p>
-      </div>
-  
-      <div class="skill-card">
-          <h2>Tools/Technologies</h2>
-          <div class="skill-icons">
-              <i class="fa-brands fa-github skill-icon"></i>
-              <i class="fa-brands fa-aws skill-icon"></i>
-              <i class="fa-solid fa-file-excel skill-icon"></i>
-          </div>
-            <p>I work with <strong>Tableau</strong> to design interactive dashboards and <strong>Oracle SQL Developer</strong> for database management and querying. My development workflow often takes place in <strong>Jupyter Notebook</strong> or <strong>RStudio</strong>, supported by <strong>Git/GitHub</strong> for version control. I also have experience with <strong>AWS</strong> services such as <strong>EC2</strong> and <strong>S3</strong> for deploying and managing cloud-based solutions.
-            </p>      
-      </div>
-  
-      <div class="skill-card">
-          <h2>Frameworks & Libraries</h2>
-          <div class="skill-icons">
-              <i class="fa-solid fa-chart-column skill-icon"></i>
-              <i class="fa-solid fa-table skill-icon"></i>
-              <i class="fa-solid fa-code skill-icon"></i>
-          </div>
-            <p>In Python, I frequently use <strong>pandas</strong>, <strong>NumPy</strong>, <strong>Matplotlib</strong>, <strong>Seaborn</strong>, and <strong>Plotly</strong> for data wrangling, visualization, and analysis. In R, I work with <strong>dplyr</strong>, <strong>ggplot2</strong>, and <strong>shiny</strong> for data manipulation, advanced visualizations, and building interactive applications. I also use <strong>Quarto</strong> for creating reproducible and well-documented data reports.
-            </p>
-      </div>
-  
-      <div class="skill-card">
-          <h2>Data Science Skills</h2>
-          <div class="skill-icons">
-              <i class="fa-solid fa-server skill-icon"></i>
-              <i class="fa-solid fa-chart-pie skill-icon"></i>
-              <i class="fa-solid fa-diagram-project skill-icon"></i>
-          </div>
-            <p>I am skilled in <strong>data wrangling and cleaning</strong>, <strong>exploratory data analysis</strong>, and <strong>statistical modeling</strong> to uncover and communicate insights. My work often involves <strong>data visualization</strong>, <strong>feature engineering</strong>, and <strong>database management and design</strong>. I also have experience implementing <strong>cloud-based data solutions</strong> and maintaining best practices for <strong>version control and collaboration</strong>.
-            </p>      
-      </div>
+<section class="section skills skills--flat" aria-labelledby="skills-title">
+  <h1 id="skills-title" class="section-title">Skills</h1>
+
+  <div class="skill-rows">
+    <article class="skill-row blue">
+      <header>
+        <h2 class="sub-title">Programming Languages</h2>
+        <div class="skill-icons" aria-hidden="true">
+          <i class="fa-brands fa-python"></i>
+          <i class="fa-brands fa-r-project"></i>
+          <i class="fa-solid fa-database"></i>
+        </div>
+      </header>
+      <p>I primarily use <strong>Python</strong>, <strong>SQL</strong>, and <strong>R</strong> for data analysis and ML. I also have experience with <strong>Java</strong> from algorithms/data structures coursework.</p>
+      <ul class="skill-tags" aria-label="Highlights">
+        <li>Pandas / NumPy</li><li>ETL &amp; Wrangling</li><li>Modeling</li><li>Data Viz</li>
+      </ul>
+    </article>
+
+    <article class="skill-row amber">
+      <header>
+        <h2 class="sub-title">Tools &amp; Technologies</h2>
+        <div class="skill-icons" aria-hidden="true">
+          <i class="fa-brands fa-github"></i>
+          <i class="fa-brands fa-aws"></i>
+          <i class="fa-solid fa-file-excel"></i>
+        </div>
+      </header>
+      <p>I build dashboards in <strong>Tableau</strong>, manage databases with <strong>Oracle SQL Developer</strong>, and work in <strong>Jupyter</strong> / <strong>RStudio</strong> with <strong>GitHub</strong>. Experience with <strong>AWS EC2</strong> &amp; <strong>S3</strong>.</p>
+      <ul class="skill-tags" aria-label="Highlights">
+        <li>Git / GitHub</li><li>Tableau</li><li>Oracle SQL</li><li>AWS EC2 &amp; S3</li>
+      </ul>
+    </article>
+
+    <article class="skill-row red">
+      <header>
+        <h2 class="sub-title">Frameworks &amp; Libraries</h2>
+        <div class="skill-icons" aria-hidden="true">
+          <i class="fa-solid fa-chart-column"></i>
+          <i class="fa-solid fa-table"></i>
+          <i class="fa-solid fa-code"></i>
+        </div>
+      </header>
+      <p>Python: <strong>pandas</strong>, <strong>NumPy</strong>, <strong>Matplotlib</strong>, <strong>Seaborn</strong>, <strong>Plotly</strong>. R: <strong>dplyr</strong>, <strong>ggplot2</strong>, <strong>shiny</strong>. Plus <strong>Quarto</strong> for reproducible reports.</p>
+      <ul class="skill-tags" aria-label="Highlights">
+        <li>Plotly / ggplot2</li><li>Shiny Apps</li><li>Quarto</li>
+      </ul>
+    </article>
+
+    <article class="skill-row green">
+      <header>
+        <h2 class="sub-title">Data Science Skills</h2>
+        <div class="skill-icons" aria-hidden="true">
+          <i class="fa-solid fa-server"></i>
+          <i class="fa-solid fa-chart-pie"></i>
+          <i class="fa-solid fa-diagram-project"></i>
+        </div>
+      </header>
+      <p><strong>EDA</strong>, <strong>feature engineering</strong>, <strong>statistical modeling</strong>, and <strong>DB design</strong>, plus <strong>cloud</strong> workflows and <strong>collaboration best practices</strong>.</p>
+      <ul class="skill-tags" aria-label="Highlights">
+        <li>EDA &amp; Viz</li><li>Feature Eng</li><li>SQL/Data Modeling</li><li>Cloud Solutions</li>
+      </ul>
+    </article>
   </div>
 </section>
