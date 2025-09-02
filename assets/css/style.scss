@@ -6,13 +6,14 @@
 /*          Imports          */
 /* ========================= */
 
+/* Imports base styles from the Jekyll Minimal theme to extend and customize */
 @import "jekyll-theme-minimal.scss";                                                                          // import base Jekyll theme styles
 
 /* =============================== */
 /*          Simple Styles          */
 /* =============================== */
 
-/* ------------------------ Variables ------------------------ */
+/* --- Variables --------------------------------------------- */
 /* Defines reusable values for fonts, sizing, and corner radii */
 
 $font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;   // default font stack
@@ -20,7 +21,7 @@ $max-width: 1000px;                                                             
 $border-radius: 8px;                                                                                          // standard corner radius
 $border-radius-large: 12px;                                                                                   // larger corner radius
 
-/* ------------------------------- Colors -------------------------------- */
+/* --- Colors ------------------------------------------------------------ */
 /* Defines the neutral base colors and accent colors used across the theme */
 
 /* Neutrals & Base Colors */
@@ -39,7 +40,7 @@ $amber: #f59e0b;                                                                
 $red: #ef4444;                                                                                              // Used in Skills Section (Frameworks & Libraries)
 $green: #10b981;                                                                                            // Used in Skills Section (Data Science Skills)
 
-/* -------------------------- Base Styles -------------------------- */
+/* --- Base Styles ------------------------------------------------- */
 /* Sets the global text, spacing, and background styles for the page */
 
 body {
@@ -51,7 +52,7 @@ body {
   padding: 2rem;                                                                                              // page gutters (space around all content)
 }
 
-/* --------------------------------- Layout --------------------------------- */
+/* --- Layout --------------------------------------------------------------- */
 /* Styles for content sections with spacing, background, and subtle elevation */
 
 .section {
@@ -64,17 +65,18 @@ body {
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);                                                                 // subtle shadow for depth
 }
 
-/* -------------------------------- Typography --------------------------------- */
+/* --- Typography -------------------------------------------------------------- */
 /* Styles for section titles and subtitles with hierarchy and decorative accents */
 
 h1.section-title {
   text-align: center;                                                                                         // center align main section title
   font-size: 2.5rem;                                                                                          // large, prominent heading size
-  margin-bottom: 2rem;                                                                                        // space below title
+  margin-bottom: 1rem;                                                                                        // space below title
   color: $title-color;                                                                                        // theme color for titles
   font-weight: 700;                                                                                           // bold for strong emphasis
 }
 
+/* Styles for section subtitles, providing hierarchy below main titles and room for decorative accents */
 .sub-title {
   margin: 0;                                                                                                  // remove default margins
   font-size: 1.3rem;                                                                                          // slightly larger than body text
@@ -86,6 +88,7 @@ h1.section-title {
   position: relative;                                                                                         // positioning context for ::before
 }
 
+/* Gradient accent bar that appears to the left of subtitles for visual hierarchy */
 .sub-title::before {
   content: '';                                                                                                // decorative bar element
   position: absolute;                                                                                         // position relative to subtitle
@@ -102,7 +105,7 @@ h1.section-title {
 /*          Left Side / Header (Desktop)          */
 /* ============================================== */
 
-/* ----- Headshot Styling ----- */
+/* --- Headshot Styling ---------- */
 /* Headshot image styling */
 
 .headshot {
@@ -116,7 +119,7 @@ h1.section-title {
   object-fit: cover;                                                                                          // crop image neatly within circle
   box-shadow: 0 4px 20px rgba(0,0,0,0.12);                                                                  // subtle depth with shadow
 }
-/* ---------------- Title Styling ---------------- */
+/* --- Title Styling ----------------------------- */
 /* Main name/title heading styling (e.g. Odin Lee) */
 
 .headshot + h1, h1:has(+ .location), h1:has(+ .addr) {
@@ -128,7 +131,7 @@ h1.section-title {
   text-align: center;                                                                                         // center align the name
 }
 
-/* ------------------------------- Location Styling ------------------------------- */
+/* --- Location Styling ----------------------------------------------------------- */
 /* Styles for the location line below the header, including icon and text alignment */
 
 .location {
@@ -143,11 +146,12 @@ h1.section-title {
   gap: 6px;                                                                                                   // space between icon and text
 }
 
+/* Styles the icon inside the location element with a subtle blue accent */
 .location i {
   color: rgba($blue, 0.7);                                                                                    // subtle blue accent for location icon
 }
 
-/* ------------------- Professional Title Styling ------------------- */
+/* --- Professional Title Styling ----------------------------------- */
 /* Styles for the professional title/credential line under the header */
 
 .professional-title {
@@ -160,7 +164,7 @@ h1.section-title {
   text-transform: uppercase;                                                                                  // makes it feel like a credential
 }
 
-/* ----------------------- Tagline Styling ------------------------ */
+/* --- Tagline Styling -------------------------------------------- */
 /* Styles for the tagline/summary text below the professional title */
 
 .tagline {
@@ -172,13 +176,14 @@ h1.section-title {
   padding: 0 8px;                                                                                             // slight horizontal padding for mobile
 }
 
+/* Removes any default or inherited ::before/::after styles from taglines */
 .tagline::before,
 .tagline::after {
   content: none !important;                                                                                   // remove any pseudo-elements
   display: none !important;                                                                                   // ensure they don't render
 }
 
-/* ----------------------------- Platform Buttons Styling ------------------------------ */
+/* --- Platform Buttons Styling -------------------------------------------------------- */
 /* Defines the appearance and behavior of action buttons (Resume, GitHub, LinkedIn, Email), 
 including layout wrappers, base button design, hover/focus states, and style variations. */
 
@@ -187,13 +192,14 @@ including layout wrappers, base button design, hover/focus states, and style var
   font-family: $font-family;                                                                                  // use global font stack
 }
 
-/* ---------------- Platform Buttons Layout ---------------- */
+/* --- Platform Buttons Layout ----------------------------- */
 /* Layout and appearance of platform buttons on desktop view */
 
 .linkWrapperDesktop {
   margin-top: 24px;                                                                                           // spacing above button group
 }
 
+/* Styles the list wrapper for platform buttons on desktop view */
 .linkWrapperDesktop .link {
   list-style: none;                                                                                           // remove list bullets
   padding: 0;                                                                                                 // reset padding
@@ -202,11 +208,12 @@ including layout wrappers, base button design, hover/focus states, and style var
   gap: 12px;                                                                                                  // spacing between buttons
 }
 
+/* Styles for individual list items inside the desktop link list */
 .linkWrapperDesktop .link li {
   margin: 0;                                                                                                  // reset list item margins
 }
 
-/* --------- Base Button Styles ---------- */
+/* --- Base Button Styles ---------------- */
 /* Default styling for all desktop buttons */
 
 .linkWrapperDesktop .link a {
@@ -231,16 +238,18 @@ including layout wrappers, base button design, hover/focus states, and style var
   vertical-align: middle;                                                                                     // align with surrounding inline elements
 }
 
+/* Adds a pressed effect when a desktop link button is clicked */
 .linkWrapperDesktop .link a:active {
   transform: translateY(1px);                                                                                 // slight press effect
 }
 
+/* Accessibility styling for keyboard navigation — shows a clear focus ring */
 .linkWrapperDesktop .link a:focus-visible {
   outline: 3px solid rgba(59, 130, 246, 0.35);                                                              // blue focus ring around button
   outline-offset: 2px;                                                                                        // space between outline and button edge
 }
 
-/* ----- Primary Button / Resume Button ------ */
+/* --- Primary Button / Resume Button ---------- */
 /* Primary/Top Button with gradient background */
 
 .linkWrapperDesktop .link a.primaryButton {
@@ -252,11 +261,13 @@ including layout wrappers, base button design, hover/focus states, and style var
   line-height: 1;                                                                                             // keeps text vertically aligned
 }
 
+/* Hover effect for primary action buttons — adds lift and stronger shadow */
 .linkWrapperDesktop .link a.primaryButton:hover {
   transform: translateY(-2px);                                                                                // lift effect on hover
   box-shadow: 0 6px 20px rgba($blue, 0.4);                                                                    // stronger shadow on hover
 }
 
+/* Accessibility focus styles for both primary and secondary desktop link buttons */
 .linkWrapperDesktop .link a.primaryButton:focus-visible,
 .linkWrapperDesktop .link a.baseButton:focus-visible {
   outline: 3px solid rgba(59,130,246,0.35);                                                                 // shared blue focus outline
@@ -264,7 +275,7 @@ including layout wrappers, base button design, hover/focus states, and style var
   border-radius: 14px;                                                                                        // rounded outline matches button shape
 }
 
-/* ----- Secondary Button e.g. GitHub, LinkedIn, Email ----- */
+/* --- Secondary Button e.g. GitHub, LinkedIn, Email ------------ */
 /* Clean outlined style for supporting actions */
 
 .linkWrapperDesktop .link a.baseButton {
@@ -274,6 +285,7 @@ including layout wrappers, base button design, hover/focus states, and style var
   box-shadow: 0 2px 8px rgba(0,0,0,0.05);                                                                   // light shadow for depth
 }
 
+/* Hover effect for secondary action buttons — subtle background and lift */
 .linkWrapperDesktop .link a.baseButton:hover {
   background: #f8fafc;                                                                                      // subtle hover background
   border-color: rgba($blue, 0.3);                                                                             // blue-tinted border on hover
@@ -282,7 +294,7 @@ including layout wrappers, base button design, hover/focus states, and style var
   color: $heading-color;                                                                                      // switch to heading color for contrast
 }
 
-/* ---------------- Platform Button Icon Styling ----------------- */
+/* --- Platform Button Icon Styling ------------------------------ */
 /* Ensures consistent sizing and alignment of icons within buttons */
 
 .linkWrapperDesktop .link a i {
@@ -299,7 +311,7 @@ including layout wrappers, base button design, hover/focus states, and style var
 /*          About Section          */
 /* =============================== */
 
-/* --------------------------- Top Decorative Bar --------------------------- */
+/* --- Top Decorative Bar ----------------------------------------------- */
 /* Adds a gradient bar at the top of the .about section for visual accent */
 
 .about::before {
@@ -310,7 +322,7 @@ including layout wrappers, base button design, hover/focus states, and style var
   background: linear-gradient(135deg, $blue, $purple);                                                        // apply gradient accent
 }
 
-/* ------------------------------- Section Container ------------------------------- */
+/* --- Section Container ----------------------------------------------------------- */
 /* Establishes positioning context and ensures clean layout inside the About section */
 
 .about {
@@ -318,7 +330,7 @@ including layout wrappers, base button design, hover/focus states, and style var
   overflow: hidden;                                                                                           // clip any overflow past rounded edges/containers
 }
 
-/* --------------------------------------------------------- Paragraph Styling --------------------------------------------------------- */
+/* --- Paragraph Styling --------------------------------------------------------------------------------------------------------------- */
 /* Sets typography and layout for paragraphs inside the About section, including spacing, readability, and space for decorative elements */
 
 .about p {
@@ -330,7 +342,7 @@ including layout wrappers, base button design, hover/focus states, and style var
   position: relative;                                                                                         // anchor for p::before
 }
 
-/* ------------------------------ Virtical Decorative Bars ------------------------------ */
+/* --- Virtical Decorative Bars --------------------------------------------------------- */
 /* Adds a subtle vertical gradient bar to the left of each paragraph in the About section */
 
 .about p::before {
@@ -344,7 +356,7 @@ including layout wrappers, base button design, hover/focus states, and style var
   border-radius: 2px;                                                                                         // soften bar ends
 }
 
-/* ------------------------------------- Bold/Strong Font (Backup) ------------------------------------- */
+/* --- Bold/Strong Font (Backup) ------------------------------------------------------------------------ */
 /* Styles for bold/strong text inside About paragraphs, with fallback color and optional gradient upgrade */
 
 .about p strong {
@@ -352,7 +364,7 @@ including layout wrappers, base button design, hover/focus states, and style var
   font-weight: 600;                                                                                           // semi-bold emphasis
 }
 
-/* ----------------------- Bold/Strong Font (Gradient) ----------------------- */
+/* --- Bold/Strong Font (Gradient) ------------------------------------------- */
 /* Upgrades bold/strong text to gradient fill only if supported by the browser */
 
 @supports (-webkit-background-clip: text) or (background-clip: text) {
@@ -369,7 +381,7 @@ including layout wrappers, base button design, hover/focus states, and style var
 /*          Education Section          */
 /* =================================== */
 
-/* -------------------------- Education Grid --------------------------- */
+/* --- Education Grid -------------------------------------------------- */
 /* Layout container for stacking education cards vertically with spacing */
 
 .educationGrid {
@@ -380,7 +392,7 @@ including layout wrappers, base button design, hover/focus states, and style var
   margin-top: 2rem;                                                                                           // spacing above the grid
 }
 
-/* ------------------------ Education Card ------------------------ */
+/* --- Education Card --------------------------------------------- */
 /* Individual card layout for each education entry with text + logo */
 
 .educationCard {
@@ -399,9 +411,7 @@ including layout wrappers, base button design, hover/focus states, and style var
   overflow: hidden;                                                                                           // clip any overflowing elements
 }
 
-/* ---------------------- Education Card Decorative Bar ----------------------- */
 /* Adds a thin gradient bar at the top of each education card for visual accent */
-
 .educationCard::before {
   content: '';                                                                                                // create decorative bar
   position: absolute;                                                                                         // position inside the card
@@ -410,7 +420,7 @@ including layout wrappers, base button design, hover/focus states, and style var
   background: linear-gradient(135deg, $blue, $purple);                                                        // gradient accent color
 }
 
-/* ------------------------ Education Text ------------------------ */
+/* --- Education Text --------------------------------------------- */
 /* Text container inside the education card, placed beside the logo */
 
 .educationText {
@@ -418,7 +428,7 @@ including layout wrappers, base button design, hover/focus states, and style var
   min-width: 0;                                                                                               // prevent flex item from overflowing
 }
 
-/* ---------------- University/School Heading ---------------- */
+/* --- University/School Heading ----------------------------- */
 /* Styles for the university/school name inside education card */
 
 .educationText h2 {
@@ -429,7 +439,7 @@ including layout wrappers, base button design, hover/focus states, and style var
   letter-spacing: -0.025em;                                                                                   // slight letter tightening for balance
 }
 
-/* ----------------- Education Text Spacing & Hieght ----------------- */
+/* --- Education Text Spacing & Hieght ------------------------------- */
 /* Basic spacing and line-height for paragraphs inside education cards */
 
 .educationText p {
@@ -437,7 +447,7 @@ including layout wrappers, base button design, hover/focus states, and style var
   line-height: 1.4;                                                                                           // slightly tighter line height for compact text
 }
 
-/* ---------------------------- Degree + Status Badge Paragraph ---------------------------- */
+/* --- Degree + Status Badge Paragraph ----------------------------------------------------- */
 /* Special styling for the first paragraph inside the education card (degree + status badge) */
 
 .educationText p:first-of-type {
@@ -450,14 +460,12 @@ including layout wrappers, base button design, hover/focus states, and style var
   gap: 1rem;                                                                                                  // spacing between degree and status badge
 }
 
-/* -------------------------- Degree + Status Badge Paragraph Bold/Strong Font -------------------------- */
 /* Ensures strong text inside the first paragraph inherits parent weight instead of adding extra boldness */
-
 .educationText p:first-of-type strong {
   font-weight: inherit;                                                                                       // inherit the 700 weight from parent
 }
 
-/* --------------------- Dates Paragraph ---------------------- */
+/* --- Dates Paragraph ---------------------------------------- */
 /* Styles for the final paragraph in the education card (Dates) */
 
 .educationText p:last-of-type {
@@ -467,16 +475,14 @@ including layout wrappers, base button design, hover/focus states, and style var
   margin: 0;                                                                                                  // remove extra spacing below
 }
 
-/* --------------------------------- Dates Paragraph Bold/Strong Font ---------------------------------- */
 /* Normalizes emphasized text inside the last paragraph (dates/details) so it blends with parent styling */
-
 .educationText p:last-of-type em {
   font-style: normal;                                                                                         // remove italic styling
   color: inherit;                                                                                             // inherit muted color from parent
   font-size: inherit;                                                                                         // inherit font size from parent
 }
 
-/* -------------------- Education Logo --------------------- */
+/* --- Education Logo -------------------------------------- */
 /* Container for school/company logos inside education cards */
 
 .educationLogo {
@@ -494,7 +500,7 @@ including layout wrappers, base button design, hover/focus states, and style var
   object-fit: contain;                                                                                        // scale logo without distortion
 }
 
-/* ---------------- Status Badge ---------------- */
+/* --- Status Badge ----------------------------- */
 /* "In Progress" or "Graduated" status indicators */
 
 .status-badge {
@@ -526,260 +532,348 @@ including layout wrappers, base button design, hover/focus states, and style var
 /*          Projects Section          */
 /* ================================== */
 
+/* --- Project Carousel -------------------------------------------- */
+/* Container for showcasing projects in a horizontal carousel layout */
+
 .projectCarousel {
-  position: relative;
-  margin: 2rem auto;
-  overflow: hidden;
-  border-radius: $border-radius-large;
-  max-width: 800px;          // cap the whole carousel
-  padding-bottom: 64px;      // room for bottom controls
+  position: relative;                                                                                         // anchor for navigation controls
+  margin: 2rem auto;                                                                                          // center horizontally with spacing above/below
+  overflow: hidden;                                                                                           // hide content that overflows carousel bounds
+  border-radius: $border-radius-large;                                                                        // rounded corners for carousel container
+  max-width: 800px;                                                                                           // limit maximum carousel width
+  padding-bottom: 64px;                                                                                       // extra space for navigation dots/buttons
 }
+
+/* --- Project Grid (Carousel Track) --------------------------------------------------------- */
+/* Inner flex container that holds all project slides, enabling horizontal scrolling/animation */
 
 .projectGrid {
-  display: flex;
-  transition: transform 0.4s ease-in-out;
-  width: 100%;
-  will-change: transform;
+  display: flex;                                                                                              // arrange project slides in a row
+  transition: transform 0.4s ease-in-out;                                                                     // smooth slide transition effect
+  width: 100%;                                                                                                // track spans full container width
+  will-change: transform;                                                                                     // hint to browser for smoother animation
 }
+
+/* --- Project Card ------------------------------------------------------------------------------ */
+/* Individual project slide/card with structured layout, styled background, and interactive states */
 
 .projectCard {
-  flex: 0 0 100%;
-  width: 100%;
-  display: grid;
-  grid-template-rows: auto 1fr;
-  background: $white;
-  border-radius: $border-radius-large;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08), 0 1px 3px rgba(0, 0, 0, 0.12);
-  overflow: hidden;
-  position: relative;
-  text-decoration: none;
-  color: inherit;
-  transition: all 0.3s ease;
+  flex: 0 0 100%;                                                                                             // take full width of carousel viewport
+  width: 100%;                                                                                                // ensure card spans full container
+  display: grid;                                                                                              // use grid for internal layout
+  grid-template-rows: auto 1fr;                                                                               // header/content structure
+  background: $white;                                                                                         // white background for contrast
+  border-radius: $border-radius-large;                                                                        // rounded corners
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08), 0 1px 3px rgba(0, 0, 0, 0.12);                               // layered shadow for depth
+  overflow: hidden;                                                                                           // clip overflowing content (e.g., images)
+  position: relative;                                                                                         // anchor for overlay/decorative elements
+  text-decoration: none;                                                                                      // remove default link styling
+  color: inherit;                                                                                             // inherit text color (so link looks like card)
+  transition: all 0.3s ease;                                                                                  // smooth hover/interaction effects
 }
 
+/* Adds lift and stronger shadow when hovering over a project card for interactivity */
 .projectCard:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.15), 0 4px 16px rgba(0, 0, 0, 0.1);
+  transform: translateY(-2px);                                                                                // slight upward movement
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.15), 0 4px 16px rgba(0, 0, 0, 0.1);                             // stronger layered shadow
 }
 
-.projectCard:hover .projectImg img {
-  transform: scale(1.03);
-}
+/* --- Project Image Container ---------------------------------------------------- */
+/* Wrapper for project preview images with background, border, and overflow control */
 
 .projectImg {
-  margin: 0;
-  background: #f1f5f9;
-  border-bottom: 1px solid rgba(148, 163, 184, 0.2);
-  position: relative;
-  overflow: hidden;
+  margin: 0;                                                                                                  // remove default margin
+  background: #f1f5f9;                                                                                      // light gray background behind image
+  border-bottom: 1px solid rgba(148, 163, 184, 0.2);                                                        // subtle divider between image and content
+  position: relative;                                                                                         // anchor for overlays or positioned elements
+  overflow: hidden;                                                                                           // clip image overflow (e.g., zoom effects)
 }
 
+/* Adds a thin gradient bar at the top of each project image for visual accent */
 .projectImg::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 3px;
-  background: linear-gradient(135deg, $blue, $purple);
-  z-index: 2;
+  content: '';                                                                                                // create decorative element
+  position: absolute;                                                                                         // position within .projectImg
+  top: 0; left: 0; right: 0;                                                                                  // span full width at top
+  height: 3px;                                                                                                // thin bar thickness
+  background: linear-gradient(135deg, $blue, $purple);                                                        // gradient accent
+  z-index: 2;                                                                                                 // keep above image content
 }
 
+/* Styles for project preview images inside the project image container */
 .projectImg img {
-  display: block;
-  width: 100%;
-  aspect-ratio: 16 / 9;
-  object-fit: cover;
-  transition: transform 0.3s ease;
+  display: block;                                                                                             // remove inline spacing around image
+  width: 100%;                                                                                                // scale to fill container width
+  aspect-ratio: 16 / 9;                                                                                       // enforce widescreen aspect ratio
+  object-fit: cover;                                                                                          // crop image neatly to fill space
+  transition: transform 0.3s ease;                                                                            // smooth transform for hover/zoom effects
 }
+
+/* --- Project Body ------------------------------------------------------ */
+/* Content area of a project card, holding title, description, and details */
 
 .projectBody {
-  display: grid;
-  gap: 0.5rem;          // was 0.75rem → less vertical space
-  padding: 1rem;        // was 1.25rem → tighter padding
-  min-width: 0;
-  overflow-wrap: anywhere;
+  display: grid;                                                                                              // grid layout for inner content
+  gap: 0.5rem;                                                                                                // vertical spacing between elements (reduced from 0.75rem)
+  padding: 1rem;                                                                                              // inner spacing (reduced from 1.25rem)
+  min-width: 0;                                                                                               // prevents overflow issues in flex/grid layouts
+  overflow-wrap: anywhere;                                                                                    // allow text to break anywhere to avoid overflow
 }
+
+/* --- Project Title ----------------------------------- */
+/* Heading style for project titles inside project cards */
 
 .projectTitle {
-  color: $title-color;
-  margin: 0 0 0.35rem 0;  // was 0.5rem → tighter spacing
-  font-size: 1.25rem;     // was 1.35rem → slightly smaller
-  font-weight: 800;
-  letter-spacing: -0.025em;
-  text-decoration: none;
+  color: $title-color;                                                                                        // theme color for titles
+  margin: 0 0 0.35rem 0;                                                                                      // tighter spacing below title (was 0.5rem)
+  font-size: 1.25rem;                                                                                         // slightly smaller size (was 1.35rem)
+  font-weight: 800;                                                                                           // extra-bold for strong emphasis
+  letter-spacing: -0.025em;                                                                                   // subtle letter tightening
+  text-decoration: none;                                                                                      // remove underline (useful when title is a link)
 }
+
+/* --- Language Badges ----------------------------------------- */
+/* Container for language/technology badges inside project cards */
 
 .languageBadges {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.5rem;            // was 0.75rem → closer badges
-  list-style: none;
-  margin: 0 0 0.5rem 0;   // was 1rem → less space below
-  padding: 0;
+  display: flex;                                                                                              // flex layout for badges
+  flex-wrap: wrap;                                                                                            // allow badges to wrap to new lines
+  gap: 0.5rem;                                                                                                // tighter spacing between badges (was 0.75rem)
+  list-style: none;                                                                                           // remove default list bullets
+  margin: 0 0 0.5rem 0;                                                                                       // reduced space below badges (was 1rem)
+  padding: 0;                                                                                                 // remove default list padding
 }
 
+/* Styles for each individual language/technology badge inside the badge list */
 .languageBadges li {
-  font-size: 0.7rem;       // was 0.75rem → a touch smaller
-  font-weight: 700;
-  padding: 0.35rem 0.75rem; // was 0.5rem 1rem → smaller pill
-  border-radius: 16px;
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
-  transition: all 0.2s ease;
-  white-space: nowrap;
-  background: linear-gradient(135deg, rgba(59, 130, 246, 0.12), rgba(99, 102, 241, 0.12));
-  color: $blue;
-  border: 1px solid rgba(59, 130, 246, 0.25);
+  font-size: 0.7rem;                                                                                          // small, compact text
+  font-weight: 700;                                                                                           // bold text for visibility
+  padding: 0.35rem 0.75rem;                                                                                   // inner spacing for pill shape
+  border-radius: 16px;                                                                                        // fully rounded pill style
+  text-transform: uppercase;                                                                                  // uppercase text for consistency
+  letter-spacing: 0.5px;                                                                                      // wider letter spacing for readability
+  transition: all 0.2s ease;                                                                                  // smooth hover/interaction transitions
+  white-space: nowrap;                                                                                        // prevent text from breaking
+  background: linear-gradient(135deg, rgba(59, 130, 246, 0.12), rgba(99, 102, 241, 0.12));                // subtle blue/purple gradient background
+  color: $blue;                                                                                               // blue text color
+  border: 1px solid rgba(59, 130, 246, 0.25);                                                               // subtle blue border for definition
 }
+
+/* --- Project Summary ----------------------- */
+/* Short descriptive text inside project cards */
 
 .projectSummary {
-  margin: 0 0 0.5rem 0;   // was 1rem → less bottom space
-  color: $text-color;
-  line-height: 1.45;      // was 1.6 → tighter lines
-  font-size: 0.95rem;     // was 1rem → slightly smaller
-  font-weight: 400;
-  padding: 0;
+  margin: 0 0 0.5rem 0;                                                                                       // reduced bottom space (was 1rem)
+  color: $text-color;                                                                                         // standard body text color
+  line-height: 1.45;                                                                                          // slightly tighter lines (was 1.6)
+  font-size: 0.95rem;                                                                                         // slightly smaller size (was 1rem)
+  font-weight: 400;                                                                                           // regular weight for readability
+  padding: 0;                                                                                                 // remove any default padding
 }
 
+/* Emphasized text inside project summaries for highlighting keywords */
 .projectSummary strong {
-  color: $title-color;
-  font-weight: 600;
+  color: $title-color;                                                                                        // use title color for emphasis
+  font-weight: 600;                                                                                           // semi-bold to stand out from normal text
 }
+
+/* --- Project Bullets ------------------------------------ */
+/* Base list styling for bullet points inside project cards */
 
 .projectBullets {
-  margin: 0;
-  padding-left: 1rem;     // was 1.25rem → a bit tighter
-  color: #64748b;
-  line-height: 1.4;       // was 1.5 → tighter lines
-  font-size: 0.85rem;     // was 0.9rem → slightly smaller
+  margin: 0;                                                                                                  // reset default list margin
+  padding-left: 1rem;                                                                                         // space for bullet markers
+  color: #64748b;                                                                                           // muted text color for secondary info
+  line-height: 1.4;                                                                                           // compact line height for readability
+  font-size: 0.85rem;                                                                                         // smaller font size for subtext
 }
 
+/* Styles for individual bullet items inside project lists */
 .projectBullets li {
-  margin: 0.25rem 0;      // was 0.375rem → less vertical gap
+  margin: 0.25rem 0;                                                                                          // small vertical spacing between list items
 }
 
+/* Customizes the bullet marker color for project list items */
 .projectBullets li::marker {
-  color: $blue;
+  color: $blue;                                                                                               // blue accent color for bullet points
 }
 
-/*        Carousel Controls Row       */
+/* --- Carousel Controls ------------------------------------- */
+/* Container for carousel navigation controls (dots or arrows) */
 
 .carouselControls {
-  position: absolute;
-  left: 0; right: 0; bottom: 12px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 14px;
-  pointer-events: none;
+  position: absolute;                                                                                         // position inside carousel container
+  left: 0; right: 0; bottom: 12px;                                                                            // center horizontally, place near bottom
+  display: flex;                                                                                              // flex layout for controls
+  align-items: center;                                                                                        // vertically center items
+  justify-content: center;                                                                                    // horizontally center controls
+  gap: 14px;                                                                                                  // spacing between controls
+  pointer-events: none;                                                                                       // disable direct interaction (child elements remain interactive)
 }
+
+/* -------- Carousel Indicators -------- */
+/* Container for clickable indicator dots inside the carousel */
 
 .carouselIndicators {
-  display: flex;
-  justify-content: center;
-  gap: 8px;
-  pointer-events: auto;
+  display: flex;                                                                                              // flex layout for dots
+  justify-content: center;                                                                                    // center dots horizontally
+  gap: 8px;                                                                                                   // spacing between dots
+  pointer-events: auto;                                                                                       // re-enable clicks (overrides parent disabling)
 }
 
+/* Styles for each individual dot inside the carousel indicators */
 .indicator {
-  width: 10px;
-  height: 10px;
-  border-radius: 50%;
-  background: rgba(148, 163, 184, 0.35);
-  border: 2px solid transparent;
-  transition: transform .15s ease, background .15s ease;
+  width: 10px;                                                                                                // fixed width for dot
+  height: 10px;                                                                                               // fixed height for dot
+  border-radius: 50%;                                                                                         // make dot perfectly circular
+  background: rgba(148, 163, 184, 0.35);                                                                    // muted gray background for inactive state
+  border: 2px solid transparent;                                                                              // transparent border (used for active highlighting)
+  transition: transform .15s ease, background .15s ease;                                                      // smooth hover/active animations
 }
 
+/* Styles for the active/selected dot in the carousel indicators */
 .indicator.active {
-  background: $blue;
-  transform: scale(1.2);
+  background: $blue;                                                                                          // change to blue to show active state
+  transform: scale(1.2);                                                                                      // enlarge slightly for emphasis
 }
 
+/* Hover effect for inactive carousel dots to give visual feedback */
 .indicator:hover:not(.active) {
-  background: rgba(59, 130, 246, 0.55);
-  transform: scale(1.1);
+  background: rgba(59, 130, 246, 0.55);                                                                     // brighter blue tint on hover
+  transform: scale(1.1);                                                                                      // slightly enlarge for interactivity
 }
+
+/* --- Carousel Navigation & Play/Pause Buttons ---------------- */
+/* Shared styles for carousel nav arrows and play/pause controls */
 
 .carouselNav,
 .playPauseBtn {
-  width: 36px;
-  height: 36px;
-  border-radius: 999px;
-  background: rgba(255,255,255,0.9);
-  border: 1px solid rgba(148,163,184,0.35);
-  box-shadow: 0 2px 6px rgba(0,0,0,0.08);
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-  transition: transform .15s ease, box-shadow .15s ease, background .15s ease;
-  pointer-events: auto;
-  backdrop-filter: blur(8px);
+  width: 36px;                                                                                                // fixed button width
+  height: 36px;                                                                                               // fixed button height
+  border-radius: 999px;                                                                                       // fully rounded (circular button)
+  background: rgba(255,255,255,0.9);                                                                        // semi-transparent white background
+  border: 1px solid rgba(148,163,184,0.35);                                                                 // subtle border for definition
+  box-shadow: 0 2px 6px rgba(0,0,0,0.08);                                                                   // light shadow for depth
+  display: inline-flex;                                                                                       // flex container for inner icon
+  align-items: center;                                                                                        // vertically center icon
+  justify-content: center;                                                                                    // horizontally center icon
+  cursor: pointer;                                                                                            // pointer cursor on hover
+  transition: transform .15s ease, box-shadow .15s ease, background .15s ease;                                // smooth hover/active transitions
+  pointer-events: auto;                                                                                       // enable interaction
+  backdrop-filter: blur(8px);                                                                                 // frosted glass effect behind button
 }
+
+/* --- Carousel Button Icons ----------------------------------- */
+/* Styles for SVG icons inside navigation and play/pause buttons */
 
 .carouselNav svg,
 .playPauseBtn svg {
-  width: 18px;
-  height: 18px;
-  color: $title-color;
+  width: 18px;                                                                                                // fixed icon width
+  height: 18px;                                                                                               // fixed icon height
+  color: $title-color;                                                                                        // use theme title color for icons
 }
+
+/* --- Carousel Button Hover State -------------------------------------------------- */
+/* Hover effects for navigation and play/pause buttons to add depth and interactivity */
 
 .carouselNav:hover,
 .playPauseBtn:hover {
-  transform: translateY(-1px);
-  box-shadow: 0 8px 20px rgba(0,0,0,0.12);
-  background: #fff;
+  transform: translateY(-1px);                                                                                // slight upward lift
+  box-shadow: 0 8px 20px rgba(0,0,0,0.12);                                                                  // stronger shadow on hover
+  background: #fff;                                                                                         // solid white background
 }
 
 /* ================================ */
 /*          Skills Section          */
 /* ================================ */
 
-.skills-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 2rem 3rem;
-  margin-top: 2rem;
+.skill-rows {
+  display: grid;                                                                                              
+  grid-template-columns: 1fr;                                                                                 
+  gap: 0;                                                                                                     
+  margin-top: 0.25rem;                                                                                        
+  border-top: 1px solid $border-color;                                                                        
 }
 
-.skill-card {
-  padding: 0;
+.skill-row {
+  padding: 1rem 0 1.1rem;                                                                                     
+  border-bottom: 1px solid $border-color;                                                                     
+  border-left: 4px solid transparent;                                                                         
+  padding-left: 0.9rem;                                                                                       
+  display: grid;                                                                                              
+  grid-template-columns: 1fr;
+  row-gap: 0.5rem;                                                                                            
 }
 
-.skill-icons {
-  display: flex;
-  gap: 0.75rem;
-  margin-bottom: 1.2rem;
-  flex-wrap: wrap;
-  align-items: center;
-  padding-left: 1rem;
+.skill-row header {
+  display: flex;                                                                                              
+  align-items: center;                                                                                        
+  justify-content: space-between;                                                                             
+  gap: 0.75rem;                                                                                               
 }
 
-.skill-icon {
-  font-size: 1.5rem;
-  color: $muted-color;
+.skill-row header .sub-title {
+  margin: 0;                                                                                                 
+  padding-left: 0;                                                                                            
 }
 
-.skill-card p {
-  color: $text-color;
-  line-height: 1.7;
-  margin: 0;
-  font-size: 0.95rem;
-  padding-left: 1rem;
+.skill-row header .sub-title::before {
+  content: none;                                                                                              
 }
 
-.skill-card p strong {
-  color: $title-color;
-  font-weight: 600;
+.skill-row .skill-icons {
+  display: inline-flex;                                                                                       
+  gap: 0.45rem;                                                                                               
+  flex-wrap: wrap;                                                                                            
 }
 
-/* -------- Color variations for different cards -------- */
+.skill-row .skill-icons i {
+  font-size: 1rem;                                                                                            
+  color: $muted-color;                                                                                        
+}
 
-.skill-card:nth-child(1) .skill-icon { color: $blue; }
-.skill-card:nth-child(2) .skill-icon { color: $amber; }
-.skill-card:nth-child(3) .skill-icon { color: $red; }
-.skill-card:nth-child(4) .skill-icon { color: $green; }
+.skill-row p {
+  margin: 0;                                                                                                  
+  font-size: 0.95rem;                                                                                         
+  line-height: 1.65;                                                                                          
+  color: $text-color;                                                                                         
+}
+
+.skill-tags {
+  display: flex;                                                                                              
+  flex-wrap: wrap;                                                                                            
+  gap: 0.45rem;                                                                                               
+  margin: 0;                                                                                                  
+  padding: 0;                                                                                                 
+}
+
+.skill-tags li {
+  list-style: none;                                                                                           
+  font-size: 0.8rem;                                                                                          
+  font-weight: 600;                                                                                           
+  padding: 0.28rem 0.55rem;                                                                                   
+  border-radius: 999px;                                                                                      
+  white-space: nowrap;                                                                                        
+  background: $light-gray;                                                                                    
+  color: $heading-color;                                                                                      
+  border: 1px solid $border-color;                                                                            
+  transition: transform 0.15s ease, background 0.15s ease, border-color 0.15s ease;                           
+}
+
+.skill-tags li:hover {
+  transform: translateY(-1px);                                                                                
+  background: $white;                                                                                         
+  border-color: rgba($blue, 0.3);                                                                             
+}
+
+.skill-row.blue  { border-left-color: $blue;  }
+.skill-row.amber { border-left-color: $amber; }
+.skill-row.red   { border-left-color: $red;   }
+.skill-row.green { border-left-color: $green; }
+
+.skill-row.blue  header .skill-icons i { color: $blue;  }
+.skill-row.amber header .skill-icons i { color: $amber; }
+.skill-row.red   header .skill-icons i { color: $red;   }
+.skill-row.green header .skill-icons i { color: $green; }
 
 
 
@@ -858,8 +952,8 @@ including layout wrappers, base button design, hover/focus states, and style var
 }
 
 .linkWrapperMobile .link a:hover {
-  background: #f8fafc;                                                                                     // improved hover background
-  border-color: rgba($blue, 0.3);                                                                          // blue-tinted border on hover
+  background: #f8fafc;                                                                                    // improved hover background
+  border-color: rgba($blue, 0.3);                                                                           // blue-tinted border on hover
   transform: translateY(-1px);                                                                              // subtle lift effect
   box-shadow: 0 4px 8px rgba(0,0,0,0.08);                                                                 // enhanced shadow on hover
   color: $heading-color;                                                                                    // darker text on hover
@@ -879,11 +973,11 @@ including layout wrappers, base button design, hover/focus states, and style var
 /* Enhanced primary button styling for mobile */
 .linkWrapperMobile .link a.primaryButton {
   background: linear-gradient(135deg, $blue, $purple);                                                      // maintain gradient from desktop
-  color: white;                                                                                            // white text for contrast
+  color: white;                                                                                           // white text for contrast
   border: none;                                                                                             // no border needed with gradient
   font-weight: 700;                                                                                         // bold text for primary action
   margin-bottom: 8px;                                                                                       // extra spacing below primary button
-  box-shadow: 0 3px 8px rgba($blue, 0.25);                                                                // enhanced shadow for primary
+  box-shadow: 0 3px 8px rgba($blue, 0.25);                                                                  // enhanced shadow for primary
   letter-spacing: 0.3px;                                                                                    // slight letter spacing for emphasis
 }
 
