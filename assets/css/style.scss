@@ -795,7 +795,7 @@ including layout wrappers, base button design, hover/focus states, and style var
   box-sizing: border-box;
 }
 
-/* Responsive grid: 1 col on small, auto-fit to 2–3 cards on larger */
+/* Responsive grid: auto-fit columns, great from mobile → wide */
 .skill-rows {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -804,10 +804,10 @@ including layout wrappers, base button design, hover/focus states, and style var
   align-items: start;
 }
 
-/* Row “card” with subtle left accent; gains very light card bg on hover */
+/* Row “card” feel with left accent; subtle hover (motion-safe) */
 .skill-row {
   position: relative;
-  padding: 0.75rem 0.75rem 0.75rem 1rem; /* room for left rule */
+  padding: 0.75rem 0.75rem 0.75rem 1rem; /* space for left rule */
   border-left: 3px solid transparent;
   border-radius: 10px;
   transition: background .15s ease, box-shadow .15s ease, transform .15s ease;
@@ -819,12 +819,13 @@ including layout wrappers, base button design, hover/focus states, and style var
   box-shadow: 0 1px 0 rgba(0,0,0,0.04);
 }
 
+/* Keep your category colors */
 .skill-row.blue  { border-left-color: rgba($blue,  .65); }
 .skill-row.amber { border-left-color: rgba($amber, .65); }
 .skill-row.red   { border-left-color: rgba($red,   .65); }
 .skill-row.green { border-left-color: rgba($green, .65); }
 
-/* Header: title + icons aligned; tighter, clearer spacing */
+/* Header: title + icons */
 .skill-row header {
   display: grid;
   grid-template-columns: 1fr auto;
@@ -834,15 +835,16 @@ including layout wrappers, base button design, hover/focus states, and style var
   margin-bottom: .5rem;
 }
 
+/* IMPORTANT: Fix for GitHub Pages Sass — wrap mixed units in calc() */
 .skill-row .sub-title {
   margin: 0;
   padding-left: 0;
-  font-size: clamp(1.0rem, 0.95rem + 0.2vw, 1.1rem);
+  font-size: clamp(1rem, calc(0.95rem + 0.2vw), 1.1rem); /* no unit error */
   line-height: 1.25;
 }
 .skill-row .sub-title::before { content: none; }
 
-/* Icons: slightly larger, tinted by category, wrap nicely */
+/* Icons, tinted per category */
 .skill-icons {
   display: inline-flex;
   gap: .45rem;
@@ -859,7 +861,7 @@ including layout wrappers, base button design, hover/focus states, and style var
 .skill-row.red   .skill-icons i { color: rgba($red,   .9); }
 .skill-row.green .skill-icons i { color: rgba($green, .9); }
 
-/* Description copy */
+/* Body copy */
 .skill-row p {
   margin: 0 0 .6rem 0;
   font-size: .95rem;
@@ -869,7 +871,7 @@ including layout wrappers, base button design, hover/focus states, and style var
 .skill-row p:last-child { margin-bottom: 0; }
 .skill-row p strong { color: $title-color; font-weight: 600; }
 
-/* Tags: clearer contrast, keyboard focus, compact density, wrap well */
+/* Tags: improved contrast + focus; no HTML changes needed */
 .skill-tags {
   display: flex;
   flex-wrap: wrap;
@@ -880,17 +882,16 @@ including layout wrappers, base button design, hover/focus states, and style var
 .skill-tags li {
   list-style: none;
   font-size: .78rem;
-  font-weight: 700; /* up from 600 for tag legibility */
+  font-weight: 700;
   padding: .28rem .6rem;
   border-radius: 999px;
   white-space: nowrap;
   background: #f1f5f9; /* slightly darker than $light-gray for contrast */
   color: $heading-color;
-  border: 1px solid rgba(148, 163, 184, 0.45); /* stronger border for print/readability */
+  border: 1px solid rgba(148, 163, 184, 0.45);
   transition: transform .12s ease, background .12s ease, border-color .12s ease, box-shadow .12s ease;
 }
 
-/* Subtle hover “chip” feel */
 .skill-tags li:hover {
   transform: translateY(-1px);
   background: #eef2f7;
@@ -898,17 +899,10 @@ including layout wrappers, base button design, hover/focus states, and style var
   box-shadow: 0 1px 4px rgba(0,0,0,0.06);
 }
 
-/* Accessible focus ring for keyboard users */
 .skill-tags li:focus-visible {
   outline: 3px solid rgba(59, 130, 246, 0.35);
   outline-offset: 2px;
 }
-
-/* Category-tinted tags on hover (keeps your color semantics) */
-.skill-row.blue  .skill-tags li:hover { border-color: rgba($blue,  .45); }
-.skill-row.amber .skill-tags li:hover { border-color: rgba($amber, .45); }
-.skill-row.red   .skill-tags li:hover { border-color: rgba($red,   .45); }
-.skill-row.green .skill-tags li:hover { border-color: rgba($green, .45); }
 
 
 
