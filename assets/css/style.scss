@@ -795,25 +795,6 @@ including layout wrappers, base button design, hover/focus states, and style var
   box-sizing: border-box;
 }
 
-.skills h1.section-title {
-  text-align: left;
-  font-size: 2rem;
-  margin: 0 0 1.25rem 0;
-  color: $title-color;
-  font-weight: 800;
-  position: relative;
-  padding-left: 1rem;
-}
-.skills h1.section-title::before {
-  content: '';
-  position: absolute;
-  left: 0; top: 50%;
-  transform: translateY(-50%);
-  width: 4px; height: 28px;
-  background: linear-gradient(135deg, $blue, $purple);
-  border-radius: 2px;
-}
-
 .skill-rows {
   display: grid;
   grid-template-columns: repeat(2, minmax(320px, 1fr));
@@ -829,7 +810,6 @@ including layout wrappers, base button design, hover/focus states, and style var
   border-left: 3px solid transparent;
   transition: background .15s ease;
 }
-.skill-row:hover { background: rgba(0,0,0,.015); }
 
 .skill-row.blue  { border-left-color: rgba($blue,  .6); }
 .skill-row.amber { border-left-color: rgba($amber, .6); }
