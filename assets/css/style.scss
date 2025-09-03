@@ -786,66 +786,68 @@ including layout wrappers, base button design, hover/focus states, and style var
 /*          Skills Section          */
 /* ================================ */
 
-/* --- Section Title (left-aligned, like other sections) --------------- */
+.section.skills {
+  background: transparent;
+  box-shadow: none;
+  border-radius: 0;
+  padding: 2rem;
+  margin-bottom: 2rem;
+  box-sizing: border-box;
+}
+
 .skills h1.section-title {
-  text-align: left;                                                                                          
-  font-size: 2rem;                                                                                          
-  margin: 0 0 1.25rem 0;                                                                                     
-  color: $title-color;                                                                                       
-  font-weight: 800;                                                                                          
-  position: relative;                                                                                        
-  padding-left: 1rem;                                                                                        
+  text-align: left;
+  font-size: 2rem;
+  margin: 0 0 1.25rem 0;
+  color: $title-color;
+  font-weight: 800;
+  position: relative;
+  padding-left: 1rem;
 }
 .skills h1.section-title::before {
-  content: '';                                                                                               
+  content: '';
   position: absolute;
   left: 0; top: 50%;
   transform: translateY(-50%);
-  width: 4px; height: 28px;                                                                                  
-  background: linear-gradient(135deg, $blue, $purple);                                                        
+  width: 4px; height: 28px;
+  background: linear-gradient(135deg, $blue, $purple);
   border-radius: 2px;
 }
 
-/* --- Skills Container ------------------------------------------------ */
 .skill-rows {
   display: grid;
-  grid-template-columns: repeat(2, minmax(320px, 1fr));                                                     
-  column-gap: 2rem;                                                                                           
+  grid-template-columns: repeat(2, minmax(320px, 1fr));
+  column-gap: 2rem;
   row-gap: 1.5rem;
   margin-top: 1rem;
   align-items: start;
 }
 
-/* --- Individual Row -------------------------------------------------- */
 .skill-row {
   position: relative;
-  padding-left: .9rem;                                                                                       
-  border-left: 3px solid transparent;                                                                         
-  transition: background .15s ease;                                                                           
+  padding-left: .9rem;
+  border-left: 3px solid transparent;
+  transition: background .15s ease;
 }
-.skill-row:hover { background: rgba(0,0,0,.015); }                                                            
+.skill-row:hover { background: rgba(0,0,0,.015); }
 
-/* Color accents (translucent so they don't shout) */
 .skill-row.blue  { border-left-color: rgba($blue,  .6); }
 .skill-row.amber { border-left-color: rgba($amber, .6); }
 .skill-row.red   { border-left-color: rgba($red,   .6); }
 .skill-row.green { border-left-color: rgba($green, .6); }
 
-/* --- Header ---------------------------------------------------------- */
 .skill-row header {
   display: grid;
-  grid-template-columns: 1fr auto;                                                                            
+  grid-template-columns: 1fr auto;
   align-items: center;
   column-gap: .75rem;
   row-gap: .35rem;
   margin-bottom: .75rem;
 }
 
-/* Use your .sub-title type but remove its default left bar inside Skills */
 .skill-row .sub-title { margin: 0; padding-left: 0; }
 .skill-row .sub-title::before { content: none; }
 
-/* --- Icons ----------------------------------------------------------- */
 .skill-icons {
   display: inline-flex;
   gap: .5rem;
@@ -853,18 +855,16 @@ including layout wrappers, base button design, hover/focus states, and style var
   justify-self: end;
 }
 .skill-icons i {
-  font-size: 1.05rem;                                                                                         
-  color: $muted-color;                                                                                        
+  font-size: 1.05rem;
+  color: $muted-color;
   opacity: .9;
 }
 
-/* Icon tints to match row color */
 .skill-row.blue  .skill-icons i { color: rgba($blue,  .85); }
 .skill-row.amber .skill-icons i { color: rgba($amber, .85); }
 .skill-row.red   .skill-icons i { color: rgba($red,   .85); }
 .skill-row.green .skill-icons i { color: rgba($green, .85); }
 
-/* --- Body copy ------------------------------------------------------- */
 .skill-row p {
   margin: 0 0 .6rem 0;
   font-size: .95rem;
@@ -873,7 +873,6 @@ including layout wrappers, base button design, hover/focus states, and style var
 }
 .skill-row p strong { color: $title-color; font-weight: 600; }
 
-/* --- Tags ------------------------------------------------------------ */
 .skill-tags {
   display: flex;
   flex-wrap: wrap;
@@ -888,16 +887,12 @@ including layout wrappers, base button design, hover/focus states, and style var
   padding: .26rem .52rem;
   border-radius: 999px;
   white-space: nowrap;
-  background: $light-gray;                                                                                    
+  background: $light-gray;
   color: $heading-color;
-  border: 1px solid $border-color;                                                                            
+  border: 1px solid $border-color;
   transition: transform .15s ease, background .15s ease, border-color .15s ease;
 }
-.skill-tags li:hover {
-  transform: translateY(-1px);
-  background: $white;
-  border-color: rgba($blue, .28);
-}
+
 
 
 
