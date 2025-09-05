@@ -209,12 +209,12 @@ title: Portfolio
     <article class="skill-row blue">
         <header>
         <h2 class="sub-title">Programming Languages</h2>
+        </header>
         <div class="skill-icons" aria-hidden="true">
             <i class="fa-brands fa-python"></i>
             <i class="fa-solid fa-database"></i>
             <i class="fa-brands fa-java"></i>
         </div>
-        </header>
 
         <p> 
             Skilled in <strong>Python</strong> and <strong>SQL</strong> for data analysis, predictive 
@@ -232,12 +232,12 @@ title: Portfolio
     <article class="skill-row amber">
         <header>
         <h2 class="sub-title">Tools & Technologies</h2>
+        </header>
         <div class="skill-icons" aria-hidden="true">
             <i class="fa-brands fa-r-project"></i>
             <i class="fa-brands fa-github"></i>
             <i class="fa-brands fa-aws"></i>
         </div>
-        </header>
 
         <p> 
             Experienced in building interactive dashboards with <strong>Tableau</strong> and managing 
@@ -256,12 +256,12 @@ title: Portfolio
     <article class="skill-row red">
         <header>
         <h2 class="sub-title">Frameworks & Libraries</h2>
+        </header>
         <div class="skill-icons" aria-hidden="true">
             <i class="fa-solid fa-diagram-project"></i>
             <i class="fa-solid fa-chart-pie"></i>
             <i class="fa-solid fa-code"></i>
         </div>
-        </header>
 
         <p> 
             Proficient in Python libraries (<strong>pandas</strong>, <strong>NumPy</strong>, 
@@ -280,12 +280,12 @@ title: Portfolio
     <article class="skill-row green">
         <header>
         <h2 class="sub-title">Data Science Skills</h2>
+        </header>
         <div class="skill-icons" aria-hidden="true">
             <i class="fa-solid fa-table"></i>
             <i class="fa-solid fa-chart-bar"></i> 
             <i class="fa-solid fa-cloud"></i>
         </div>
-        </header>
 
         <p> 
             Expertise in <strong>data wrangling</strong>, exploratory data analysis (<strong>EDA</strong>)
