@@ -10,7 +10,7 @@ title: Portfolio
 <section class="about">
   <h1>About Me</h1>
   <p>
-      ’m Odin Lee, a data scientist from <strong>St. Paul, Minnesota</strong>, with a 
+      I’m Odin Lee, a data scientist from <strong>St. Paul, Minnesota</strong>, with a 
       strong academic background and a passion for turning data into insight.
   </p>
 
