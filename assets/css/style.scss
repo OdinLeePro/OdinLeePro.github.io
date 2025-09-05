@@ -819,8 +819,8 @@ including layout wrappers, base button design, hover/focus states, and style var
 /* Skill rows - clean and simple like About paragraphs */
 .skill-row {
   position: relative;
-  padding-left: 1rem; /* Space for left accent bar like About paragraphs */
-  margin-bottom: 0; /* Remove card-like spacing */
+  padding-left: 1rem; 
+  margin-bottom: 0; 
 }
 
 /* Left accent bars - similar to About section paragraphs */
@@ -881,13 +881,13 @@ including layout wrappers, base button design, hover/focus states, and style var
 /* Subtitle styling to match About section hierarchy */
 .skill-row .sub-title {
   margin: 0;
-  padding-left: 0; /* Remove extra padding since we have the left bar */
-  font-size: 1.3rem; /* Match the sub-title size from About */
+  padding-left: 0; 
+  font-size: 1.3rem; 
   line-height: 1.3;
   font-weight: 600;
   color: $heading-color;
 }
-.skill-row .sub-title::before { content: none; } /* Remove default sub-title bar */
+.skill-row .sub-title::before { content: none; } 
 
 /* Icons with section-specific coloring */
 .skill-icons {
@@ -897,7 +897,7 @@ including layout wrappers, base button design, hover/focus states, and style var
   justify-self: end;
 }
 .skill-icons i {
-  font-size: 1.1rem;
+  font-size: 1.75rem;
   opacity: .8;
 }
 
@@ -920,11 +920,11 @@ including layout wrappers, base button design, hover/focus states, and style var
 
 /* Body copy - match About section paragraph styling */
 .skill-row p {
-  margin: 0 0 1.5rem 0; /* Match About paragraph spacing */
-  font-size: 1rem; /* Match About paragraph size */
-  line-height: 1.8; /* Match About paragraph line height */
+  margin: 0 0 1.5rem 0; 
+  font-size: 1rem; 
+  line-height: 1.8; 
   color: $text-color;
-  padding-left: 0; /* Remove padding since we have the left bar on the container */
+  padding-left: 0; 
 }
 .skill-row p:last-child { margin-bottom: 0; }
 
