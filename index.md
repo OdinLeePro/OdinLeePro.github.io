@@ -10,13 +10,22 @@ title: Portfolio
 <section class="about">
   <h1>About Me</h1>
   <p>
-    I’m Odin Lee, a data scientist from <strong>St. Paul, Minnesota</strong>, with a strong academic background and a passion for turning data into insight.
+      ’m Odin Lee, a data scientist from <strong>St. Paul, Minnesota</strong>, with a 
+      strong academic background and a passion for turning data into insight.
   </p>
+
   <p>
-    I’m currently pursuing a <strong>Master of Science degree in Data Science</strong> at the <strong>University of St. Thomas</strong>, building on my <strong>Bachelor’s degree in Data Science</strong> from <strong>Augsburg University</strong>. Throughout my academic journey, I’ve gained hands-on experience in data analytics, statistical modeling, and programming.
+      I’m currently pursuing a <strong>Master of Science degree in Data Science</strong> 
+      at the <strong>University of St. Thomas</strong>, building on my <strong>Bachelor’s 
+      degree in Data Science</strong> from <strong>Augsburg University</strong>. 
+      Throughout my academic journey, I’ve gained hands-on experience in data analytics, 
+      statistical modeling, and programming.
   </p>
+
   <p>
-    Skilled in <strong>Python</strong>, <strong>SQL</strong>, <strong>R</strong>, <strong>Java</strong>, and <strong>Tableau</strong>, I enjoy transforming complex datasets into clear, actionable insights that drive meaningful outcomes.
+      Skilled in <strong>Python</strong>, <strong>SQL</strong>, <strong>R</strong>, 
+      <strong>Java</strong>, and <strong>Tableau</strong>, I enjoy transforming complex 
+      datasets into clear, actionable insights that drive meaningful outcomes.
   </p>
 </section>
 
@@ -194,66 +203,99 @@ title: Portfolio
 
 <section class="section skills skills--flat" aria-labelledby="skills-title">
   <h1 id="skills-title" class="section-title">Skills</h1>
-
   <div class="skill-rows">
+
+    <!-- BLUE Section -->
     <article class="skill-row blue">
-      <header>
+        <header>
         <h2 class="sub-title">Programming Languages</h2>
         <div class="skill-icons" aria-hidden="true">
-          <i class="fa-brands fa-python"></i>
-          <i class="fa-brands fa-r-project"></i>
-          <i class="fa-solid fa-database"></i>
+            <i class="fa-brands fa-python"></i>
+            <i class="fa-solid fa-database"></i>
+            <i class="fa-brands fa-java"></i>
         </div>
-      </header>
-      <p>I primarily use <strong>Python</strong>, <strong>SQL</strong>, and <strong>R</strong> for data analysis and ML. I also have experience with <strong>Java</strong> from algorithms/data structures coursework.</p>
-      <ul class="skill-tags" aria-label="Highlights">
-        <li>Pandas / NumPy</li><li>ETL &amp; Wrangling</li><li>Modeling</li><li>Data Viz</li>
-      </ul>
-    </article>
+        </header>
 
+        <p> 
+            Skilled in <strong>Python</strong> and <strong>SQL</strong> for data analysis, predictive 
+            modeling, and visualization, complemented by <strong>R</strong> for advanced statistical 
+            methods. Background in <strong>Java</strong> strengthens foundation in algorithms and 
+            complex problem-solving. 
+        </p>
+
+        <ul class="skill-tags" aria-label="Highlights">
+        <li>Python</li><li>SQL</li><li>R</li><li>Java</li>
+        </ul>
+    </article>
+    
+    <!-- AMBER Section -->
     <article class="skill-row amber">
-      <header>
-        <h2 class="sub-title">Tools &amp; Technologies</h2>
+        <header>
+        <h2 class="sub-title">Tools & Technologies</h2>
         <div class="skill-icons" aria-hidden="true">
-          <i class="fa-brands fa-github"></i>
-          <i class="fa-brands fa-aws"></i>
-          <i class="fa-solid fa-file-excel"></i>
+            <i class="fa-brands fa-r-project"></i>
+            <i class="fa-brands fa-github"></i>
+            <i class="fa-brands fa-aws"></i>
         </div>
-      </header>
-      <p>I build dashboards in <strong>Tableau</strong>, manage databases with <strong>Oracle SQL Developer</strong>, and work in <strong>Jupyter</strong> / <strong>RStudio</strong> with <strong>GitHub</strong>. Experience with <strong>AWS EC2</strong> &amp; <strong>S3</strong>.</p>
-      <ul class="skill-tags" aria-label="Highlights">
-        <li>Git / GitHub</li><li>Tableau</li><li>Oracle SQL</li><li>AWS EC2 &amp; S3</li>
-      </ul>
-    </article>
+        </header>
 
+        <p> 
+            Experienced in building interactive dashboards with <strong>Tableau</strong> and managing 
+            databases using <strong>Oracle SQL Developer</strong>. Skilled in performing in-depth data 
+            analyses with <strong>Jupyter Notebooks</strong> and <strong>RStudio</strong>, leveraging 
+            <strong>GitHub</strong> and <strong>AWS</strong> (EC2 and S3) for collaboration, 
+            scalability, and cloud deployment. 
+        </p>
+
+        <ul class="skill-tags" aria-label="Highlights">
+        <li>Tableau</li><li>Oracle SQL Developer</li><li>Jupyter Notebook</li><li>RStudio</li><li>GitHub</li><li>AWS</li>
+        </ul>
+    </article>
+    
+    <!-- RED Section -->
     <article class="skill-row red">
-      <header>
-        <h2 class="sub-title">Frameworks &amp; Libraries</h2>
+        <header>
+        <h2 class="sub-title">Frameworks & Libraries</h2>
         <div class="skill-icons" aria-hidden="true">
-          <i class="fa-solid fa-chart-column"></i>
-          <i class="fa-solid fa-table"></i>
-          <i class="fa-solid fa-code"></i>
+            <i class="fa-solid fa-diagram-project"></i>
+            <i class="fa-solid fa-chart-pie"></i>
+            <i class="fa-solid fa-code"></i>
         </div>
-      </header>
-      <p>Python: <strong>pandas</strong>, <strong>NumPy</strong>, <strong>Matplotlib</strong>, <strong>Seaborn</strong>, <strong>Plotly</strong>. R: <strong>dplyr</strong>, <strong>ggplot2</strong>, <strong>shiny</strong>. Plus <strong>Quarto</strong> for reproducible reports.</p>
-      <ul class="skill-tags" aria-label="Highlights">
-        <li>Plotly / ggplot2</li><li>Shiny Apps</li><li>Quarto</li>
-      </ul>
+        </header>
+
+        <p> 
+            Proficient in Python libraries (<strong>pandas</strong>, <strong>NumPy</strong>, 
+            <strong>Matplotlib</strong>, <strong>Seaborn</strong>, <strong>Plotly</strong>) 
+            for data wrangling and visualization, and in R packages (<strong>dplyr</strong>, 
+            <strong>ggplot2</strong>, <strong>Shiny</strong>) for data manipulation and interactive 
+            applications. Proficient in creating reproducible reports with <strong>Quarto</strong>. 
+        </p>
+
+        <ul class="skill-tags" aria-label="Highlights">
+        <li>pandas</li><li>NumPy</li><li>Matplotlib</li><li>Seaborn</li><li>Plotly</li><li>dplyr</li><li>ggplot2</li><li>shiny</li><li>Quarto</li>
+        </ul>
     </article>
 
+    <!-- GREEN Section -->
     <article class="skill-row green">
-      <header>
+        <header>
         <h2 class="sub-title">Data Science Skills</h2>
         <div class="skill-icons" aria-hidden="true">
-          <i class="fa-solid fa-server"></i>
-          <i class="fa-solid fa-chart-pie"></i>
-          <i class="fa-solid fa-diagram-project"></i>
+            <i class="fa-solid fa-table"></i>
+            <i class="fa-solid fa-chart-bar"></i> 
+            <i class="fa-solid fa-cloud"></i>
         </div>
-      </header>
-      <p><strong>EDA</strong>, <strong>feature engineering</strong>, <strong>statistical modeling</strong>, and <strong>DB design</strong>, plus <strong>cloud</strong> workflows and <strong>collaboration best practices</strong>.</p>
-      <ul class="skill-tags" aria-label="Highlights">
-        <li>EDA &amp; Viz</li><li>Feature Eng</li><li>SQL/Data Modeling</li><li>Cloud Solutions</li>
-      </ul>
+        </header>
+
+        <p> 
+            Expertise in <strong>data wrangling</strong>, exploratory data analysis (<strong>EDA</strong>)
+            , and <strong>statistical modeling</strong>, complemented by strong skills in 
+            <strong>data visualization</strong> and deploying <strong>cloud-based solutions</strong>. 
+        </p>
+
+        <ul class="skill-tags" aria-label="Highlights">
+        <li>Data Wrangling</li><li>EDA</li><li>Statistical Modeling</li><li>Data Visualization</li><li>Cloud-Based Solutions</li>
+        </ul>
     </article>
   </div>
-</section>
+</section>  
