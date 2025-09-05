@@ -26,7 +26,7 @@ $border-radius-large: 12px;                                                     
 
 /* Neutrals & Base Colors */
 $white: #ffffff;                                                                                            // pure white for backgrounds
-$light-gray: #f2fbfe;                                                                                       // light gray for app/page background #f8fafc
+$light-gray: #f2fbfe;                                                                                       // light light blue for page background
 $text-color: #475569;                                                                                       // main body text color
 $heading-color: #334155;                                                                                    // color for headings
 $title-color: #1e293b;                                                                                      // color for prominent titles
@@ -868,14 +868,9 @@ including layout wrappers, base button design, hover/focus states, and style var
   border-radius: 2px;
 }
 
-/* Header: title + icons */
+/* Header: just the title now */
 .skill-row header {
-  display: grid;
-  grid-template-columns: 1fr auto;
-  align-items: center;
-  column-gap: .75rem;
-  row-gap: .25rem;
-  margin-bottom: 1rem;
+  margin-bottom: 0.75rem;
 }
 
 /* Subtitle styling to match About section hierarchy */
@@ -889,17 +884,33 @@ including layout wrappers, base button design, hover/focus states, and style var
 }
 .skill-row .sub-title::before { content: none; } /* Remove default sub-title bar */
 
-/* Icons with subtle coloring */
+/* Icons positioned between subtitle and paragraph */
 .skill-icons {
   display: inline-flex;
   gap: .45rem;
   flex-wrap: wrap;
-  justify-self: end;
+  margin: 0.75rem 0 1rem 0; /* Space above and below icons */
 }
 .skill-icons i {
   font-size: 1.1rem;
-  color: $muted-color;
   opacity: .8;
+}
+
+/* Color icons to match their section's accent color */
+.skill-row.blue .skill-icons i {
+  color: $blue;
+}
+
+.skill-row.amber .skill-icons i {
+  color: $amber;
+}
+
+.skill-row.red .skill-icons i {
+  color: $red;
+}
+
+.skill-row.green .skill-icons i {
+  color: $green;
 }
 
 /* Body copy - match About section paragraph styling */
