@@ -111,7 +111,7 @@ h1.section-title {
 .headshot {
   border-radius: 50%;                                                                                         // make the image perfectly circular
   margin-bottom: 1.5rem;                                                                                      // spacing below headshot
-  max-width: 80%;                                                                                             // size limit for better text balance
+  max-width: 75%;                                                                                             // size limit for better text balance
   aspect-ratio: 1 / 1;                                                                                        // maintain square proportions
   height: auto;                                                                                               // keeps height responsive with width
   display: block;                                                                                             // treat as block so margin auto works
@@ -172,7 +172,7 @@ h1.section-title {
   text-align: center;                                                                                         // center align tagline text
   margin: 0 0 24px 0;                                                                                         // space below tagline
   font-size: 0.95rem;                                                                                         // slightly smaller text size
-  color: #272757;                                                                                           // default body text color
+  color: #31316d;                                                                                           // default body text color
   line-height: 1.5;                                                                                           // comfortable line spacing
   padding: 0 8px;                                                                                             // slight horizontal padding for mobile
 }
@@ -289,7 +289,7 @@ including layout wrappers, base button design, hover/focus states, and style var
 /* Hover effect for secondary action buttons — subtle background and lift */
 .linkWrapperDesktop .link a.baseButton:hover {
   background: #f8fafc;                                                                                      // subtle hover background
-  border-color: rgba($blue, 0.3);                                                                             // blue-tinted border on hover
+  border: 2px solid rgba($blue, 0.3);                                                                         // blue-tinted border on hover
   transform: translateY(-1px);                                                                                // slight lift effect
   box-shadow: 0 4px 12px rgba(0,0,0,0.1);                                                                   // stronger shadow on hover
   color: $heading-color;                                                                                      // switch to heading color for contrast
