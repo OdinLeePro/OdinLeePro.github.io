@@ -1027,44 +1027,39 @@ including layout wrappers, base button design, hover/focus states, and style var
   margin: 0 0 12px;
   list-style: none;
   padding: 0;
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
+  display: block;
   width: 100%;
-  align-items: stretch;
 }
 
 .linkWrapperMobile .link li {
-  margin: 0;
+  margin: 0 0 10px 0;
   width: 100%;
+  display: block;
+  box-sizing: border-box;
 }
 
 .linkWrapperMobile .link li:first-child {
-  margin-bottom: 8px;
+  margin-bottom: 15px;
+  width: 100%;
 }
 
-.linkWrapperMobile .link li:not(:first-child) {
-  display: none;
+.linkWrapperMobile .link li:nth-child(2),
+.linkWrapperMobile .link li:nth-child(3),
+.linkWrapperMobile .link li:nth-child(4) {
+  width: calc(33.33% - 7px);
+  float: left;
+  margin-right: 10px;
+  margin-bottom: 10px;
 }
 
-.linkWrapperMobile .secondary-buttons {
-  display: flex;
-  gap: 8px;
-  margin-top: 8px;
+.linkWrapperMobile .link li:nth-child(4) {
+  margin-right: 0;
 }
 
-.linkWrapperMobile .secondary-buttons .link {
-  display: flex;
-  flex: 1;
-  margin: 0;
-  padding: 0;
-  list-style: none;
-  gap: 8px;
-}
-
-.linkWrapperMobile .secondary-buttons .link li {
-  flex: 1;
-  margin: 0;
+.linkWrapperMobile ul.link:after {
+  content: '';
+  display: table;
+  clear: both;
 }
 
 .linkWrapperMobile .link a {
@@ -1168,6 +1163,13 @@ including layout wrappers, base button design, hover/focus states, and style var
     gap: 1.8rem;
   }
   
+  .educationGrid {
+    padding: 0 0.5rem;
+    margin: 2rem 0;
+    width: 100%;
+    box-sizing: border-box;
+  }
+  
   .educationCard {
     flex-direction: row;
     text-align: left;
@@ -1175,13 +1177,20 @@ including layout wrappers, base button design, hover/focus states, and style var
     max-width: 100%;
     gap: 1.5rem;
     padding: 1.5rem;
-    margin: 0;
+    margin: 0 auto;
     box-sizing: border-box;
+    overflow: visible;
   }
   
   .educationLogo {
     flex-shrink: 0;
-    order: -1;
+    min-width: 92px;
+    width: 92px;
+  }
+  
+  .educationLogo img {
+    width: 60px;
+    height: 60px;
   }
   
   .educationText { 
@@ -1208,7 +1217,7 @@ including layout wrappers, base button design, hover/focus states, and style var
   }
 
   .headshot + h1,
-  h1:has(+ .addr) {
+  h1:has(+ .location) {
     font-size: 2.2rem;
     margin-bottom: 8px;
     line-height: 1.1;
@@ -1216,7 +1225,7 @@ including layout wrappers, base button design, hover/focus states, and style var
     text-align: left;
   }
 
-  .location, .addr {
+  .location {
     font-size: 0.9rem;
     margin: 8px 0 12px 0;
     color: $muted-color;
@@ -1244,24 +1253,35 @@ including layout wrappers, base button design, hover/focus states, and style var
     padding: 0;
   }
   
+  .section.projects {
+    padding-left: 0;
+    padding-right: 0;
+  }
+  
   .projectCarousel {
-    width: 100%;
+    width: 100vw;
     max-width: none;
-    margin-left: 0;
-    margin-right: 0;
+    margin-left: calc(-50vw + 50%);
+    margin-right: calc(-50vw + 50%);
     overflow: hidden;
+    padding: 0;
+    position: relative;
   }
   
   .projectCard {
-    width: 100%;
-    flex: 0 0 100%;
+    width: calc(100vw - 3rem);
+    flex: 0 0 calc(100vw - 3rem);
     box-sizing: border-box;
-    margin: 0;
+    margin: 0 1.5rem;
   }
   
   .projectGrid {
-    width: 100%;
+    width: auto;
     will-change: transform;
+  }
+  
+  .carouselControls {
+    margin: 0 1.5rem;
   }
 }
 
@@ -1281,13 +1301,13 @@ including layout wrappers, base button design, hover/focus states, and style var
   }
   
   .headshot + h1,
-  h1:has(+ .addr) {
+  h1:has(+ .location) {
     font-size: 2rem;
     margin-bottom: 8px;
     text-align: left;
   }
   
-  .addr, .location {
+  .location {
     font-size: 0.85rem;
     margin: 6px 0 10px 0;
     text-align: left;
@@ -1302,7 +1322,9 @@ including layout wrappers, base button design, hover/focus states, and style var
     text-align: left;
   }
 
-  .linkWrapperMobile .secondary-buttons {
+  .linkWrapperMobile .link li:nth-child(2),
+  .linkWrapperMobile .link li:nth-child(3),
+  .linkWrapperMobile .link li:nth-child(4) {
     gap: 6px;
   }
 
@@ -1316,14 +1338,27 @@ including layout wrappers, base button design, hover/focus states, and style var
     flex-direction: column;
     text-align: center;
     gap: 1rem;
+    padding: 1.2rem;
   }
   
   .educationLogo {
     order: 0;
     align-self: center;
+    min-width: auto;
+    width: auto;
   }
   
   .educationText {
     text-align: center;
+  }
+  
+  .projectCard {
+    width: calc(100vw - 2rem);
+    flex: 0 0 calc(100vw - 2rem);
+    margin: 0 1rem;
+  }
+  
+  .carouselControls {
+    margin: 0 1rem;
   }
 }
