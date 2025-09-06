@@ -172,7 +172,7 @@ h1.section-title {
   text-align: center;                                                                                         // center align tagline text
   margin: 0 0 24px 0;                                                                                         // space below tagline
   font-size: 0.95rem;                                                                                         // slightly smaller text size
-  color: #31316d;                                                                                           // default body text color
+  color: $heading-color;                                                                                      // default body text color
   line-height: 1.5;                                                                                           // comfortable line spacing
   padding: 0 8px;                                                                                             // slight horizontal padding for mobile
 }
