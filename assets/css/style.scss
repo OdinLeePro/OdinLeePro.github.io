@@ -26,7 +26,7 @@ $border-radius-large: 12px;                                                     
 
 /* Neutrals & Base Colors */
 $white: #ffffff;                                                                                            // pure white for backgrounds
-$light-gray: #f2fbfe;                                                                                       // light light blue for page background
+$light-blue: #f2fbfe;                                                                                       // light light blue for page background
 $text-color: #475569;                                                                                       // main body text color
 $heading-color: #334155;                                                                                    // color for headings
 $title-color: #1e293b;                                                                                      // color for prominent titles
@@ -47,7 +47,7 @@ body {
   font-family: $font-family;                                                                                  // system font stack for readable UI fonts
   line-height: 1.6;                                                                                           // comfortable line spacing for body text
   color: $text-color;                                                                                         // default text color for the page
-  background: $light-gray;                                                                                    // light page background
+  background: $light-blue;                                                                                    // light page background
   margin: 0;                                                                                                  // remove browser’s default body margin
   padding: 2rem;                                                                                              // page gutters (space around all content)
 }
