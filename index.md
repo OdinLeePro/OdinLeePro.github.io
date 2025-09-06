@@ -77,7 +77,7 @@ title: Portfolio
          target="_blank" rel="noopener noreferrer"
          aria-label="Open Fantasy Football Analysis Database on GitHub (opens in a new tab)" role="listitem">
         <figure class="projectImg">
-          <img src="/assets/img/FinalProjectRationalModel.png" alt="Fantasy Football ER Diagram">
+          <img src="/assets/img/ProjectOnePNG.png" alt="Fantasy Football ER Diagram">
         </figure>
         <div class="projectBody">
           <h3 class="projectTitle"><u>Fantasy Football Analysis Database</u></h3>
