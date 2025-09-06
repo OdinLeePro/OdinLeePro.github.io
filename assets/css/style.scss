@@ -111,7 +111,7 @@ h1.section-title {
 .headshot {
   border-radius: 50%;                                                                                         // make the image perfectly circular
   margin-bottom: 1.5rem;                                                                                      // spacing below headshot
-  max-width: 65%;                                                                                             // size limit for better text balance
+  max-width: 75%;                                                                                             // size limit for better text balance
   aspect-ratio: 1 / 1;                                                                                        // maintain square proportions
   height: auto;                                                                                               // keeps height responsive with width
   display: block;                                                                                             // treat as block so margin auto works
@@ -119,6 +119,7 @@ h1.section-title {
   object-fit: cover;                                                                                          // crop image neatly within circle
   box-shadow: 0 4px 20px rgba(0,0,0,0.12);                                                                  // subtle depth with shadow
 }
+
 /* --- Title Styling ----------------------------- */
 /* Main name/title heading styling (e.g. Odin Lee) */
 
@@ -710,7 +711,7 @@ including layout wrappers, base button design, hover/focus states, and style var
   pointer-events: none;                                                                                       // disable direct interaction (child elements remain interactive)
 }
 
-/* -------- Carousel Indicators -------- */
+/* --- Carousel Indicators ---------------------------------- */
 /* Container for clickable indicator dots inside the carousel */
 
 .carouselIndicators {
@@ -786,212 +787,230 @@ including layout wrappers, base button design, hover/focus states, and style var
 /*          Skills Section          */
 /* ================================ */
 
-/* Match the About section styling - unified background with top accent bar */
+/* --- Skills Section Base ---------------------------------------------- */
+/* Card-style container for the skills section without decorative accents */
+
 .section.skills {
-  background: $white;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  border-radius: $border-radius;
-  padding: 2rem;
-  margin-bottom: 2rem;
-  box-sizing: border-box;
-  position: relative;
-  overflow: hidden;
+  background: $white;                                                                                         // white background for contrast
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);                                                                 // subtle shadow for depth
+  border-radius: $border-radius;                                                                              // rounded corners
+  padding: 2rem;                                                                                              // inner spacing
+  margin-bottom: 2rem;                                                                                        // space below the section
+  box-sizing: border-box;                                                                                     // include padding/border in total size
+  position: relative;                                                                                         // anchor for potential decorative elements (::before/::after)
+  overflow: hidden;                                                                                           // clip overflowing content
 }
 
-/* Add the decorative top bar like About and other sections */
+/* Adds a thin gradient accent bar at the top of the skills section */
 .section.skills::before {
-  content: '';
-  position: absolute;
-  top: 0; left: 0; right: 0;
-  height: 3px;
-  background: linear-gradient(135deg, $blue, $purple);
+  content: '';                                                                                                // create decorative bar element
+  position: absolute;                                                                                         // position inside the section
+  top: 0; left: 0; right: 0;                                                                                  // span full width across top
+  height: 3px;                                                                                                // thickness of the bar
+  background: linear-gradient(135deg, $blue, $purple);                                                        // gradient accent color
 }
 
-/* Responsive grid layout */
+/* --- Skill Rows Grid -------------------------------------------------------- */
+/* Responsive grid layout for organizing skill groups inside the skills section */
+
 .skill-rows {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 2rem 1.5rem; /* Increased vertical gap for better separation */
-  margin-top: 2rem;
-  align-items: start;
+  display: grid;                                                                                              // use CSS grid layout
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));                                                // responsive columns (min 280px, expand to fill)
+  gap: 2rem 1.5rem;                                                                                           // row gap = 2rem, column gap = 1.5rem
+  margin-top: 2rem;                                                                                           // space above the grid
+  align-items: start;                                                                                         // align items to the top of each row
 }
 
-/* Skill rows - clean and simple like About paragraphs */
+/* --- Skill Rows ---------------------------------------------------- */
+/* Container for individual skill group content inside the skills grid */
+
 .skill-row {
-  position: relative;
-  padding-left: 1rem; 
-  margin-bottom: 0; 
+  position: relative;                                                                                         // establishes anchor for decorative elements (::before, etc.)
+  padding-left: 1rem;                                                                                         // space for left accent or icon
+  margin-bottom: 0;                                                                                           // reset bottom margin
 }
 
-/* Left accent bars - similar to About section paragraphs */
+/* Decorative vertical bar for skill rows marked as 'blue' (e.g., programming languages) */
 .skill-row.blue::before {
-  content: '';
-  position: absolute;
-  left: 0;
-  top: 0.5rem;
-  width: 4px;
-  height: calc(100% - 1rem);
-  background: linear-gradient(135deg, rgba($blue, 0.6), rgba($blue, 0.4));
-  border-radius: 2px;
+  content: '';                                                                                                // create decorative element
+  position: absolute;                                                                                         // position relative to .skill-row
+  left: 0;                                                                                                    // flush against left edge
+  top: 0.5rem;                                                                                                // start slightly below top
+  width: 4px;                                                                                                 // thin vertical bar
+  height: calc(100% - 1rem);                                                                                  // extend through most of row height
+  background: linear-gradient(135deg, rgba($blue, 0.6), rgba($blue, 0.4));                                    // blue gradient accent
+  border-radius: 2px;                                                                                         // soften bar edges
 }
 
+/* Decorative vertical bar for skill rows marked as 'amber' (e.g., tools & technologies) */
 .skill-row.amber::before {
-  content: '';
-  position: absolute;
-  left: 0;
-  top: 0.5rem;
-  width: 4px;
-  height: calc(100% - 1rem);
-  background: linear-gradient(135deg, rgba($amber, 0.6), rgba($amber, 0.4));
-  border-radius: 2px;
+  content: '';                                                                                                // create decorative element
+  position: absolute;                                                                                         // position relative to .skill-row
+  left: 0;                                                                                                    // flush against left edge
+  top: 0.5rem;                                                                                                // start slightly below top
+  width: 4px;                                                                                                 // thin vertical bar
+  height: calc(100% - 1rem);                                                                                  // extend through most of row height
+  background: linear-gradient(135deg, rgba($amber, 0.6), rgba($amber, 0.4));                                  // amber gradient accent
+  border-radius: 2px;                                                                                         // soften bar edges
 }
 
+/* Decorative vertical bar for skill rows marked as 'red' (e.g., frameworks & libraries) */
 .skill-row.red::before {
-  content: '';
-  position: absolute;
-  left: 0;
-  top: 0.5rem;
-  width: 4px;
-  height: calc(100% - 1rem);
-  background: linear-gradient(135deg, rgba($red, 0.6), rgba($red, 0.4));
-  border-radius: 2px;
+  content: '';                                                                                                // create decorative element
+  position: absolute;                                                                                         // position relative to .skill-row
+  left: 0;                                                                                                    // flush against left edge
+  top: 0.5rem;                                                                                                // start slightly below top
+  width: 4px;                                                                                                 // thin vertical bar
+  height: calc(100% - 1rem);                                                                                  // extend through most of row height
+  background: linear-gradient(135deg, rgba($red, 0.6), rgba($red, 0.4));                                      // red gradient accent
+  border-radius: 2px;                                                                                         // soften bar edges
 }
 
+/* Decorative vertical bar for skill rows marked as 'green' (e.g., data science skills) */
 .skill-row.green::before {
-  content: '';
-  position: absolute;
-  left: 0;
-  top: 0.5rem;
-  width: 4px;
-  height: calc(100% - 1rem);
-  background: linear-gradient(135deg, rgba($green, 0.6), rgba($green, 0.4));
-  border-radius: 2px;
+  content: '';                                                                                                // create decorative element
+  position: absolute;                                                                                         // position relative to .skill-row
+  left: 0;                                                                                                    // flush against left edge
+  top: 0.5rem;                                                                                                // start slightly below top
+  width: 4px;                                                                                                 // thin vertical bar
+  height: calc(100% - 1rem);                                                                                  // extend through most of row height
+  background: linear-gradient(135deg, rgba($green, 0.6), rgba($green, 0.4));                                  // green gradient accent
+  border-radius: 2px;                                                                                         // soften bar edges
 }
 
-/* Header: title + icons */
+/* --- Skill Row Header ---------------------------------------------------------------------------------------- */
+/* Layout for the header area of each skill row, containing title and optional elements (like icons or counters) */
+
 .skill-row header {
-  display: grid;
-  grid-template-columns: 1fr auto;
-  align-items: center;
-  column-gap: .75rem;
-  row-gap: .25rem;
-  margin-bottom: 1rem;
+  display: grid;                                                                                              // use grid layout for flexible structure
+  grid-template-columns: 1fr auto;                                                                            // title takes full width, extra element (like badge) fits auto
+  align-items: center;                                                                                        // vertically center content
+  column-gap: .75rem;                                                                                         // spacing between columns
+  row-gap: .25rem;                                                                                            // spacing between rows
+  margin-bottom: 1rem;                                                                                        // space below header
 }
 
-/* Subtitle styling to match About section hierarchy */
+/* --- Skill Row Subtitle ----------------------------------------------- */
+/* Subtitle styling inside skill rows, used for labeling skill categories */
+
 .skill-row .sub-title {
-  margin: 0;
-  padding-left: 0; 
-  font-size: 1.3rem; 
-  line-height: 1.3;
-  font-weight: 600;
-  color: $heading-color;
+  margin: 0;                                                                                                  // reset default margins
+  padding-left: 0;                                                                                            // remove decorative left padding
+  font-size: 1.3rem;                                                                                          // slightly larger than body text
+  line-height: 1.3;                                                                                           // tighter line height for headings
+  font-weight: 600;                                                                                           // semi-bold for hierarchy
+  color: $heading-color;                                                                                      // theme color for headings
 }
-.skill-row .sub-title::before { content: none; } 
 
-/* Icons with section-specific coloring */
-.skill-icons {
-  display: inline-flex;
-  gap: .45rem;
-  flex-wrap: wrap;
-  justify-self: end;
+/* Removes the decorative bar normally applied to subtitles inside skill rows */
+.skill-row .sub-title::before { 
+  content: none;                                                                                              // disable decorative bar element
 }
+
+/* --- Skill Icons ------------------------------------------------------ */
+/* Container for skill-related icons aligned in the header of a skill row */
+
+.skill-icons { 
+  display: inline-flex;                                                                                       // inline flexbox for horizontal icon layout
+  gap: .45rem;                                                                                                // spacing between icons
+  flex-wrap: wrap;                                                                                            // allow icons to wrap onto new lines if needed
+  justify-self: end;                                                                                          // align icons to the end of the grid cell
+}
+
+/* Styles for individual icons inside the skill icons container */
 .skill-icons i {
-  font-size: 1.75rem;
-  opacity: .8;
+  font-size: 1.5rem;                                                                                          // set icon size
+  opacity: .8;                                                                                                // slightly transparent for subtle appearance
 }
 
-/* Color icons to match their section's accent color */
+/* Colors skill icons blue for programming language skill rows */
 .skill-row.blue .skill-icons i {
-  color: $blue;
+  color: $blue;                                                                                               // blue icons for programming languages
 }
 
+/* Colors skill icons amber for tools & technologies skill rows */
 .skill-row.amber .skill-icons i {
-  color: $amber;
+  color: $amber;                                                                                              // amber icons for tools & technologies
 }
 
+/* Colors skill icons red for frameworks & libraries skill rows */
 .skill-row.red .skill-icons i {
-  color: $red;
+  color: $red;                                                                                                // red icons for frameworks & libraries
 }
 
+/* Colors skill icons green for data science skill rows */
 .skill-row.green .skill-icons i {
-  color: $green;
+  color: $green;                                                                                              // green icons for data science skills
 }
 
-/* Body copy - match About section paragraph styling */
+/* --- Skill Row Paragraph ----------------------------------------- */
+/* Base paragraph styling inside each skill row for descriptive text */
+
 .skill-row p {
-  margin: 0 0 1.5rem 0; 
-  font-size: 1rem; 
-  line-height: 1.8; 
-  color: $text-color;
-  padding-left: 0; 
+  margin: 0 0 1.5rem 0;                                                                                       // bottom spacing between paragraphs
+  font-size: 1rem;                                                                                            // standard body text size
+  line-height: 1.8;                                                                                           // comfortable reading line height
+  color: $text-color;                                                                                         // default text color
+  padding-left: 0;                                                                                            // remove left padding (no decorative bar)
 }
-.skill-row p:last-child { margin-bottom: 0; }
 
-/* Strong text styling - match About section */
+/* Removes extra spacing after the last paragraph in a skill row */
+.skill-row p:last-child { 
+  margin-bottom: 0;                                                                                           // no bottom margin for the last paragraph
+}
+
+/* Emphasizes strong text inside skill row paragraphs */
 .skill-row p strong { 
-  color: $title-color; 
-  font-weight: 600; 
+  color: $title-color;                                                                                        // use title color for emphasis
+  font-weight: 600;                                                                                           // semi-bold weight for stronger emphasis
 }
 
-/* Enhanced gradient strong text like About section */
+/* Upgrades strong text inside skill row paragraphs to gradient text when supported */
 @supports (-webkit-background-clip: text) or (background-clip: text) {
   .skill-row p strong {
-    background-image: linear-gradient(135deg, $blue, $purple);
-    -webkit-background-clip: text;
-    background-clip: text;
-    -webkit-text-fill-color: transparent;
-    color: transparent;
+    background-image: linear-gradient(135deg, $blue, $purple);                                                // gradient fill for text
+    -webkit-background-clip: text;                                                                            // clip background to text (Safari/Chrome)
+    background-clip: text;                                                                                    // clip background to text (standard)
+    -webkit-text-fill-color: transparent;                                                                     // hide original text color in WebKit
+    color: transparent;                                                                                       // fallback hide color for other browsers
   }
 }
 
-/* Skill tags - subtle and clean */
+/* --- Skill Tags ------------------------------------------------- */
+/* Flex container for grouping skill tags with wrapping and spacing */
+
 .skill-tags {
-  display: flex;
-  flex-wrap: wrap;
-  gap: .4rem;
-  margin: 0;
-  padding: 0;
+  display: flex;                                                                                              // use flexbox for horizontal layout
+  flex-wrap: wrap;                                                                                            // allow tags to wrap onto multiple lines
+  gap: .4rem;                                                                                                 // spacing between tags
+  margin: 0;                                                                                                  // reset default margins
+  padding: 0;                                                                                                 // reset default padding
 }
+
+/* Base styling for individual skill tags inside the skill tags container */
 .skill-tags li {
-  list-style: none;
-  font-size: .78rem;
-  font-weight: 600;
-  padding: .3rem .65rem;
-  border-radius: 12px;
-  white-space: nowrap;
-  background: rgba($blue, 0.08);
-  color: $heading-color;
-  border-color: rgba($blue, 0.2);
-  transition: all .15s ease;
+  list-style: none;                                                                                           // remove default list bullet
+  font-size: .78rem;                                                                                          // small readable font size
+  font-weight: 600;                                                                                           // semi-bold for emphasis
+  padding: .3rem .65rem;                                                                                      // inner spacing for pill shape
+  border-radius: 12px;                                                                                        // rounded pill-style corners
+  white-space: nowrap;                                                                                        // prevent tags from breaking into two lines
+  background: rgba($blue, 0.08);                                                                              // soft blue-tinted background
+  color: $heading-color;                                                                                      // text color matches heading style
+  border-color: rgba($blue, 0.2);                                                                             // subtle border tint
+  transition: all .15s ease;                                                                                  // smooth hover/interaction transitions
 }
 
+/* Accessibility styling for keyboard navigation on skill tags */
 .skill-tags li:focus-visible {
-  outline: 2px solid rgba(59, 130, 246, 0.35);
-  outline-offset: 2px;
+  outline: 2px solid rgba(59, 130, 246, 0.35);                                                              // blue focus ring
+  outline-offset: 2px;                                                                                        // spacing between outline and tag edge
 }
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+/* ------------------------------------------------------------------------------------------------------------------------------------------------------ */
+/* ------------------------------------------------------------------------------------------------------------------------------------------------------ */
+/* ------------------------------------------------------------------------------------------------------------------------------------------------------ */
 
 
 /* =================================== */
