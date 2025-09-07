@@ -1463,14 +1463,14 @@ including layout wrappers, base button design, hover/focus states, and style var
     right: 0;
   }
 
-  /* --- Header buttons (≤520px) — match screenshot layout --- */
+  /* --- Header buttons (520px fixes) --- */
 
   /* Secondary pills: left-align icon + text, keep vertical centering */
   .linkWrapperMobile .link a {
     display: flex;
     align-items: center;       /* vertical center */
     justify-content: flex-start;/* <-- left-align contents */
-    gap: 0.625rem;             /* space between icon and label */
+    gap: 0.5rem;             /* space between icon and label */
     text-align: left;          /* label aligns left inside pill */
     line-height: 1;
     padding-inline: 16px;      /* comfortable left/right inset */
@@ -1491,27 +1491,27 @@ including layout wrappers, base button design, hover/focus states, and style var
     flex: 0 0 auto;
   }
 
-  /* (Optional) 0.5px micro-nudge for devices where FA sits a hair high/low */
+  /* Optional micro-nudge for platforms where FA renders a hair high/low */
   @supports (transform: translateY(0)) {
     .linkWrapperMobile .link a i.fa-solid,
-    .linkWrapperMobile .link a i.fa-regular,
-    .linkWrapperMobile .link a i.fa-brands {
+    .linkWrapperMobile .link a i.fa-brands,
+    .linkWrapperMobile .link a i.fa-regular {
       transform: translateY(0.5px);
     }
   }
 
-  /* Ensure label wrappers don't reintroduce vertical drift */
+  /* Ensure the text node itself doesn’t add stray height */
   .linkWrapperMobile .link a span,
   .linkWrapperMobile .link a strong {
     line-height: 1;
   }
 
-  /* Primary “Resume” stays centered as you liked */
+  /* Primary “Resume” — force true center horizontally */
   .linkWrapperMobile .link a.primaryButton {
-    justify-content: center;
+    justify-content: center;  
     text-align: center;
-    gap: 0;
-    padding-left: 16px;
+    padding-left: 16px;       
     padding-right: 16px;
+    gap: 0;                   
   }
 }
