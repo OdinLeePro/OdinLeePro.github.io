@@ -1013,352 +1013,657 @@ including layout wrappers, base button design, hover/focus states, and style var
 /* ------------------------------------------------------------------------------------------------------------------------------------------------------ */
 
 
-/* =================================== */
-/*          Mobile Responsive          */
-/* =================================== */
+/* ================================== */
+/*          Mobile Responses          */
+/* ================================== */
+
+/* --- Mobile Link Wrapper -------------------------------------------------- */
+/* Container for mobile platform buttons, hidden by default on larger screens */
 
 .linkWrapperMobile {
-  display: none;
-  margin: 20px 0;
-  padding: 0 4px;
+  display: none;                                                                                              // hidden on larger screens
+  margin: 20px 0;                                                                                             // vertical spacing
+  padding: 0 4px;                                                                                             // slight horizontal padding
 }
+
+/* --- Mobile Link List ---------------------------------------- */
+/* Styles for the list of platform buttons in the mobile wrapper */
 
 .linkWrapperMobile ul.link {
-  margin: 0 0 12px;
-  list-style: none;
-  padding: 0;
-  display: block;
-  width: 100%;
+  margin: 0 0 12px;                                                                                           // space below the list
+  list-style: none;                                                                                           // remove bullets
+  padding: 0;                                                                                                 // reset padding
+  display: block;                                                                                             // stack list items vertically
+  width: 100%;                                                                                                // full width container
 }
 
+/* Styles for individual items in the mobile platform button list */
 .linkWrapperMobile .link li {
-  margin: 0 0 10px 0;
-  width: 100%;
-  display: block;
-  box-sizing: border-box;
+  margin: 0 0 10px 0;                                                                                         // space below each item
+  width: 100%;                                                                                                // items take full width
+  display: block;                                                                                             // block-level layout
+  box-sizing: border-box;                                                                                     // include padding/border in total width
 }
 
+/* Special styling for the first item in the mobile link list (usually the primary button) */
 .linkWrapperMobile .link li:first-child {
-  margin-bottom: 15px;
-  width: 100%;
+  margin-bottom: 15px;                                                                                        // extra spacing below the first button
+  width: 100%;                                                                                                // ensure full-width layout
 }
 
+/* Styles the 2nd, 3rd, and 4th items in the mobile link list as a three-column grid */
 .linkWrapperMobile .link li:nth-child(2),
 .linkWrapperMobile .link li:nth-child(3),
 .linkWrapperMobile .link li:nth-child(4) {
-  width: calc(33.33% - 7px);
-  float: left;
-  margin-right: 10px;
-  margin-bottom: 10px;
+  width: calc(33.33% - 7px);                                                                                  // one-third width minus spacing adjustment
+  float: left;                                                                                                // float items to align in a row
+  margin-right: 10px;                                                                                         // spacing between items
+  margin-bottom: 10px;                                                                                        // spacing below items
 }
 
+/* Removes extra right margin from the last item in the three-column mobile grid */
 .linkWrapperMobile .link li:nth-child(4) {
-  margin-right: 0;
+  margin-right: 0;                                                                                            // no right margin on the last grid item
 }
 
+/* Ensures floated grid items inside the mobile link list don't break layout */
 .linkWrapperMobile ul.link:after {
-  content: '';
-  display: table;
-  clear: both;
+  content: '';                                                                                                // generate an empty pseudo-element
+  display: table;                                                                                             // establish a block formatting context
+  clear: both;                                                                                                // clear floated child elements
 }
+
+/* --- Mobile Link Button --------------------------------------------------- */
+/* Default styling for mobile platform buttons inside the mobile link wrapper */
 
 .linkWrapperMobile .link a {
-  font-weight: 600;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: $white;
-  border: 1.5px solid $border-color;
-  border-radius: 12px;
-  text-decoration: none;
-  color: $text-color;
-  font-size: 14px;
-  padding: 12px 8px;
-  white-space: nowrap;
-  width: 100%;
-  box-sizing: border-box;
-  min-height: 48px;
-  gap: 6px;
-  transition: all 0.2s ease;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.04);
-  -webkit-tap-highlight-color: transparent;
-  text-align: center;
+  font-weight: 600;                                                                                           // semi-bold text
+  display: flex;                                                                                              // flexbox for icon + text layout
+  align-items: center;                                                                                        // vertically center content
+  justify-content: center;                                                                                    // horizontally center content
+  background: $white;                                                                                         // white button background
+  border: 1.5px solid $border-color;                                                                          // subtle border for structure
+  border-radius: 12px;                                                                                        // rounded corners
+  text-decoration: none;                                                                                      // remove underline from links
+  color: $text-color;                                                                                         // default text color
+  font-size: 14px;                                                                                            // readable font size
+  padding: 12px 8px;                                                                                          // inner spacing
+  white-space: nowrap;                                                                                        // prevent text wrapping
+  width: 100%;                                                                                                // full-width button
+  box-sizing: border-box;                                                                                     // include border/padding in width
+  min-height: 48px;                                                                                           // accessible tap target
+  gap: 6px;                                                                                                   // spacing between icon and text
+  transition: all 0.2s ease;                                                                                  // smooth hover/focus transitions
+  box-shadow: 0 2px 4px rgba(0,0,0,0.04);                                                                   // subtle shadow for depth
+  -webkit-tap-highlight-color: transparent;                                                                   // remove blue tap highlight on mobile
+  text-align: center;                                                                                         // center-align text
 }
 
+/* Hover effect for mobile platform buttons to provide visual feedback */
 .linkWrapperMobile .link a:hover {
-  background: #f8fafc;
-  border-color: rgba($blue, 0.3);
-  transform: translateY(-1px);
-  box-shadow: 0 4px 8px rgba(0,0,0,0.08);
-  color: $heading-color;
+  background: #f8fafc;                                                                                      // subtle background highlight
+  border-color: rgba($blue, 0.3);                                                                             // blue-tinted border on hover
+  transform: translateY(-1px);                                                                                // slight lift effect
+  box-shadow: 0 4px 8px rgba(0,0,0,0.08);                                                                   // stronger shadow for depth
+  color: $heading-color;                                                                                      // switch text to darker heading color
 }
 
+/* Pressed effect for mobile platform buttons when tapped or clicked */
 .linkWrapperMobile .link a:active {
-  transform: translateY(0px);
-  transition: transform 0.1s ease;
-  box-shadow: 0 1px 3px rgba(0,0,0,0.06);
+  transform: translateY(0px);                                                                                 // reset position to pressed state
+  transition: transform 0.1s ease;                                                                            // quick transition for tap feedback
+  box-shadow: 0 1px 3px rgba(0,0,0,0.06);                                                                   // smaller shadow for pressed effect
 }
 
+/* Accessibility focus styling for mobile platform buttons when navigated by keyboard */
 .linkWrapperMobile .link a:focus-visible {
-  outline: 2px solid rgba(59, 130, 246, 0.4);
-  outline-offset: 2px;
+  outline: 2px solid rgba(59, 130, 246, 0.4);                                                               // blue focus ring
+  outline-offset: 2px;                                                                                        // spacing between outline and button edge
 }
+
+/* Ensures consistent sizing and alignment of icons inside mobile buttons */
+.linkWrapperMobile .link a i {
+  width: 16px;                                                                                                // fixed icon width
+  height: 16px;                                                                                               // fixed icon height
+  vertical-align: middle;                                                                                     // align with text baseline
+  flex-shrink: 0;                                                                                             // prevent icon from shrinking in flex layout
+}
+
+/* --- Mobile Primary Button ------------------------------------------------ */
+/* Special styling for the main call-to-action button in the mobile link list */
 
 .linkWrapperMobile .link a.primaryButton {
-  background: linear-gradient(135deg, $blue, $purple);
-  color: white;
-  border: none;
-  font-weight: 700;
-  margin-bottom: 0;
-  box-shadow: 0 3px 8px rgba($blue, 0.25);
-  letter-spacing: 0.3px;
-  text-align: center;
+  background: linear-gradient(135deg, $blue, $purple);                                                        // gradient background for emphasis
+  color: white;                                                                                             // white text for contrast
+  border: none;                                                                                               // remove border
+  font-weight: 700;                                                                                           // bold for strong emphasis
+  margin-bottom: 0;                                                                                           // reset bottom margin
+  box-shadow: 0 3px 8px rgba($blue, 0.25);                                                                    // subtle shadow for depth
+  letter-spacing: 0.3px;                                                                                      // slight letter spacing for readability
+  text-align: center;                                                                                         // center-align text
 }
 
+/* Hover effect for the main mobile call-to-action button */
 .linkWrapperMobile .link a.primaryButton:hover {
-  background: linear-gradient(135deg, darken($blue, 5%), darken($purple, 5%));
-  transform: translateY(-2px);
-  box-shadow: 0 6px 15px rgba($blue, 0.35);
+  background: linear-gradient(135deg, darken($blue, 5%), darken($purple, 5%));                                // darker gradient on hover
+  transform: translateY(-2px);                                                                                // lift effect for emphasis
+  box-shadow: 0 6px 15px rgba($blue, 0.35);                                                                   // stronger shadow on hover
 }
 
+/* Pressed effect for the main mobile call-to-action button */
 .linkWrapperMobile .link a.primaryButton:active {
-  transform: translateY(0px);
-  box-shadow: 0 2px 6px rgba($blue, 0.3);
+  transform: translateY(0px);                                                                                 // reset position to pressed state
+  box-shadow: 0 2px 6px rgba($blue, 0.3);                                                                     // smaller shadow to show button is pressed
 }
 
-.linkWrapperMobile .link a i {
-  width: 16px;
-  height: 16px;
-  vertical-align: middle;
-  flex-shrink: 0;
-}
+/* =========================================== */
+/*          Max-Width 767px (Tablets)          */
+/* =========================================== */
+
+/* --- Mobile Body Styles ------------------------------------ */
+/* Adjusts body padding and font for smaller screens (≤ 767px) */
 
 @media (max-width: 767px) {
   body { 
-    padding: 1rem; 
-    font-family: $font-family;
+    padding: 1rem;                                                                                            // reduce page padding for smaller screens
+    font-family: $font-family;                                                                                // ensure consistent font stack
   }
   
-  .linkWrapperDesktop { display: none !important; }
-  .linkWrapperMobile { display: block !important; }
-  
-  .section { 
-    padding: 1.8rem 1.2rem;
-    margin-bottom: 1.5rem;
-  }
-  
-  h1.section-title { 
-    font-size: 2rem;
-    margin-bottom: 1.5rem;
-    text-align: center;
-  }
-  
-  .skills-grid {
-    grid-template-columns: 1fr;
-    gap: 2rem;
-  }
-  
-  .projectGrid {
-    grid-template-columns: 1fr;
-    gap: 1.8rem;
-  }
-  
-  .educationGrid {
-    padding: 0 0.5rem;
-    margin: 2rem 0;
-    width: 100%;
-    box-sizing: border-box;
-  }
-  
-  .educationCard {
-    flex-direction: row;
-    text-align: left;
-    width: 100%;
-    max-width: 100%;
-    gap: 1.5rem;
-    padding: 1.5rem;
-    margin: 0 auto;
-    box-sizing: border-box;
-    overflow: visible;
-  }
-  
-  .educationLogo {
-    flex-shrink: 0;
-    min-width: 92px;
-    width: 92px;
-  }
-  
-  .educationLogo img {
-    width: 60px;
-    height: 60px;
-  }
-  
-  .educationText { 
-    padding-left: 0; 
-    text-align: left;
-    flex: 1;
-  }
-  .educationText h2::before { display: none; }
-  .educationText p { 
-    padding-left: 0;
-    margin-bottom: 1rem;
-  }
-  
-  .headshot {
-    float: right;
-    width: 140px;
-    height: 140px;
-    box-sizing: border-box;
-    margin-bottom: 0px;
-    margin-left: 1rem;
-    border-radius: 50%;
-    object-fit: cover;
-    box-shadow: 0 3px 12px rgba(0,0,0,0.1);
+  /* --- Mobile Link Wrapper Overrides ------------------------------ */
+  /* Switch from desktop to mobile button wrappers on smaller screens */
+
+  .linkWrapperDesktop { 
+    display: none !important;                                                                                 // hide desktop buttons
   }
 
+  .linkWrapperMobile { 
+    display: block !important;                                                                                // show mobile buttons
+  }
+  
+  /* --- Mobile Section Adjustments ---------------- */
+  /* Tighter spacing for sections on smaller screens */
+
+  .section { 
+    padding: 1.8rem 1.2rem;                                                                                   // reduced inner padding for compact layout
+    margin-bottom: 1.5rem;                                                                                    // less space between sections
+  }
+  
+  /* Smaller, more compact heading style for section titles on mobile */
+  h1.section-title { 
+    font-size: 2rem;                                                                                          // reduce heading size for smaller screens
+    margin-bottom: 1.5rem;                                                                                    // adjust spacing below title
+    text-align: center;                                                                                       // keep title centered
+  }
+  
+  /* --- Mobile Grid Adjustments ---------------------------- */
+  /* Stack skill items in a single column for smaller screens */
+
+  .skills-grid {
+    grid-template-columns: 1fr;                                                                               // single-column layout
+    gap: 2rem;                                                                                                // vertical spacing between items
+  }
+  
+  /* Display projects in a single column with tighter spacing on mobile */
+  .projectGrid {
+    grid-template-columns: 1fr;                                                                               // stack projects in one column
+    gap: 1.8rem;                                                                                              // slightly reduced spacing between projects
+  }
+  
+  /* Adjust spacing and sizing for the education section on smaller screens */
+  .educationGrid {
+    padding: 0 0.5rem;                                                                                        // small horizontal padding
+    margin: 2rem 0;                                                                                           // vertical spacing around the section
+    width: 100%;                                                                                              // full-width layout
+    box-sizing: border-box;                                                                                   // include padding in total width
+  }
+  
+  /* --- Mobile Left Side / Header Section Adjustments ------------- */
+  /* Scales and repositions the profile headshot for smaller screens */
+
+  .headshot {
+    float: right;                                                                                             // place image on the right side
+    width: 140px;                                                                                             // set fixed width
+    height: 140px;                                                                                            // set fixed height (square)
+    box-sizing: border-box;                                                                                   // include padding/border in dimensions
+    margin-bottom: 0px;                                                                                       // remove bottom spacing
+    margin-left: 1rem;                                                                                        // spacing between image and text
+    border-radius: 50%;                                                                                       // make the image circular
+    object-fit: cover;                                                                                        // crop image neatly within circle
+    box-shadow: 0 3px 12px rgba(0,0,0,0.1);                                                                 // subtle shadow for depth
+  }
+
+  /* Adjusts name/title styling when paired with headshot or location on smaller screens */
   .headshot + h1,
   h1:has(+ .location) {
-    font-size: 2.2rem;
-    margin-bottom: 8px;
-    line-height: 1.1;
-    font-weight: 800;
-    text-align: left;
+    font-size: 2.2rem;                                                                                        // slightly smaller font for mobile
+    margin-bottom: 8px;                                                                                       // reduced spacing below
+    line-height: 1.1;                                                                                         // compact line spacing
+    font-weight: 800;                                                                                         // strong bold emphasis
+    text-align: left;                                                                                         // align left with text flow
   }
 
+  /* Refines the location text style and alignment for smaller screens */
   .location {
-    font-size: 0.9rem;
-    margin: 8px 0 12px 0;
-    color: $muted-color;
-    line-height: 1.4;
-    text-align: left;
-    justify-content: flex-start;
+    font-size: 0.9rem;                                                                                        // smaller font size for compact layout
+    margin: 8px 0 12px 0;                                                                                     // tighter vertical spacing
+    color: $muted-color;                                                                                      // muted text color for subtlety
+    line-height: 1.4;                                                                                         // balanced line height
+    text-align: left;                                                                                         // align with text flow
+    justify-content: flex-start;                                                                              // align icon and text to the left
   }
 
+  /* Styles the professional/role title for smaller screens */
   .professional-title {
-    font-size: 0.85rem;
-    font-weight: 600;
-    color: $heading-color;
-    margin-bottom: 1rem;
-    letter-spacing: 0.5px;
-    text-transform: uppercase;
-    text-align: left;
+    font-size: 0.85rem;                                                                                       // smaller font size for compact design
+    font-weight: 600;                                                                                         // semi-bold for emphasis
+    color: $heading-color;                                                                                    // use heading color for hierarchy
+    margin-bottom: 1rem;                                                                                      // space below the title
+    letter-spacing: 0.5px;                                                                                    // wider letter spacing for readability
+    text-transform: uppercase;                                                                                // make text appear as a credential
+    text-align: left;                                                                                         // align with surrounding text
   }
 
+  /* Refines tagline text for readability and alignment on smaller screens */
   .tagline {
-    font-size: 0.9rem;
-    line-height: 1.5;
-    color: $text-color;
-    margin-bottom: 1.5rem;
-    text-align: left;
-    padding: 0;
+    font-size: 0.9rem;                                                                                        // slightly smaller text size
+    line-height: 1.5;                                                                                         // comfortable line spacing
+    color: $text-color;                                                                                       // default body text color
+    margin-bottom: 1.5rem;                                                                                    // space below tagline
+    text-align: left;                                                                                         // align with body text
+    padding: 0;                                                                                               // remove side padding for mobile
+  }
+
+  /* --- Mobile Education Section Adjustments ------------------------------------ */
+  /* Adjusts education cards for smaller screens to be more compact and horizontal */
+
+  .educationCard {
+    flex-direction: row;                                                                                      // switch from column to row layout
+    text-align: left;                                                                                         // align text to the left
+    width: 100%;                                                                                              // take full width of container
+    max-width: 100%;                                                                                          // remove maximum width restriction
+    gap: 1.5rem;                                                                                              // spacing between logo and text
+    padding: 1.5rem;                                                                                          // compact inner padding
+    margin: 0 auto;                                                                                           // center horizontally
+    box-sizing: border-box;                                                                                   // include padding in total width
+    overflow: visible;                                                                                        // allow content to extend beyond card
   }
   
+  /* Fixes logo size inside education cards for smaller screens */
+  .educationLogo {
+    flex-shrink: 0;                                                                                           // prevent the logo from shrinking
+    min-width: 92px;                                                                                          // ensure consistent minimum width
+    width: 92px;                                                                                              // fixed width for logo container
+  }
+  
+  /* Scales the school/university logo image for mobile devices */
+  .educationLogo img {
+    width: 60px;                                                                                              // fixed image width
+    height: 60px;                                                                                             // fixed image height (square)
+  }
+  
+  /* Adjusts text block inside education cards for smaller screens */
+  .educationText { 
+    padding-left: 0;                                                                                          // remove left padding for tighter layout
+    text-align: left;                                                                                         // align text to the left
+    flex: 1;                                                                                                  // allow text to take up remaining space
+  }
+
+  /* Removes the decorative bar before education titles on smaller screens */
+  .educationText h2::before { 
+    display: none;                                                                                            // hide decorative bar
+  }
+
+  /* Simplifies spacing and layout for education text on smaller screens */
+  .educationText p { 
+    padding-left: 0;                                                                                          // remove decorative left padding
+    margin-bottom: 1rem;                                                                                      // consistent spacing below each paragraph
+  }
+  
+  /* --- Mobile Project Section Adjustments ------------------------------------ */
+  /* Removes side padding so project cards can use full width on smaller screens */
+
   .section.projects {
-    padding-left: 0;
-    padding-right: 0;
+    padding-left: 0;                                                                                          // remove left padding
+    padding-right: 0;                                                                                         // remove right padding
   }
   
-  .projectCarousel {
-    width: 100vw;
-    max-width: none;
-    margin-left: calc(-50vw + 50%);
-    margin-right: calc(-50vw + 50%);
-    overflow: hidden;
-    padding: 0;
-    position: relative;
-  }
-  
+  /* Resize and space project cards to fit neatly within mobile carousel */
   .projectCard {
-    width: calc(100vw - 3rem);
-    flex: 0 0 calc(100vw - 3rem);
-    box-sizing: border-box;
-    margin: 0 1.5rem;
+    width: calc(100vw - 3rem);                                                                                // card width = full viewport minus side margins
+    flex: 0 0 calc(100vw - 3rem);                                                                             // prevent flex shrink/grow, fixed width per card
+    box-sizing: border-box;                                                                                   // include padding/borders in width
+    margin: 0 1.5rem;                                                                                         // equal left/right spacing between cards
   }
   
+  /* Optimizes the grid container for smooth carousel behavior on mobile */
   .projectGrid {
-    width: auto;
-    will-change: transform;
+    width: auto;                                                                                              // allow natural width instead of fixed grid sizing
+    will-change: transform;                                                                                   // hint browser to optimize transform animations
   }
   
-  .carouselControls {
-    margin: 0 1.5rem;
+  /* Makes project carousel span full screen width for smaller devices */
+  .projectCarousel {
+    width: 100vw;                                                                                             // stretch carousel to full viewport width
+    max-width: none;                                                                                          // remove maximum width restriction
+    margin-left: calc(-50vw + 50%);                                                                           // center align using negative margin trick
+    margin-right: calc(-50vw + 50%);                                                                          // mirror on the right side
+    overflow: hidden;                                                                                         // hide overflowing content
+    padding: 0;                                                                                               // remove inner spacing
+    position: relative;                                                                                       // anchor for carousel controls
+    margin: 0 1.5rem;                                                                                         // equal left/right margins
   }
 }
 
+/* ========================================== */
+/*          Max-Width 520px (Phones)          */
+/* ========================================== */
+
 @media (max-width: 520px) {
-  .section { 
-    padding: 1.2rem 0.8rem;
+  /* --- Body & General Layout --------------------------------- */
+  body { 
+    padding: 0.75rem;                                           // Even tighter padding for small phones
+    font-size: 14px;                                            // Slightly smaller base font for readability
   }
 
-  .headshot {
-    width: 120px;
-    height: 120px;
+  .section { 
+    padding: 1rem 0.75rem;                                      // More compact section padding
+    margin-bottom: 1.25rem;                                     // Tighter spacing between sections
+    border-radius: 8px;                                         // Slightly less rounded for more space
   }
-  
+
+  /* --- Typography Adjustments -------------------------------- */
   h1.section-title {
-    font-size: 1.7rem;
-    margin-bottom: 1.2rem;
+    font-size: 1.6rem;                                          // Smaller section titles
+    margin-bottom: 1rem;                                        // Reduced margin
+    line-height: 1.2;                                           // Tighter line height
+  }
+
+  /* --- Header/Profile Section -------------------------------- */
+  .headshot {
+    width: 100px;                                               // Smaller headshot for phones
+    height: 100px;
+    margin-left: 0.75rem;                                       // Reduced margin
+    margin-bottom: 0.5rem;                                      // Add small bottom margin
   }
   
   .headshot + h1,
   h1:has(+ .location) {
-    font-size: 2rem;
-    margin-bottom: 8px;
+    font-size: 1.75rem;                                         // Smaller name/title
+    margin-bottom: 6px;
+    line-height: 1.1;
     text-align: left;
   }
   
   .location {
-    font-size: 0.85rem;
-    margin: 6px 0 10px 0;
+    font-size: 0.8rem;                                          // Smaller location text
+    margin: 4px 0 8px 0;                                        // Tighter spacing
     text-align: left;
     justify-content: flex-start;
+    gap: 4px;                                                   // Smaller gap between icon and text
   }
 
   .professional-title {
+    font-size: 0.8rem;                                          // Smaller professional title
+    margin-bottom: 0.75rem;
+    letter-spacing: 0.3px;
     text-align: left;
   }
 
   .tagline {
+    font-size: 0.85rem;                                         // Smaller tagline
+    line-height: 1.4;                                           // Tighter line height
+    margin-bottom: 1.25rem;
     text-align: left;
+    padding: 0;
+  }
+
+  /* --- Mobile Button Improvements ---------------------------- */
+  .linkWrapperMobile {
+    margin: 16px 0;                                             // Reduced margin around buttons
+  }
+
+  .linkWrapperMobile .link li:first-child {
+    margin-bottom: 12px;                                        // Smaller gap after primary button
   }
 
   .linkWrapperMobile .link li:nth-child(2),
   .linkWrapperMobile .link li:nth-child(3),
   .linkWrapperMobile .link li:nth-child(4) {
-    gap: 6px;
+    width: calc(33.33% - 6px);                                  // Slightly wider buttons
+    margin-right: 8px;                                          // Smaller gaps between buttons
+    margin-bottom: 8px;
+  }
+
+  .linkWrapperMobile .link li:nth-child(4) {
+    margin-right: 0;
   }
 
   .linkWrapperMobile .link a {
-    font-size: 13px;
-    padding: 10px 8px;
-    min-height: 44px;
+    font-size: 12px;                                            // Smaller font for buttons
+    padding: 8px 6px;                                           // More compact padding
+    min-height: 40px;                                           // Smaller minimum height but still accessible
+    gap: 4px;                                                   // Smaller gap between icon and text
+    border-radius: 10px;                                        // Less rounded for more space
   }
-  
+
+  .linkWrapperMobile .link a i {
+    width: 14px;                                                // Smaller icons
+    height: 14px;
+    font-size: 14px;
+  }
+
+  /* --- About Section Improvements ---------------------------- */
+  .about p {
+    font-size: 0.9rem;                                          // Smaller paragraph text
+    line-height: 1.6;                                           // Comfortable but compact
+    margin-bottom: 1.25rem;                                     // Reduced spacing between paragraphs
+    padding-left: 0.75rem;                                      // Smaller left padding for decorative bar
+  }
+
+  .about p::before {
+    width: 2px;                                                 // Thinner decorative bar
+    top: 0.25rem;                                               // Adjust position
+    height: calc(100% - 0.5rem);                               // Adjust height
+  }
+
+  /* --- Education Section Improvements ----------------------- */
+  .educationGrid {
+    gap: 1.5rem;                                                // Tighter spacing between cards
+    margin-top: 1.5rem;
+    padding: 0 0.25rem;                                         // Minimal side padding
+  }
+
   .educationCard {
-    flex-direction: column;
+    flex-direction: column;                                     // Stack vertically on phones
     text-align: center;
-    gap: 1rem;
-    padding: 1.2rem;
+    gap: 1rem;                                                  // Reduced gap
+    padding: 1rem;                                              // More compact padding
+    width: 100%;                                                // Full width
+    max-width: none;
+    border-radius: 10px;                                        // Less rounded
   }
   
   .educationLogo {
-    order: 0;
+    order: -1;                                                  // Logo first (top)
     align-self: center;
     min-width: auto;
     width: auto;
+    padding: 0.75rem;                                           // Smaller padding around logo
+  }
+
+  .educationLogo img {
+    width: 50px;                                                // Smaller logo
+    height: 50px;
   }
   
   .educationText {
     text-align: center;
+    padding: 0;
+  }
+
+  .educationText h2 {
+    font-size: 1.4rem;                                          // Smaller university name
+    margin-bottom: 0.75rem;
+  }
+
+  .educationText p:first-of-type {
+    font-size: 1rem;                                            // Smaller degree text
+    gap: 0.75rem;                                               // Smaller gap for status badge
+  }
+
+  .educationText p:last-of-type {
+    font-size: 0.85rem;                                         // Smaller date text
+  }
+
+  .status-badge {
+    padding: 0.25rem 0.65rem;                                   // More compact badge
+    font-size: 0.7rem;
+    letter-spacing: 0.5px;
+    border-radius: 12px;                                        // Less rounded
+  }
+
+  /* --- Projects Section Improvements ------------------------- */
+  .section.projects {
+    padding: 1rem 0;                                            // Remove side padding but keep top/bottom
+  }
+
+  .projectCarousel {
+    width: 100vw;
+    max-width: none;
+    margin-left: calc(-50vw + 50%);
+    margin-right: calc(-50vw + 50%);
+    padding-bottom: 50px;                                       // Less space for controls
   }
   
   .projectCard {
-    width: calc(100vw - 2rem);
-    flex: 0 0 calc(100vw - 2rem);
-    margin: 0 1rem;
+    width: calc(100vw - 1.5rem);                                // Slightly more space for content
+    flex: 0 0 calc(100vw - 1.5rem);
+    margin: 0 0.75rem;
+    border-radius: 10px;                                        // Less rounded corners
   }
-  
+
+  .projectBody {
+    padding: 0.875rem;                                          // More compact padding
+    gap: 0.4rem;                                                // Tighter spacing between elements
+  }
+
+  .projectTitle {
+    font-size: 1.1rem;                                          // Smaller project title
+    margin-bottom: 0.5rem;
+    line-height: 1.2;
+  }
+
+  .languageBadges {
+    gap: 0.4rem;                                                // Tighter badge spacing
+    margin-bottom: 0.75rem;
+  }
+
+  .languageBadges li {
+    font-size: 0.65rem;                                         // Smaller badge text
+    padding: 0.25rem 0.55rem;                                   // More compact badges
+    border-radius: 12px;
+  }
+
+  .projectSummary {
+    font-size: 0.85rem;                                         // Smaller summary text
+    line-height: 1.4;
+    margin-bottom: 0.75rem;
+  }
+
+  .projectBullets {
+    font-size: 0.8rem;                                          // Smaller bullet text
+    line-height: 1.3;
+    padding-left: 0.875rem;                                     // Adjust for smaller text
+  }
+
+  .projectBullets li {
+    margin: 0.2rem 0;                                           // Tighter bullet spacing
+  }
+
+  /* --- Carousel Controls Improvements ------------------------ */
   .carouselControls {
-    margin: 0 1rem;
+    bottom: 8px;                                                // Closer to bottom
+    gap: 10px;                                                  // Tighter control spacing
+  }
+
+  .carouselNav,
+  .playPauseBtn {
+    width: 32px;                                                // Smaller control buttons
+    height: 32px;
+  }
+
+  .carouselNav svg,
+  .playPauseBtn svg {
+    width: 16px;                                                // Smaller icons
+    height: 16px;
+  }
+
+  .indicator {
+    width: 8px;                                                 // Smaller indicators
+    height: 8px;
+  }
+
+  .carouselIndicators {
+    gap: 6px;                                                   // Tighter indicator spacing
+  }
+
+  /* --- Skills Section Improvements --------------------------- */
+  .skill-rows {
+    grid-template-columns: 1fr;                                 // Single column for skills
+    gap: 1.5rem;                                                // Tighter row spacing
+    margin-top: 1.5rem;
+  }
+
+  .skill-row {
+    padding-left: 0.75rem;                                      // Smaller left padding
+  }
+
+  .skill-row::before {
+    width: 3px;                                                 // Thinner decorative bar
+    top: 0.25rem;
+    height: calc(100% - 0.5rem);
+  }
+
+  .skill-row .sub-title {
+    font-size: 1.1rem;                                          // Smaller skill category titles
+    margin-bottom: 0.75rem;
+  }
+
+  .skill-row header {
+    margin-bottom: 0.75rem;                                     // Tighter header spacing
+    column-gap: 0.5rem;
+  }
+
+  .skill-icons i {
+    font-size: 1.25rem;                                         // Smaller skill icons
+  }
+
+  .skill-row p {
+    font-size: 0.9rem;                                          // Smaller skill description
+    line-height: 1.6;
+    margin-bottom: 1rem;
+  }
+
+  .skill-tags {
+    gap: 0.3rem;                                                // Tighter tag spacing
+  }
+
+  .skill-tags li {
+    font-size: 0.7rem;                                          // Smaller skill tags
+    padding: 0.25rem 0.5rem;
+    border-radius: 10px;
+  }
+
+  /* --- Utility Classes for Phone ---------------------------- */
+  .phone-hidden {
+    display: none !important;                                   // Utility class to hide elements on phones
+  }
+
+  .phone-center {
+    text-align: center !important;                              // Utility class to center text on phones
+  }
+
+  .phone-small {
+    font-size: 0.8rem !important;                               // Utility class for smaller text on phones
   }
 }
