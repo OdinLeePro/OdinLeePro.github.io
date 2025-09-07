@@ -1402,11 +1402,7 @@ including layout wrappers, base button design, hover/focus states, and style var
     min-height: 44px;
   }
 
-  .linkWrapperMobile .link a i {
-    font-size: 14px;
-    line-height: 1;
-    vertical-align: middle;
-  }
+  /* (removed the old generic `.linkWrapperMobile .link a i { … }` rule) */
   
   .educationCard {
     flex-direction: column;
@@ -1477,23 +1473,23 @@ including layout wrappers, base button design, hover/focus states, and style var
   }
 
   /* Font Awesome icon: square box, perfectly centered next to label */
-  .linkWrapperMobile .link a i.fa-solid,
-  .linkWrapperMobile .link a i.fa-regular,
-  .linkWrapperMobile .link a i.fa-brands {
-    display: inline-grid;        /* fixes baseline quirks */
+  .linkWrapperMobile .link a:not(.primaryButton) i.fa-solid,
+  .linkWrapperMobile .link a:not(.primaryButton) i.fa-regular,
+  .linkWrapperMobile .link a:not(.primaryButton) i.fa-brands {
+    display: inline-grid !important;  /* fixes baseline quirks & wins specificity */
     place-items: center;
     width: 1.1em;
     height: 1.1em;
     line-height: 1;
-    margin: 0 !important;        /* remove any default margins */
+    margin: 0;                        /* remove any default margins */
     flex: 0 0 auto;
   }
 
   /* Optional micro-nudge for rare devices where FA sits a hair high/low */
   @supports (transform: translateY(0)) {
-    .linkWrapperMobile .link a i.fa-solid,
-    .linkWrapperMobile .link a i.fa-regular,
-    .linkWrapperMobile .link a i.fa-brands {
+    .linkWrapperMobile .link a:not(.primaryButton) i.fa-solid,
+    .linkWrapperMobile .link a:not(.primaryButton) i.fa-regular,
+    .linkWrapperMobile .link a:not(.primaryButton) i.fa-brands {
       transform: translateY(0.5px);
     }
   }
@@ -1513,10 +1509,10 @@ including layout wrappers, base button design, hover/focus states, and style var
     gap: 0;                      /* no phantom spacing */
   }
 
-  /* Hide any icon inside the primary pill on phones (safeguard) */
+  /* Hide any icon ONLY inside the PRIMARY (Resume) button */
   .linkWrapperMobile .link a.primaryButton i.fa-solid,
   .linkWrapperMobile .link a.primaryButton i.fa-regular,
-  .linkWrapperMobile .link a i.fa-brands {
+  .linkWrapperMobile .link a.primaryButton i.fa-brands {
     display: none !important;
   }
 }
