@@ -1471,20 +1471,31 @@ including layout wrappers, base button design, hover/focus states, and style var
     align-items: center;
     justify-content: center;
     gap: 0.5rem;
-    line-height: 1;          /* kill baseline wobble */
+    line-height: 1;          
     text-align: center;
-    /* keep your existing min-height/padding */
   }
 
-  /* Font Awesome: normalize icon box + vertical alignment */
+  /* Font Awesome: convert icon into a centered square box */
   .linkWrapperMobile .link a i.fa-solid,
-  .linkWrapperMobile .link a i.fa-brands {
-    display: inline-block;   /* prevents baseline offset */
-    width: 1.25em;           /* FA’s fixed-width equivalent */
+  .linkWrapperMobile .link a i.fa-brands,
+  .linkWrapperMobile .link a i.fa-regular {
+    display: inline-grid;      /* replaces inline-block */
+    place-items: center;       /* true vertical + horizontal centering */
+    min-width: 1.25em;
+    min-height: 1.25em;
+    line-height: 1;            /* no extra ascender/descender space */
+    font-size: 1.1em;          /* slight visual balance boost */
     text-align: center;
-    font-size: 1.05em;       /* slight boost for visual balance */
-    line-height: 1;          /* lock to text line-height */
-    vertical-align: middle;  /* harmless with inline-block */
+    flex: 0 0 auto;            /* don’t stretch or shrink */
+  }
+
+  /* Optional micro-nudge for platforms where FA renders a hair high/low */
+  @supports (transform: translateY(0)) {
+    .linkWrapperMobile .link a i.fa-solid,
+    .linkWrapperMobile .link a i.fa-brands,
+    .linkWrapperMobile .link a i.fa-regular {
+      transform: translateY(0.5px);
+    }
   }
 
   /* Ensure the text node itself doesn’t add stray height */
@@ -1495,16 +1506,10 @@ including layout wrappers, base button design, hover/focus states, and style var
 
   /* Primary “Resume” — force true center horizontally */
   .linkWrapperMobile .link a.primaryButton {
-    justify-content: center;   /* override any space-between */
+    justify-content: center;  
     text-align: center;
-    padding-left: 16px;        /* symmetric padding */
+    padding-left: 16px;       
     padding-right: 16px;
-    gap: 0;                    /* no phantom spacing on phones */
-  }
-
-  /* If the primary button includes an <i> icon, hide it on phones */
-  .linkWrapperMobile .link a.primaryButton i.fa-solid,
-  .linkWrapperMobile .link a.primaryButton i.fa-brands {
-    display: none !important;
+    gap: 0;                   
   }
 }
