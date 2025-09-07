@@ -1413,6 +1413,10 @@ including layout wrappers, base button design, hover/focus states, and style var
     gap: 1rem;
     padding: 1.2rem;
   }
+
+  .educationCard::before {
+    border-radius: $border-radius-large $border-radius-large 0 0;
+  }
   
   .educationLogo {
     order: 0;
