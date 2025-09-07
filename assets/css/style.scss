@@ -1387,13 +1387,8 @@ including layout wrappers, base button design, hover/focus states, and style var
     justify-content: flex-start;
   }
 
-  .professional-title {
-    text-align: left;
-  }
-
-  .tagline {
-    text-align: left;
-  }
+  .professional-title { text-align: left; }
+  .tagline { text-align: left; }
 
   .linkWrapperMobile .link li:nth-child(2),
   .linkWrapperMobile .link li:nth-child(3),
@@ -1433,9 +1428,7 @@ including layout wrappers, base button design, hover/focus states, and style var
     width: auto;
   }
   
-  .educationText {
-    text-align: left;
-  }
+  .educationText { text-align: left; }
   
   .section.projects {
     padding-left: 0;      
@@ -1463,31 +1456,37 @@ including layout wrappers, base button design, hover/focus states, and style var
     right: 0;
   }
 
-  /* --- Header buttons (520px fixes) --- */
+  /* --- Header buttons (≤520px) — tighten spacing + keep Resume centered --- */
 
-  /* Secondary pills: left-align icon + text, keep vertical centering */
+  /* Base: center by default with tighter icon↔text gap */
   .linkWrapperMobile .link a {
     display: flex;
-    align-items: center;       /* vertical center */
-    justify-content: flex-start;/* <-- left-align contents */
-    gap: 0.5rem;             /* space between icon and label */
-    text-align: left;          /* label aligns left inside pill */
+    align-items: center;
+    justify-content: center;
+    gap: 0.375rem;            /* tighter spacing */
     line-height: 1;
-    padding-inline: 16px;      /* comfortable left/right inset */
-    /* keep your existing height/radius/shadow */
+    text-align: center;
+    padding-inline: 16px;
+  }
+
+  /* Secondary pills ONLY (GitHub / LinkedIn / Email): left-align content */
+  .linkWrapperMobile .link a:not(.primaryButton) {
+    justify-content: flex-start;
+    text-align: left;
   }
 
   /* Font Awesome icon: fixed square box, perfectly centered */
   .linkWrapperMobile .link a i.fa-solid,
   .linkWrapperMobile .link a i.fa-regular,
   .linkWrapperMobile .link a i.fa-brands {
-    display: inline-grid;      /* gives a real box, fixes baseline quirks */
-    place-items: center;       /* center glyph inside box */
-    min-width: 1.25em;
-    min-height: 1.25em;
+    display: inline-grid;      /* true centering */
+    place-items: center;
+    width: 1.15em;
+    height: 1.15em;
     line-height: 1;
-    font-size: 1.1em;          /* slight balance boost vs text */
+    font-size: 1.1em;
     text-align: center;
+    margin: 0 !important;      /* remove stray margins */
     flex: 0 0 auto;
   }
 
@@ -1508,10 +1507,17 @@ including layout wrappers, base button design, hover/focus states, and style var
 
   /* Primary “Resume” — force true center horizontally */
   .linkWrapperMobile .link a.primaryButton {
-    justify-content: center;  
+    justify-content: center !important;
     text-align: center;
-    padding-left: 16px;       
+    padding-left: 16px;
     padding-right: 16px;
-    gap: 0;                   
+    gap: 0;                     /* no phantom spacing */
+  }
+
+  /* Hide any icon inside the primary pill on phones (safeguard) */
+  .linkWrapperMobile .link a.primaryButton i.fa-solid,
+  .linkWrapperMobile .link a.primaryButton i.fa-regular,
+  .linkWrapperMobile .link a.primaryButton i.fa-brands {
+    display: none !important;
   }
 }
