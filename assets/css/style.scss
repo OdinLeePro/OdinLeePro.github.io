@@ -1413,12 +1413,11 @@ including layout wrappers, base button design, hover/focus states, and style var
     vertical-align: middle;
   }
   
-  /* --- FIXED: Keep education cards with logo on left --- */
   .educationCard {
-    flex-direction: row;        // Keep row layout (logo left, text right)
-    text-align: left;           // Align text to left
-    gap: 1rem;                  // Reduce gap for smaller screens
-    padding: 1.2rem;            // Reduce padding
+    flex-direction: column;
+    text-align: center;
+    gap: 1rem;
+    padding: 1.2rem;
   }
 
   .educationCard::before {
@@ -1428,55 +1427,84 @@ including layout wrappers, base button design, hover/focus states, and style var
   }
   
   .educationLogo {
-    flex-shrink: 0;             // Don't let logo shrink
-    min-width: 70px;            // Smaller minimum width for phones
-    width: 70px;                // Smaller fixed width
-    padding: 0.75rem;           // Reduce padding around logo
-  }
-  
-  .educationLogo img {
-    width: 50px;                // Smaller logo image
-    height: 50px;               // Smaller logo image
+    order: 0;
+    align-self: center;
+    min-width: auto;
+    width: auto;
   }
   
   .educationText {
     text-align: left;
-    flex: 1;                    // Take up remaining space
   }
   
-  .educationText h2 {
-    font-size: 1.5rem;          // Smaller heading for mobile
-  }
-  
-  .educationText p:first-of-type {
-    font-size: 1rem;            // Smaller degree text
-    gap: 0.75rem;               // Smaller gap between degree and badge
-  }
-  
-  /* --- Project carousel fixes --- */
   .section.projects {
-    padding-left: 0;
-    padding-right: 0;
+    padding-left: 0;      
+    padding-right: 0;     
   }
   
   .projectCarousel {
-    width: 100%;
-    max-width: none;
-    margin: 2rem 0;
-    padding: 0;
-    overflow: hidden;
+    width: 100%;          
+    max-width: none;      
+    margin: 2rem 0;       
+    padding: 0;          
+    overflow: hidden;     
   }
   
   .projectCard {
-    width: 100%;
-    flex: 0 0 100%;
-    margin: 0;
-    box-sizing: border-box;
+    width: 100%;          
+    flex: 0 0 100%;      
+    margin: 0;            
+    box-sizing: border-box; 
   }
   
   .carouselControls {
-    margin: 0;
+    margin: 0;            
     left: 0;
     right: 0;
+  }
+
+  /* --- Header buttons (520px fixes) --- */
+
+  /* Make icon + label align perfectly in the secondary pills */
+  .linkWrapperMobile .link a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    line-height: 1;          /* kill baseline wobble */
+    text-align: center;
+    /* keep your existing min-height/padding */
+  }
+
+  /* Font Awesome: normalize icon box + vertical alignment */
+  .linkWrapperMobile .link a i.fa-solid,
+  .linkWrapperMobile .link a i.fa-brands {
+    display: inline-block;   /* prevents baseline offset */
+    width: 1.25em;           /* FA’s fixed-width equivalent */
+    text-align: center;
+    font-size: 1.05em;       /* slight boost for visual balance */
+    line-height: 1;          /* lock to text line-height */
+    vertical-align: middle;  /* harmless with inline-block */
+  }
+
+  /* Ensure the text node itself doesn’t add stray height */
+  .linkWrapperMobile .link a span,
+  .linkWrapperMobile .link a strong {
+    line-height: 1;
+  }
+
+  /* Primary “Resume” — force true center horizontally */
+  .linkWrapperMobile .link a.primaryButton {
+    justify-content: center;   /* override any space-between */
+    text-align: center;
+    padding-left: 16px;        /* symmetric padding */
+    padding-right: 16px;
+    gap: 0;                    /* no phantom spacing on phones */
+  }
+
+  /* If the primary button includes an <i> icon, hide it on phones */
+  .linkWrapperMobile .link a.primaryButton i.fa-solid,
+  .linkWrapperMobile .link a.primaryButton i.fa-brands {
+    display: none !important;
   }
 }
