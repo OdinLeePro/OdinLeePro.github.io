@@ -1406,10 +1406,11 @@ including layout wrappers, base button design, hover/focus states, and style var
   /* Layout: [ logo | text ] with badge next to degree, dates below */
 
   .educationCard {
-    display: grid;                         /* override any flex layout */
-    grid-template-columns: 72px 1fr;       /* logo | text */
-    align-items: center;
-    gap: 0.9rem;
+    display: grid !important;                /* override any previous flex */
+    grid-template-columns: 72px 1fr;         /* logo | text */
+    align-items: start;
+    column-gap: 0.9rem;
+    row-gap: 0.5rem;
     padding: 1rem 1.1rem;
     text-align: left;
   }
@@ -1422,8 +1423,9 @@ including layout wrappers, base button design, hover/focus states, and style var
 
   .educationLogo {
     grid-column: 1;
+    grid-row: 1 / -1;                        /* span all text rows */
     justify-self: center;
-    align-self: center;
+    align-self: start;
     width: 72px;
     min-width: 72px;
   }
@@ -1437,33 +1439,30 @@ including layout wrappers, base button design, hover/focus states, and style var
   .educationText {
     grid-column: 2;
     display: grid;
-    grid-template-columns: 1fr auto;       /* text | badge */
+    grid-template-columns: 1fr auto;         /* text | badge */
     grid-auto-rows: min-content;
     column-gap: 0.5rem;
     row-gap: 0.25rem;
     text-align: left;
   }
 
-  /* Title spans full width */
-  .educationText h2,
-  .educationText h3 {
+  /* Normalize margins inside text area */
+  .educationText > * { margin: 0; }
+
+  /* Title (row 1) spans text area */
+  .educationText :is(h2, h3) {
     grid-column: 1 / 3;
-    margin: 0;
     line-height: 1.15;
   }
 
-  /* Degree / Program (left in row 2) */
-  .educationText .degree,
-  .educationText .program,
-  .educationText strong {
+  /* Degree/Program (row 2, left) — catch common structures */
+  .educationText :is(.degree, .program, .subtitle, .major, strong, b) {
     grid-column: 1;
-    margin: 0;
+    align-self: center;
   }
 
-  /* Status badge (right in row 2) */
-  .educationText .status,
-  .educationText .badge,
-  .educationText .educationStatus {
+  /* Status badge (row 2, right) — robust selectors */
+  .educationText :is(.status, .badge, .educationStatus, .status-badge, .pill, .tag, [class*="status"], [class*="badge"], [class*="pill"], [class*="tag"]) {
     grid-column: 2;
     grid-row: 2;
     justify-self: end;
@@ -1472,13 +1471,9 @@ including layout wrappers, base button design, hover/focus states, and style var
     max-width: max-content;
   }
 
-  /* Dates (row 3, full width) */
-  .educationText .dates,
-  .educationText .educationDates,
-  .educationText .meta,
-  .educationText time {
+  /* Dates (row 3) — right below degree/badge */
+  .educationText :is(.dates, .educationDates, .meta, time, [class*="date"]) {
     grid-column: 1 / 3;
-    margin: 0;
     opacity: 0.8;
   }
 
