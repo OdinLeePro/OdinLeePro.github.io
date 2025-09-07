@@ -1456,68 +1456,67 @@ including layout wrappers, base button design, hover/focus states, and style var
     right: 0;
   }
 
-  /* --- Header buttons (≤520px) — tighten spacing + keep Resume centered --- */
+  /* --- Header buttons (≤520px) — center icon+label as one group --- */
 
-  /* Base: center by default with tighter icon↔text gap */
+  /* Anchor = group container (icon + label centered together) */
   .linkWrapperMobile .link a {
-    display: flex;
+    display: inline-flex;
     align-items: center;
-    justify-content: center;
-    gap: 0.375rem;            /* tighter spacing */
+    justify-content: center;     /* center the group */
+    gap: 0.375rem;               /* tight, consistent spacing */
     line-height: 1;
     text-align: center;
     padding-inline: 16px;
+    white-space: nowrap;         /* keep icon+label on one line */
   }
 
-  /* Secondary pills ONLY (GitHub / LinkedIn / Email): left-align content */
+  /* Ensure ALL secondary pills center the group */
   .linkWrapperMobile .link a:not(.primaryButton) {
-    justify-content: flex-start;
-    text-align: left;
+    justify-content: center !important;
+    text-align: center !important;
   }
 
-  /* Font Awesome icon: fixed square box, perfectly centered */
+  /* Font Awesome icon: square box, perfectly centered next to label */
   .linkWrapperMobile .link a i.fa-solid,
   .linkWrapperMobile .link a i.fa-regular,
   .linkWrapperMobile .link a i.fa-brands {
-    display: inline-grid;      /* true centering */
+    display: inline-grid;        /* fixes baseline quirks */
     place-items: center;
-    width: 1.15em;
-    height: 1.15em;
+    width: 1.1em;
+    height: 1.1em;
     line-height: 1;
-    font-size: 1.1em;
-    text-align: center;
-    margin: 0 !important;      /* remove stray margins */
+    margin: 0 !important;        /* remove any default margins */
     flex: 0 0 auto;
   }
 
-  /* Optional micro-nudge for platforms where FA renders a hair high/low */
+  /* Optional micro-nudge for rare devices where FA sits a hair high/low */
   @supports (transform: translateY(0)) {
     .linkWrapperMobile .link a i.fa-solid,
-    .linkWrapperMobile .link a i.fa-brands,
-    .linkWrapperMobile .link a i.fa-regular {
+    .linkWrapperMobile .link a i.fa-regular,
+    .linkWrapperMobile .link a i.fa-brands {
       transform: translateY(0.5px);
     }
   }
 
-  /* Ensure the text node itself doesn’t add stray height */
+  /* Label wrappers: no stray height */
   .linkWrapperMobile .link a span,
   .linkWrapperMobile .link a strong {
     line-height: 1;
   }
 
-  /* Primary “Resume” — force true center horizontally */
+  /* Primary “Resume” — stays perfectly centered */
   .linkWrapperMobile .link a.primaryButton {
     justify-content: center !important;
     text-align: center;
     padding-left: 16px;
     padding-right: 16px;
-    gap: 0;                     /* no phantom spacing */
+    gap: 0;                      /* no phantom spacing */
   }
 
   /* Hide any icon inside the primary pill on phones (safeguard) */
   .linkWrapperMobile .link a.primaryButton i.fa-solid,
   .linkWrapperMobile .link a.primaryButton i.fa-regular,
-  .linkWrapperMobile .link a.primaryButton i.fa-brands {
+  .linkWrapperMobile .link a i.fa-brands {
     display: none !important;
   }
 }
