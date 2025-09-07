@@ -1415,6 +1415,8 @@ including layout wrappers, base button design, hover/focus states, and style var
   }
 
   .educationCard::before {
+    left: 0;
+    right: 0;
     border-radius: $border-radius-large $border-radius-large 0 0;
   }
   
