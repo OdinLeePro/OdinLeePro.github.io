@@ -111,7 +111,7 @@ h1.section-title {
 .headshot {
   border-radius: 50%;                                                                                         // make the image perfectly circular
   margin-bottom: 1.5rem;                                                                                      // spacing below headshot
-  max-width: 75%;                                                                                             // size limit for better text balance
+  max-width: 74%;                                                                                             // size limit for better text balance
   aspect-ratio: 1 / 1;                                                                                        // maintain square proportions
   height: auto;                                                                                               // keeps height responsive with width
   display: block;                                                                                             // treat as block so margin auto works
@@ -1362,4 +1362,3 @@ including layout wrappers, base button design, hover/focus states, and style var
     margin: 0 1rem;
   }
 }
-
