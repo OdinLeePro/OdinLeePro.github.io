@@ -1413,11 +1413,12 @@ including layout wrappers, base button design, hover/focus states, and style var
     vertical-align: middle;
   }
   
+  /* --- FIXED: Keep education cards with logo on left --- */
   .educationCard {
-    flex-direction: column;
-    text-align: center;
-    gap: 1rem;
-    padding: 1.2rem;
+    flex-direction: row;        // Keep row layout (logo left, text right)
+    text-align: left;           // Align text to left
+    gap: 1rem;                  // Reduce gap for smaller screens
+    padding: 1.2rem;            // Reduce padding
   }
 
   .educationCard::before {
@@ -1427,38 +1428,54 @@ including layout wrappers, base button design, hover/focus states, and style var
   }
   
   .educationLogo {
-    order: 0;
-    align-self: center;
-    min-width: auto;
-    width: auto;
+    flex-shrink: 0;             // Don't let logo shrink
+    min-width: 70px;            // Smaller minimum width for phones
+    width: 70px;                // Smaller fixed width
+    padding: 0.75rem;           // Reduce padding around logo
+  }
+  
+  .educationLogo img {
+    width: 50px;                // Smaller logo image
+    height: 50px;               // Smaller logo image
   }
   
   .educationText {
     text-align: left;
+    flex: 1;                    // Take up remaining space
   }
   
+  .educationText h2 {
+    font-size: 1.5rem;          // Smaller heading for mobile
+  }
+  
+  .educationText p:first-of-type {
+    font-size: 1rem;            // Smaller degree text
+    gap: 0.75rem;               // Smaller gap between degree and badge
+  }
+  
+  /* --- Project carousel fixes --- */
   .section.projects {
-    padding-left: 0;      
-    padding-right: 0;     
+    padding-left: 0;
+    padding-right: 0;
   }
   
   .projectCarousel {
-    width: 100%;          
-    max-width: none;      
-    margin: 2rem 0;       
-    padding: 0;          
-    overflow: hidden;     
+    width: 100%;
+    max-width: none;
+    margin: 2rem 0;
+    padding: 0;
+    overflow: hidden;
   }
   
   .projectCard {
-    width: 100%;          
-    flex: 0 0 100%;      
-    margin: 0;            
-    box-sizing: border-box; 
+    width: 100%;
+    flex: 0 0 100%;
+    margin: 0;
+    box-sizing: border-box;
   }
   
   .carouselControls {
-    margin: 0;            
+    margin: 0;
     left: 0;
     right: 0;
   }
