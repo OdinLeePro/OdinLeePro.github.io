@@ -1437,13 +1437,29 @@ including layout wrappers, base button design, hover/focus states, and style var
     text-align: left;
   }
   
+  .section.projects {
+    padding-left: 0;      
+    padding-right: 0;     
+  }
+  
+  .projectCarousel {
+    width: 100%;          
+    max-width: none;      
+    margin: 2rem 0;       
+    padding: 0;          
+    overflow: hidden;     
+  }
+  
   .projectCard {
-    width: calc(100vw - 2rem);
-    flex: 0 0 calc(100vw - 2rem);
-    margin: 0 1rem;
+    width: 100%;          
+    flex: 0 0 100%;      
+    margin: 0;            
+    box-sizing: border-box; 
   }
   
   .carouselControls {
-    margin: 0 1rem;
+    margin: 0;            
+    left: 0;
+    right: 0;
   }
 }
