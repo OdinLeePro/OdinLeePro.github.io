@@ -1406,6 +1406,12 @@ including layout wrappers, base button design, hover/focus states, and style var
     padding: 10px 8px;
     min-height: 44px;
   }
+
+  .linkWrapperMobile .link a i {
+    font-size: 14px;
+    line-height: 1;
+    vertical-align: middle;
+  }
   
   .educationCard {
     flex-direction: column;
@@ -1428,7 +1434,7 @@ including layout wrappers, base button design, hover/focus states, and style var
   }
   
   .educationText {
-    text-align: center;
+    text-align: left;
   }
   
   .projectCard {
