@@ -1463,53 +1463,55 @@ including layout wrappers, base button design, hover/focus states, and style var
     right: 0;
   }
 
-  /* --- Header buttons (520px fixes) --- */
+  /* --- Header buttons (≤520px) — match screenshot layout --- */
 
-  /* Make icon + label align perfectly in the secondary pills */
+  /* Secondary pills: left-align icon + text, keep vertical centering */
   .linkWrapperMobile .link a {
     display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 0.5rem;
-    line-height: 1;          
-    text-align: center;
+    align-items: center;       /* vertical center */
+    justify-content: flex-start;/* <-- left-align contents */
+    gap: 0.625rem;             /* space between icon and label */
+    text-align: left;          /* label aligns left inside pill */
+    line-height: 1;
+    padding-inline: 16px;      /* comfortable left/right inset */
+    /* keep your existing height/radius/shadow */
   }
 
-  /* Font Awesome: convert icon into a centered square box */
+  /* Font Awesome icon: fixed square box, perfectly centered */
   .linkWrapperMobile .link a i.fa-solid,
-  .linkWrapperMobile .link a i.fa-brands,
-  .linkWrapperMobile .link a i.fa-regular {
-    display: inline-grid;      /* replaces inline-block */
-    place-items: center;       /* true vertical + horizontal centering */
+  .linkWrapperMobile .link a i.fa-regular,
+  .linkWrapperMobile .link a i.fa-brands {
+    display: inline-grid;      /* gives a real box, fixes baseline quirks */
+    place-items: center;       /* center glyph inside box */
     min-width: 1.25em;
     min-height: 1.25em;
-    line-height: 1;            /* no extra ascender/descender space */
-    font-size: 1.1em;          /* slight visual balance boost */
+    line-height: 1;
+    font-size: 1.1em;          /* slight balance boost vs text */
     text-align: center;
-    flex: 0 0 auto;            /* don’t stretch or shrink */
+    flex: 0 0 auto;
   }
 
-  /* Optional micro-nudge for platforms where FA renders a hair high/low */
+  /* (Optional) 0.5px micro-nudge for devices where FA sits a hair high/low */
   @supports (transform: translateY(0)) {
     .linkWrapperMobile .link a i.fa-solid,
-    .linkWrapperMobile .link a i.fa-brands,
-    .linkWrapperMobile .link a i.fa-regular {
+    .linkWrapperMobile .link a i.fa-regular,
+    .linkWrapperMobile .link a i.fa-brands {
       transform: translateY(0.5px);
     }
   }
 
-  /* Ensure the text node itself doesn’t add stray height */
+  /* Ensure label wrappers don't reintroduce vertical drift */
   .linkWrapperMobile .link a span,
   .linkWrapperMobile .link a strong {
     line-height: 1;
   }
 
-  /* Primary “Resume” — force true center horizontally */
+  /* Primary “Resume” stays centered as you liked */
   .linkWrapperMobile .link a.primaryButton {
-    justify-content: center;  
+    justify-content: center;
     text-align: center;
-    padding-left: 16px;       
+    gap: 0;
+    padding-left: 16px;
     padding-right: 16px;
-    gap: 0;                   
   }
 }
