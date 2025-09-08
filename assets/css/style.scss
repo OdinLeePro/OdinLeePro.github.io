@@ -1805,7 +1805,7 @@ including layout wrappers, base button design, hover/focus states, and style var
   /* --- Skills Section Mobile Layout ---------------------------------- */
   .skill-rows {
     grid-template-columns: 1fr;                                             // single column for phones
-    gap: .5rem;                                                              // vertical spacing
+    gap: 1.5rem;                                                           // vertical spacing
     margin-top: 1.5rem;
   }
 
@@ -1815,7 +1815,7 @@ including layout wrappers, base button design, hover/focus states, and style var
 
   .skill-row .sub-title {
     font-size: 1.1rem;                                                      // readable subtitle size
-    margin-bottom: 0.5rem;
+    margin-bottom: 0.75rem;
     padding-left: 0;                                                        // remove extra padding
   }
 
@@ -1844,5 +1844,5 @@ including layout wrappers, base button design, hover/focus states, and style var
   .skill-tags li {
     font-size: 0.7rem;                                                      // compact but readable tags
     padding: 0.25rem 0.5rem;
-  }  
+  }
 }
