@@ -1388,83 +1388,303 @@ including layout wrappers, base button design, hover/focus states, and style var
 }
 
 /* ========================================== */
-/*          Max-Width 520px (Phones)          */
+/*          Max-Width 600px (Phones)          */
 /* ========================================== */
 
-@media (max-width: 520px) {
-  .section { 
-    padding: 1.2rem 0.8rem;
+@media (max-width: 600px) {
+  /* --- Body and Link Wrapper Controls -------------------------------- */
+  body { 
+    padding: 1rem;                                                          // consistent with your minimal approach
   }
 
-  .headshot {
-    width: 120px;
-    height: 120px;
+  .linkWrapperDesktop { 
+    display: none !important;                                               // ensure desktop buttons are hidden
   }
-  
+
+  .linkWrapperMobile { 
+    display: block !important;                                              // show mobile buttons
+  }
+
+  /* --- Section and Typography Adjustments ---------------------------- */
+  .section { 
+    padding: 1.2rem 0.8rem;                                                 // your existing padding
+  }
+
   h1.section-title {
-    font-size: 1.7rem;
-    margin-bottom: 1.2rem;
+    font-size: 1.7rem;                                                      // your existing size
+    margin-bottom: 1.2rem;                                                  // your existing margin
+  }
+
+  /* --- Header/Profile Section ---------------------------------------- */
+  .headshot {
+    float: right;                                                           // position headshot on right
+    width: 120px;                                                           // your existing size
+    height: 120px;                                                          // your existing size
+    margin-bottom: 0;                                                       // remove bottom margin
+    margin-left: 1rem;                                                      // space from text
+    border-radius: 50%;                                                     // maintain circular shape
+    object-fit: cover;                                                      // proper image cropping
+    box-shadow: 0 3px 12px rgba(0,0,0,0.1);                               // subtle shadow
   }
   
   .headshot + h1,
   h1:has(+ .location) {
-    font-size: 2rem;
-    margin-bottom: 8px;
-    text-align: left;
+    font-size: 2rem;                                                        // your existing size
+    margin-bottom: 8px;                                                     // your existing margin
+    text-align: left;                                                       // your existing alignment
+    line-height: 1.1;                                                       // improve line spacing
+    font-weight: 800;                                                       // maintain desktop weight
   }
   
   .location {
-    font-size: 0.85rem;
-    margin: 6px 0 10px 0;
-    text-align: left;
-    justify-content: flex-start;
+    font-size: 0.85rem;                                                     // your existing size
+    margin: 6px 0 10px 0;                                                   // your existing margins
+    text-align: left;                                                       // your existing alignment
+    justify-content: flex-start;                                            // your existing justification
+    display: flex;                                                          // ensure flex layout works
+    align-items: center;                                                    // center icon with text
+    gap: 6px;                                                               // space between icon and text
   }
 
   .professional-title {
-    text-align: left;
+    text-align: left;                                                       // your existing alignment
+    font-size: 0.75rem;                                                     // compact size for phones
+    margin: 0 0 10px 0;                                                     // reasonable spacing
+    font-weight: 600;                                                       // maintain emphasis
+    color: $heading-color;                                                  // theme consistency
+    letter-spacing: 0.4px;                                                  // readability
+    text-transform: uppercase;                                              // credential appearance
   }
 
   .tagline {
-    text-align: left;
+    text-align: left;                                                       // your existing alignment
+    font-size: 0.85rem;                                                     // readable size
+    line-height: 1.4;                                                       // comfortable reading
+    color: $text-color;                                                     // theme consistency
+    margin-bottom: 1.25rem;                                                 // space before buttons
+    padding: 0;                                                             // remove extra padding
   }
 
+  /* --- Mobile Button Enhancements ------------------------------------ */
   .linkWrapperMobile .link li:nth-child(2),
   .linkWrapperMobile .link li:nth-child(3),
   .linkWrapperMobile .link li:nth-child(4) {
-    gap: 6px;
+    gap: 6px;                                                               // your existing gap
   }
 
   .linkWrapperMobile .link a {
-    font-size: 13px;
-    padding: 10px 8px;
-    min-height: 44px;
+    font-size: 13px;                                                        // your existing size
+    padding: 10px 8px;                                                      // your existing padding
+    min-height: 44px;                                                       // your existing min-height
+    gap: 6px;                                                               // space between icon and text
+    transition: all 0.2s ease;                                              // smooth interactions
+  }
+
+  .linkWrapperMobile .link a.primaryButton {
+    font-size: 14px;                                                        // slightly larger for primary
+    font-weight: 700;                                                       // emphasize primary action
+  }
+
+  /* --- Skills Section Mobile Layout ---------------------------------- */
+  .skill-rows {
+    grid-template-columns: 1fr;                                             // single column for phones
+    gap: 1.5rem;                                                           // vertical spacing
+    margin-top: 1.5rem;
+  }
+
+  .skill-row {
+    padding-left: 0.75rem;                                                  // space for accent bar
+  }
+
+  .skill-row .sub-title {
+    font-size: 1.1rem;                                                      // readable subtitle size
+    margin-bottom: 0.75rem;
+    padding-left: 0;                                                        // remove extra padding
+  }
+
+  .skill-row header {
+    grid-template-columns: 1fr;                                             // stack title and icons
+    gap: 0.5rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .skill-icons {
+    justify-self: start;                                                    // align icons left
+    margin-top: 0.25rem;
+  }
+
+  .skill-icons i {
+    font-size: 1.2rem;                                                      // appropriately sized icons
+  }
+
+  .skill-row p {
+    font-size: 0.9rem;                                                      // readable text
+    line-height: 1.6;
+    margin-bottom: 1rem;
+    padding-left: 0;                                                        // no extra padding needed
+  }
+
+  .skill-tags li {
+    font-size: 0.7rem;                                                      // compact but readable tags
+    padding: 0.25rem 0.5rem;
+  }
+  
+  /* --- Education Section Mobile Layout ------------------------------- */
+  .educationGrid {
+    gap: 1.5rem;                                                           // comfortable spacing
+    margin-top: 1.5rem;
+    padding: 0;
   }
   
   .educationCard {
-    flex-direction: column;
-    text-align: center;
-    gap: 1rem;
-    padding: 1.2rem;
+    flex-direction: column;                                                 // your existing direction
+    text-align: center;                                                     // your existing alignment
+    gap: 1rem;                                                             // your existing gap
+    padding: 1.2rem;                                                       // your existing padding
+    width: 100%;                                                           // full width on phones
+    max-width: none;                                                       // remove width restrictions
   }
   
   .educationLogo {
-    order: 0;
-    align-self: center;
-    min-width: auto;
-    width: auto;
+    order: 0;                                                              // your existing order
+    align-self: center;                                                    // your existing alignment
+    min-width: auto;                                                       // your existing min-width
+    width: auto;                                                           // your existing width
+    padding: 0.75rem;                                                      // reasonable padding
+  }
+  
+  .educationLogo img {
+    width: 50px;                                                           // compact logo size
+    height: 50px;
   }
   
   .educationText {
-    text-align: center;
+    text-align: center;                                                    // your existing alignment
+    flex: none;                                                            // don't stretch text
+  }
+
+  .educationText h2 {
+    font-size: 1.3rem;                                                     // readable university name
+    margin-bottom: 0.5rem;
+  }
+
+  .educationText p:first-of-type {
+    font-size: 0.95rem;                                                    // readable degree text
+    justify-content: center;                                               // center the badge layout
+    flex-wrap: wrap;                                                       // allow wrapping
+    gap: 0.75rem;                                                          // space between elements
+  }
+
+  .educationText p:last-of-type {
+    font-size: 0.8rem;                                                     // compact date text
+  }
+
+  .status-badge {
+    padding: 0.3rem 0.7rem;                                                // compact badges
+    font-size: 0.65rem;
+    letter-spacing: 0.5px;
+  }
+  
+  /* --- Project Section Mobile Optimization --------------------------- */
+  .section.projects {
+    padding: 1.2rem 0;                                                     // remove side padding for carousel
+  }
+
+  .projectCarousel {
+    width: 100vw;                                                          // full viewport width
+    max-width: none;                                                       // remove max width
+    margin-left: calc(-50vw + 50%);                                        // break out of container
+    margin-right: calc(-50vw + 50%);
+    margin-top: 1.5rem;
+    margin-bottom: 1.5rem;
+    padding-bottom: 55px;                                                  // space for controls
   }
   
   .projectCard {
-    width: calc(100vw - 2rem);
-    flex: 0 0 calc(100vw - 2rem);
-    margin: 0 1rem;
+    width: calc(100vw - 2rem);                                             // your existing width
+    flex: 0 0 calc(100vw - 2rem);                                          // your existing flex
+    margin: 0 1rem;                                                        // your existing margins
+  }
+
+  .projectBody {
+    padding: 1rem;                                                         // compact padding
+    gap: 0.5rem;                                                           // tight spacing
+  }
+
+  .projectTitle {
+    font-size: 1.1rem;                                                     // readable title size
+    margin-bottom: 0.4rem;
+  }
+
+  .languageBadges {
+    gap: 0.4rem;                                                           // compact badge spacing
+    margin-bottom: 0.6rem;
+  }
+
+  .languageBadges li {
+    font-size: 0.6rem;                                                     // very compact badges
+    padding: 0.25rem 0.5rem;
+    border-radius: 12px;
+  }
+
+  .projectSummary {
+    font-size: 0.85rem;                                                    // readable summary
+    line-height: 1.4;
+    margin-bottom: 0.6rem;
+  }
+
+  .projectBullets {
+    font-size: 0.75rem;                                                    // compact bullet text
+    line-height: 1.3;
+    padding-left: 0.75rem;
   }
   
   .carouselControls {
-    margin: 0 1rem;
+    margin: 0 1rem;                                                        // your existing margins
+    bottom: 8px;                                                           // closer to bottom
+    gap: 10px;                                                             // tighter control spacing
+  }
+
+  .indicator {
+    width: 8px;                                                            // compact indicators
+    height: 8px;
+  }
+
+  .carouselNav,
+  .playPauseBtn {
+    width: 30px;                                                           // compact navigation buttons
+    height: 30px;
+  }
+
+  .carouselNav svg,
+  .playPauseBtn svg {
+    width: 14px;                                                           // proportional icons
+    height: 14px;
+  }
+
+  /* --- About Section Mobile Refinements ------------------------------ */
+  .about p {
+    font-size: 0.9rem;                                                     // readable paragraph text
+    line-height: 1.6;
+    margin-bottom: 1.25rem;
+    padding-left: 0.75rem;                                                 // space for accent bar
+  }
+
+  .about p::before {
+    width: 2.5px;                                                          // thinner accent bar
+    top: 0.3rem;
+    height: calc(100% - 0.6rem);
+  }
+
+  /* --- Sub-title Mobile Adjustments ---------------------------------- */
+  .sub-title {
+    font-size: 1.1rem;                                                     // compact but readable
+    margin-bottom: 0.75rem;
+    padding-left: 0.75rem;
+  }
+
+  .sub-title::before {
+    width: 3px;                                                            // proportional accent bar
+    height: 16px;
   }
 }
