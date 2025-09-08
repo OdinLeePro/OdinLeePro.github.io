@@ -1160,10 +1160,6 @@ including layout wrappers, base button design, hover/focus states, and style var
 /*          Max-Width 1024px (Tablets)         */
 /* =========================================== */
 
-/* =========================================== */
-/*          Max-Width 1024px (Tablets)         */
-/* =========================================== */
-
 @media (max-width: 1024px) {
   /* --- Body and Global Adjustments ------------------------------------ */
   body { 
@@ -1233,8 +1229,8 @@ including layout wrappers, base button design, hover/focus states, and style var
   
   /* --- Skills Section Tablet Grid ------------------------------------- */
   .skill-rows {
-    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));            // larger minimum for tablets
-    gap: 1.8rem 1.25rem;                                                   // balanced gaps
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));            // larger minimum for tablets
+    gap: 1.5rem 1rem;                                                   // balanced gaps
     margin-top: 1.8rem;
   }
 
