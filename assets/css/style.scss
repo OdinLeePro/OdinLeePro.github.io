@@ -1481,32 +1481,38 @@ including layout wrappers, base button design, hover/focus states, and style var
   .linkWrapperMobile .link li:nth-child(2),
   .linkWrapperMobile .link li:nth-child(3),
   .linkWrapperMobile .link li:nth-child(4) {
-    gap: 6px;                                                               // your existing gap
+    gap: 6px;
   }
-
+  
   .linkWrapperMobile .link a {
-    font-size: 13px;                                                        // your existing size
-    padding: 10px 8px;                                                      // your existing padding
-    min-height: 44px;                                                       // your existing min-height
-    gap: 6px;                                                               // space between icon and text
-    transition: all 0.2s ease;                                              // smooth interactions
-    display: flex;                                                          // ensure flex layout
-    align-items: center;                                                    // vertically center content
-    justify-content: center;                                                // horizontally center content
-    text-align: center;                                                     // center text alignment
-    line-height: 1;                                                         // prevent text from shifting
+    font-size: 13px;
+    padding: 10px 8px;
+    min-height: 44px;
+    gap: 6px;
+    transition: all 0.2s ease;
+    display: flex;
+    align-items: center;
+    justify-content: initial;
+    text-align: center;
+    line-height: 1;
+    width: 100%;
+    position: relative;
   }
-
+  
   .linkWrapperMobile .link a i {
-    width: 16px;                                                            // consistent icon width
-    height: 16px;                                                           // consistent icon height
-    font-size: 14px;                                                        // appropriate icon size
-    flex-shrink: 0;                                                         // prevent icon shrinking
-    display: inline-flex;                                                   // proper icon display
-    align-items: center;                                                    // center icon vertically
-    justify-content: center;                                                // center icon horizontally
+    width: 16px;
+    height: 16px;
+    font-size: 14px;
+    flex-shrink: 0;
+    position: absolute;
+    left: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
   }
-
+  
   .linkWrapperMobile .link a.primaryButton {
     display: grid;
     place-items: center;
@@ -1518,6 +1524,11 @@ including layout wrappers, base button design, hover/focus states, and style var
     font-weight: 700;
     line-height: 1.2;
     text-align: center;
+  }
+  
+  .linkWrapperMobile .link a.primaryButton::before,
+  .linkWrapperMobile .link a.primaryButton::after {
+    content: none;
   }
 
   /* --- About Section Mobile Refinements ------------------------------ */
@@ -1536,56 +1547,70 @@ including layout wrappers, base button design, hover/focus states, and style var
 
   /* --- Education Section Mobile Layout ------------------------------- */
   .educationGrid {
-    gap: 1.5rem;                                                           // comfortable spacing
+    gap: 1.5rem;
     margin-top: 1.5rem;
     padding: 0;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
   }
-  
+
+  .educationGrid, 
+  .educationGrid * {
+    box-sizing: border-box;
+  }
+
   .educationCard {
-    flex-direction: column;                                                 // your existing direction
-    text-align: center;                                                     // your existing alignment
-    gap: 1rem;                                                             // your existing gap
-    padding: 1.2rem;                                                       // your existing padding
-    width: 100%;                                                           // full width on phones
-    max-width: none;                                                       // remove width restrictions
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    gap: 1rem;
+    padding: 1.2rem;
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
   }
-  
+
   .educationLogo {
-    order: 0;                                                              // your existing order
-    align-self: center;                                                    // your existing alignment
-    min-width: auto;                                                       // your existing min-width
-    width: auto;                                                           // your existing width
-    padding: 0.75rem;                                                      // reasonable padding
+    order: -1;
+    align-self: center;
+    min-width: auto;
+    width: auto;
+    padding: 0.75rem;
   }
-  
+
   .educationLogo img {
-    width: 50px;                                                           // compact logo size
+    width: 50px;
     height: 50px;
+    max-width: 100%;
+    display: block;
   }
-  
+
   .educationText {
-    text-align: center;                                                    // your existing alignment
-    flex: none;                                                            // don't stretch text
+    text-align: center;
+    flex: none;
+    min-width: 0;
+    overflow-wrap: anywhere;
   }
 
   .educationText h2 {
-    font-size: 1.3rem;                                                     // readable university name
+    font-size: 1.3rem;
     margin-bottom: 0.5rem;
   }
 
   .educationText p:first-of-type {
-    font-size: 0.95rem;                                                    // readable degree text
-    justify-content: center;                                               // center the badge layout
-    flex-wrap: wrap;                                                       // allow wrapping
-    gap: 0.75rem;                                                          // space between elements
+    display: flex;
+    font-size: 0.95rem;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 0.75rem;
   }
 
   .educationText p:last-of-type {
-    font-size: 0.8rem;                                                     // compact date text
+    font-size: 0.8rem;
   }
 
   .status-badge {
-    padding: 0.3rem 0.7rem;                                                // compact badges
+    padding: 0.3rem 0.7rem;
     font-size: 0.65rem;
     letter-spacing: 0.5px;
   }
