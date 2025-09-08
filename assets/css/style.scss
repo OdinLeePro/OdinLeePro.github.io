@@ -529,6 +529,26 @@ including layout wrappers, base button design, hover/focus states, and style var
   border: 1px solid rgba(59, 130, 246, 0.25);                                                               // consistent border opacity
 }
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 /* ================================== */
 /*          Projects Section          */
 /* ================================== */
@@ -543,6 +563,10 @@ including layout wrappers, base button design, hover/focus states, and style var
   border-radius: $border-radius-large;                                                                        // rounded corners for carousel container
   max-width: 800px;                                                                                           // limit maximum carousel width
   padding-bottom: 64px;                                                                                       // extra space for navigation dots/buttons
+  /* Safari fixes */
+  -webkit-overflow-scrolling: touch;                                                                          // smooth scrolling on Safari
+  transform: translateZ(0);                                                                                   // force hardware acceleration
+  -webkit-transform: translateZ(0);                                                                           // Safari prefix
 }
 
 /* --- Project Grid (Carousel Track) --------------------------------------------------------- */
@@ -553,6 +577,11 @@ including layout wrappers, base button design, hover/focus states, and style var
   transition: transform 0.4s ease-in-out;                                                                     // smooth slide transition effect
   width: 100%;                                                                                                // track spans full container width
   will-change: transform;                                                                                     // hint to browser for smoother animation
+  /* Safari fixes */
+  backface-visibility: hidden;                                                                                // prevent flickering
+  -webkit-backface-visibility: hidden;                                                                        // Safari prefix
+  align-items: stretch;                                                                                       // ensure consistent heights
+  -webkit-align-items: stretch;                                                                               // Safari prefix
 }
 
 /* --- Project Card ------------------------------------------------------------------------------ */
@@ -571,11 +600,19 @@ including layout wrappers, base button design, hover/focus states, and style var
   text-decoration: none;                                                                                      // remove default link styling
   color: inherit;                                                                                             // inherit text color (so link looks like card)
   transition: all 0.3s ease;                                                                                  // smooth hover/interaction effects
+  /* Safari fixes */
+  -webkit-flex: 0 0 100%;                                                                                     // Safari flex prefix
+  min-width: 0;                                                                                               // prevent overflow
+  box-sizing: border-box;                                                                                     // explicit box sizing
+  -webkit-box-sizing: border-box;                                                                             // Safari prefix
+  transform: translateZ(0);                                                                                   // force GPU acceleration
+  -webkit-transform: translateZ(0);                                                                           // Safari prefix
 }
 
 /* Adds lift and stronger shadow when hovering over a project card for interactivity */
 .projectCard:hover {
-  transform: translateY(-2px);                                                                                // slight upward movement
+  transform: translateY(-2px) translateZ(0);                                                                  // maintain GPU acceleration
+  -webkit-transform: translateY(-2px) translateZ(0);                                                          // Safari prefix
   box-shadow: 0 12px 32px rgba(0, 0, 0, 0.15), 0 4px 16px rgba(0, 0, 0, 0.1);                             // stronger layered shadow
 }
 
@@ -588,6 +625,12 @@ including layout wrappers, base button design, hover/focus states, and style var
   border-bottom: 1px solid rgba(148, 163, 184, 0.2);                                                        // subtle divider between image and content
   position: relative;                                                                                         // anchor for overlays or positioned elements
   overflow: hidden;                                                                                           // clip image overflow (e.g., zoom effects)
+  width: 100%;
+  height: 0;
+  padding-bottom: 56.25%;                                                                                     // 16:9 aspect ratio
+  /* Safari fixes */
+  -webkit-transform: translateZ(0);                                                                           // force hardware acceleration
+  transform: translateZ(0);
 }
 
 /* Adds a thin gradient bar at the top of each project image for visual accent */
@@ -602,11 +645,32 @@ including layout wrappers, base button design, hover/focus states, and style var
 
 /* Styles for project preview images inside the project image container */
 .projectImg img {
-  display: block;                                                                                             // remove inline spacing around image
-  width: 100%;                                                                                                // scale to fill container width
-  aspect-ratio: 16 / 9;                                                                                       // enforce widescreen aspect ratio
-  object-fit: cover;                                                                                          // crop image neatly to fill space
-  transition: transform 0.3s ease;                                                                            // smooth transform for hover/zoom effects
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  transition: transform 0.3s ease;
+}
+
+/* Modern browser enhancement */
+@supports (aspect-ratio: 16 / 9) {
+  .projectImg {
+    height: auto;
+    padding-bottom: 0;
+    aspect-ratio: 16 / 9;
+  }
+  
+  .projectImg img {
+    position: static;
+    aspect-ratio: 16 / 9;
+    display: block;
+    width: 100%;
+    object-fit: cover;
+    object-position: center;
+  }
 }
 
 /* --- Project Body ------------------------------------------------------ */
@@ -618,6 +682,12 @@ including layout wrappers, base button design, hover/focus states, and style var
   padding: 1rem;                                                                                              // inner spacing (reduced from 1.25rem)
   min-width: 0;                                                                                               // prevents overflow issues in flex/grid layouts
   overflow-wrap: anywhere;                                                                                    // allow text to break anywhere to avoid overflow
+  /* Safari fixes */
+  -webkit-font-smoothing: antialiased;                                                                        // improve text rendering
+  -moz-osx-font-smoothing: grayscale;                                                                         // Firefox on macOS
+  text-rendering: optimizeLegibility;                                                                         // improve text quality
+  box-sizing: border-box;                                                                                     // explicit box sizing
+  -webkit-box-sizing: border-box;                                                                             // Safari prefix
 }
 
 /* --- Project Title ----------------------------------- */
@@ -630,6 +700,11 @@ including layout wrappers, base button design, hover/focus states, and style var
   font-weight: 800;                                                                                           // extra-bold for strong emphasis
   letter-spacing: -0.025em;                                                                                   // subtle letter tightening
   text-decoration: none;                                                                                      // remove underline (useful when title is a link)
+  /* Safari fixes */
+  -webkit-font-smoothing: antialiased;                                                                        // improve text rendering
+  text-rendering: optimizeLegibility;                                                                         // improve text quality
+  line-height: 1.2;                                                                                           // explicit line height for Safari
+  display: block;                                                                                             // ensure block display
 }
 
 /* --- Language Badges ----------------------------------------- */
@@ -642,6 +717,12 @@ including layout wrappers, base button design, hover/focus states, and style var
   list-style: none;                                                                                           // remove default list bullets
   margin: 0 0 0.5rem 0;                                                                                       // reduced space below badges (was 1rem)
   padding: 0;                                                                                                 // remove default list padding
+  /* Safari fixes */
+  -webkit-flex-wrap: wrap;                                                                                    // Safari prefix
+  align-items: center;                                                                                        // ensure consistent alignment
+  -webkit-align-items: center;                                                                                // Safari prefix
+  box-sizing: border-box;                                                                                     // explicit box sizing
+  -webkit-box-sizing: border-box;                                                                             // Safari prefix
 }
 
 /* Styles for each individual language/technology badge inside the badge list */
@@ -657,6 +738,16 @@ including layout wrappers, base button design, hover/focus states, and style var
   background: linear-gradient(135deg, rgba(59, 130, 246, 0.12), rgba(99, 102, 241, 0.12));                // subtle blue/purple gradient background
   color: $blue;                                                                                               // blue text color
   border: 1px solid rgba(59, 130, 246, 0.25);                                                               // subtle blue border for definition
+  /* Safari fixes */
+  flex-shrink: 0;                                                                                             // prevent shrinking
+  -webkit-flex-shrink: 0;                                                                                     // Safari prefix
+  box-sizing: border-box;                                                                                     // explicit box sizing
+  -webkit-box-sizing: border-box;                                                                             // Safari prefix
+  display: inline-block;                                                                                      // force inline-block for Safari
+  vertical-align: middle;                                                                                     // align properly
+  line-height: 1;                                                                                             // prevent extra height
+  height: auto;                                                                                               // let height be natural
+  min-height: unset;                                                                                          // remove any inherited min-height
 }
 
 /* --- Project Summary ----------------------- */
@@ -669,6 +760,10 @@ including layout wrappers, base button design, hover/focus states, and style var
   font-size: 0.95rem;                                                                                         // slightly smaller size (was 1rem)
   font-weight: 400;                                                                                           // regular weight for readability
   padding: 0;                                                                                                 // remove any default padding
+  /* Safari fixes */
+  -webkit-font-smoothing: antialiased;                                                                        // improve text rendering
+  text-rendering: optimizeLegibility;                                                                         // improve text quality
+  display: block;                                                                                             // explicit block display
 }
 
 /* Emphasized text inside project summaries for highlighting keywords */
@@ -686,11 +781,18 @@ including layout wrappers, base button design, hover/focus states, and style var
   color: #64748b;                                                                                           // muted text color for secondary info
   line-height: 1.4;                                                                                           // compact line height for readability
   font-size: 0.85rem;                                                                                         // smaller font size for subtext
+  /* Safari fixes */
+  list-style-type: disc;                                                                                      // explicit bullet type
+  box-sizing: border-box;                                                                                     // explicit box sizing
+  -webkit-box-sizing: border-box;                                                                             // Safari prefix
 }
 
 /* Styles for individual bullet items inside project lists */
 .projectBullets li {
   margin: 0.25rem 0;                                                                                          // small vertical spacing between list items
+  /* Safari fixes */
+  display: list-item;                                                                                         // explicit list item display
+  line-height: 1.4;                                                                                           // consistent line height
 }
 
 /* Customizes the bullet marker color for project list items */
@@ -782,6 +884,28 @@ including layout wrappers, base button design, hover/focus states, and style var
   box-shadow: 0 8px 20px rgba(0,0,0,0.12);                                                                  // stronger shadow on hover
   background: #fff;                                                                                         // solid white background
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 /* ================================ */
 /*          Skills Section          */
@@ -1681,7 +1805,7 @@ including layout wrappers, base button design, hover/focus states, and style var
   /* --- Skills Section Mobile Layout ---------------------------------- */
   .skill-rows {
     grid-template-columns: 1fr;                                             // single column for phones
-    gap: 1.5rem;                                                           // vertical spacing
+    gap: 1rem;                                                              // vertical spacing
     margin-top: 1.5rem;
   }
 
