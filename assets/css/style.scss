@@ -1157,220 +1157,233 @@ including layout wrappers, base button design, hover/focus states, and style var
 }
 
 /* =========================================== */
-/*          Max-Width 767px (Tablets)          */
+/*          Max-Width 1024px (Tablets)         */
 /* =========================================== */
 
-@media (max-width: 767px) {
+@media (max-width: 1024px) {
   /* --- Body and Global Adjustments ------------------------------------ */
   body { 
-    padding: 1.5rem;                                                         // slightly more padding than mobile
+    padding: 1.75rem;                                                       // slightly reduced from desktop
     font-family: $font-family;
-  }
-  
-  /* --- Link Wrapper Visibility Controls ------------------------------ */
-  .linkWrapperDesktop { 
-    display: none !important;                                                // hide desktop buttons
-  }
-
-  .linkWrapperMobile { 
-    display: block !important;                                               // show mobile buttons
   }
   
   /* --- Section Spacing Adjustments ----------------------------------- */
   .section { 
-    padding: 2rem 1.5rem;                                                   // balanced padding for tablets
-    margin-bottom: 1.75rem;                                                 // comfortable spacing between sections
+    max-width: 900px;                                                       // narrower than desktop but spacious for tablets
+    padding: 2rem 1.75rem;                                                 // slightly reduced padding
+    margin-bottom: 1.8rem;                                                 // tighter section spacing
   }
   
-  /* Section titles sized appropriately for tablet screens */
   h1.section-title { 
-    font-size: 2.2rem;                                                      // larger than mobile, smaller than desktop
-    margin-bottom: 1.5rem;
-    text-align: center;
+    font-size: 2.3rem;                                                      // slightly smaller than desktop
+    margin-bottom: 1.2rem;
   }
   
-  /* --- Skills Section Grid Adjustments ------------------------------- */
-  .skill-rows {
-    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));            // wider minimum for tablets
-    gap: 2rem 2rem;                                                         // balanced row and column gaps
-    margin-top: 2rem;
-  }
-  
-  /* --- Education Section Improvements -------------------------------- */
-  .educationGrid {
-    gap: 2rem;                                                              // maintain spacing between cards
-    margin: 2rem 0;
-    padding: 0;                                                             // remove extra padding
-  }
-  
-  .educationCard {
-    flex-direction: row;                                                    // horizontal layout works well for tablets
-    text-align: left;
-    width: 95%;                                                             // slightly narrower than full width
-    max-width: 700px;                                                       // reasonable max width for tablets
-    gap: 2rem;                                                              // good spacing between logo and text
-    padding: 2rem;                                                          // comfortable padding
-    margin: 0 auto;
-    box-sizing: border-box;
-  }
-  
-  .educationLogo {
-    flex-shrink: 0;
-    min-width: 100px;                                                       // slightly larger for tablets
-    width: 100px;
-    padding: 1.25rem;                                                       // proportional padding
-  }
-  
-  .educationLogo img {
-    width: 70px;                                                            // larger logo for tablets
-    height: 70px;
-  }
-  
-  .educationText { 
-    padding-left: 0;
-    text-align: left;
-    flex: 1;
-  }
-
-  .educationText h2 {
-    font-size: 1.6rem;                                                      // appropriate size for tablets
-  }
-
-  .educationText p:first-of-type {
-    font-size: 1.1rem;                                                      // slightly larger degree text
-  }
-  
-  /* --- Header/Profile Section Improvements --------------------------- */
+  /* --- Header/Profile Section Tablet Optimizations ------------------- */
   .headshot {
-    float: right;
-    width: 160px;                                                           // larger headshot for tablets
-    height: 160px;
-    margin-bottom: 0;
-    margin-left: 1.5rem;                                                    // more spacing from text
-    border-radius: 50%;
-    object-fit: cover;
-    box-shadow: 0 4px 16px rgba(0,0,0,0.12);                              // enhanced shadow
+    max-width: 65%;                                                         // slightly smaller than desktop
+    margin-bottom: 1.25rem;
   }
 
-  .headshot + h1,
-  h1:has(+ .location) {
-    font-size: 2.4rem;                                                      // larger name for tablets
-    margin-bottom: 10px;
-    line-height: 1.1;
-    font-weight: 800;
-    text-align: left;
+  .headshot + h1, h1:has(+ .location), h1:has(+ .addr) {
+    font-size: 2rem;                                                        // scaled down from desktop
+    margin-bottom: 6px;
   }
 
   .location {
-    font-size: 0.95rem;                                                     // readable size for tablets
-    margin: 10px 0 15px 0;
-    color: $muted-color;
-    line-height: 1.4;
-    text-align: left;
-    justify-content: flex-start;
+    font-size: 0.85rem;                                                     // slightly smaller
+    margin: 0 0 8px 0;
   }
 
   .professional-title {
-    font-size: 0.9rem;                                                      // appropriate size for tablets
-    font-weight: 600;
-    color: $heading-color;
-    margin-bottom: 1.2rem;
-    letter-spacing: 0.4px;
-    text-transform: uppercase;
-    text-align: left;
+    font-size: 0.9rem;                                                      // appropriate for tablets
+    margin: 0 0 12px 0;
   }
 
   .tagline {
-    font-size: 0.95rem;                                                     // readable tagline size
-    line-height: 1.6;                                                       // comfortable reading
-    color: $text-color;
-    margin-bottom: 1.75rem;
-    text-align: left;
-    padding: 0;
+    font-size: 0.9rem;                                                      // readable on tablets
+    margin: 0 0 20px 0;
+    padding: 0 6px;
+  }
+
+  /* --- Platform Buttons Tablet Sizing -------------------------------- */
+  .linkWrapperDesktop {
+    margin-top: 20px;
+  }
+
+  .linkWrapperDesktop .link {
+    gap: 10px;                                                              // tighter spacing between buttons
+  }
+
+  .linkWrapperDesktop .link a {
+    min-height: 44px;                                                       // slightly smaller touch targets
+    height: 44px;
+    padding: 0 16px;                                                        // reduced padding
+    font-size: 14px;                                                        // smaller text
+    border-radius: 12px;                                                    // slightly less rounded
+  }
+
+  .linkWrapperDesktop .link a i {
+    font-size: 15px;                                                        // smaller icons
   }
   
-  /* --- Project Section Optimizations --------------------------------- */
-  .section.projects {
-    padding: 2rem 1rem;                                                     // reduced side padding for carousel
-  }
-  
-  .projectCarousel {
-    max-width: 100%;                                                        // use available width
-    margin: 2rem 0;                                                         // vertical spacing
-    padding-bottom: 64px;                                                   // space for controls
-    overflow: hidden;
-  }
-  
-  .projectCard {
-    width: 100%;                                                            // full carousel width
-    flex: 0 0 100%;                                                         // prevent shrinking
-    margin: 0;                                                              // no extra margins
-    box-sizing: border-box;
-  }
-  
-  .projectGrid {
-    width: 100%;
-    will-change: transform;
+  /* --- Skills Section Tablet Grid ------------------------------------- */
+  .skill-rows {
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));            // larger minimum for tablets
+    gap: 1.8rem 1.25rem;                                                   // balanced gaps
+    margin-top: 1.8rem;
   }
 
-  /* Project card content adjustments for tablets */
-  .projectBody {
-    padding: 1.5rem;                                                        // comfortable padding
-    gap: 0.75rem;                                                           // good spacing between elements
+  .skill-row {
+    padding-left: 0.9rem;                                                   // slightly reduced
   }
 
-  .projectTitle {
-    font-size: 1.4rem;                                                      // prominent title size
-    margin-bottom: 0.5rem;
+  .skill-row .sub-title {
+    font-size: 1.25rem;                                                     // appropriate tablet size
+    margin-bottom: 0.9rem;
   }
 
-  .languageBadges {
-    gap: 0.6rem;                                                            // comfortable badge spacing
-    margin-bottom: 0.75rem;
-  }
-
-  .projectSummary {
-    font-size: 1rem;                                                        // readable summary text
-    line-height: 1.5;
-    margin-bottom: 0.75rem;
-  }
-
-  .projectBullets {
-    font-size: 0.9rem;                                                      // readable bullet size
-    line-height: 1.4;
-  }
-
-  /* --- About Section Text Improvements ------------------------------- */
-  .about p {
-    font-size: 1.05rem;                                                     // slightly larger for tablets
-    line-height: 1.7;                                                       // comfortable reading
-    margin-bottom: 1.5rem;
-    padding-left: 1rem;                                                     // maintain decorative bar space
-  }
-
-  /* --- Typography and Spacing Refinements --------------------------- */
-  .sub-title {
-    font-size: 1.4rem;                                                      // proportional subtitle size
-    margin-bottom: 1.25rem;
-    padding-left: 1rem;
-  }
-
-  /* Ensure skill row content is readable on tablets */
-  .skill-row p {
-    font-size: 1.05rem;                                                     // slightly larger text
-    line-height: 1.7;                                                       // comfortable reading
-    margin-bottom: 1.5rem;
+  .skill-icons i {
+    font-size: 1.4rem;                                                      // slightly smaller icons
   }
 
   .skill-tags li {
-    font-size: 0.8rem;                                                      // readable tag size
-    padding: 0.35rem 0.75rem;                                               // comfortable padding
+    font-size: 0.75rem;                                                     // compact but readable
+    padding: 0.28rem 0.6rem;
+  }
+  
+  /* --- Education Section Tablet Layout ------------------------------- */
+  .educationGrid {
+    gap: 1.8rem;
+    margin-top: 1.8rem;
+  }
+  
+  .educationCard {
+    width: 85%;                                                             // narrower than desktop
+    max-width: 650px;                                                       // reasonable max width
+    padding: 1.5rem;                                                        // reduced padding
+    gap: 1.8rem;                                                            // good spacing
+  }
+  
+  .educationLogo {
+    padding: 0.9rem;                                                        // proportional reduction
+  }
+  
+  .educationLogo img {
+    width: 55px;                                                            // slightly smaller logos
+    height: 55px;
   }
 
-  /* Status badges sized for tablet screens */
+  .educationText h2 {
+    font-size: 1.6rem;                                                      // scaled for tablets
+    margin-bottom: 0.4rem;
+  }
+
+  .educationText p:first-of-type {
+    font-size: 1.05rem;                                                     // readable degree text
+    gap: 0.8rem;
+  }
+
+  .educationText p:last-of-type {
+    font-size: 0.9rem;                                                      // appropriate date size
+  }
+
   .status-badge {
-    padding: 0.4rem 1rem;                                                   // slightly larger padding
-    font-size: 0.8rem;                                                      // readable text
+    padding: 0.35rem 0.8rem;                                                // compact badges
+    font-size: 0.72rem;
+    letter-spacing: 0.6px;
+  }
+  
+  /* --- Project Carousel Tablet Optimizations ------------------------- */
+  .projectCarousel {
+    max-width: 750px;                                                       // narrower than desktop
+    margin: 1.8rem auto;
+    padding-bottom: 60px;
+  }
+  
+  .projectCard {
+    border-radius: 10px;                                                    // slightly less rounded
+  }
+
+  .projectBody {
+    padding: 1.1rem;                                                        // reduced padding
+    gap: 0.6rem;
+  }
+
+  .projectTitle {
+    font-size: 1.2rem;                                                      // appropriate title size
+    margin-bottom: 0.3rem;
+  }
+
+  .languageBadges {
+    gap: 0.45rem;
+    margin-bottom: 0.6rem;
+  }
+
+  .languageBadges li {
+    font-size: 0.68rem;                                                     // compact badges
+    padding: 0.32rem 0.68rem;
+    border-radius: 14px;
+  }
+
+  .projectSummary {
+    font-size: 0.9rem;                                                      // readable summary
+    line-height: 1.4;
+    margin-bottom: 0.6rem;
+  }
+
+  .projectBullets {
+    font-size: 0.82rem;                                                     // compact bullet text
+    line-height: 1.35;
+  }
+
+  /* --- Carousel Controls Tablet Sizing ------------------------------- */
+  .carouselControls {
+    bottom: 10px;
+    gap: 12px;
+  }
+
+  .indicator {
+    width: 9px;
+    height: 9px;
+  }
+
+  .carouselNav,
+  .playPauseBtn {
+    width: 34px;
+    height: 34px;
+  }
+
+  .carouselNav svg,
+  .playPauseBtn svg {
+    width: 16px;
+    height: 16px;
+  }
+  
+  /* --- About Section Tablet Refinements ------------------------------ */
+  .about p {
+    font-size: 0.98rem;                                                     // slightly smaller but readable
+    line-height: 1.7;
+    margin-bottom: 1.4rem;
+    padding-left: 0.9rem;
+  }
+
+  .about p::before {
+    width: 3px;                                                             // maintain decorative bar
+    top: 0.4rem;
+    height: calc(100% - 0.8rem);
+  }
+
+  /* --- Sub-title Global Adjustments ---------------------------------- */
+  .sub-title {
+    font-size: 1.25rem;                                                     // consistent tablet sizing
+    margin-bottom: 1rem;
+    padding-left: 0.9rem;
+  }
+
+  .sub-title::before {
+    width: 3.5px;                                                           // slightly thinner accent bar
+    height: 18px;
   }
 }
 
