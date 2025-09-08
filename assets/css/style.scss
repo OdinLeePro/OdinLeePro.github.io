@@ -1478,34 +1478,48 @@ including layout wrappers, base button design, hover/focus states, and style var
   }
 
   /* --- Mobile Button Enhancements ------------------------------------ */
-  .linkWrapperMobile .link li:nth-child(2),
-  .linkWrapperMobile .link li:nth-child(3),
-  .linkWrapperMobile .link li:nth-child(4) {
-    gap: 6px;
+  .linkWrapperMobile .link {
+    display: grid;
+    gap: 8px;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+  }
+  
+  .linkWrapperMobile .link li {
+    margin: 0;
+    padding: 0;
   }
   
   .linkWrapperMobile .link a {
     font-size: 13px;
     padding: 10px 8px;
     min-height: 44px;
-    gap: 6px;
     transition: all 0.2s ease;
     display: flex;
     align-items: center;
-    justify-content: initial;
+    justify-content: center;
     text-align: center;
     line-height: 1;
     width: 100%;
     position: relative;
+    box-sizing: border-box;
   }
   
+  /* Reserve symmetrical space for the left icon on non-primary buttons */
+  .linkWrapperMobile .link a:not(.primaryButton) {
+    padding-left: calc(8px + 16px + 6px);
+    padding-right: calc(8px + 16px + 6px);
+  }
+  
+  /* Icon sits in the reserved space; label stays truly centered */
   .linkWrapperMobile .link a i {
     width: 16px;
     height: 16px;
     font-size: 14px;
     flex-shrink: 0;
     position: absolute;
-    left: 12px;
+    left: 8px;
     top: 50%;
     transform: translateY(-50%);
     display: inline-flex;
@@ -1513,23 +1527,19 @@ including layout wrappers, base button design, hover/focus states, and style var
     justify-content: center;
   }
   
+  /* Primary button (no icon): true center */
   .linkWrapperMobile .link a.primaryButton {
     display: grid;
     place-items: center;
-    width: 100%;
-    box-sizing: border-box;
-    min-height: 44px;
-    padding: 10px 8px;
     font-size: 14px;
     font-weight: 700;
     line-height: 1.2;
-    text-align: center;
   }
   
-  .linkWrapperMobile .link a.primaryButton::before,
-  .linkWrapperMobile .link a.primaryButton::after {
-    content: none;
-  }
+  /* Safety: hide any stray <i> inside primary */
+  .linkWrapperMobile .link a.primaryButton i {
+    display: none;
+  }  
 
   /* --- About Section Mobile Refinements ------------------------------ */
   .about p {
