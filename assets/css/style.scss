@@ -1478,68 +1478,44 @@ including layout wrappers, base button design, hover/focus states, and style var
   }
 
   /* --- Mobile Button Enhancements ------------------------------------ */
-  .linkWrapperMobile .link {
-    display: grid;
-    gap: 8px;
-    padding: 0;
-    margin: 0;
-    list-style: none;
+  .linkWrapperMobile .link li:nth-child(2),
+  .linkWrapperMobile .link li:nth-child(3),
+  .linkWrapperMobile .link li:nth-child(4) {
+    gap: 6px;                                                               // your existing gap
   }
-  
-  .linkWrapperMobile .link li {
-    margin: 0;
-    padding: 0;
-  }
-  
+
   .linkWrapperMobile .link a {
-    font-size: 13px;
-    padding: 10px 8px;
-    min-height: 44px;
-    transition: all 0.2s ease;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    line-height: 1;
-    width: 100%;
-    position: relative;
-    box-sizing: border-box;
+    font-size: 13px;                                                        // your existing size
+    padding: 10px 8px;                                                      // your existing padding
+    min-height: 44px;                                                       // your existing min-height
+    gap: 6px;                                                               // space between icon and text
+    transition: all 0.2s ease;                                              // smooth interactions
+    display: flex;                                                          // ensure flexbox layout
+    align-items: center;                                                    // vertically center content
+    justify-content: center;                                                // horizontally center content
+    text-align: center;                                                     // center text alignment
   }
-  
-  /* Reserve symmetrical space for the left icon on non-primary buttons */
-  .linkWrapperMobile .link a:not(.primaryButton) {
-    padding-left: calc(8px + 16px + 6px);
-    padding-right: calc(8px + 16px + 6px);
-  }
-  
-  /* Icon sits in the reserved space; label stays truly centered */
-  .linkWrapperMobile .link a i {
-    width: 16px;
-    height: 16px;
-    font-size: 14px;
-    flex-shrink: 0;
-    position: absolute;
-    left: 8px;
-    top: 50%;
-    transform: translateY(-50%);
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-  }
-  
-  /* Primary button (no icon): true center */
+
   .linkWrapperMobile .link a.primaryButton {
-    display: grid;
-    place-items: center;
-    font-size: 14px;
-    font-weight: 700;
-    line-height: 1.2;
+    font-size: 14px;                                                        // slightly larger for primary
+    font-weight: 700;                                                       // emphasize primary action
+    display: flex;                                                          // ensure flexbox layout
+    align-items: center;                                                    // vertically center content
+    justify-content: center;                                                // horizontally center content
+    text-align: center;                                                     // center text alignment
   }
-  
-  /* Safety: hide any stray <i> inside primary */
-  .linkWrapperMobile .link a.primaryButton i {
-    display: none;
-  }  
+
+  /* Fix icon alignment in mobile buttons */
+  .linkWrapperMobile .link a i {
+    font-size: 14px;                                                        // consistent icon size
+    line-height: 1;                                                         // remove extra line height
+    display: inline-flex;                                                   // inline flex for better alignment
+    align-items: center;                                                    // center icon vertically
+    justify-content: center;                                                // center icon horizontally
+    margin: 0;                                                              // remove any default margins
+    padding: 0;                                                             // remove any default padding
+    vertical-align: middle;                                                 // align with text baseline
+  }
 
   /* --- About Section Mobile Refinements ------------------------------ */
   .about p {
