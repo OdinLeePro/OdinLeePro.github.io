@@ -1478,11 +1478,27 @@ including layout wrappers, base button design, hover/focus states, and style var
     min-height: 44px;                                                       // your existing min-height
     gap: 6px;                                                               // space between icon and text
     transition: all 0.2s ease;                                              // smooth interactions
+    display: flex;                                                          // ensure flex layout
+    align-items: center;                                                    // vertically center content
+    justify-content: center;                                                // horizontally center content
+    text-align: center;                                                     // center text alignment
+    line-height: 1;                                                         // prevent text from shifting
+  }
+
+  .linkWrapperMobile .link a i {
+    width: 16px;                                                            // consistent icon width
+    height: 16px;                                                           // consistent icon height
+    font-size: 14px;                                                        // appropriate icon size
+    flex-shrink: 0;                                                         // prevent icon shrinking
+    display: inline-flex;                                                   // proper icon display
+    align-items: center;                                                    // center icon vertically
+    justify-content: center;                                                // center icon horizontally
   }
 
   .linkWrapperMobile .link a.primaryButton {
     font-size: 14px;                                                        // slightly larger for primary
     font-weight: 700;                                                       // emphasize primary action
+    line-height: 1;                                                         // ensure text stays centered
   }
 
   /* --- Skills Section Mobile Layout ---------------------------------- */
