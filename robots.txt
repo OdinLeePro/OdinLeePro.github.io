@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+
+# Sitemap location - helps search engines find all your pages
+Sitemap: https://odinleedata.com/sitemap.xml
