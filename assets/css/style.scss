@@ -1824,6 +1824,7 @@ including layout wrappers, base button design, hover/focus states, and style var
     grid-template-columns: 1fr;                                             // stack title and icons
     gap: 0.5rem;
     margin-bottom: 0.75rem;
+    overflow: hidden;
   }
 
   .skill-icons {
