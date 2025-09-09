@@ -1807,6 +1807,7 @@ including layout wrappers, base button design, hover/focus states, and style var
     grid-template-columns: 1fr;                                             // single column for phones
     gap: 1.5rem;                                                           // vertical spacing
     margin-top: 1.5rem;
+    overflow: visible;
   }
 
   .skill-row {
