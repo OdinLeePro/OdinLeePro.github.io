@@ -21,7 +21,13 @@ platforms:
   - name: Email
     icon: <i class="fa-solid fa-envelope"></i>
     link: mailto:odinlee.pro@gmail.com
-    
+
+defaults:
+  - scope:
+      path: ""
+    values:
+      layout: mainLayout
+
 plugins:
   - jekyll-sitemap
   - jekyll-seo-tag
