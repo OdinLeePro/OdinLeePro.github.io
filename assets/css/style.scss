@@ -1690,66 +1690,74 @@ including layout wrappers, base button design, hover/focus states, and style var
     height: calc(100% - 0.6rem);                                                                             // avoid touching edges
   }
 
-  /* --- Education Section Mobile Layout ----------------------------- */
-  /* Stacks cards, centers content, and scales logos for small devices */
+   /* --- Education Section Mobile Layout ------------------------------- */
+   .educationGrid {
+    gap: 1.5rem;
+    margin-top: 1.5rem;
+    padding: 0;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+  }
 
-  .educationGrid {
-    gap: 1.5rem;                                                                                             // spacing between cards
-    margin-top: 1.5rem;                                                                                      // space above section
-    padding: 0;                                                                                              // remove container padding
-    display: grid;                                                                                           // grid layout
-    grid-template-columns: minmax(0, 1fr);                                                                   // single column
+  .educationGrid, 
+  .educationGrid * {
+    box-sizing: border-box;
   }
 
   .educationCard {
-    display: flex;                                                                                           // flexible layout
-    flex-direction: column;                                                                                  // stack logo above text
-    text-align: center;                                                                                      // center-align content
-    gap: 1rem;                                                                                               // spacing between blocks
-    padding: 1.2rem;                                                                                         // compact padding
-    width: 100%;                                                                                             // full width
-    max-width: 100%;                                                                                         // no cap
-    min-width: 0;                                                                                            // prevent overflow
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    gap: 1rem;
+    padding: 1.2rem;
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
   }
 
   .educationLogo {
-    order: -1;                                                                                               // move logo above text
-    align-self: center;                                                                                      // center logo
-    padding: 0.75rem;                                                                                        // inner spacing
+    order: -1;
+    align-self: center;
+    min-width: auto;
+    width: auto;
+    padding: 0.75rem;
   }
 
   .educationLogo img {
-    width: 50px;                                                                                             // smaller logo size
-    height: 50px;                                                                                            // fixed square
-    display: block;                                                                                          // remove inline gaps
+    width: 50px;
+    height: 50px;
+    max-width: 100%;
+    display: block;
   }
 
   .educationText {
-    text-align: center;                                                                                      // center text block
-    overflow-wrap: anywhere;                                                                                 // break long strings
+    text-align: center;
+    flex: none;
+    min-width: 0;
+    overflow-wrap: anywhere;
   }
 
   .educationText h2 {
-    font-size: 1.3rem;                                                                                       // smaller heading
-    margin-bottom: 0.5rem;                                                                                   // spacing below
+    font-size: 1.3rem;
+    margin-bottom: 0.5rem;
   }
 
   .educationText p:first-of-type {
-    display: flex;                                                                                           // degree + badge layout
-    font-size: 0.95rem;                                                                                      // compact size
-    justify-content: center;                                                                                 // center items
-    flex-wrap: wrap;                                                                                         // allow wrapping
-    gap: 0.75rem;                                                                                            // spacing between items
+    display: flex;
+    font-size: 0.95rem;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 0.75rem;
   }
 
   .educationText p:last-of-type {
-    font-size: 0.8rem;                                                                                       // smaller meta text
+    font-size: 0.8rem;
   }
 
   .status-badge {
-    padding: 0.3rem 0.7rem;                                                                                  // compact pill padding
-    font-size: 0.65rem;                                                                                      // smaller badge text
-    letter-spacing: 0.5px;                                                                                   // readable spacing
+    padding: 0.3rem 0.7rem;
+    font-size: 0.65rem;
+    letter-spacing: 0.5px;
   }
   
   /* --- Project Section Mobile Optimization --------------- */
