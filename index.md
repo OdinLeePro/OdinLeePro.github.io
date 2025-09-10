@@ -85,8 +85,7 @@ title: Portfolio
             <li>SQL</li><li>R</li>
           </ul>
           <p class="projectSummary">
-            Structured SQL database built for fantasy football analysis, featuring cleaned data from 2021–2023 NFL seasons. 
-            Includes R-based data wrangling, SQL triggers, and normalized schemas supporting advanced queries and future web app integration.
+            Structured SQL database built for fantasy football analysis, featuring cleaned data from 2021–2023 NFL seasons.
           </p>
           <ul class="projectBullets">
             <li>Normalized schemas for efficient querying</li>
