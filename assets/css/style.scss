@@ -529,26 +529,6 @@ including layout wrappers, base button design, hover/focus states, and style var
   border: 1px solid rgba(59, 130, 246, 0.25);                                                               // consistent border opacity
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 /* ================================== */
 /*          Projects Section          */
 /* ================================== */
@@ -563,6 +543,7 @@ including layout wrappers, base button design, hover/focus states, and style var
   border-radius: $border-radius-large;                                                                        // rounded corners for carousel container
   max-width: 800px;                                                                                           // limit maximum carousel width
   padding-bottom: 64px;                                                                                       // extra space for navigation dots/buttons
+
   /* Safari fixes */
   -webkit-overflow-scrolling: touch;                                                                          // smooth scrolling on Safari
   transform: translateZ(0);                                                                                   // force hardware acceleration
@@ -577,6 +558,7 @@ including layout wrappers, base button design, hover/focus states, and style var
   transition: transform 0.4s ease-in-out;                                                                     // smooth slide transition effect
   width: 100%;                                                                                                // track spans full container width
   will-change: transform;                                                                                     // hint to browser for smoother animation
+
   /* Safari fixes */
   backface-visibility: hidden;                                                                                // prevent flickering
   -webkit-backface-visibility: hidden;                                                                        // Safari prefix
@@ -600,6 +582,7 @@ including layout wrappers, base button design, hover/focus states, and style var
   text-decoration: none;                                                                                      // remove default link styling
   color: inherit;                                                                                             // inherit text color (so link looks like card)
   transition: all 0.3s ease;                                                                                  // smooth hover/interaction effects
+
   /* Safari fixes */
   -webkit-flex: 0 0 100%;                                                                                     // Safari flex prefix
   min-width: 0;                                                                                               // prevent overflow
@@ -625,12 +608,13 @@ including layout wrappers, base button design, hover/focus states, and style var
   border-bottom: 1px solid rgba(148, 163, 184, 0.2);                                                        // subtle divider between image and content
   position: relative;                                                                                         // anchor for overlays or positioned elements
   overflow: hidden;                                                                                           // clip image overflow (e.g., zoom effects)
-  width: 100%;
-  height: 0;
-  padding-bottom: 56.25%;                                                                                     // 16:9 aspect ratio
+  width: 100%;                                                                                                // make container full width
+  height: 0;                                                                                                  // reset height (to use padding-bottom for aspect ratio)
+  padding-bottom: 56.25%;                                                                                     // maintain 16:9 aspect ratio (responsive trick)
+
   /* Safari fixes */
-  -webkit-transform: translateZ(0);                                                                           // force hardware acceleration
-  transform: translateZ(0);
+  -webkit-transform: translateZ(0);                                                                           // force hardware acceleration in Safari
+  transform: translateZ(0);                                                                                   // fallback for other browsers
 }
 
 /* Adds a thin gradient bar at the top of each project image for visual accent */
@@ -643,33 +627,33 @@ including layout wrappers, base button design, hover/focus states, and style var
   z-index: 2;                                                                                                 // keep above image content
 }
 
-/* Styles for project preview images inside the project image container */
+/* Styles the <img> inside .projectImg to fully cover the container while keeping aspect ratio and enabling hover animations */
 .projectImg img {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: center;
-  transition: transform 0.3s ease;
+  position: absolute;                                                                                         // position relative to .projectImg container
+  top: 0;                                                                                                     // align image to top edge
+  left: 0;                                                                                                    // align image to left edge
+  width: 100%;                                                                                                // stretch image to container width
+  height: 100%;                                                                                               // stretch image to container height
+  object-fit: cover;                                                                                          // crop image to fill container while preserving aspect ratio
+  object-position: center;                                                                                    // center the cropped image
+  transition: transform 0.3s ease;                                                                            // smooth transform animation (e.g., zoom on hover)
 }
 
-/* Modern browser enhancement */
+/* Uses the CSS aspect-ratio property in supported browsers for cleaner, simpler project image sizing */
 @supports (aspect-ratio: 16 / 9) {
   .projectImg {
-    height: auto;
-    padding-bottom: 0;
-    aspect-ratio: 16 / 9;
+    height: auto;                                                                                             // allow natural height
+    padding-bottom: 0;                                                                                        // remove padding hack
+    aspect-ratio: 16 / 9;                                                                                     // define aspect ratio directly
   }
   
   .projectImg img {
-    position: static;
-    aspect-ratio: 16 / 9;
-    display: block;
-    width: 100%;
-    object-fit: cover;
-    object-position: center;
+    position: static;                                                                                         // reset positioning (no absolute needed)
+    aspect-ratio: 16 / 9;                                                                                     // maintain same ratio on the image
+    display: block;                                                                                           // ensures image behaves as a block element
+    width: 100%;                                                                                              // stretch full width of container
+    object-fit: cover;                                                                                        // crop image to fill space while preserving ratio
+    object-position: center;                                                                                  // center the image content
   }
 }
 
@@ -682,6 +666,7 @@ including layout wrappers, base button design, hover/focus states, and style var
   padding: 1rem;                                                                                              // inner spacing (reduced from 1.25rem)
   min-width: 0;                                                                                               // prevents overflow issues in flex/grid layouts
   overflow-wrap: anywhere;                                                                                    // allow text to break anywhere to avoid overflow
+
   /* Safari fixes */
   -webkit-font-smoothing: antialiased;                                                                        // improve text rendering
   -moz-osx-font-smoothing: grayscale;                                                                         // Firefox on macOS
@@ -700,6 +685,7 @@ including layout wrappers, base button design, hover/focus states, and style var
   font-weight: 800;                                                                                           // extra-bold for strong emphasis
   letter-spacing: -0.025em;                                                                                   // subtle letter tightening
   text-decoration: none;                                                                                      // remove underline (useful when title is a link)
+
   /* Safari fixes */
   -webkit-font-smoothing: antialiased;                                                                        // improve text rendering
   text-rendering: optimizeLegibility;                                                                         // improve text quality
@@ -717,6 +703,7 @@ including layout wrappers, base button design, hover/focus states, and style var
   list-style: none;                                                                                           // remove default list bullets
   margin: 0 0 0.5rem 0;                                                                                       // reduced space below badges (was 1rem)
   padding: 0;                                                                                                 // remove default list padding
+
   /* Safari fixes */
   -webkit-flex-wrap: wrap;                                                                                    // Safari prefix
   align-items: center;                                                                                        // ensure consistent alignment
@@ -738,6 +725,7 @@ including layout wrappers, base button design, hover/focus states, and style var
   background: linear-gradient(135deg, rgba(59, 130, 246, 0.12), rgba(99, 102, 241, 0.12));                // subtle blue/purple gradient background
   color: $blue;                                                                                               // blue text color
   border: 1px solid rgba(59, 130, 246, 0.25);                                                               // subtle blue border for definition
+
   /* Safari fixes */
   flex-shrink: 0;                                                                                             // prevent shrinking
   -webkit-flex-shrink: 0;                                                                                     // Safari prefix
@@ -760,6 +748,7 @@ including layout wrappers, base button design, hover/focus states, and style var
   font-size: 0.95rem;                                                                                         // slightly smaller size (was 1rem)
   font-weight: 400;                                                                                           // regular weight for readability
   padding: 0;                                                                                                 // remove any default padding
+
   /* Safari fixes */
   -webkit-font-smoothing: antialiased;                                                                        // improve text rendering
   text-rendering: optimizeLegibility;                                                                         // improve text quality
@@ -781,6 +770,7 @@ including layout wrappers, base button design, hover/focus states, and style var
   color: #64748b;                                                                                           // muted text color for secondary info
   line-height: 1.4;                                                                                           // compact line height for readability
   font-size: 0.85rem;                                                                                         // smaller font size for subtext
+
   /* Safari fixes */
   list-style-type: disc;                                                                                      // explicit bullet type
   box-sizing: border-box;                                                                                     // explicit box sizing
@@ -790,6 +780,7 @@ including layout wrappers, base button design, hover/focus states, and style var
 /* Styles for individual bullet items inside project lists */
 .projectBullets li {
   margin: 0.25rem 0;                                                                                          // small vertical spacing between list items
+
   /* Safari fixes */
   display: list-item;                                                                                         // explicit list item display
   line-height: 1.4;                                                                                           // consistent line height
@@ -884,28 +875,6 @@ including layout wrappers, base button design, hover/focus states, and style var
   box-shadow: 0 8px 20px rgba(0,0,0,0.12);                                                                  // stronger shadow on hover
   background: #fff;                                                                                         // solid white background
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 /* ================================ */
 /*          Skills Section          */
@@ -1284,230 +1253,284 @@ including layout wrappers, base button design, hover/focus states, and style var
 /*          Max-Width 1024px (Tablets)         */
 /* =========================================== */
 
-/* --- Body and Global Adjustments ------------------------------------ */
 @media (max-width: 1024px) {
+
+  /* --- Body and Global Adjustments -------------------------------------------- */
+  /* Adjusts body padding and ensures consistent font family for screens ≤ 1024px */
+
   body { 
-    padding: 1.75rem;                                                       
-    font-family: $font-family;
+    padding: 1.75rem;                                                                                         // slightly reduced padding for medium screens
+    font-family: $font-family;                                                                                // maintain consistent font stack
   }
 
   /* --- Sub-title Global Adjustments ---------------------------------- */
+  /* Refines global subtitle sizing and spacing for medium screens (≤1024px) */
+
   .sub-title {
-    font-size: 1.25rem;                                                     
-    margin-bottom: 1rem;
-    padding-left: 0.9rem;
+    font-size: 1.25rem;                                                                                       // slightly smaller than desktop for balance
+    margin-bottom: 1rem;                                                                                      // consistent spacing below subtitles
+    padding-left: 0.9rem;                                                                                     // adjust padding for decorative bar alignment
   }
 
+  /* Scales down the decorative bar for better proportion on medium screens */
   .sub-title::before {
-    width: 3.5px;                                                           
-    height: 18px;
+    width: 3.5px;                                                                                             // slightly thinner bar
+    height: 18px;                                                                                             // slightly shorter height
   }
   
   /* --- Section Spacing Adjustments ----------------------------------- */
+  /* Tweaks section sizing and spacing for medium screens (≤1024px) */
+
   .section { 
-    max-width: 900px;                                                       
-    padding: 2rem 1.75rem;                                                 
-    margin-bottom: 1.8rem;                                                 
+    max-width: 900px;                                                                                         // slightly narrower than desktop
+    padding: 2rem 1.75rem;                                                                                    // adjust inner spacing for balance
+    margin-bottom: 1.8rem;                                                                                    // reduce vertical spacing between sections
   }
   
+  /* Resizes and spaces section titles for better readability on medium screens */
   h1.section-title { 
-    font-size: 2.3rem;                                                     
-    margin-bottom: 1.2rem;
+    font-size: 2.3rem;                                                                                        // slightly smaller than desktop size
+    margin-bottom: 1.2rem;                                                                                    // reduce spacing below title
   }
   
   /* --- Header/Profile Section Tablet Optimizations ------------------- */
+  /* Scales the profile image for medium screens (≤1024px) */
+
   .headshot {
-    max-width: 65%;                                                         
-    margin-bottom: 1.25rem;
+    max-width: 65%;                                                                                           // limit image width for better balance
+    margin-bottom: 1.25rem;                                                                                   // adjust spacing below the headshot
   }
 
-  .headshot + h1, h1:has(+ .location), h1:has(+ .addr) {
-    font-size: 2rem;                                                        
-    margin-bottom: 6px;
+  /* Refines main heading (name/title) size and spacing for medium screens (≤1024px) */
+  .headshot + h1, 
+  h1:has(+ .location), 
+  h1:has(+ .addr) {
+    font-size: 2rem;                                                                                          // reduce title size for better proportion
+    margin-bottom: 6px;                                                                                       // tighter spacing below heading
   }
 
+  /* Adjusts location text size and spacing for medium screens (≤1024px) */
   .location {
-    font-size: 0.85rem;                                                     
-    margin: 0 0 8px 0;
+    font-size: 0.85rem;                                                                                       // slightly smaller location text
+    margin: 0 0 8px 0;                                                                                        // reduce bottom spacing for tighter layout
   }
 
+  /* Refines the professional/role title styling for medium screens (≤1024px) */
   .professional-title {
-    font-size: 0.9rem;                                                      
-    margin: 0 0 12px 0;
+    font-size: 0.9rem;                                                                                        // slightly smaller title text for balance
+    margin: 0 0 12px 0;                                                                                       // adjust spacing below the title
   }
 
+  /* Refines tagline text size, spacing, and padding for medium screens (≤1024px) */
   .tagline {
-    font-size: 0.9rem;                                                      
-    margin: 0 0 20px 0;
-    padding: 0 6px;
+    font-size: 0.9rem;                                                                                        // slightly smaller tagline text
+    margin: 0 0 20px 0;                                                                                       // adjust space below tagline
+    padding: 0 6px;                                                                                           // add subtle horizontal padding for balance
   }
 
   /* --- Platform Buttons Tablet Sizing -------------------------------- */
+  /* Adds spacing above desktop-style link buttons for medium screens (≤1024px) */
+
   .linkWrapperDesktop {
-    margin-top: 20px;
+    margin-top: 20px;                                                                                         // create space above link buttons
   }
 
+  /* Adjusts spacing between desktop link buttons for medium screens (≤1024px) */
   .linkWrapperDesktop .link {
-    gap: 10px;                                                              
+    gap: 10px;                                                                                                // slightly reduced spacing between links
   }
 
+  /* Refines desktop-style link buttons for medium screens (≤1024px) */
   .linkWrapperDesktop .link a {
-    min-height: 44px;                                                      
-    height: 44px;
-    padding: 0 16px;                                                        
-    font-size: 14px;                                                       
-    border-radius: 12px;                                                    
+    min-height: 44px;                                                                                         // reduce tap target height slightly
+    height: 44px;                                                                                             // fix consistent button height
+    padding: 0 16px;                                                                                          // adjust horizontal padding
+    font-size: 14px;                                                                                          // slightly smaller text size
+    border-radius: 12px;                                                                                      // slightly less rounded corners
   }
 
+  /* Scales icons inside desktop-style link buttons for medium screens (≤1024px) */
   .linkWrapperDesktop .link a i {
-    font-size: 15px;                                                        
+    font-size: 15px;                                                                                          // slightly smaller icons to match reduced button size
   }
 
   /* --- About Section Tablet Refinements ------------------------------ */
+  /* Refines paragraph text inside the About section for medium screens (≤1024px) */
+
   .about p {
-    font-size: 0.98rem;                                                     
-    line-height: 1.7;
-    margin-bottom: 1.4rem;
-    padding-left: 0.9rem;
+    font-size: 0.98rem;                                                                                       // slightly smaller font size
+    line-height: 1.7;                                                                                         // adjust line spacing for readability
+    margin-bottom: 1.4rem;                                                                                    // reduce spacing between paragraphs
+    padding-left: 0.9rem;                                                                                     // align decorative bar with text
   }
 
+  /* Scales decorative vertical bar for About section paragraphs on medium screens (≤1024px) */
   .about p::before {
-    width: 3px;                                                             
-    top: 0.4rem;
-    height: calc(100% - 0.8rem);
+    width: 3px;                                                                                               // thinner vertical bar
+    top: 0.4rem;                                                                                              // start slightly lower
+    height: calc(100% - 0.8rem);                                                                              // adjust height to fit text better
   }
   
   /* --- Education Section Tablet Layout ------------------------------- */
+  /* Refines spacing between education cards for medium screens (≤1024px) */
+
   .educationGrid {
-    gap: 1.8rem;
-    margin-top: 1.8rem;
+    gap: 1.8rem;                                                                                              // reduce spacing between cards
+    margin-top: 1.8rem;                                                                                       // adjust top margin for balance
   }
-  
+    
+  /* Tweaks education card sizing, spacing, and padding for medium screens (≤1024px) */
   .educationCard {
-    width: 85%;                                                             
-    max-width: 650px;                                                       
-    padding: 1.5rem;                                                        
-    gap: 1.8rem;                                                            
+    width: 85%;                                                                                               // make cards slightly narrower
+    max-width: 650px;                                                                                         // limit maximum width for readability
+    padding: 1.5rem;                                                                                          // adjust inner padding for balance
+    gap: 1.8rem;                                                                                              // refine spacing between logo and text
   }
-  
+    
+  /* Refines spacing around education logos for medium screens (≤1024px) */
   .educationLogo {
-    padding: 0.9rem;                                                        
+    padding: 0.9rem;                                                                                          // slightly reduced padding for a tighter fit
   }
-  
+    
+  /* Resizes school/university logo images for medium screens (≤1024px) */
   .educationLogo img {
-    width: 55px;                                                            
-    height: 55px;
+    width: 55px;                                                                                              // slightly smaller logo width
+    height: 55px;                                                                                             // slightly smaller logo height
   }
 
+  /* Adjusts school/university name heading for medium screens (≤1024px) */
   .educationText h2 {
-    font-size: 1.6rem;                                                      
-    margin-bottom: 0.4rem;
+    font-size: 1.6rem;                                                                                        // slightly smaller heading size
+    margin-bottom: 0.4rem;                                                                                    // tighter spacing below heading
   }
 
+  /* Refines degree line (first paragraph) styling for medium screens (≤1024px) */
   .educationText p:first-of-type {
-    font-size: 1.05rem;                                                     
-    gap: 0.8rem;
+    font-size: 1.05rem;                                                                                       // slightly smaller degree text
+    gap: 0.8rem;                                                                                              // tighter spacing between degree and badge
   }
 
+  /* Refines date/details line (last paragraph) for medium screens (≤1024px) */
   .educationText p:last-of-type {
-    font-size: 0.9rem;                                                      
+    font-size: 0.9rem;                                                                                        // slightly smaller text for supporting details
   }
 
+  /* Tweaks status badge sizing and text for medium screens (≤1024px) */
   .status-badge {
-    padding: 0.35rem 0.8rem;                                                
-    font-size: 0.72rem;
-    letter-spacing: 0.6px;
+    padding: 0.35rem 0.8rem;                                                                                  // adjust inner spacing for balance
+    font-size: 0.72rem;                                                                                       // slightly smaller text
+    letter-spacing: 0.6px;                                                                                    // slightly wider spacing between letters
   }
   
   /* --- Project Carousel Tablet Optimizations ------------------------- */
+  /* Refines carousel container size and spacing for medium screens (≤1024px) */
+
   .projectCarousel {
-    max-width: 750px;                                                       
-    margin: 1.8rem auto;
-    padding-bottom: 60px;
+    max-width: 750px;                                                                                         // limit width slightly for better fit
+    margin: 1.8rem auto;                                                                                      // adjust vertical spacing and keep centered
+    padding-bottom: 60px;                                                                                     // space reserved for controls/indicators
   }
-  
+    
+  /* Refines project card corner style for medium screens (≤1024px) */
   .projectCard {
-    border-radius: 10px;                                                    
+    border-radius: 10px;                                                                                      // slightly less rounded corners
   }
 
+  /* Adjusts inner spacing of project card body for medium screens (≤1024px) */
   .projectBody {
-    padding: 1.1rem;                                                        
-    gap: 0.6rem;
+    padding: 1.1rem;                                                                                          // moderate inner padding
+    gap: 0.6rem;                                                                                              // spacing between text elements
   }
 
+  /* Refines project title text for medium screens (≤1024px) */
   .projectTitle {
-    font-size: 1.2rem;                                                      
-    margin-bottom: 0.3rem;
+    font-size: 1.2rem;                                                                                        // slightly smaller title size
+    margin-bottom: 0.3rem;                                                                                    // tighter spacing below title
   }
 
+  /* Adjusts spacing and layout of language badges for medium screens (≤1024px) */
   .languageBadges {
-    gap: 0.45rem;
-    margin-bottom: 0.6rem;
+    gap: 0.45rem;                                                                                             // slightly reduced spacing between badges
+    margin-bottom: 0.6rem;                                                                                    // tighter spacing below badge group
   }
 
+  /* Refines size and shape of individual language badges for medium screens (≤1024px) */
   .languageBadges li {
-    font-size: 0.68rem;                                                     
-    padding: 0.32rem 0.68rem;
-    border-radius: 14px;
+    font-size: 0.68rem;                                                                                       // slightly smaller badge text
+    padding: 0.32rem 0.68rem;                                                                                 // reduced inner spacing
+    border-radius: 14px;                                                                                      // slightly tighter rounded corners
   }
 
+  /* Refines project description text for medium screens (≤1024px) */
   .projectSummary {
-    font-size: 0.9rem;                                                      
-    line-height: 1.4;
-    margin-bottom: 0.6rem;
+    font-size: 0.9rem;                                                                                        // slightly smaller font size
+    line-height: 1.4;                                                                                         // tighter line spacing
+    margin-bottom: 0.6rem;                                                                                    // reduced spacing below summary
   }
 
+  /* Refines bullet point text for project details on medium screens (≤1024px) */
   .projectBullets {
-    font-size: 0.82rem;                                                     
-    line-height: 1.35;
+    font-size: 0.82rem;                                                                                       // slightly smaller bullet text
+    line-height: 1.35;                                                                                        // tighter line spacing between items
   }
 
   /* --- Carousel Controls Tablet Sizing ------------------------------- */
+  /* Refines control positioning and spacing for medium screens (≤1024px) */
+
   .carouselControls {
-    bottom: 10px;
-    gap: 12px;
+    bottom: 10px;                                                                                             // raise controls slightly higher
+    gap: 12px;                                                                                                // reduce spacing between controls
   }
 
+  /* Refines carousel indicator size for medium screens (≤1024px) */
   .indicator {
-    width: 9px;
-    height: 9px;
+    width: 9px;                                                                                               // slightly smaller width
+    height: 9px;                                                                                              // slightly smaller height
   }
 
+  /* Refines control button size for medium screens (≤1024px) */
   .carouselNav,
   .playPauseBtn {
-    width: 34px;
-    height: 34px;
+    width: 34px;                                                                                              // slightly smaller button width
+    height: 34px;                                                                                             // slightly smaller button height
   }
 
+  /* Refines the size of navigation and play/pause icons for medium screens (≤1024px) */
   .carouselNav svg,
   .playPauseBtn svg {
-    width: 16px;
-    height: 16px;
+    width: 16px;                                                                                              // slightly smaller icon width
+    height: 16px;                                                                                             // slightly smaller icon height
   }
 
   /* --- Skills Section Tablet Grid ------------------------------------- */
+  /* Refines grid layout and spacing for skills section on medium screens (≤1024px) */
+
   .skill-rows {
-    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));            
-    gap: 1.5rem 1rem;                                                   
-    margin-top: 1.8rem;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));                                              // slightly wider min column size
+    gap: 1.5rem 1rem;                                                                                         // adjust vertical and horizontal spacing
+    margin-top: 1.8rem;                                                                                       // tighter top margin
   }
 
+  /* Tweaks spacing for individual skill rows on medium screens (≤1024px) */
   .skill-row {
-    padding-left: 0.9rem;                                                  
+    padding-left: 0.9rem;                                                                                     // slightly reduced left padding
   }
 
+  /* Refines sub-title size and spacing in skill rows for medium screens (≤1024px) */
   .skill-row .sub-title {
-    font-size: 1.25rem;                                                     
-    margin-bottom: 0.9rem;
+    font-size: 1.25rem;                                                                                       // slightly smaller font size
+    margin-bottom: 0.9rem;                                                                                    // reduced spacing below sub-title
   }
 
+  /* Refines icon size within skill rows for medium screens (≤1024px) */
   .skill-icons i {
-    font-size: 1.4rem;                                                      
+    font-size: 1.4rem;                                                                                        // slightly smaller icons for balance
   }
 
+  /* Refines skill tag size and spacing for medium screens (≤1024px) */
   .skill-tags li {
-    font-size: 0.75rem;                                                     
-    padding: 0.28rem 0.6rem;
+    font-size: 0.75rem;                                                                                       // slightly smaller text
+    padding: 0.28rem 0.6rem;                                                                                  // reduced inner spacing
   }
 }
 
@@ -1516,335 +1539,343 @@ including layout wrappers, base button design, hover/focus states, and style var
 /* ========================================== */
 
 @media (max-width: 600px) {
-  /* --- Body and Link Wrapper Controls -------------------------------- */
+
+  /* --- Body and Link Wrapper Controls ------------------------------------------ */
+  /* Tightens page padding and swaps desktop/mobile link wrappers for small phones */
+
   body { 
-    padding: 1rem;                                                          // consistent with your minimal approach
+    padding: 1rem;                                                                                            // compact page padding
   }
 
   .linkWrapperDesktop { 
-    display: none !important;                                               // ensure desktop buttons are hidden
+    display: none !important;                                                                                 // hide desktop buttons
   }
 
   .linkWrapperMobile { 
-    display: block !important;                                              // show mobile buttons
+    display: block !important;                                                                                // show mobile buttons
   }
 
-  /* --- Sub-title Mobile Adjustments ---------------------------------- */
+  /* --- Sub-title Mobile Adjustments --------------------- */
+  /* Scales subtitle and decorative bar for smaller screens */
+
   .sub-title {
-    font-size: 1.1rem;                                                     // compact but readable
-    margin-bottom: 0.75rem;
-    padding-left: 0.75rem;
+    font-size: 1.1rem;                                                                                        // compact but readable
+    margin-bottom: 0.75rem;                                                                                   // tighter spacing below
+    padding-left: 0.75rem;                                                                                    // room for accent bar
   }
 
   .sub-title::before {
-    width: 3px;                                                            // proportional accent bar
-    height: 16px;
+    width: 3px;                                                                                               // thinner accent bar
+    height: 16px;                                                                                             // shorter bar
   }
 
-  /* --- Section and Typography Adjustments ---------------------------- */
+  /* --- Section and Typography Adjustments ------------------ */
+  /* Reduces section padding and section title size for phones */
+
   .section { 
-    padding: 1.2rem 0.8rem;                                                 // your existing padding
+    padding: 1.2rem 0.8rem;                                                                                   // tighter inner padding
   }
 
   h1.section-title {
-    font-size: 1.7rem;                                                      // your existing size
-    margin-bottom: 1.2rem;                                                  // your existing margin
+    font-size: 1.7rem;                                                                                        // smaller headline
+    margin-bottom: 1.2rem;                                                                                    // balanced spacing below
   }
 
-  /* --- Header/Profile Section ---------------------------------------- */
+  /* --- Header/Profile Section ------------------------------------------ */
+  /* Reflows headshot, name, location, and tagline for compact mobile view */
+
   .headshot {
-    float: right;                                                           // position headshot on right
-    width: 120px;                                                           // your existing size
-    height: 120px;                                                          // your existing size
-    margin-bottom: 0;                                                       // remove bottom margin
-    margin-left: 1rem;                                                      // space from text
-    border-radius: 50%;                                                     // maintain circular shape
-    object-fit: cover;                                                      // proper image cropping
-    box-shadow: 0 3px 12px rgba(0,0,0,0.1);                               // subtle shadow
+    float: right;                                                                                             // position on right
+    width: 120px;                                                                                             // fixed width
+    height: 120px;                                                                                            // fixed height
+    margin-bottom: 0;                                                                                         // no bottom margin
+    margin-left: 1rem;                                                                                        // space from text
+    border-radius: 50%;                                                                                       // circular image
+    object-fit: cover;                                                                                        // neat crop
+    box-shadow: 0 3px 12px rgba(0,0,0,0.1);                                                                 // subtle depth
   }
   
   .headshot + h1,
   h1:has(+ .location) {
-    font-size: 2rem;                                                        // your existing size
-    margin-bottom: 8px;                                                     // your existing margin
-    text-align: left;                                                       // your existing alignment
-    line-height: 1.1;                                                       // improve line spacing
-    font-weight: 800;                                                       // maintain desktop weight
+    font-size: 2rem;                                                                                          // prominent but mobile-friendly
+    margin-bottom: 8px;                                                                                       // tight spacing
+    text-align: left;                                                                                         // align with body text
+    line-height: 1.1;                                                                                         // compact line height
+    font-weight: 800;                                                                                         // strong emphasis
   }
   
   .location {
-    font-size: 0.85rem;                                                     // your existing size
-    margin: 6px 0 10px 0;                                                   // your existing margins
-    text-align: left;                                                       // your existing alignment
-    justify-content: flex-start;                                            // your existing justification
-    display: flex;                                                          // ensure flex layout works
-    align-items: center;                                                    // center icon with text
-    gap: 6px;                                                               // space between icon and text
+    font-size: 0.85rem;                                                                                       // smaller location text
+    margin: 6px 0 10px 0;                                                                                     // compact spacing
+    text-align: left;                                                                                         // align left
+    justify-content: flex-start;                                                                              // align icon/text left
+    display: flex;                                                                                            // flex layout
+    align-items: center;                                                                                      // center icon with text
+    gap: 6px;                                                                                                 // space between icon and text
   }
 
   .professional-title {
-    text-align: left;                                                       // your existing alignment
-    font-size: 0.75rem;                                                     // compact size for phones
-    margin: 0 0 10px 0;                                                     // reasonable spacing
-    font-weight: 600;                                                       // maintain emphasis
-    color: $heading-color;                                                  // theme consistency
-    letter-spacing: 0.4px;                                                  // readability
-    text-transform: uppercase;                                              // credential appearance
+    text-align: left;                                                                                         // align with name/location
+    font-size: 0.75rem;                                                                                       // compact size
+    margin: 0 0 10px 0;                                                                                       // modest spacing
+    font-weight: 600;                                                                                         // keep emphasis
+    color: $heading-color;                                                                                    // themed color
+    letter-spacing: 0.4px;                                                                                    // readability boost
+    text-transform: uppercase;                                                                                // credential styling
   }
 
   .tagline {
-    text-align: left;                                                       // your existing alignment
-    font-size: 0.85rem;                                                     // readable size
-    line-height: 1.4;                                                       // comfortable reading
-    color: $text-color;                                                     // theme consistency
-    margin-bottom: 1.25rem;                                                 // space before buttons
-    padding: 0;                                                             // remove extra padding
+    text-align: left;                                                                                         // align with body
+    font-size: 0.85rem;                                                                                       // readable on phones
+    line-height: 1.4;                                                                                         // comfortable reading
+    color: $text-color;                                                                                       // theme body color
+    margin-bottom: 1.25rem;                                                                                   // space before buttons
+    padding: 0;                                                                                               // remove extra padding
   }
 
-  /* --- Mobile Button Enhancements ------------------------------------ */
+  /* --- Mobile Button Enhancements -------------------------- */
+  /* Compacts mobile buttons and ensures proper icon alignment */
+
   .linkWrapperMobile .link li:nth-child(2),
   .linkWrapperMobile .link li:nth-child(3),
   .linkWrapperMobile .link li:nth-child(4) {
-    gap: 6px;                                                               // your existing gap
+    gap: 6px;                                                                                                // spacing between small buttons
   }
 
   .linkWrapperMobile .link a {
-    font-size: 13px;                                                        // your existing size
-    padding: 10px 8px;                                                      // your existing padding
-    min-height: 44px;                                                       // your existing min-height
-    gap: 6px;                                                               // space between icon and text
-    transition: all 0.2s ease;                                              // smooth interactions
-    display: flex;                                                          // ensure flexbox layout
-    align-items: center;                                                    // vertically center content
-    justify-content: center;                                                // horizontally center content
-    text-align: center;                                                     // center text alignment
+    font-size: 13px;                                                                                         // compact label size
+    padding: 10px 8px;                                                                                       // smaller inner padding
+    min-height: 44px;                                                                                        // accessible tap target
+    gap: 6px;                                                                                                // space between icon and text
+    transition: all 0.2s ease;                                                                               // smooth interactions
+    display: flex;                                                                                           // flex layout
+    align-items: center;                                                                                     // vertical centering
+    justify-content: center;                                                                                 // horizontal centering
+    text-align: center;                                                                                      // center text
   }
 
   .linkWrapperMobile .link a.primaryButton {
-    font-size: 14px;                                                        // slightly larger for primary
-    font-weight: 700;                                                       // emphasize primary action
-    display: flex;                                                          // ensure flexbox layout
-    align-items: center;                                                    // vertically center content
-    justify-content: center;                                                // horizontally center content
-    text-align: center;                                                     // center text alignment
+    font-size: 14px;                                                                                         // slightly larger CTA
+    font-weight: 700;                                                                                        // stronger emphasis
+    display: flex;                                                                                           // flex layout
+    align-items: center;                                                                                     // vertically center
+    justify-content: center;                                                                                 // horizontally center
+    text-align: center;                                                                                      // center text
   }
 
-  /* Fix icon alignment in mobile buttons */
   .linkWrapperMobile .link a i {
-    font-size: 14px;                                                        // consistent icon size
-    line-height: 1;                                                         // remove extra line height
-    display: inline-flex;                                                   // inline flex for better alignment
-    align-items: center;                                                    // center icon vertically
-    justify-content: center;                                                // center icon horizontally
-    margin: 0;                                                              // remove any default margins
-    padding: 0;                                                             // remove any default padding
-    vertical-align: middle;                                                 // align with text baseline
+    font-size: 14px;                                                                                         // consistent icon size
+    line-height: 1;                                                                                          // remove extra line height
+    display: inline-flex;                                                                                    // precise centering
+    align-items: center;                                                                                     // center vertically
+    justify-content: center;                                                                                 // center horizontally
+    margin: 0;                                                                                               // reset margins
+    padding: 0;                                                                                              // reset padding
+    vertical-align: middle;                                                                                  // align with text baseline
   }
 
-  /* --- About Section Mobile Refinements ------------------------------ */
+  /* --- About Section Mobile Refinements --------------- */
+  /* Refines paragraph text and decorative bar for phones */
+
   .about p {
-    font-size: 0.9rem;                                                     // readable paragraph text
-    line-height: 1.6;
-    margin-bottom: 1.25rem;
-    padding-left: 0.75rem;                                                 // space for accent bar
+    font-size: 0.9rem;                                                                                       // readable size
+    line-height: 1.6;                                                                                        // comfortable reading
+    margin-bottom: 1.25rem;                                                                                  // spacing between paragraphs
+    padding-left: 0.75rem;                                                                                   // room for accent bar
   }
 
   .about p::before {
-    width: 2.5px;                                                          // thinner accent bar
-    top: 0.3rem;
-    height: calc(100% - 0.6rem);
+    width: 2.5px;                                                                                            // thinner accent bar
+    top: 0.3rem;                                                                                             // start slightly lower
+    height: calc(100% - 0.6rem);                                                                             // avoid touching edges
   }
 
-  /* --- Education Section Mobile Layout ------------------------------- */
+  /* --- Education Section Mobile Layout ----------------------------- */
+  /* Stacks cards, centers content, and scales logos for small devices */
+
   .educationGrid {
-    gap: 1.5rem;
-    margin-top: 1.5rem;
-    padding: 0;
-    display: grid;
-    grid-template-columns: minmax(0, 1fr);
-  }
-
-  .educationGrid, 
-  .educationGrid * {
-    box-sizing: border-box;
+    gap: 1.5rem;                                                                                             // spacing between cards
+    margin-top: 1.5rem;                                                                                      // space above section
+    padding: 0;                                                                                              // remove container padding
+    display: grid;                                                                                           // grid layout
+    grid-template-columns: minmax(0, 1fr);                                                                   // single column
   }
 
   .educationCard {
-    display: flex;
-    flex-direction: column;
-    text-align: center;
-    gap: 1rem;
-    padding: 1.2rem;
-    width: 100%;
-    max-width: 100%;
-    min-width: 0;
+    display: flex;                                                                                           // flexible layout
+    flex-direction: column;                                                                                  // stack logo above text
+    text-align: center;                                                                                      // center-align content
+    gap: 1rem;                                                                                               // spacing between blocks
+    padding: 1.2rem;                                                                                         // compact padding
+    width: 100%;                                                                                             // full width
+    max-width: 100%;                                                                                         // no cap
+    min-width: 0;                                                                                            // prevent overflow
   }
 
   .educationLogo {
-    order: -1;
-    align-self: center;
-    min-width: auto;
-    width: auto;
-    padding: 0.75rem;
+    order: -1;                                                                                               // move logo above text
+    align-self: center;                                                                                      // center logo
+    padding: 0.75rem;                                                                                        // inner spacing
   }
 
   .educationLogo img {
-    width: 50px;
-    height: 50px;
-    max-width: 100%;
-    display: block;
+    width: 50px;                                                                                             // smaller logo size
+    height: 50px;                                                                                            // fixed square
+    display: block;                                                                                          // remove inline gaps
   }
 
   .educationText {
-    text-align: center;
-    flex: none;
-    min-width: 0;
-    overflow-wrap: anywhere;
+    text-align: center;                                                                                      // center text block
+    overflow-wrap: anywhere;                                                                                 // break long strings
   }
 
   .educationText h2 {
-    font-size: 1.3rem;
-    margin-bottom: 0.5rem;
+    font-size: 1.3rem;                                                                                       // smaller heading
+    margin-bottom: 0.5rem;                                                                                   // spacing below
   }
 
   .educationText p:first-of-type {
-    display: flex;
-    font-size: 0.95rem;
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 0.75rem;
+    display: flex;                                                                                           // degree + badge layout
+    font-size: 0.95rem;                                                                                      // compact size
+    justify-content: center;                                                                                 // center items
+    flex-wrap: wrap;                                                                                         // allow wrapping
+    gap: 0.75rem;                                                                                            // spacing between items
   }
 
   .educationText p:last-of-type {
-    font-size: 0.8rem;
+    font-size: 0.8rem;                                                                                       // smaller meta text
   }
 
   .status-badge {
-    padding: 0.3rem 0.7rem;
-    font-size: 0.65rem;
-    letter-spacing: 0.5px;
+    padding: 0.3rem 0.7rem;                                                                                  // compact pill padding
+    font-size: 0.65rem;                                                                                      // smaller badge text
+    letter-spacing: 0.5px;                                                                                   // readable spacing
   }
   
-  /* --- Project Section Mobile Optimization --------------------------- */
+  /* --- Project Section Mobile Optimization --------------- */
+  /* Full-width carousel layout and compact card adjustments */
+
   .section.projects {
-    padding: 1.2rem 0;                                                     // remove side padding for carousel
+    padding: 1.2rem 0;                                                                                       // remove side padding
   }
 
   .projectCarousel {
-    width: 100vw;                                                          // full viewport width
-    max-width: none;                                                       // remove max width
-    margin-left: calc(-50vw + 50%);                                        // break out of container
+    width: 100vw;                                                                                             // full viewport width
+    max-width: none;                                                                                          // no max width cap
+    margin-left: calc(-50vw + 50%);                                                                           // edge-to-edge
     margin-right: calc(-50vw + 50%);
-    margin-top: 1.5rem;
-    margin-bottom: 1.5rem;
-    padding-bottom: 55px;                                                  // space for controls
+    margin-top: 1.5rem;                                                                                       // space above carousel
+    margin-bottom: 1.5rem;                                                                                    // space below carousel
+    padding-bottom: 55px;                                                                                     // room for controls
   }
   
   .projectCard {
-    width: calc(100vw - 2rem);                                             // your existing width
-    flex: 0 0 calc(100vw - 2rem);                                          // your existing flex
-    margin: 0 1rem;                                                        // your existing margins
+    width: calc(100vw - 2rem);                                                                                // card width minus gutters
+    flex: 0 0 calc(100vw - 2rem);                                                                             // fixed slide width
+    margin: 0 1rem;                                                                                           // side gutters
   }
 
   .projectBody {
-    padding: 1rem;                                                         // compact padding
-    gap: 0.5rem;                                                           // tight spacing
+    padding: 1rem;                                                                                            // compact body padding
+    gap: 0.5rem;                                                                                              // tighter spacing
   }
 
   .projectTitle {
-    font-size: 1.1rem;                                                     // readable title size
-    margin-bottom: 0.4rem;
+    font-size: 1.1rem;                                                                                        // readable title
+    margin-bottom: 0.4rem;                                                                                    // spacing below
   }
 
   .languageBadges {
-    gap: 0.4rem;                                                           // compact badge spacing
-    margin-bottom: 0.6rem;
+    gap: 0.4rem;                                                                                              // compact badge spacing
+    margin-bottom: 0.6rem;                                                                                    // space below badges
   }
 
   .languageBadges li {
-    font-size: 0.6rem;                                                     // very compact badges
-    padding: 0.25rem 0.5rem;
-    border-radius: 12px;
+    font-size: 0.6rem;                                                                                        // compact badge text
+    padding: 0.25rem 0.5rem;                                                                                  // smaller pill
+    border-radius: 12px;                                                                                      // rounded corners
   }
 
   .projectSummary {
-    font-size: 0.85rem;                                                    // readable summary
-    line-height: 1.4;
-    margin-bottom: 0.6rem;
+    font-size: 0.85rem;                                                                                       // readable summary
+    line-height: 1.4;                                                                                         // balanced line height
+    margin-bottom: 0.6rem;                                                                                    // spacing below summary
   }
 
   .projectBullets {
-    font-size: 0.75rem;                                                    // compact bullet text
-    line-height: 1.3;
-    padding-left: 0.75rem;
+    font-size: 0.75rem;                                                                                       // compact bullet text
+    line-height: 1.3;                                                                                         // tight spacing
+    padding-left: 0.75rem;                                                                                    // room for bullet marker
   }
   
   .carouselControls {
-    margin: 0 1rem;                                                        // your existing margins
-    bottom: 8px;                                                           // closer to bottom
-    gap: 10px;                                                             // tighter control spacing
+    margin: 0 1rem;                                                                                           // side margins
+    bottom: 8px;                                                                                              // closer to bottom
+    gap: 10px;                                                                                                // tighter spacing
   }
 
   .indicator {
-    width: 8px;                                                            // compact indicators
-    height: 8px;
+    width: 8px;                                                                                               // smaller dot
+    height: 8px;                                                                                              // smaller dot
   }
 
   .carouselNav,
   .playPauseBtn {
-    width: 30px;                                                           // compact navigation buttons
+    width: 30px;                                                                                              // compact controls
     height: 30px;
   }
 
   .carouselNav svg,
   .playPauseBtn svg {
-    width: 14px;                                                           // proportional icons
+    width: 14px;                                                                                              // proportional icon
     height: 14px;
   }
 
-  /* --- Skills Section Mobile Layout ---------------------------------- */
+  /* --- Skills Section Mobile Layout ------------------------- */
+  /* Stacks skills in single column with smaller icons and tags */
+
   .skill-rows {
-    grid-template-columns: 1fr;                                             // single column for phones
-    gap: 1.5rem;                                                           // vertical spacing
-    margin-top: 1.5rem;
-    overflow: visible;
+    grid-template-columns: 1fr;                                                                                // single column
+    gap: 1.5rem;                                                                                               // vertical spacing
+    margin-top: 1.5rem;                                                                                        // space above section
+    overflow: visible;                                                                                         // allow accents to show
   }
 
   .skill-row {
-    padding-left: 0.75rem;                                                  // space for accent bar
+    padding-left: 0.75rem;                                                                                     // room for accent bar
   }
 
   .skill-row .sub-title {
-    font-size: 1.1rem;                                                      // readable subtitle size
-    margin-bottom: 0.75rem;
-    padding-left: 0;                                                        // remove extra padding
+    font-size: 1.1rem;                                                                                         // readable subtitle
+    margin-bottom: 0.75rem;                                                                                    // spacing below
+    padding-left: 0;                                                                                           // no extra padding
   }
 
   .skill-row header {
-    grid-template-columns: 1fr;                                             // stack title and icons
-    gap: 0.5rem;
-    margin-bottom: 0.75rem;
-    overflow: hidden;
+    grid-template-columns: 1fr;                                                                                // stack title and icons
+    gap: 0.5rem;                                                                                               // tighter header spacing
+    margin-bottom: 0.75rem;                                                                                    // space below header
+    overflow: hidden;                                                                                          // prevent overflow
   }
 
   .skill-icons {
-    justify-self: start;                                                    // align icons left
-    margin-top: 0.25rem;
+    justify-self: start;                                                                                       // align icons left
+    margin-top: 0.25rem;                                                                                       // slight offset
   }
 
   .skill-icons i {
-    font-size: 1.2rem;                                                      // appropriately sized icons
+    font-size: 1.2rem;                                                                                         // smaller icons
   }
 
   .skill-row p {
-    font-size: 0.9rem;                                                      // readable text
-    line-height: 1.6;
-    margin-bottom: 1rem;
-    padding-left: 0;                                                        // no extra padding needed
+    font-size: 0.9rem;                                                                                         // readable paragraph
+    line-height: 1.6;                                                                                          // comfortable reading
+    margin-bottom: 1rem;                                                                                       // spacing between paras
+    padding-left: 0;                                                                                           // no extra padding
   }
 
   .skill-tags li {
-    font-size: 0.7rem;                                                      // compact but readable tags
-    padding: 0.25rem 0.5rem;
+    font-size: 0.7rem;                                                                                         // compact tag text
+    padding: 0.25rem 0.5rem;                                                                                   // smaller pill
   }
 }
