@@ -82,7 +82,7 @@ title: Portfolio
         <div class="projectBody">
           <h3 class="projectTitle"><u>Fantasy Football Analysis Database</u></h3>
           <ul class="languageBadges">
-            <li>SQL</li><li>R</li>
+            <li>SQL</li><li>R</li><li>Data Wrangling</li><li>Data Analysis</li>
           </ul>
           <p class="projectSummary">
             Structured SQL database built for fantasy football analysis, featuring cleaned data from 2021–2023 NFL seasons.
