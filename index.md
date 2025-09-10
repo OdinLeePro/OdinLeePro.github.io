@@ -85,7 +85,8 @@ title: Portfolio
             <li>SQL</li><li>R</li>
           </ul>
           <p class="projectSummary">
-            A structured database for fantasy football analytics using cleaned NFL data (2021–2023).
+            Structured SQL database built for fantasy football analysis, featuring cleaned data from 2021–2023 NFL seasons. 
+            Includes R-based data wrangling, SQL triggers, and normalized schemas supporting advanced queries and future web app integration.
           </p>
           <ul class="projectBullets">
             <li>Normalized schemas for efficient querying</li>
@@ -95,81 +96,7 @@ title: Portfolio
           </ul>
         </div>
       </a>
-
-      <!-- Project TEST: TEST -->
-      <a class="projectCard"
-         href="https://github.com/OdinLeePro/FantasyFootballAnalysisDB"
-         target="_blank" rel="noopener noreferrer"
-         aria-label="Open Fantasy Football Analysis Database on GitHub (opens in a new tab)" role="listitem">
-        <figure class="projectImg">
-          <img src="/assets/img/FinalProjectRationalModel.png" alt="Fantasy Football ER Diagram">
-        </figure>
-        <div class="projectBody">
-          <h3 class="projectTitle"><u>Fantasy Football Analysis Database</u></h3>
-          <ul class="languageBadges">
-            <li>SQL</li><li>R</li>
-          </ul>
-          <p class="projectSummary">
-            A structured database for fantasy football analytics using cleaned NFL data (2021–2023).
-          </p>
-          <ul class="projectBullets">
-            <li>Normalized schemas for efficient querying</li>
-            <li>Data wrangling and transformation with R</li>
-            <li>SQL triggers to ensure data integrity</li>
-            <li>Optimized for future dashboard integration</li>
-          </ul>
-        </div>
-      </a>
-
-      <!-- Project TEST: TEST -->
-      <a class="projectCard"
-         href="https://github.com/OdinLeePro/FantasyFootballAnalysisDB"
-         target="_blank" rel="noopener noreferrer"
-         aria-label="Open Fantasy Football Analysis Database on GitHub (opens in a new tab)" role="listitem">
-        <figure class="projectImg">
-          <img src="/assets/img/FinalProjectRationalModel.png" alt="Fantasy Football ER Diagram">
-        </figure>
-        <div class="projectBody">
-          <h3 class="projectTitle"><u>Fantasy Football Analysis Database</u></h3>
-          <ul class="languageBadges">
-            <li>SQL</li><li>R</li>
-          </ul>
-          <p class="projectSummary">
-            A structured database for fantasy football analytics using cleaned NFL data (2021–2023).
-          </p>
-          <ul class="projectBullets">
-            <li>Normalized schemas for efficient querying</li>
-            <li>Data wrangling and transformation with R</li>
-            <li>SQL triggers to ensure data integrity</li>
-            <li>Optimized for future dashboard integration</li>
-          </ul>
-        </div>
-      </a>
-
-      <!-- Project TEST: TEST -->
-      <a class="projectCard"
-         href="https://github.com/OdinLeePro/FantasyFootballAnalysisDB"
-         target="_blank" rel="noopener noreferrer"
-         aria-label="Open Fantasy Football Analysis Database on GitHub (opens in a new tab)" role="listitem">
-        <figure class="projectImg">
-          <img src="/assets/img/FinalProjectRationalModel.png" alt="Fantasy Football ER Diagram">
-        </figure>
-        <div class="projectBody">
-          <h3 class="projectTitle"><u>Fantasy Football Analysis Database</u></h3>
-          <ul class="languageBadges">
-            <li>SQL</li><li>R</li>
-          </ul>
-          <p class="projectSummary">
-            A structured database for fantasy football analytics using cleaned NFL data (2021–2023).
-          </p>
-          <ul class="projectBullets">
-            <li>Normalized schemas for efficient querying</li>
-            <li>Data wrangling and transformation with R</li>
-            <li>SQL triggers to ensure data integrity</li>
-            <li>Optimized for future dashboard integration</li>
-          </ul>
-        </div>
-      </a>
+      
     </div>
 
     <!-- Controls row -->
