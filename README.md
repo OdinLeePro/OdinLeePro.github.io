@@ -74,6 +74,7 @@ This project began as a way to present my Data Science skills and projects more 
 │   │   ├── AugsburgUniversity-Logo.png
 │   │   ├── Odin-Logo.png
 │   │   ├── ProjectOnePNG.png
+│   │   ├── ProjectTwoPNG.png
 │   │   ├── UniversitySt.Thomas-Logo.png
 │   │   └── headshot.png
 │   ├── js/
