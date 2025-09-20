@@ -67,6 +67,10 @@ title: Portfolio
   <h1>Projects</h1>
 
   <div class="projectCarousel">
+    
+    <!--                                     -->
+    <!--     IMG size ratio best at 16:9     -->
+    <!--                                     -->
 
     <!-- Slides track -->
     <div class="projectGrid" role="list">
@@ -77,7 +81,7 @@ title: Portfolio
          target="_blank" rel="noopener noreferrer"
          aria-label="Open Fantasy Football Analysis Database on GitHub (opens in a new tab)" role="listitem">
         <figure class="projectImg">
-          <img src="/assets/img/ProjectOnePNG.png" alt="Fantasy Football ER Diagram">
+          <img src="/assets/img/ProjectOnePNG.png" alt="Fantasy Football Analysis Image">
         </figure>
         <div class="projectBody">
           <h3 class="projectTitle"><u>Fantasy Football Analysis Database</u></h3>
@@ -92,6 +96,31 @@ title: Portfolio
             <li>Data wrangling and transformation with R</li>
             <li>SQL triggers to ensure data integrity</li>
             <li>Optimized for future dashboard integration</li>
+          </ul>
+        </div>
+      </a>
+
+      <!-- Project 2: Portfolio Website -->
+      <a class="projectCard"
+         href="https://github.com/OdinLeePro/OdinLeePro.github.io"
+         target="_blank" rel="noopener noreferrer"
+         aria-label="Open Portfolio Website on GitHub (opens in a new tab)" role="listitem">
+        <figure class="projectImg">
+          <img src="/assets/img/ProjectTwoPNG.png" alt="Portfolio Website Image">
+        </figure>
+        <div class="projectBody">
+          <h3 class="projectTitle"><u>Portfolio Website</u></h3>
+          <ul class="languageBadges">
+            <li>HTML</li><li>CSS</li><li>JavaScript</li><li>Jekyll</li>
+          </ul>
+          <p class="projectSummary">
+            Personal data science portfolio website showcasing projects, skills, and background information with an interactive design built using HTML, SCSS, Jekyll, and JavaScript.
+          </p>
+          <ul class="projectBullets">
+            <li>Profile header with headshot, name, and key links</li>
+            <li>Interactive projects carousel showcasing Data Science work</li>
+            <li>Education and skills sections clearly displayed</li>
+            <li>Responsive, accessible layout built for scalability</li>
           </ul>
         </div>
       </a>
