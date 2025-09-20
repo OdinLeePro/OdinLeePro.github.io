@@ -1,5 +1,5 @@
 # OdinLeePro.github.io (odinleedata.com)
-OdinLeePro.github.io/ odinleedata.com is a personal Data Science portfolio website built with HTML, SCSS, Jekyll, and JavaScript. It showcases projects, skills, and background information in an interactive and visually structured way, serving as a professional hub beyond a traditional resume.
+OdinLeePro.github.io/odinleedata.com is a personal Data Science portfolio website built with HTML, SCSS, Jekyll, and JavaScript. It showcases projects, skills, and background information in an interactive and visually structured way, serving as a professional hub beyond a traditional resume.
 
 ## Overview
 
