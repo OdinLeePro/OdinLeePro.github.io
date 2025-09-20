@@ -1,4 +1,6 @@
-# OdinLeePro.github.io (odinleedata.com)
+# OdinLeePro.github.io  
+Live at [odinleedata.com](https://odinleedata.com) 
+
 OdinLeePro.github.io/odinleedata.com is a personal Data Science portfolio website built with HTML, SCSS, Jekyll, and JavaScript. It showcases projects, skills, and background information in an interactive and visually structured way, serving as a professional hub beyond a traditional resume.
 
 ## Overview
@@ -90,11 +92,11 @@ This project began as a way to present my Data Science skills and projects more 
 
 ## Technologies Used
 
-- **HTML** — Core structure for layouts and includes (mainLayout.html, leftSideContent.html)
-- **SCSS / CSS** — Custom styles and themes (colors.scss, style.scss, jekyll-theme-minimal.scss) for design and layout
-- **JavaScript** — Adds interactivity, including the project carousel (project-carousel.js) and responsive fixes (scale.fix.js)
-- **Jekyll** — Static site generator powering the site on GitHub Pages (_layouts, _includes, _config.yml)
-- **Google Analytics** — Integrated via _includes/googleAnalytics.html for site traffic monitoring
+- **HTML** — Core structure for layouts and includes (`mainLayout.html`, `leftSideContent.html`)  
+- **SCSS / CSS** — Custom styles and themes (`colors.scss`, `style.scss`, `jekyll-theme-minimal.scss`)  
+- **JavaScript** — Adds interactivity, including the project carousel (`project-carousel.js`) and responsive fixes (`scale.fix.js`)  
+- **Jekyll** — Static site generator powering the site on GitHub Pages (`_layouts/`, `_includes/`, `_config.yml`)  
+- **Google Analytics** — Integrated via `_includes/googleAnalytics.html` for site traffic monitoring  
 
 ## Future Plans
 
