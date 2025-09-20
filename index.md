@@ -114,7 +114,7 @@ title: Portfolio
             <li>HTML</li><li>CSS</li><li>JavaScript</li><li>Jekyll</li>
           </ul>
           <p class="projectSummary">
-            Personal data science portfolio website showcasing projects, skills, and background information with an interactive design built using HTML, SCSS, Jekyll, and JavaScript.
+            Personal data science portfolio website showcasing projects, skills, and background information with an interactive design.
           </p>
           <ul class="projectBullets">
             <li>Profile header with headshot, name, and key links</li>
