@@ -1,23 +1,24 @@
-# FantasyFootballAnalysisDB
-FantasyFootballAnalysisDB is a structured SQL database built for fantasy football analysis, featuring cleaned data from 2021–2023 NFL seasons. Includes R-based data wrangling, SQL triggers, and normalized schemas supporting advanced queries and future web app integration.
+# OdinLeePro.github.io (odinleedata.com)
+OdinLeePro.github.io/ odinleedata.com is a personal Data Science portfolio website built with HTML, SCSS, Jekyll, and JavaScript. It showcases projects, skills, and background information in an interactive and visually structured way, serving as a professional hub beyond a traditional resume.
 
 ## Overview
 
-This project began as a tool for analyzing fantasy football data with a friend. It evolved into a fully normalized SQL database with:
+This project began as a way to present my Data Science skills and projects more effectively when applying for jobs. It evolved into a dedicated website with:
 
-- Cleaned, imported player/game data
-- SQL triggers to automate calculations
-- Example queries for analysis
-- R scripts for data preparation (via `nflverse` and `nflfastR`)
-- A flexible structure for future expansion (e.g., Oracle APEX web app)
+- Profile header with quick-access links
+- Sections for About Me, Education, Projects, and Skills
+- A dynamic project carousel for portfolio work
+- Clean, responsive design using web technologies
+- A flexible structure for continual updates
 
 ## Features
 
-- **Normalized SQL Schema** — ~14 tables (initially), designed using Oracle Data Modeler
-- **Automated Logic** — Triggers handle real-time calculations during data import
-- **R Data Wrangling** — Scripts used to clean and transform raw NFL datasets
-- **Query Examples** — Included for fantasy-relevant metrics
-- **Expandable** — Scalable for future app development or analysis
+- **Profile Header** — Displays headshot, name, and buttons linking to resume, GitHub, LinkedIn, and email
+- **About Me** — Short description providing background and interests
+- **Education Section** — Undergraduate degree and graduate program displayed clearly
+- **Projects Section** — Interactive carousel highlighting multiple Data Science projects, auto-rotating every 5 seconds
+- **Skills Section** — Section displaying relevant Data Science and technical skills
+- **Responsive Layout** — Built for accessibility and future scalability
 
 ## Project Structure
 
@@ -87,23 +88,16 @@ This project began as a tool for analyzing fantasy football data with a friend. 
 ├── robots.txt
 ```
 
-## Data Sources
+## Technologies Used
 
-- [`nflverse`](https://nflverse.nflverse.com/) / [`nflfastR`](https://mrcaseb.github.io/pages_dummy/) R packages
+- **HTML** — Core structure for layouts and includes (mainLayout.html, leftSideContent.html)
+- **SCSS / CSS** — Custom styles and themes (colors.scss, style.scss, jekyll-theme-minimal.scss) for design and layout
+- **JavaScript** — Adds interactivity, including the project carousel (project-carousel.js) and responsive fixes (scale.fix.js)
+- **Jekyll** — Static site generator powering the site on GitHub Pages (_layouts, _includes, _config.yml)
+- **Google Analytics** — Integrated via _includes/googleAnalytics.html for site traffic monitoring
 
 ## Future Plans
 
-- Add new tables and data points for deeper analysis
-- Explore Oracle APEX to build a front-end app
-- Incorporate projections, rankings, and historical trends
-
-## Class Concepts Applied
-
-- Entity-Relationship Modeling
-- SQL Normalization (Primary/Foreign Keys)
-- Triggers for data integrity
-- Query Design and Optimization
-
-## License
-
-This project is licensed under the MIT License.
+- Add new projects as they are completed and ready to publish
+- Create an Experience section while Data Science career continues
+- Explore further customization and optimizations for design and performance
