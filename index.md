@@ -100,13 +100,39 @@ title: Portfolio
         </div>
       </a>
 
-      <!-- Project 2: Portfolio Website -->
+      <!-- Project 2: Airbnb New York City Analysis -->
+      <a class="projectCard"
+         href="https://github.com/OdinLeePro/AirbnbNewYorkCityAnalysis"
+         target="_blank" rel="noopener noreferrer"
+         aria-label="Open Airbnb New York City Analysis on GitHub (opens in a new tab)"
+         role="listitem">
+        <figure class="projectImg">
+          <img src="/assets/img/ProjectTwoPNG.png" alt="Airbnb New York City Analysis Image">
+        </figure>
+        <div class="projectBody">
+          <h3 class="projectTitle"><u>Airbnb New York City Analysis</u></h3>
+          <ul class="languageBadges">
+            <li>Tableau</li><li>Excel</li><li>Data Cleaning</li><li>Data Visualization</li>
+          </ul>
+          <p class="projectSummary">
+            Comprehensive data analysis and visualization project examining Airbnb rental trends across New York City (2008–2022).
+          </p>
+          <ul class="projectBullets">
+            <li>Cleaned and prepared a dataset of ~190K listings for accurate analysis</li>
+            <li>Developed an interactive Tableau dashboard for dynamic insights</li>
+            <li>Explored borough-level distribution, pricing trends, and host behavior</li>
+            <li>Produced detailed documentation and a video presentation of findings</li>
+          </ul>
+        </div>
+      </a>
+
+      <!-- Project 3: Portfolio Website -->
       <a class="projectCard"
          href="https://github.com/OdinLeePro/OdinLeePro.github.io"
          target="_blank" rel="noopener noreferrer"
          aria-label="Open Portfolio Website on GitHub (opens in a new tab)" role="listitem">
         <figure class="projectImg">
-          <img src="/assets/img/ProjectTwoPNG.png" alt="Portfolio Website Image">
+          <img src="/assets/img/ProjectThreePNG.png" alt="Portfolio Website Image">
         </figure>
         <div class="projectBody">
           <h3 class="projectTitle"><u>Portfolio Website</u></h3>
