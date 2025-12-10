@@ -86,10 +86,10 @@ title: Portfolio
         <div class="projectBody">
           <h3 class="projectTitle"><u>MiLB Data Quality</u></h3>
           <ul class="languageBadges">
-            <li>Python</li><li>R</li><li>Jupyter Nootbook</li><li>Data Cleaning</li><li>Data Validation</li>
+            <li>Python</li><li>Excel</li><li>Jupyter Nootbook</li><li>Data Cleaning</li>
           </ul>
           <p class="projectSummary">
-            Data-cleaning project for 2025 Minor League TrackMan datasets, delivering a corrected, combined file and key analytics such as team exit velocities.
+            Data-cleaning project for 2025 MiLB TrackMan datasets, delivering a corrected, combined file and key analytics such as team exit velocities.
           </p>
           <ul class="projectBullets">
             <li>Cleaning and validating TrackMan pitch and contact data</li>
