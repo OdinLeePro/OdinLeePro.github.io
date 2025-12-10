@@ -75,27 +75,27 @@ title: Portfolio
     <!-- Slides track -->
     <div class="projectGrid" role="list">
     
-      <!-- Project 1: Fantasy Football Analysis -->
+      <!-- Project 1: MiLB Data Quality -->
       <a class="projectCard"
-         href="https://github.com/OdinLeePro/FantasyFootballAnalysisDB"
+         href="https://github.com/OdinLeePro/MiLBDataQuality"
          target="_blank" rel="noopener noreferrer"
-         aria-label="Open Fantasy Football Analysis Database on GitHub (opens in a new tab)" role="listitem">
+         aria-label="Open MiLB Data Quality on GitHub (opens in a new tab)" role="listitem">
         <figure class="projectImg">
-          <img src="/assets/img/ProjectOnePNG.png" alt="Fantasy Football Analysis Image">
+          <img src="/assets/img/ProjectOnePNG.png" alt="MiLB Data Quality Image">
         </figure>
         <div class="projectBody">
-          <h3 class="projectTitle"><u>Fantasy Football Analysis Database</u></h3>
+          <h3 class="projectTitle"><u>MiLB Data Quality</u></h3>
           <ul class="languageBadges">
-            <li>SQL</li><li>R</li><li>Data Wrangling</li><li>Data Analysis</li>
+            <li>Python</li><li>R</li><li>Jupyter Nootbook</li><li>Data Cleaning</li><li>Data Validation</li>
           </ul>
           <p class="projectSummary">
-            Structured SQL database built for fantasy football analysis, featuring cleaned data from 2021–2023 NFL seasons.
+            Data-cleaning project for 2025 Minor League TrackMan datasets, delivering a corrected, combined file and key analytics such as team exit velocities.
           </p>
           <ul class="projectBullets">
-            <li>Normalized schemas for efficient querying</li>
-            <li>Data wrangling and transformation with R</li>
-            <li>SQL triggers to ensure data integrity</li>
-            <li>Optimized for future dashboard integration</li>
+            <li>Cleaning and validating TrackMan pitch and contact data</li>
+            <li>Correcting data-entry and measurement errors</li>
+            <li>Creating a unified dataset with Python and Pandas</li>
+            <li>Calculating team average exit velocities</li>
           </ul>
         </div>
       </a>
@@ -126,13 +126,38 @@ title: Portfolio
         </div>
       </a>
 
-      <!-- Project 3: Portfolio Website -->
+      <!-- Project 3: Fantasy Football Analysis -->
+      <a class="projectCard"
+         href="https://github.com/OdinLeePro/FantasyFootballAnalysisDB"
+         target="_blank" rel="noopener noreferrer"
+         aria-label="Open Fantasy Football Analysis Database on GitHub (opens in a new tab)" role="listitem">
+        <figure class="projectImg">
+          <img src="/assets/img/ProjectThreePNG.png" alt="Fantasy Football Analysis Image">
+        </figure>
+        <div class="projectBody">
+          <h3 class="projectTitle"><u>Fantasy Football Analysis Database</u></h3>
+          <ul class="languageBadges">
+            <li>SQL</li><li>R</li><li>Data Wrangling</li><li>Data Analysis</li>
+          </ul>
+          <p class="projectSummary">
+            Structured SQL database built for fantasy football analysis, featuring cleaned data from 2021–2023 NFL seasons.
+          </p>
+          <ul class="projectBullets">
+            <li>Normalized schemas for efficient querying</li>
+            <li>Data wrangling and transformation with R</li>
+            <li>SQL triggers to ensure data integrity</li>
+            <li>Optimized for future dashboard integration</li>
+          </ul>
+        </div>
+      </a>
+      
+      <!-- Project 4: Portfolio Website -->
       <a class="projectCard"
          href="https://github.com/OdinLeePro/OdinLeePro.github.io"
          target="_blank" rel="noopener noreferrer"
          aria-label="Open Portfolio Website on GitHub (opens in a new tab)" role="listitem">
         <figure class="projectImg">
-          <img src="/assets/img/ProjectThreePNG.png" alt="Portfolio Website Image">
+          <img src="/assets/img/ProjectFourPNG.png" alt="Portfolio Website Image">
         </figure>
         <div class="projectBody">
           <h3 class="projectTitle"><u>Portfolio Website</u></h3>
