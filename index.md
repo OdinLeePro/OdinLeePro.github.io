@@ -86,16 +86,16 @@ title: Portfolio
         <div class="projectBody">
           <h3 class="projectTitle"><u>Snowflake Basketball Data Warehouse</u></h3>
           <ul class="languageBadges">
-            <li>Snowflake</li><li>SQL</li><li>Data Warehousing</li><li>Analytics Engineering</li>
+            <li>Snowflake</li><li>SQL</li><li>Data Warehousing</li><li>ELT Pipelines</li>
           </ul>
           <p class="projectSummary">
-            Data warehousing and analytics project using OPTA Basketball Schedule and Results data from the Snowflake Marketplace, delivering a curated, analytics-ready model with automated enhancements and team-level performance insights.
+            Snowflake based data warehousing project transforming OPTA basketball data into an analytics ready model.
           </p>
           <ul class="projectBullets">
             <li>Designing curated dimension and fact tables in Snowflake SQL</li>
-            <li>Enriching game data with point differentials, scoring levels, and win classifications</li>
+            <li>Enriching game data with scoring metrics and win classifications</li>
             <li>Building aggregated analytics for team, venue, and season scoring trends</li>
-            <li>Automating weekly data processing with Snowflake tasks and stored procedures</li>
+            <li>Automating weekly processing with Snowflake tasks and procedures</li>
           </ul>
         </div>
       </a>
