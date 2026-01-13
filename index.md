@@ -75,27 +75,27 @@ title: Portfolio
     <!-- Slides track -->
     <div class="projectGrid" role="list">
     
-      <!-- Project 1: MiLB Data Quality -->
+      <!-- Project 1: Snowflake Bascketball Data Warehouse -->
       <a class="projectCard"
-         href="https://github.com/OdinLeePro/MiLBDataQuality"
+         href="https://github.com/OdinLeePro/SnowflakeBascketballDataWarehouse"
          target="_blank" rel="noopener noreferrer"
-         aria-label="Open MiLB Data Quality on GitHub (opens in a new tab)" role="listitem">
+         aria-label="Open Snowflake Bascketball Data Warehouse on GitHub (opens in a new tab)" role="listitem">
         <figure class="projectImg">
-          <img src="/assets/img/ProjectOnePNG.png" alt="MiLB Data Quality Image">
+          <img src="/assets/img/ProjectOnePNG.png" alt="Snowflake Bascketball Data Warehouse Image">
         </figure>
         <div class="projectBody">
-          <h3 class="projectTitle"><u>MiLB Data Quality</u></h3>
+          <h3 class="projectTitle"><u>Snowflake Bascketball Data Warehouse</u></h3>
           <ul class="languageBadges">
             <li>Python</li><li>Excel</li><li>Jupyter Nootbook</li><li>Data Cleaning</li>
           </ul>
           <p class="projectSummary">
-            Data-cleaning project for 2025 MiLB TrackMan datasets, delivering a corrected, combined file and key analytics such as team exit velocities.
+            Data warehousing and analytics project using OPTA Basketball Schedule and Results data from the Snowflake Marketplace, delivering a curated, analytics-ready model with automated enhancements and team-level performance insights.
           </p>
           <ul class="projectBullets">
-            <li>Cleaning and validating TrackMan pitch and contact data</li>
-            <li>Correcting data-entry and measurement errors</li>
-            <li>Creating a unified dataset with Python and Pandas</li>
-            <li>Calculating team average exit velocities</li>
+            <li>Designing curated dimension and fact tables in Snowflake SQL</li>
+            <li>Enriching game data with point differentials, scoring levels, and win classifications</li>
+            <li>Building aggregated analytics for team, venue, and season scoring trends</li>
+            <li>Automating weekly data processing with Snowflake tasks and stored procedures</li>
           </ul>
         </div>
       </a>
