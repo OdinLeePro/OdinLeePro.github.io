@@ -75,18 +75,18 @@ title: Portfolio
     <!-- Slides track -->
     <div class="projectGrid" role="list">
     
-      <!-- Project 1: Snowflake Bascketball Data Warehouse -->
+      <!-- Project 1: Snowflake Basketball Data Warehouse -->
       <a class="projectCard"
-         href="https://github.com/OdinLeePro/SnowflakeBascketballDataWarehouse"
+         href="https://github.com/OdinLeePro/SnowflakeBasketballDataWarehouse"
          target="_blank" rel="noopener noreferrer"
-         aria-label="Open Snowflake Bascketball Data Warehouse on GitHub (opens in a new tab)" role="listitem">
+         aria-label="Open Snowflake Basketball Data Warehouse on GitHub (opens in a new tab)" role="listitem">
         <figure class="projectImg">
-          <img src="/assets/img/ProjectOnePNG.png" alt="Snowflake Bascketball Data Warehouse Image">
+          <img src="/assets/img/ProjectOnePNG.png" alt="Snowflake Basketball Data Warehouse Image">
         </figure>
         <div class="projectBody">
-          <h3 class="projectTitle"><u>Snowflake Bascketball Data Warehouse</u></h3>
+          <h3 class="projectTitle"><u>Snowflake Basketball Data Warehouse</u></h3>
           <ul class="languageBadges">
-            <li>Python</li><li>Excel</li><li>Jupyter Nootbook</li><li>Data Cleaning</li>
+            <li>Snowflake</li><li>SQL</li><li>Data Warehousing</li><li>Analytics Engineering</li>
           </ul>
           <p class="projectSummary">
             Data warehousing and analytics project using OPTA Basketball Schedule and Results data from the Snowflake Marketplace, delivering a curated, analytics-ready model with automated enhancements and team-level performance insights.
