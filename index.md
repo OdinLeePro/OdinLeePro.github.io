@@ -77,7 +77,7 @@ title: Portfolio
     
       <!-- Project 1: Snowflake Basketball Data Warehouse -->
       <a class="projectCard"
-         href="https://github.com/OdinLeePro/SnowflakeBasketballDataWarehouse"
+         href="https://github.com/OdinLeePro/SnowflakeBascketballDataWarehouse"
          target="_blank" rel="noopener noreferrer"
          aria-label="Open Snowflake Basketball Data Warehouse on GitHub (opens in a new tab)" role="listitem">
         <figure class="projectImg">
