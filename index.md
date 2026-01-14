@@ -39,7 +39,7 @@ title: Portfolio
     <div class="educationCard">
       <div class="educationText">
         <h2>University of St. Thomas</h2>
-        <p><strong>MS, Data Science</strong> <span class="status-badge in-progress">In Progress</span></p><p><em>Sep 2024 – May 2026</em></p>
+        <p><strong>MS, Data Science</strong> <span class="status-badge in-progress">In Progress</span></p><p><em>Sep 2024 – Aug 2026</em></p>
       </div>
       <div class="educationLogo">
         <img src="assets/img/UniversitySt.Thomas-Logo.png" alt="University of St. Thomas Logo" width="60" height="60" />
