@@ -18,7 +18,7 @@ title: Portfolio
       I’m currently pursuing a <strong>Master of Science degree in Data Science</strong> 
       at the <strong>University of St. Thomas</strong>, building on my <strong>Bachelor’s 
       degree in Data Science</strong> from <strong>Augsburg University</strong>. 
-      Throughout my academic journey, I’ve gained hands-on experience in data analytics, 
+      Throughout my academic journey, I’ve gained hands on experience in data analytics, 
       statistical modeling, and programming.
   </p>
 
@@ -226,7 +226,7 @@ title: Portfolio
             Skilled in <strong>Python</strong> and <strong>SQL</strong> for data analysis, predictive 
             modeling, and visualization, complemented by <strong>R</strong> for advanced statistical 
             methods. Background in <strong>Java</strong> strengthens foundation in algorithms and 
-            complex problem-solving. 
+            complex problem solving. 
         </p>
 
         <ul class="skill-tags" aria-label="Highlights">
@@ -248,7 +248,7 @@ title: Portfolio
         <p> 
             Experienced in building interactive dashboards with <strong>Tableau/ Power BI</strong>, and managing 
             databases using <strong>Oracle SQL Developer</strong>, with additional data-warehousing experience 
-            in <strong>Snowflake</strong>. Skilled in performing in-depth data 
+            in <strong>Snowflake</strong>. Skilled in performing in depth data 
             analyses with <strong>Jupyter Notebooks</strong> and <strong>RStudio</strong>, leveraging 
             <strong>GitHub</strong> and <strong>AWS</strong> (EC2 and S3) for collaboration, 
             scalability, and cloud deployment. 
@@ -271,15 +271,15 @@ title: Portfolio
         </header>
 
         <p> 
-            Proficient in Python libraries (<strong>pandas</strong>, <strong>NumPy</strong>, 
+            Proficient in Python libraries (<strong>Scikit-learn</strong>, <strong>pandas</strong>, <strong>NumPy</strong>, 
             <strong>Matplotlib</strong>, <strong>Seaborn</strong>, <strong>Plotly</strong>) 
-            for data wrangling and visualization, and in R packages (<strong>dplyr</strong>, 
+            for machine learning and visualization, and in R packages (<strong>dplyr</strong>, 
             <strong>ggplot2</strong>, <strong>Shiny</strong>) for data manipulation and interactive 
             applications. Proficient in creating reproducible reports with <strong>Quarto</strong>. 
         </p>
 
         <ul class="skill-tags" aria-label="Highlights">
-        <li>pandas</li><li>NumPy</li><li>Matplotlib</li><li>Seaborn</li><li>Plotly</li><li>dplyr</li><li>ggplot2</li><li>shiny</li><li>Quarto</li>
+        <li>Scikit-learning</li><li>pandas</li><li>NumPy</li><li>Matplotlib</li><li>Seaborn</li><li>Plotly</li><li>dplyr</li><li>ggplot2</li><li>shiny</li><li>Quarto</li>
         </ul>
     </article>
 
@@ -295,13 +295,13 @@ title: Portfolio
         </header>
 
         <p> 
-            Expertise in <strong>data wrangling</strong>, exploratory data analysis (<strong>EDA</strong>)
+            Expertise in <strong>machine learning</strong><strong>data wrangling</strong>, exploratory data analysis (<strong>EDA</strong>)
             , and <strong>statistical modeling</strong>, complemented by strong skills in 
             <strong>data visualization</strong> and deploying <strong>cloud-based solutions</strong>. 
         </p>
 
         <ul class="skill-tags" aria-label="Highlights">
-        <li>Data Wrangling</li><li>EDA</li><li>Statistical Modeling</li><li>Data Visualization</li><li>Cloud-Based Solutions</li>
+        <li>Machine Learning</li><li>Data Wrangling</li><li>EDA</li><li>Statistical Modeling</li><li>Data Visualization</li><li>Cloud-Based Solutions</li>
         </ul>
     </article>
   </div>
