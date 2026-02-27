@@ -279,7 +279,7 @@ title: Portfolio
         </p>
 
         <ul class="skill-tags" aria-label="Highlights">
-        <li>Scikit-learning</li><li>pandas</li><li>NumPy</li><li>Matplotlib</li><li>Seaborn</li><li>Plotly</li><li>dplyr</li><li>ggplot2</li><li>shiny</li><li>Quarto</li>
+        <li>Scikit-learn</li><li>pandas</li><li>NumPy</li><li>Matplotlib</li><li>Seaborn</li><li>Plotly</li><li>dplyr</li><li>ggplot2</li><li>shiny</li><li>Quarto</li>
         </ul>
     </article>
 
