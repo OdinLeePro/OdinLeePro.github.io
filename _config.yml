@@ -7,7 +7,7 @@ headshot: /assets/img/headshot.png
 title: Odin Lee
 location: "St. Paul, Minnesota"
 professional_title: "Graduate Data Scientist"
-tagline: "Turning complex data into actionable insights"
+tagline: "Solving complex problems, one data point at a time."
 platforms:
   - name: Resume
     icon: <i class="fa-solid fa-file-user"></i>
