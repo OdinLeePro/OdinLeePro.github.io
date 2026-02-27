@@ -295,7 +295,7 @@ title: Portfolio
         </header>
 
         <p> 
-            Expertise in <strong>machine learning</strong><strong>data wrangling</strong>, exploratory data analysis (<strong>EDA</strong>)
+            Expertise in <strong>machine learning</strong>, <strong>data wrangling</strong>, exploratory data analysis (<strong>EDA</strong>)
             , and <strong>statistical modeling</strong>, complemented by strong skills in 
             <strong>data visualization</strong> and deploying <strong>cloud-based solutions</strong>. 
         </p>
