@@ -75,27 +75,27 @@ title: Portfolio
     <!-- Slides track -->
     <div class="projectGrid" role="list">
     
-      <!-- Project 1: Snowflake Basketball Data Warehouse -->
+      <!-- Project 1: Machine Learning Fantasy Baseball Draft Engine -->
       <a class="projectCard"
-         href="https://github.com/OdinLeePro/SnowflakeBascketballDataWarehouse"
+         href="https://github.com/OdinLeePro/MachineLearningFantasyBaseballDraftEngine"
          target="_blank" rel="noopener noreferrer"
-         aria-label="Open Snowflake Basketball Data Warehouse on GitHub (opens in a new tab)" role="listitem">
+         aria-label="Open Machine Learning Fantasy Baseball Draft Engine on GitHub (opens in a new tab)" role="listitem">
         <figure class="projectImg">
-          <img src="/assets/img/ProjectOnePNG.png" alt="Snowflake Basketball Data Warehouse Image">
+          <img src="/assets/img/ProjectOnePNG.png" alt="Machine Learning Fantasy Baseball Draft Engine Image">
         </figure>
         <div class="projectBody">
-          <h3 class="projectTitle"><u>Snowflake Basketball Data Warehouse</u></h3>
+          <h3 class="projectTitle"><u>Machine Learning Fantasy Baseball Draft Engine</u></h3>
           <ul class="languageBadges">
-            <li>Snowflake</li><li>SQL</li><li>Data Warehousing</li><li>ELT Pipelines</li>
+            <li>Python</li><li>Scikit-Learn</li><li>Machine Learning</li>
           </ul>
           <p class="projectSummary">
-            Snowflake based data warehousing project transforming OPTA basketball data into an analytics ready model.
+            Predictive analytics pipeline optimizing fantasy baseball drafts by reverse engineering custom scoring and applying K-Means clustering to generate a tiered Big Board.
           </p>
           <ul class="projectBullets">
-            <li>Designing curated dimension and fact tables in Snowflake SQL</li>
-            <li>Enriching game data with scoring metrics and win classifications</li>
-            <li>Building aggregated analytics for team, venue, and season scoring trends</li>
-            <li>Automating weekly processing with Snowflake tasks and procedures</li>
+            <li>Sourcing and cleaning historical and projected baseball data using R and Python</li>
+            <li>Reverse engineering custom league scoring systems using Lasso Regression</li>
+            <li>Calculating true Value Over Replacement Player (VORP) utilizing historical baselines</li>
+            <li>Applying K-Means clustering to generate a strategically tiered draft board</li>
           </ul>
         </div>
       </a>
