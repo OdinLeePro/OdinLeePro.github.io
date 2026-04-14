@@ -89,12 +89,12 @@ title: Portfolio
             <li>Python</li><li>Scikit-Learn</li><li>Machine Learning</li>
           </ul>
           <p class="projectSummary">
-            Predictive analytics pipeline optimizing fantasy baseball drafts by reverse engineering custom scoring and applying K-Means clustering to generate a tiered Big Board.
+            Predictive analytics pipeline reverse-engineering custom scoring and using K-Means clustering to optimize fantasy baseball draft strategy.
           </p>
           <ul class="projectBullets">
-            <li>Sourcing and cleaning historical and projected baseball data using R and Python</li>
+            <li>Sourcing and cleaning historical and projected baseball data with R and Python</li>
             <li>Reverse engineering custom league scoring systems using Lasso Regression</li>
-            <li>Calculating true Value Over Replacement Player (VORP) utilizing historical baselines</li>
+            <li>Calculating true Value Over Replacement Player (VORP) via historical baselines</li>
             <li>Applying K-Means clustering to generate a strategically tiered draft board</li>
           </ul>
         </div>
