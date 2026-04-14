@@ -126,13 +126,38 @@ title: Portfolio
         </div>
       </a>
 
-      <!-- Project 3: Fantasy Football Analysis -->
+            <!-- Project 3: Snowflake Basketball Data Warehouse -->
+      <a class="projectCard"
+         href="https://github.com/OdinLeePro/SnowflakeBascketballDataWarehouse"
+         target="_blank" rel="noopener noreferrer"
+         aria-label="Open Snowflake Basketball Data Warehouse on GitHub (opens in a new tab)" role="listitem">
+        <figure class="projectImg">
+          <img src="/assets/img/ProjectThreePNG.png" alt="Snowflake Basketball Data Warehouse Image">
+        </figure>
+        <div class="projectBody">
+          <h3 class="projectTitle"><u>Snowflake Basketball Data Warehouse</u></h3>
+          <ul class="languageBadges">
+            <li>Snowflake</li><li>SQL</li><li>Data Warehousing</li><li>ELT Pipelines</li>
+          </ul>
+          <p class="projectSummary">
+            Snowflake based data warehousing project transforming OPTA basketball data into an analytics ready model.
+          </p>
+          <ul class="projectBullets">
+            <li>Designing curated dimension and fact tables in Snowflake SQL</li>
+            <li>Enriching game data with scoring metrics and win classifications</li>
+            <li>Building aggregated analytics for team, venue, and season scoring trends</li>
+            <li>Automating weekly processing with Snowflake tasks and procedures</li>
+          </ul>
+        </div>
+      </a>
+
+      <!-- Project 4: Fantasy Football Analysis -->
       <a class="projectCard"
          href="https://github.com/OdinLeePro/FantasyFootballAnalysisDB"
          target="_blank" rel="noopener noreferrer"
          aria-label="Open Fantasy Football Analysis Database on GitHub (opens in a new tab)" role="listitem">
         <figure class="projectImg">
-          <img src="/assets/img/ProjectThreePNG.png" alt="Fantasy Football Analysis Image">
+          <img src="/assets/img/ProjectFourPNG.png" alt="Fantasy Football Analysis Image">
         </figure>
         <div class="projectBody">
           <h3 class="projectTitle"><u>Fantasy Football Analysis Database</u></h3>
@@ -151,13 +176,13 @@ title: Portfolio
         </div>
       </a>
       
-      <!-- Project 4: Portfolio Website -->
+      <!-- Project 5: Portfolio Website -->
       <a class="projectCard"
          href="https://github.com/OdinLeePro/OdinLeePro.github.io"
          target="_blank" rel="noopener noreferrer"
          aria-label="Open Portfolio Website on GitHub (opens in a new tab)" role="listitem">
         <figure class="projectImg">
-          <img src="/assets/img/ProjectFourPNG.png" alt="Portfolio Website Image">
+          <img src="/assets/img/ProjectFivePNG.png" alt="Portfolio Website Image">
         </figure>
         <div class="projectBody">
           <h3 class="projectTitle"><u>Portfolio Website</u></h3>
