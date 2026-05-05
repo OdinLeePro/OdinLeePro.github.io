@@ -39,7 +39,7 @@ title: Portfolio
     <div class="educationCard">
       <div class="educationText">
         <h2>University of St. Thomas</h2>
-        <p><strong>MS, Data Science</strong> <span class="status-badge in-progress">In Progress</span></p><p><em>Sep 2024 – Aug 2026</em></p>
+        <p><strong>MS, Data Science</strong> <span class="status-badge in-progress">In Progress</span></p><p><em>Sep 2024 – Dec 2026</em></p>
       </div>
       <div class="educationLogo">
         <img src="assets/img/UniversitySt.Thomas-Logo.png" alt="University of St. Thomas Logo" width="60" height="60" />
@@ -75,12 +75,13 @@ title: Portfolio
     <!-- Slides track -->
     <div class="projectGrid" role="list">
 
-      <a class="projectCard"
+    <!-- Project 1: Machine Learning Fantasy Baseball Draft Engine -->
+    <a class="projectCard"
          href="https://github.com/OdinLeePro/WeatherForge"
          target="_blank" rel="noopener noreferrer"
          aria-label="Open WeatherForge on GitHub (opens in a new tab)" role="listitem">
         <figure class="projectImg">
-          <img src="/assets/img/weatherforge_demo.gif" alt="WeatherForge Dashboard Demo">
+          <img src="/weatherforge_demo.gif" alt="WeatherForge Dashboard Demo">
         </figure>
         <div class="projectBody">
           <h3 class="projectTitle"><u>WeatherForge</u></h3>
@@ -91,10 +92,10 @@ title: Portfolio
             An end-to-end data engineering and analytics pipeline investigating 75 years of Minnesota severe weather risk using a custom-engineered Composite Risk Score.
           </p>
           <ul class="projectBullets">
-            <li>Architected an ETL pipeline to compress 35GB of raw, fragmented NOAA data into highly optimized Parquet layers</li>
-            <li>Developed a mathematical risk model normalizing historical frequency, financial damage, and human impact per capita</li>
-            <li>Built an interactive Python Shiny dashboard featuring real-time NWS API integration and dynamic Plotly choropleths</li>
-            <li>Designed a scalable, state-agnostic architecture supported by comprehensive technical expansion documentation</li>
+            <li>Engineered an ETL pipeline compressing 35GB of NOAA data into Parquet</li>
+            <li>Developed a per-capita risk score weighting storm frequency, damage, and casualties</li>
+            <li>Built a Python Shiny dashboard with Plotly maps and live NWS alerts</li>
+            <li>Designed a state-agnostic architecture supported by technical expansion guides</li>
           </ul>
         </div>
       </a>
