@@ -92,10 +92,10 @@ title: Portfolio
             An end-to-end data engineering and analytics pipeline investigating 75 years of Minnesota severe weather risk using a custom-engineered Composite Risk Score.
           </p>
           <ul class="projectBullets">
-            <li>Engineered an ETL pipeline compressing 35GB of NOAA data into Parquet</li>
-            <li>Developed a per-capita risk score weighting storm frequency, damage, and casualties</li>
-            <li>Built a Python Shiny dashboard with Plotly maps and live NWS alerts</li>
-            <li>Designed a state-agnostic architecture supported by technical expansion guides</li>
+            <li>Compressed 35GB of raw NOAA data into Parquet</li>
+            <li>Engineered a per-capita severe weather risk model</li>
+            <li>Built an interactive Shiny dashboard with live API alerts</li>
+            <li>Documented a scalable, state-agnostic application architecture</li>
           </ul>
         </div>
       </a>
