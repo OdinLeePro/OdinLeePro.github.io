@@ -89,7 +89,7 @@ title: Portfolio
             <li>Python</li><li>Shiny</li><li>Parquet</li><li>Plotly</li>
           </ul>
           <p class="projectSummary">
-            An end-to-end data engineering and analytics pipeline investigating 75 years of Minnesota severe weather using a custom engineered Composite Risk Score.
+            An end-to-end data engineering and analytics pipeline investigating 75 years of Minnesota severe weather using a custom engineered Risk Score.
           </p>
           <ul class="projectBullets">
             <li>Compressed 35GB of raw NOAA data into Parquet</li>
