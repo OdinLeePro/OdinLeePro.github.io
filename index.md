@@ -100,13 +100,13 @@ title: Portfolio
         </div>
       </a>
     
-      <!-- Project 1: Machine Learning Fantasy Baseball Draft Engine -->
+      <!-- Project 2: Machine Learning Fantasy Baseball Draft Engine -->
       <a class="projectCard"
          href="https://github.com/OdinLeePro/MachineLearningFantasyBaseballDraftEngine"
          target="_blank" rel="noopener noreferrer"
          aria-label="Open Machine Learning Fantasy Baseball Draft Engine on GitHub (opens in a new tab)" role="listitem">
         <figure class="projectImg">
-          <img src="/assets/img/ProjectOnePNG.png" alt="Machine Learning Fantasy Baseball Draft Engine Image">
+          <img src="/assets/img/ProjectTwoPNG.png" alt="Machine Learning Fantasy Baseball Draft Engine Image">
         </figure>
         <div class="projectBody">
           <h3 class="projectTitle"><u>Machine Learning Fantasy Baseball Draft Engine</u></h3>
@@ -125,33 +125,7 @@ title: Portfolio
         </div>
       </a>
 
-      <!-- Project 2: Airbnb New York City Analysis -->
-      <a class="projectCard"
-         href="https://github.com/OdinLeePro/AirbnbNewYorkCityAnalysis"
-         target="_blank" rel="noopener noreferrer"
-         aria-label="Open Airbnb New York City Analysis on GitHub (opens in a new tab)"
-         role="listitem">
-        <figure class="projectImg">
-          <img src="/assets/img/ProjectTwoPNG.png" alt="Airbnb New York City Analysis Image">
-        </figure>
-        <div class="projectBody">
-          <h3 class="projectTitle"><u>Airbnb New York City Analysis</u></h3>
-          <ul class="languageBadges">
-            <li>Tableau</li><li>Excel</li><li>Data Cleaning</li><li>Data Visualization</li>
-          </ul>
-          <p class="projectSummary">
-            Comprehensive data analysis and visualization project examining Airbnb rental trends across New York City (2008–2022).
-          </p>
-          <ul class="projectBullets">
-            <li>Cleaned and prepared a dataset of ~190K listings for accurate analysis</li>
-            <li>Developed an interactive Tableau dashboard for dynamic insights</li>
-            <li>Explored borough-level distribution, pricing trends, and host behavior</li>
-            <li>Produced detailed documentation and a video presentation of findings</li>
-          </ul>
-        </div>
-      </a>
-
-            <!-- Project 3: Snowflake Basketball Data Warehouse -->
+      <!-- Project 3: Snowflake Basketball Data Warehouse -->
       <a class="projectCard"
          href="https://github.com/OdinLeePro/SnowflakeBascketballDataWarehouse"
          target="_blank" rel="noopener noreferrer"
@@ -176,13 +150,39 @@ title: Portfolio
         </div>
       </a>
 
-      <!-- Project 4: Fantasy Football Analysis -->
+      <!-- Project 4: Airbnb New York City Analysis -->
+      <a class="projectCard"
+         href="https://github.com/OdinLeePro/AirbnbNewYorkCityAnalysis"
+         target="_blank" rel="noopener noreferrer"
+         aria-label="Open Airbnb New York City Analysis on GitHub (opens in a new tab)"
+         role="listitem">
+        <figure class="projectImg">
+          <img src="/assets/img/ProjectFourPNG.png" alt="Airbnb New York City Analysis Image">
+        </figure>
+        <div class="projectBody">
+          <h3 class="projectTitle"><u>Airbnb New York City Analysis</u></h3>
+          <ul class="languageBadges">
+            <li>Tableau</li><li>Excel</li><li>Data Cleaning</li><li>Data Visualization</li>
+          </ul>
+          <p class="projectSummary">
+            Comprehensive data analysis and visualization project examining Airbnb rental trends across New York City (2008–2022).
+          </p>
+          <ul class="projectBullets">
+            <li>Cleaned and prepared a dataset of ~190K listings for accurate analysis</li>
+            <li>Developed an interactive Tableau dashboard for dynamic insights</li>
+            <li>Explored borough-level distribution, pricing trends, and host behavior</li>
+            <li>Produced detailed documentation and a video presentation of findings</li>
+          </ul>
+        </div>
+      </a>
+      
+      <!-- Project 5: Fantasy Football Analysis -->
       <a class="projectCard"
          href="https://github.com/OdinLeePro/FantasyFootballAnalysisDB"
          target="_blank" rel="noopener noreferrer"
          aria-label="Open Fantasy Football Analysis Database on GitHub (opens in a new tab)" role="listitem">
         <figure class="projectImg">
-          <img src="/assets/img/ProjectFourPNG.png" alt="Fantasy Football Analysis Image">
+          <img src="/assets/img/ProjectFivePNG.png" alt="Fantasy Football Analysis Image">
         </figure>
         <div class="projectBody">
           <h3 class="projectTitle"><u>Fantasy Football Analysis Database</u></h3>
@@ -197,31 +197,6 @@ title: Portfolio
             <li>Data wrangling and transformation with R</li>
             <li>SQL triggers to ensure data integrity</li>
             <li>Optimized for future dashboard integration</li>
-          </ul>
-        </div>
-      </a>
-      
-      <!-- Project 5: Portfolio Website -->
-      <a class="projectCard"
-         href="https://github.com/OdinLeePro/OdinLeePro.github.io"
-         target="_blank" rel="noopener noreferrer"
-         aria-label="Open Portfolio Website on GitHub (opens in a new tab)" role="listitem">
-        <figure class="projectImg">
-          <img src="/assets/img/ProjectFivePNG.png" alt="Portfolio Website Image">
-        </figure>
-        <div class="projectBody">
-          <h3 class="projectTitle"><u>Portfolio Website</u></h3>
-          <ul class="languageBadges">
-            <li>HTML</li><li>CSS</li><li>JavaScript</li><li>Jekyll</li>
-          </ul>
-          <p class="projectSummary">
-            Personal data science portfolio website showcasing projects, skills, and background information with an interactive design.
-          </p>
-          <ul class="projectBullets">
-            <li>Profile header with headshot, name, and key links</li>
-            <li>Interactive projects carousel showcasing Data Science work</li>
-            <li>Education and skills sections clearly displayed</li>
-            <li>Responsive, accessible layout built for scalability</li>
           </ul>
         </div>
       </a>
