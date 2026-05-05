@@ -81,7 +81,7 @@ title: Portfolio
          target="_blank" rel="noopener noreferrer"
          aria-label="Open WeatherForge on GitHub (opens in a new tab)" role="listitem">
         <figure class="projectImg">
-          <img src="/weatherforge_demo.gif" alt="WeatherForge Dashboard Demo">
+          <img src="/assets/img/ProjectOnePNG.png" alt="WeatherForge Image">
         </figure>
         <div class="projectBody">
           <h3 class="projectTitle"><u>WeatherForge</u></h3>
@@ -89,7 +89,7 @@ title: Portfolio
             <li>Python</li><li>Shiny</li><li>Parquet</li><li>Plotly</li>
           </ul>
           <p class="projectSummary">
-            An end-to-end data engineering and analytics pipeline investigating 75 years of Minnesota severe weather risk using a custom-engineered Composite Risk Score.
+            An end-to-end data engineering and analytics pipeline investigating 75 years of Minnesota severe weather using a custom engineered Composite Risk Score.
           </p>
           <ul class="projectBullets">
             <li>Compressed 35GB of raw NOAA data into Parquet</li>
