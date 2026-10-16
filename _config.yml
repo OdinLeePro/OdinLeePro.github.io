@@ -6,8 +6,8 @@ google_analytics: G-8SWDVGLE3Z
 headshot: /assets/img/headshot.png
 title: Odin Lee
 location: "St. Paul, Minnesota"
-professional_title: "Graduate Data Scientist"
-tagline: "Solving complex problems, one data point at a time."
+professional_title: "Data Scientist | Data Analyst"
+tagline: "Architecting cloud data pipelines and predictive models with Python, Snowflake, and AWS."
 platforms:
   - name: Resume
     icon: <i class="fa-solid fa-file-user"></i>
