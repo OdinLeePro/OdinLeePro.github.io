@@ -158,11 +158,12 @@ h1.section-title {
 .professional-title {
   text-align: center;                                                                                         // center align the title text
   margin: 0 0 14px 0;                                                                                         // space below the title
-  font-size: 0.85rem;                                                                                         // reduced text size (was 0.95rem)
+  font-size: 0.9rem;                                                                                          // largest size that keeps it on one line
   font-weight: 600;                                                                                           // semi-bold for emphasis
   color: $heading-color;                                                                                      // theme heading color
   letter-spacing: 0.3px;                                                                                      // slight spacing for readability
   text-transform: uppercase;                                                                                  // makes it feel like a credential
+  white-space: nowrap;                                                                                       // keep it on a single line
 }
 
 /* --- Tagline Styling -------------------------------------------- */
@@ -1110,7 +1111,7 @@ including layout wrappers, base button design, hover/focus states, and style var
 
   /* Refines the professional/role title styling for medium screens (≤1024px) */
   .professional-title {
-    font-size: 0.8rem;                                                                                        // reduced title text for tablet (was 0.9rem)
+    font-size: 0.8rem;                                                                                        // slightly smaller on tablet
     margin: 0 0 12px 0;                                                                                       // adjust spacing below the title
   }
 
