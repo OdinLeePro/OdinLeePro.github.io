@@ -7,7 +7,7 @@ headshot: /assets/img/headshot.png
 title: Odin Lee
 location: "St. Paul, Minnesota"
 professional_title: "Data Scientist | Data Analyst"
-tagline: "Architecting cloud data pipelines and predictive models with Python, Snowflake, and AWS."
+tagline: "Architecting data pipelines and models with Python, Snowflake, and AWS."
 platforms:
   - name: Resume
     icon: <i class="fa-solid fa-file-user"></i>
