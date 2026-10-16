@@ -280,7 +280,7 @@ title: Portfolio
         </p>
 
         <ul class="skill-tags" aria-label="Highlights">
-        <li>Tableau</li><li>Power BI</li><li>Oracle SQL Developer</li><li>Snowflake</li><li>Jupyter Notebook</li><li>RStudio</li><li>GitHub</li><li>AWS</li>
+        <li>Tableau</li><li>Power BI</li><li>Oracle SQL Developer</li><li>Databricks</li><li>Snowflake</li><li>Jupyter Notebook</li><li>RStudio</li><li>GitHub</li><li>AWS</li>
         </ul>
     </article>
     
