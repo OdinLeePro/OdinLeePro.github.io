@@ -273,8 +273,8 @@ title: Portfolio
         <p> 
             Experienced in building interactive dashboards with <strong>Tableau/ Power BI</strong>, and managing 
             databases using <strong>Oracle SQL Developer</strong>, with additional data-warehousing experience 
-            in <strong>Snowflake</strong>. Skilled in performing in depth data 
-            analyses with <strong>Jupyter Notebooks</strong> and <strong>RStudio</strong>, leveraging 
+            in <strong>Databricks / Snowflake</strong>. Skilled in performing in depth data 
+            analyses with <strong>Jupyter Notebooks / Colab</strong> and <strong>RStudio</strong>, leveraging 
             <strong>GitHub</strong> and <strong>AWS</strong> (EC2 and S3) for collaboration, 
             scalability, and cloud deployment. 
         </p>
